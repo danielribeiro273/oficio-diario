@@ -17,7 +17,7 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ofício Diário</title>
+<title>Ofício Diário - Devoção e Oração</title>
 
 <style>
   /* ESTILO WEBPAGE PRIMITIVA / WEB 1.0 */
@@ -51,7 +51,7 @@
 
   p.subtitulo {
     font-size: 1.1rem;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     text-align: center;
   }
 
@@ -59,10 +59,28 @@
     color: #c00000;
   }
 
+  /* Caixa de Boas-Vindas e Direcionamento */
+  .caixa-introducao {
+    background-color: #f9f9f9;
+    border: 2px inset #ffffff;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    font-size: 0.98rem;
+    line-height: 1.5;
+  }
+
+  .caixa-introducao p {
+    margin: 0 0 8px 0;
+  }
+
+  .caixa-introducao p:last-child {
+    margin-bottom: 0;
+  }
+
   /* Imagem com moldura estilo 3D vintage */
   .img-oficio {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
     height: auto;
     display: block;
     margin: 0 auto 20px auto;
@@ -100,6 +118,12 @@
     text-decoration: underline;
   }
 
+  /* Botão em destaque especial para o "Sobre" */
+  .btn-sobre {
+    background-color: #f0f0f0;
+    border-color: #ffffff;
+  }
+
   footer {
     text-align: center;
     font-size: 0.9rem;
@@ -111,6 +135,10 @@
 
   footer p {
     margin: 2px 0;
+  }
+
+  footer a {
+    color: #0000ff;
   }
 
   @media only screen and (max-width: 600px) {
@@ -137,24 +165,42 @@
   
   <p class="subtitulo red"><em>"O Senhor seja a tua luz e a tua salvação."</em></p>
 
-  <img src="fotofundooficio.png?v=2" alt="Ofício Diário" class="img-oficio" width="320" height="320">
+  <img src="fotofundooficio.png?v=2" alt="Ofício Diário" class="img-oficio" width="300" height="300">
+
+  <div class="caixa-introducao">
+    <p><strong>Bem-vindo e bem-vinda a este espaço de oração e recolhimento!</strong></p>
+    <p>
+      O <em>Ofício Diário</em> é uma prática cristã milenar que organiza a vida de oração em ritmo constante através dos Salmos, das Escrituras e da oração comunitária (mas também individual).
+    </p>
+    <p>
+      <strong>Como usar?</strong> Selecione abaixo o roteiro desejado para o seu momento de oração. Se estiver orando sozinho(a), leia todas as partes em sequência. Caso deseje entender a lógica do calendário bíblico e das leituras, consulte a seção informativa ao final.
+    </p>
+  </div>
 
   <a href="manha.html" class="btn-oficio">
-    <strong>Ofício Diário (com leituras)</strong>
-    Roteiro completo para a oração diária com leituras bíblicas do Lecionário Comum Revisado.
+    <strong>Ofício Diário (com leituras bíblicas)</strong>
+    Roteiro para a oração diária com cântico, Salmo do dia e leituras bíblicas do Lecionário Comum Revisado (Ano A).
   </a>
 
   <a href="noite.html" class="btn-oficio">
-    <strong>Breve Ofício para Encerrar do Dia</strong>
-    Oração para recolhimento, reflexão e descanso.
+    <strong>Breve Ofício para Encerrar o Dia</strong>
+    Oração simplificada para o período da noite: recolhimento, exame de consciência, entrega e pedido de descanso em paz.
+  </a>
+
+  <a href="sobre.html" class="btn-oficio btn-sobre">
+    <strong>Sobre o Projeto & Guia do Lecionário</strong>
+    Entenda como funciona o ciclo de leituras (Ano A, B e C), a lógica do calendário litúrgico e a história do lecionário.
   </a>
 
   <footer>
-    <p>Organizado e mantido com carinho por Daniel Augusto Ribeiro</p>
-    <p style="margin-top: 4px; font-style: italic;">Oferecido gratuitamente para o fortalecimento da vida de oração.</p>
+    <p>Organizado e mantido por Daniel Augusto Ribeiro</p>
+    <p style="margin-top: 4px; font-style: italic;">
+      <a href="sobre.html">Conheça o projeto e entenda o lecionário</a>
+    </p>
   </footer>
 
 </div>
 </body>
 
 </html>
+
