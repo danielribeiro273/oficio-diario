@@ -154,62 +154,7 @@
     <p style="margin-top: 4px; font-style: italic;">Oferecido gratuitamente para o fortalecimento da vida de oração.</p>
   </footer>
 
-</div> <audio id="bg-audio" src="nadateturbe.mp3" loop muted></audio>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const audio = document.getElementById('bg-audio');
-    
-    // 1. Pause audio as soon as the user hides/leaves the app or locks their device
-    document.addEventListener('visibilitychange', () => {
-      const audio = document.getElementById('bg-audio');
-      if (document.hidden) {
-        audio.pause();
-      } else {
-        // Optional: Resume playing when the user opens the app back up
-        audio.play().catch(() => {});
-      }
-    });
-
-    // 2. Extra safety for mobile browser page closure or navigation away
-    window.addEventListener('pagehide', () => {
-      const audio = document.getElementById('bg-audio');
-      if (audio) audio.pause();
-    });
-
-    // 3. Force muted playback immediately on load (Browsers allow muted autoplay)
-    audio.muted = true;
-    audio.play().catch(() => {});
-
-    // 4. Unmute and play on any scroll, swipe, touch, or click
-    const unlockAudio = () => {
-      audio.muted = false;
-      if (audio.paused) {
-        audio.play().catch(() => {});
-      }
-      removeListeners();
-    };
-
-    function removeListeners() {
-      window.removeEventListener('click', unlockAudio);
-      window.removeEventListener('touchstart', unlockAudio);
-      window.removeEventListener('touchmove', unlockAudio);
-      window.removeEventListener('scroll', unlockAudio);
-      window.removeEventListener('wheel', unlockAudio);
-    }
-
-    window.addEventListener('click', unlockAudio);
-    window.addEventListener('touchstart', unlockAudio);
-    window.addEventListener('touchmove', unlockAudio);
-    window.addEventListener('scroll', unlockAudio);
-    window.addEventListener('wheel', unlockAudio);
-
-    // Handles returning to page via browser Back button
-    window.addEventListener('pageshow', () => {
-      if (audio.paused) audio.play().catch(() => {});
-    });
-  });
-</script>
+</div>
 </body>
 
 </html>
