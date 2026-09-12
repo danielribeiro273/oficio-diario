@@ -1,31 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ffffcc">
-<link rel="apple-touch-icon" href="icon-512.png">
-
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then(() => console.log('PWA Service Worker Registrado com Sucesso!'))
-        .catch((err) => console.log('Falha ao registrar Service Worker:', err));
-    });
-  }
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ofício Diário - Devoção e Oração</title>
-
+<meta charset="utf-8">
+<title>Sobre o Projeto & Guia do Lecionário</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   /* ESTILO WEBPAGE PRIMITIVA / WEB 1.0 */
   body {
     background-color: #ffffcc; /* Fundo amarelado retro */
     color: #000000;
     font-family: "Times New Roman", Times, serif;
-    line-height: 1.4;
+    line-height: 1.5;
     padding: 10px;
     margin: 0;
   }
@@ -33,174 +18,220 @@
   #stuffing {
     max-width: 800px;
     margin: 10px auto;
-    padding: 15px;
+    padding: 20px;
     background-color: #ffffff;
-    border: 3px outset #c0c0c0; /* Borda retro estilo 3D */
+    border: 3px outset #c0c0c0; /* Borda 3D */
   }
 
+  /* Headings & Typography */
   h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #800000; /* Vermelho escuro clássico */
     margin-top: 10px;
-    margin-bottom: 5px;
-    text-align: center;
-    font-weight: bold;
+    margin-bottom: 10px;
     border-bottom: 2px solid #800000;
-    padding-bottom: 5px;
+    font-weight: bold;
+    padding-bottom: 4px;
   }
 
-  p.subtitulo {
+  h2 {
+    font-size: 1.3rem;
+    color: #000080; /* Azul marinho para subseções teológicas */
+    margin-top: 25px;
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #000080;
+    font-weight: bold;
+  }
+
+  h3 {
     font-size: 1.1rem;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: #800000;
+  }
+
+  p {
+    margin-bottom: 14px;
+    text-align: justify;
+  }
+
+  ul, ol {
     margin-bottom: 15px;
-    text-align: center;
+    padding-left: 25px;
   }
 
-  .red {
-    color: #c00000;
+  li {
+    margin-bottom: 6px;
   }
 
-  /* Caixa de Boas-Vindas e Direcionamento */
-  .caixa-introducao {
-    background-color: #f9f9f9;
+  /* Caixas Informativas estilo retro */
+  .caixa-destaque {
+    background-color: #f4f4f4;
     border: 2px inset #ffffff;
-    padding: 12px 15px;
+    padding: 12px;
+    margin: 15px 0;
+    font-size: 0.95rem;
+  }
+
+  .nav-voltar {
     margin-bottom: 20px;
-    font-size: 0.98rem;
-    line-height: 1.5;
+    font-size: 0.95rem;
   }
 
-  .caixa-introducao p {
-    margin: 0 0 8px 0;
-  }
+  /* Links estilo HTML vintage */
+  a:link { color: #0000ff; text-decoration: underline; }
+  a:visited { color: #800080; text-decoration: underline; }
+  a:active { color: #ff0000; }
 
-  .caixa-introducao p:last-child {
-    margin-bottom: 0;
-  }
-
-  /* Imagem com moldura estilo 3D vintage */
-  .img-oficio {
-    width: 100%;
-    max-width: 300px;
+  .img-lutero {
+    max-width: 140px;
     height: auto;
-    display: block;
-    margin: 0 auto 20px auto;
-    border: 3px outset #c0c0c0;
-  }
-
-  /* Links estilizados como caixas de botões Web 1.0 */
-  .btn-oficio {
-    display: block;
-    margin-bottom: 15px;
-    padding: 12px 15px;
-    background-color: #e0e0e0;
-    border: 3px outset #ffffff; /* Botão retro sobressalente */
-    color: #000000;
-    text-decoration: none;
-    font-size: 1rem;
-    line-height: 1.4;
-    text-align: left;
-  }
-
-  .btn-oficio:hover {
-    background-color: #d4d4d4;
-    text-decoration: none;
-  }
-
-  .btn-oficio:active {
-    border-style: inset; /* Efeito de botão sendo pressionado */
-  }
-
-  .btn-oficio strong {
-    color: #000080; /* Azul escuro tradicional para hiperlinks de destaque */
-    display: block;
-    font-size: 1.15rem;
-    margin-bottom: 4px;
-    text-decoration: underline;
-  }
-
-  /* Botão em destaque especial para o "Sobre" */
-  .btn-sobre {
-    background-color: #f0f0f0;
-    border-color: #ffffff;
+    float: right;
+    margin: 0 0 15px 15px;
+    border: 2px outset #c0c0c0;
   }
 
   footer {
     text-align: center;
     font-size: 0.9rem;
     color: #000000;
-    margin-top: 30px;
+    margin-top: 40px;
     border-top: 1px solid #000000;
     padding-top: 10px;
   }
-
-  footer p {
-    margin: 2px 0;
-  }
-
-  footer a {
-    color: #0000ff;
-  }
-
-  @media only screen and (max-width: 600px) {
-    body {
-      padding: 0;
-    }
-
-    #stuffing {
-      border: none;
-      padding: 10px;
-    }
-
-    .btn-oficio {
-      padding: 10px;
-    }
-  }
 </style>
 </head>
-
 <body>
+
 <div id="stuffing">
 
-  <h1>Ofício Diário</h1>
-  
-  <p class="subtitulo red"><em>"O Senhor seja a tua luz e a tua salvação."</em></p>
-
-  <img src="fotofundooficio.png?v=2" alt="Ofício Diário" class="img-oficio" width="300" height="300">
-
-  <div class="caixa-introducao">
-    <p><strong>Bem-vindo e bem-vinda a este espaço de oração e recolhimento!</strong></p>
-    <p>
-      O <em>Ofício Diário</em> é uma prática cristã milenar que organiza a vida de oração em ritmo constante através dos Salmos, das Escrituras e da oração comunitária (mas também individual).
-    </p>
-    <p>
-      <strong>Como usar?</strong> Selecione abaixo o roteiro desejado para o seu momento de oração. Se estiver orando sozinho(a), leia todas as partes em sequência. Caso deseje entender a lógica do calendário bíblico e das leituras, consulte a seção informativa ao final.
-    </p>
+  <div class="nav-voltar">
+    <a href="index.html">&larr; Voltar para a Página Inicial</a>
   </div>
 
-  <a href="manha.html" class="btn-oficio">
-    <strong>Ofício Diário (com leituras bíblicas)</strong>
-    Roteiro para a oração diária com cântico, Salmo do dia e leituras bíblicas do Lecionário Comum Revisado (Ano A).
-  </a>
+  <h1>Sobre o Projeto & Guia do Lecionário</h1>
 
-  <a href="noite.html" class="btn-oficio">
-    <strong>Breve Ofício para Encerrar o Dia</strong>
-    Oração simplificada para o período da noite: recolhimento, exame de consciência, entrega e pedido de descanso em paz.
-  </a>
+  <img src="lutero.jpeg" alt="Martim Lutero" class="img-lutero">
 
-  <a href="sobre.html" class="btn-oficio btn-sobre">
-    <strong>Sobre o Projeto & Guia do Lecionário</strong>
-    Entenda como funciona o ciclo de leituras (Ano A, B e C), a lógica do calendário litúrgico e a história do lecionário.
-  </a>
+  <p>
+    Esta plataforma foi desenvolvida de forma independente para servir como um roteiro prático e focado para a prática do <strong>Ofício Diário</strong> (Liturgia das Horas / Oração Diária). O objetivo central é prover uma ferramenta simples que ajude cristãs e cristãos a manterem uma disciplina espiritual de oração ancorada no ritmo bíblico ecumênico.
+  </p>
+
+  <div class="caixa-destaque">
+    <strong>Dica para a Oração Individual:</strong> Embora o roteiro do Ofício Diário apresente marcações tradicionais de liderança comunitária (como <em>Dirigente</em>, <em>Resposta</em> e <em>Todos juntos</em>), <strong>ele foi pensado para que você possa ler e orar tudo sozinho(a) em sua devoção pessoal</strong>. Caso esteja orando individualmente, basta ler todas as partes em sequência contínua.
+  </div>
+
+  <div class="caixa-destaque">
+    <strong>Nota de Esclarecimento Institucional:</strong> Este projeto é uma iniciativa pessoal e privada. <u>Não possui qualquer vínculo oficial, institucional ou jurídico com a Igreja Evangélica de Confissão Luterana no Brasil (IECLB)</u> ou com a Universidade Vanderbilt. Trata-se de uma ferramenta de devoção pessoal oferecida gratuitamente à comunidade.
+  </div>
+
+  <h2>1. O que é o Lecionário Comum Revisado (RCL)?</h2>
+  <p>
+    Um <a href="https://pt.wikipedia.org/wiki/Lecion%C3%A1rio" target="_blank" rel="noopener">Lecionário</a> é uma lista estruturada de passagens bíblicas (chamadas de <em>perícopes</em>) dispostas ao longo do calendário para leitura comunitária ou individual.
+  </p>
+  <p>
+    O <strong>Lecionário Comum Revisado (RCL - <em>Revised Common Lectionary</em>)</strong> foi publicado em 1992 pela <em>Consultation on Common Texts</em> (CCT) e pela <em>International English Language Liturgical Consultation</em> (ELLC). Ele é fruto da harmonização de lecionários históricos adaptados a partir da reforma litúrgica católica do Vaticano II (o <em>Ordo Lectionum Missae</em> de 1969).
+  </p>
+  <p>
+    Hoje, o RCL é utilizado de forma ecumênica por dezenas de denominações ao redor do mundo, incluindo luteranos, anglicanos, metodistas, presbiterianos e reformados.
+  </p>
+
+  <h2>2. Uso Comunitário x Uso Diário Pessoal</h2>
+  <p>
+    Na prática da maioria das igrejas locais, os lecionários são <strong>usados</strong> focando primordialmente nas leituras dos <strong>Domingos e Datas Festivas</strong>. Quando você vai ao culto comunitário no domingo e ouve as leituras da Bíblia (Antigo Testamento, Salmo, Epístola e Evangelho), <strong>essas passagens estão seguindo exatamente essa mesma lógica do lecionário</strong>.
+  </p>
+  <p>
+    No entanto, o projeto do Lecionário Comum Revisado abrange também uma rica tabela de <strong>Leituras Diárias (Daily Readings)</strong>. A proposta desta plataforma é justamente preencher essa lacuna no dia a dia: oferecer um espaço acessível onde você possa acompanhar as leituras de segunda a sábado em sua devoção pessoal, doméstica ou em pequenos grupos, mantendo sua mente e coração em sintonia contínua com as leituras que preparam ou desdobram o culto de domingo.
+  </p>
+
+  <h2>3. A Lógica Teológica: Como funciona o Ciclo de 3 Anos?</h2>
+  <p>
+    O lecionário dominical funciona em um ciclo trienal. O objetivo é garantir que a comunidade ouvinte passe por praticamente toda a narrativa bíblica ao longo de três anos. A divisão dos anos litúrgicos é feita com base no Evangelho Sinótico que predomina durante aquele período:
+  </p>
+
+  <ul>
+    <li><strong>Ano A:</strong> Foco no <strong>Evangelho de Mateus</strong> (ex: 2022-2023, 2025-2026).</li>
+    <li><strong>Ano B:</strong> Foco no <strong>Evangelho de Marcos</strong> (ex: 2023-2024, 2026-2027).</li>
+    <li><strong>Ano C:</strong> Foco no <strong>Evangelho de Lucas</strong> (ex: 2024-2025, 2027-2028).</li>
+  </ul>
+
+  <p>
+    <em>E o Evangelho de João?</em> Como o Evangelho segundo João possui uma estrutura teológica e narrativa muito diferente dos três sinóticos, suas passagens são intercaladas estrategicamente nos três anos, especialmente durante as estações festivas do Advento, Quaresma, Semana Santa e, principalmente, em todo o Tempo Pascal.
+  </p>
+
+  <h2>4. Entendendo o Ritmo das Leituras Diárias (Segunda a Sábado)</h2>
+  <p>
+    Enquanto os Domingos reúnem a comunidade para a celebração e a Santa Ceia, o RCL provê um lecionário de <strong>Leituras Diárias</strong> que liga um Domingo ao seguinte:
+  </p>
+
+  <div class="caixa-destaque">
+    <h3>A Lógica da Semana:</h3>
+    <ul>
+      <li><strong>Segunda, Terça e Quarta-feira:</strong> As leituras olham <em>para trás</em>. Elas meditam, aprofundam e desdobram as passagens ouvidas no Domingo anterior.</li>
+      <li><strong>Quinta, Sexta e Sábado:</strong> As leituras olham <em>para a frente</em>. Elas preparam o coração, a mente e o espírito para os textos que serão proclamados no próximo Domingo.</li>
+    </ul>
+  </div>
+
+  <h2>5. O Ano Litúrgico (O Calendário da Igreja)</h2>
+  <p>
+    Diferente do calendário civil (que inicia em 1º de Janeiro), o <a href="https://pt.wikipedia.org/wiki/Ano_lit%C3%Bargico" target="_blank" rel="noopener">Ano Litúrgico</a> cristão começa no <strong>1º Domingo do Advento</strong> (fim de Novembro ou início de Dezembro). O ano é dividido nas seguintes estações principais:
+  </p>
+
+  <ol>
+    <li><strong>Advento:</strong> Tempo de espera, preparação e esperança para a vinda de Cristo.</li>
+    <li><strong>Natal:</strong> Celebração da Encarnação do Filho de Deus.</li>
+    <li><strong>Epifania (ou Tempo após a Epifania):</strong> Manifestação de Cristo a todas as nações.</li>
+    <li><strong>Quaresma:</strong> Período de 40 dias de penitência, reflexão e preparação para a Páscoa.</li>
+    <li><strong>Páscoa:</strong> Celebração da Ressurreição de Jesus Cristo ao longo de 50 dias.</li>
+    <li><strong>Pentecostes:</strong> A vinda do Espírito Santo e o nascimento da Igreja.</li>
+    <li><strong>Tempo Comum (Tempo Pós-Pentecostes / Próprios):</strong> Crescimento na fé e seguimento cotidiano dos ensinamentos de Jesus.</li>
+  </ol>
+
+  <h2>6. Referências e Fontes de Estudo</h2>
+  <p>
+    Para quem deseja se aprofundar na história e nos documentos oficiais sobre o lecionário e o calendário litúrgico, recomendamos a consulta aos seguintes acervos e artigos:
+  </p>
+
+  <ul>
+    <li>
+      <a href="https://portal-luterano-files.ieclb.org.br/_arquivos/201111/d5e4da0ead8ba8cd2962216e686c0a5b.pdf" target="_blank" rel="noopener">
+        <strong>Lecionário Comum Revisado (IECLB - Documento em PDF)</strong>
+      </a><br>
+      Exemplo oficial de documento em PDF da IECLB apresentando a organização do Lecionário Comum Revisado no contexto da igreja.
+    </li>
+    <li>
+      <a href="https://lectionary.library.vanderbilt.edu/" target="_blank" rel="noopener">
+        <strong>Vanderbilt Divinity Library — Revised Common Lectionary</strong>
+      </a><br>
+      Repositório mantido pela Universidade Vanderbilt que serve de referência digital oficial para as tabelas do RCL.
+    </li>
+    <li>
+      <a href="https://en.wikipedia.org/wiki/Revised_Common_Lectionary" target="_blank" rel="noopener">
+        <strong>Wikipedia: Revised Common Lectionary (em inglês)</strong>
+      </a><br>
+      Artigo detalhado contendo a história da criação do lecionário pela Consultation on Common Texts.
+    </li>
+    <li>
+      <a href="https://pt.wikipedia.org/wiki/Ano_lit%C3%Bargico" target="_blank" rel="noopener">
+        <strong>Wikipedia: Ano Litúrgico (em português)</strong>
+      </a><br>
+      Explicação detalhada sobre as estações litúrgicas, cores e ciclos festivos da igreja ocidental.
+    </li>
+    <li>
+      <a href="https://www.ieclb.org.br/" target="_blank" rel="noopener">
+        <strong>Portal da Igreja Evangélica de Confissão Luterana no Brasil (IECLB)</strong>
+      </a><br>
+      Para conhecer mais sobre a tradição, liturgias e a teologia luterana no contexto brasileiro.
+    </li>
+  </ul>
 
   <footer>
     <p>Organizado e mantido por Daniel Augusto Ribeiro</p>
-    <p style="margin-top: 4px; font-style: italic;">
-      <a href="sobre.html">Conheça o projeto e entenda o lecionário</a>
-    </p>
+    <p style="margin-top: 4px; font-style: italic;">Sola Gratia • Sola Fide • Solus Christus • Sola Scriptura</p>
   </footer>
 
 </div>
-</body>
 
+</body>
 </html>
 
