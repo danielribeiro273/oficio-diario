@@ -20,7 +20,7 @@
 <title>Ofício Diário - Devoção e Oração</title>
 
 <style>
-  /* ESTILO WEBPAGE PRIMITIVA / WEB 1.0 */
+  /* ESTILO PARA PC / DESKTOP (Web 1.0 Retrô) */
   body {
     background-color: #ffffcc; /* Fundo amarelado retro */
     color: #000000;
@@ -40,7 +40,7 @@
 
   h1 {
     font-size: 2rem;
-    color: #800000; /* Vermelho escuro clássico */
+    color: #800000;
     margin-top: 10px;
     margin-bottom: 5px;
     text-align: center;
@@ -55,11 +55,8 @@
     text-align: center;
   }
 
-  .red {
-    color: #c00000;
-  }
+  .red { color: #c00000; }
 
-  /* Caixa de Boas-Vindas e Direcionamento */
   .caixa-introducao {
     background-color: #f9f9f9;
     border: 2px inset #ffffff;
@@ -69,15 +66,9 @@
     line-height: 1.5;
   }
 
-  .caixa-introducao p {
-    margin: 0 0 8px 0;
-  }
+  .caixa-introducao p { margin: 0 0 8px 0; }
+  .caixa-introducao p:last-child { margin-bottom: 0; }
 
-  .caixa-introducao p:last-child {
-    margin-bottom: 0;
-  }
-
-  /* Imagem com moldura estilo 3D vintage */
   .img-oficio {
     width: 100%;
     max-width: 300px;
@@ -87,13 +78,12 @@
     border: 3px outset #c0c0c0;
   }
 
-  /* Links estilizados como caixas de botões Web 1.0 */
   .btn-oficio {
     display: block;
     margin-bottom: 15px;
     padding: 12px 15px;
     background-color: #e0e0e0;
-    border: 3px outset #ffffff; /* Botão retro sobressalente */
+    border: 3px outset #ffffff;
     color: #000000;
     text-decoration: none;
     font-size: 1rem;
@@ -106,19 +96,16 @@
     text-decoration: none;
   }
 
-  .btn-oficio:active {
-    border-style: inset; /* Efeito de botão sendo pressionado */
-  }
+  .btn-oficio:active { border-style: inset; }
 
   .btn-oficio strong {
-    color: #000080; /* Azul escuro tradicional para hiperlinks de destaque */
+    color: #000080;
     display: block;
     font-size: 1.15rem;
     margin-bottom: 4px;
     text-decoration: underline;
   }
 
-  /* Botão em destaque especial para o "Sobre" */
   .btn-sobre {
     background-color: #f0f0f0;
     border-color: #ffffff;
@@ -133,26 +120,70 @@
     padding-top: 10px;
   }
 
-  footer p {
-    margin: 2px 0;
-  }
+  footer p { margin: 2px 0; }
+  footer a { color: #0000ff; }
 
-  footer a {
-    color: #0000ff;
-  }
-
+  /* ========================================================
+     ADAPTAÇÃO MODERNA E ELEGANTE PARA CELULARES
+     ======================================================== */
   @media only screen and (max-width: 600px) {
     body {
       padding: 0;
+      background-color: #ffffff;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
     #stuffing {
       border: none;
-      padding: 10px;
+      max-width: 100%;
+      padding: 16px 18px;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 1.7rem;
+      margin-top: 5px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 1.05rem;
+      margin-bottom: 14px;
     }
 
     .btn-oficio {
-      padding: 10px;
+      padding: 16px 18px;
+      margin-bottom: 14px;
+      border: 1px solid #d0d0d0;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn-oficio strong {
+      font-size: 1.2rem;
+      margin-bottom: 6px;
+      text-decoration: none;
+      color: #800000;
+    }
+
+    .btn-oficio:active {
+      background-color: #e8e8e8;
+      border-style: solid;
+    }
+
+    .img-oficio {
+      max-width: 100%;
+      margin: 15px auto;
+      border-radius: 6px;
+    }
+
+    .caixa-introducao {
+      padding: 14px 16px;
+      border-radius: 6px;
+      border: 1px solid #dcdcdc;
+      font-size: 1rem;
     }
   }
 </style>
@@ -170,7 +201,7 @@
   <div class="caixa-introducao">
     <p><strong>Bem-vindo e bem-vinda a este espaço de oração e recolhimento!</strong></p>
     <p>
-      O <em>Ofício Diário</em> é uma prática cristã milenar que organiza a vida de oração em ritmo constante através dos Salmos, das Escrituras e da oração comunitária (mas também individual).
+      O <em>Ofício Diário</em> é uma prática cristã milenar que organiza a vida de oração em ritmo constante através dos Salmos, das Escrituras e da oração comunitária.
     </p>
     <p>
       <strong>Como usar?</strong> Selecione abaixo o roteiro desejado para o seu momento de oração. Se estiver orando sozinho(a), leia todas as partes em sequência. Caso deseje entender a lógica do calendário bíblico e das leituras, consulte a seção informativa ao final.
