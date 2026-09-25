@@ -111,6 +111,174 @@
     border-color: #ffffff;
   }
 
+  /* ESTILOS DO GUESTBOOK / LIVRO DE ASSINATURAS */
+  .guestbook-section {
+    margin-top: 30px;
+    padding: 18px;
+    background-color: #ffffec;
+    border: 3px outset #c0c0c0;
+  }
+
+  .guestbook-header {
+    text-align: center;
+    border-bottom: 2px solid #800000;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+  }
+
+  .guestbook-header h2 {
+    color: #800000;
+    margin: 0;
+    font-size: 1.4rem;
+  }
+
+  .guestbook-header p {
+    margin: 4px 0 0 0;
+    font-size: 0.95rem;
+    color: #555;
+  }
+
+  .like-box {
+    text-align: center;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    padding: 12px;
+    border: 2px inset #c0c0c0;
+  }
+
+  .btn-like {
+    background-color: #e0e0e0;
+    border: 3px outset #ffffff;
+    padding: 8px 16px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #800000;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-like:active {
+    border-style: inset;
+  }
+
+  .like-count {
+    background-color: #800000;
+    color: #ffffff;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+  }
+
+  .guestbook-form {
+    background-color: #ffffff;
+    border: 2px inset #c0c0c0;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .guestbook-form h3 {
+    margin-top: 0;
+    color: #000080;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #c0c0c0;
+    padding-bottom: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .form-row .form-group {
+    flex: 1;
+  }
+
+  .guestbook-form label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+
+  .guestbook-form input,
+  .guestbook-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6px 8px;
+    border: 2px inset #c0c0c0;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 0.95rem;
+  }
+
+  .btn-submit {
+    background-color: #e0e0e0;
+    border: 3px outset #ffffff;
+    padding: 8px 16px;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000080;
+    cursor: pointer;
+    margin-top: 5px;
+  }
+
+  .btn-submit:active {
+    border-style: inset;
+  }
+
+  .entries-list {
+    background-color: #ffffff;
+    border: 2px inset #c0c0c0;
+    padding: 12px;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .entry-item {
+    border-bottom: 1px dashed #c0c0c0;
+    padding: 10px 0;
+  }
+
+  .entry-item:last-child {
+    border-bottom: none;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+  }
+
+  .entry-author {
+    font-weight: bold;
+    color: #000080;
+  }
+
+  .entry-location {
+    color: #666;
+    font-style: italic;
+  }
+
+  .entry-date {
+    font-size: 0.8rem;
+    color: #777;
+  }
+
+  .entry-message {
+    font-size: 0.95rem;
+    color: #000;
+    margin: 0;
+    word-break: break-word;
+  }
+
   footer {
     text-align: center;
     font-size: 0.9rem;
@@ -123,9 +291,7 @@
   footer p { margin: 2px 0; }
   footer a { color: #0000ff; }
 
-  /* ========================================================
-     ADAPTAÇÃO MODERNA E ELEGANTE PARA CELULARES
-     ======================================================== */
+  /* ADAPTAÇÃO PARA CELULARES */
   @media only screen and (max-width: 600px) {
     body {
       padding: 0;
@@ -185,6 +351,28 @@
       border: 1px solid #dcdcdc;
       font-size: 1rem;
     }
+
+    .form-row {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .guestbook-section {
+      border-radius: 8px;
+      padding: 14px;
+      border: 1px solid #dcdcdc;
+    }
+
+    .guestbook-form, .entries-list, .like-box {
+      border-radius: 6px;
+      border: 1px solid #dcdcdc;
+    }
+
+    .btn-like, .btn-submit {
+      border-radius: 6px;
+      width: 100%;
+      justify-content: center;
+    }
   }
 </style>
 </head>
@@ -223,148 +411,164 @@
     Entenda como funciona o ciclo de leituras (Ano A, B e C), a lógica do calendário litúrgico e a história do lecionário.
   </a>
 
+  <!-- SEÇÃO DO GUESTBOOK / LIVRO DE ASSINATURAS PÚBLICO -->
+  <div class="guestbook-section">
+    <div class="guestbook-header">
+      <h2>📖 Livro de Visitas & Orações</h2>
+      <p>Deixe sua bênção, pedido de oração ou assinatura para os irmãos.</p>
+    </div>
+
+    <!-- Botão de Curtida / Amém (Começa em 0) -->
+    <div class="like-box">
+      <button id="btnLike" class="btn-like">
+        <span>👍 Curti</span>
+        <span id="likeCount" class="like-count">0</span>
+      </button>
+    </div>
+
+    <!-- Formulário para Assinar -->
+    <div class="guestbook-form">
+      <h3>✍️ Assinar o Livro</h3>
+      <form id="guestbookForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="inputName">Nome:</label>
+            <input type="text" id="inputName" placeholder="Seu nome" required>
+          </div>
+          <div class="form-group">
+            <label for="inputLocation">Cidade/Estado (opcional):</label>
+            <input type="text" id="inputLocation" placeholder="Ex: São Paulo / SP">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputMessage">Mensagem ou Oração:</label>
+          <textarea id="inputMessage" rows="3" placeholder="Escreva uma mensagem de paz ou intenção..." required></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="btnSubmit">Publicar Assinatura</button>
+      </form>
+    </div>
+
+    <!-- Mural com as mensagens publicadas (Vazio no início) -->
+    <div id="entriesList" class="entries-list">
+      <p id="emptyNotice" style="text-align: center; color: #666; font-style: italic;">
+        Ainda não há assinaturas. Seja o primeiro a assinar!
+      </p>
+    </div>
+  </div>
+
   <footer>
     <p>Organizado e mantido por Daniel Augusto Ribeiro</p>
     <p style="margin-top: 4px; font-style: italic;">
       <a href="sobre.html">Conheça o projeto e entenda o lecionário</a>
     </p>
-    <!-- ESTILO RETRÔ PARA O MURAL E CURTIDAS -->
-<style>
-  .secao-interativa {
-    margin-top: 25px;
-    padding: 15px;
-    background-color: #fcfcf0;
-    border: 3px outset #c0c0c0;
-    text-align: center;
-  }
-
-  .btn-curtir {
-    background-color: #e0e0e0;
-    border: 3px outset #ffffff;
-    padding: 10px 20px;
-    font-family: "Times New Roman", serif;
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #800000;
-    cursor: pointer;
-  }
-  .btn-curtir:active { border-style: inset; }
-
-  .caixa-mural {
-    margin-top: 20px;
-    text-align: left;
-    background: #ffffff;
-    border: 2px inset #c0c0c0;
-    padding: 12px;
-    max-height: 250px;
-    overflow-y: auto;
-  }
-
-  .item-mural {
-    border-bottom: 1px dashed #a0a0a0;
-    padding: 8px 0;
-  }
-  .item-mural:last-child { border-bottom: none; }
-  .autor-mural { font-weight: bold; color: #000080; }
-  .data-mural { font-size: 0.8rem; color: #666; }
-
-  .form-assinatura {
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    text-align: left;
-  }
-  .form-assinatura input, .form-assinatura textarea {
-    padding: 8px;
-    font-family: inherit;
-    border: 2px inset #c0c0c0;
-  }
-</style>
-
-<!-- ESTRUTURA HTML -->
-<div class="secao-interativa">
-  <p><strong>Apoiou ou gostou deste espaço?</strong></p>
-  <button id="btnCurtir" class="btn-curtir">
-    👍 Curti (<span id="contadorCurtidas">...</span>)
-  </button>
-
-  <h3 style="color: #800000; margin-top: 20px; margin-bottom: 5px;">Livro de Assinaturas & Orações</h3>
-  
-  <div id="muralMensagens" class="caixa-mural">
-    <p style="text-align:center; color: #666;">Carregando mensagens...</p>
-  </div>
-
-  <form id="formAssinar" class="form-assinatura">
-    <input type="text" id="nomeUser" placeholder="Seu Nome / Cidade" required>
-    <textarea id="msgUser" rows="2" placeholder="Deixe uma mensagem, oração ou paz..." required></textarea>
-    <button type="submit" class="btn-curtir" style="font-size:0.95rem; padding: 6px;">Deixar Assinatura Pública</button>
-  </form>
-</div>
-
-<!-- SDK DO FIREBASE (Sincronização Pública) -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/comms/ffff/sdk/v10/firebase-app.js";
-  import { getFirestore, doc, onSnapshot, updateDoc, increment, collection, addDoc, serverTimestamp, query, orderBy, limit } from "https://www.gstatic.com/comms/ffff/sdk/v10/firebase-firestore.js";
-
-  // SUAS CONFIGURAÇÕES DO FIREBASE (Criado gratuitamente em console.firebase.google.com)
-  const firebaseConfig = {
-    apiKey: "SUA_API_KEY",
-    authDomain: "seu-projeto.firebaseapp.com",
-    projectId: "seu-projeto",
-    storageBucket: "seu-projeto.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abc123def456"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
-  // 1. Atualizar Curtidas em Tempo Real
-  const curtidaref = doc(db, "site_stats", "curtidas");
-  onSnapshot(curtidaref, (docSnap) => {
-    if (docSnap.exists()) {
-      document.getElementById("contadorCurtidas").innerText = docSnap.data().total || 0;
-    }
-  });
-
-  document.getElementById("btnCurtir").addEventListener("click", async () => {
-    await updateDoc(curtidaref, { total: increment(1) });
-  });
-
-  // 2. Carregar Mural de Assinaturas
-  const q = query(collection(db, "assinaturas"), orderBy("data", "desc"), limit(20));
-  onSnapshot(q, (snapshot) => {
-    const mural = document.getElementById("muralMensagens");
-    mural.innerHTML = "";
-    snapshot.forEach((doc) => {
-      const data = doc.data();
-      mural.innerHTML += `
-        <div class="item-mural">
-          <span class="autor-mural">${data.nome}</span>: ${data.mensagem}
-        </div>
-      `;
-    });
-  });
-
-  // 3. Enviar Nova Assinatura
-  document.getElementById("formAssinar").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const nome = document.getElementById("nomeUser").value;
-    const mensagem = document.getElementById("msgUser").value;
-
-    await addDoc(collection(db, "assinaturas"), {
-      nome: nome,
-      mensagem: mensagem,
-      data: serverTimestamp()
-    });
-
-    document.getElementById("msgUser").value = "";
-  });
-</script>
   </footer>
 
 </div>
+
+<!-- INTEGRAÇÃO REAL EM TEMPO REAL VIA FIREBASE -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, collection, addDoc, serverTimestamp, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  // SUAS CHAVES DO FIREBASE (Grátis em firebase.google.com)
+  const firebaseConfig = {
+    apiKey: "SUA_API_KEY_AQUI",
+    authDomain: "seu-projeto.firebaseapp.com",
+    projectId: "seu-projeto-id",
+    storageBucket: "seu-projeto.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abcdef"
+  };
+
+  // Inicializa o Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  const btnLike = document.getElementById('btnLike');
+  const likeCount = document.getElementById('likeCount');
+  const guestbookForm = document.getElementById('guestbookForm');
+  const entriesList = document.getElementById('entriesList');
+  const emptyNotice = document.getElementById('emptyNotice');
+
+  // 1. ESCUTAR CURTIDAS REAIS EM TEMPO REAL
+  const likeDocRef = doc(db, "stats", "likes");
+  onSnapshot(likeDocRef, (docSnap) => {
+    if (docSnap.exists()) {
+      likeCount.innerText = docSnap.data().count || 0;
+    } else {
+      likeCount.innerText = 0;
+    }
+  });
+
+  // BOTÃO CURTIR (Incrementa valor real no banco)
+  btnLike.addEventListener('click', async () => {
+    try {
+      await updateDoc(likeDocRef, { count: increment(1) });
+    } catch (e) {
+      // Se for a primeiríssima curtida do site todo
+      await setDoc(likeDocRef, { count: 1 });
+    }
+  });
+
+  // 2. ESCUTAR MENSAGENS REAIS
+  const q = query(collection(db, "guestbook"), orderBy("timestamp", "desc"), limit(50));
+  onSnapshot(q, (snapshot) => {
+    if (snapshot.empty) {
+      emptyNotice.style.display = "block";
+      entriesList.innerHTML = "";
+      entriesList.appendChild(emptyNotice);
+      return;
+    }
+
+    emptyNotice.style.display = "none";
+    entriesList.innerHTML = "";
+
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      const dateStr = data.timestamp ? new Date(data.timestamp.toDate()).toLocaleDateString('pt-BR') : 'Hoje';
+
+      const entryDiv = document.createElement('div');
+      entryDiv.className = 'entry-item';
+      entryDiv.innerHTML = `
+        <div class="entry-header">
+          <div>
+            <span class="entry-author">${escapeHtml(data.name)}</span>
+            ${data.location ? `<span class="entry-location">(${escapeHtml(data.location)})</span>` : ''}
+          </div>
+          <span class="entry-date">${dateStr}</span>
+        </div>
+        <p class="entry-message">${escapeHtml(data.message)}</p>
+      `;
+      entriesList.appendChild(entryDiv);
+    });
+  });
+
+  // 3. ENVIAR NOVA MENSAGEM
+  guestbookForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const name = document.getElementById('inputName').value;
+    const location = document.getElementById('inputLocation').value;
+    const message = document.getElementById('inputMessage').value;
+
+    try {
+      await addDoc(collection(db, "guestbook"), {
+        name: name,
+        location: location,
+        message: message,
+        timestamp: serverTimestamp()
+      });
+      guestbookForm.reset();
+    } catch (err) {
+      alert("Erro ao salvar assinatura. Verifique suas chaves do Firebase.");
+    }
+  });
+
+  function escapeHtml(str) {
+    if(!str) return '';
+    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  }
+</script>
+
 </body>
 
 </html>
