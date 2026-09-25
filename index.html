@@ -228,6 +228,140 @@
     <p style="margin-top: 4px; font-style: italic;">
       <a href="sobre.html">Conheça o projeto e entenda o lecionário</a>
     </p>
+    <!-- ESTILO RETRÔ PARA O MURAL E CURTIDAS -->
+<style>
+  .secao-interativa {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: #fcfcf0;
+    border: 3px outset #c0c0c0;
+    text-align: center;
+  }
+
+  .btn-curtir {
+    background-color: #e0e0e0;
+    border: 3px outset #ffffff;
+    padding: 10px 20px;
+    font-family: "Times New Roman", serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #800000;
+    cursor: pointer;
+  }
+  .btn-curtir:active { border-style: inset; }
+
+  .caixa-mural {
+    margin-top: 20px;
+    text-align: left;
+    background: #ffffff;
+    border: 2px inset #c0c0c0;
+    padding: 12px;
+    max-height: 250px;
+    overflow-y: auto;
+  }
+
+  .item-mural {
+    border-bottom: 1px dashed #a0a0a0;
+    padding: 8px 0;
+  }
+  .item-mural:last-child { border-bottom: none; }
+  .autor-mural { font-weight: bold; color: #000080; }
+  .data-mural { font-size: 0.8rem; color: #666; }
+
+  .form-assinatura {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+  }
+  .form-assinatura input, .form-assinatura textarea {
+    padding: 8px;
+    font-family: inherit;
+    border: 2px inset #c0c0c0;
+  }
+</style>
+
+<!-- ESTRUTURA HTML -->
+<div class="secao-interativa">
+  <p><strong>Apoiou ou gostou deste espaço?</strong></p>
+  <button id="btnCurtir" class="btn-curtir">
+    👍 Curti (<span id="contadorCurtidas">...</span>)
+  </button>
+
+  <h3 style="color: #800000; margin-top: 20px; margin-bottom: 5px;">Livro de Assinaturas & Orações</h3>
+  
+  <div id="muralMensagens" class="caixa-mural">
+    <p style="text-align:center; color: #666;">Carregando mensagens...</p>
+  </div>
+
+  <form id="formAssinar" class="form-assinatura">
+    <input type="text" id="nomeUser" placeholder="Seu Nome / Cidade" required>
+    <textarea id="msgUser" rows="2" placeholder="Deixe uma mensagem, oração ou paz..." required></textarea>
+    <button type="submit" class="btn-curtir" style="font-size:0.95rem; padding: 6px;">Deixar Assinatura Pública</button>
+  </form>
+</div>
+
+<!-- SDK DO FIREBASE (Sincronização Pública) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/comms/ffff/sdk/v10/firebase-app.js";
+  import { getFirestore, doc, onSnapshot, updateDoc, increment, collection, addDoc, serverTimestamp, query, orderBy, limit } from "https://www.gstatic.com/comms/ffff/sdk/v10/firebase-firestore.js";
+
+  // SUAS CONFIGURAÇÕES DO FIREBASE (Criado gratuitamente em console.firebase.google.com)
+  const firebaseConfig = {
+    apiKey: "SUA_API_KEY",
+    authDomain: "seu-projeto.firebaseapp.com",
+    projectId: "seu-projeto",
+    storageBucket: "seu-projeto.appspot.com",
+    messagingSenderId: "123456789",
+    appId: "1:123456789:web:abc123def456"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // 1. Atualizar Curtidas em Tempo Real
+  const curtidaref = doc(db, "site_stats", "curtidas");
+  onSnapshot(curtidaref, (docSnap) => {
+    if (docSnap.exists()) {
+      document.getElementById("contadorCurtidas").innerText = docSnap.data().total || 0;
+    }
+  });
+
+  document.getElementById("btnCurtir").addEventListener("click", async () => {
+    await updateDoc(curtidaref, { total: increment(1) });
+  });
+
+  // 2. Carregar Mural de Assinaturas
+  const q = query(collection(db, "assinaturas"), orderBy("data", "desc"), limit(20));
+  onSnapshot(q, (snapshot) => {
+    const mural = document.getElementById("muralMensagens");
+    mural.innerHTML = "";
+    snapshot.forEach((doc) => {
+      const data = doc.data();
+      mural.innerHTML += `
+        <div class="item-mural">
+          <span class="autor-mural">${data.nome}</span>: ${data.mensagem}
+        </div>
+      `;
+    });
+  });
+
+  // 3. Enviar Nova Assinatura
+  document.getElementById("formAssinar").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const nome = document.getElementById("nomeUser").value;
+    const mensagem = document.getElementById("msgUser").value;
+
+    await addDoc(collection(db, "assinaturas"), {
+      nome: nome,
+      mensagem: mensagem,
+      data: serverTimestamp()
+    });
+
+    document.getElementById("msgUser").value = "";
+  });
+</script>
   </footer>
 
 </div>
