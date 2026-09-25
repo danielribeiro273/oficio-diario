@@ -467,20 +467,21 @@
 
 <!-- INTEGRAÇÃO REAL EM TEMPO REAL VIA FIREBASE -->
 <script type="module">
+  // 1. Importa as funções do Firebase App e do Firestore Database
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
   import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, collection, addDoc, serverTimestamp, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-  // SUAS CHAVES DO FIREBASE (Grátis em firebase.google.com)
+  // 2. Sua configuração exata do Firebase
   const firebaseConfig = {
-    apiKey: "SUA_API_KEY_AQUI",
-    authDomain: "seu-projeto.firebaseapp.com",
-    projectId: "seu-projeto-id",
-    storageBucket: "seu-projeto.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "1:123456789:web:abcdef"
+    apiKey: "AIzaSyCSMB6IM_ACKvJw7RngqN_0aXblv4YgvQI",
+    authDomain: "oficio-diario.firebaseapp.com",
+    projectId: "oficio-diario",
+    storageBucket: "oficio-diario.firebasestorage.app",
+    messagingSenderId: "705969502164",
+    appId: "1:705969502164:web:b907b793265eeffc670841"
   };
 
-  // Inicializa o Firebase
+  // 3. Inicializa o App e o Banco de Dados
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
 
@@ -490,8 +491,9 @@
   const entriesList = document.getElementById('entriesList');
   const emptyNotice = document.getElementById('emptyNotice');
 
-  // 1. ESCUTAR CURTIDAS REAIS EM TEMPO REAL
+  // --- LÓGICA DE CURTIDAS EM TEMPO REAL ---
   const likeDocRef = doc(db, "stats", "likes");
+  
   onSnapshot(likeDocRef, (docSnap) => {
     if (docSnap.exists()) {
       likeCount.innerText = docSnap.data().count || 0;
@@ -500,18 +502,18 @@
     }
   });
 
-  // BOTÃO CURTIR (Incrementa valor real no banco)
   btnLike.addEventListener('click', async () => {
     try {
       await updateDoc(likeDocRef, { count: increment(1) });
     } catch (e) {
-      // Se for a primeiríssima curtida do site todo
+      // Se for a primeiríssima curtida do site todo, cria o documento
       await setDoc(likeDocRef, { count: 1 });
     }
   });
 
-  // 2. ESCUTAR MENSAGENS REAIS
+  // --- LÓGICA DO LIVRO DE ASSINATURAS EM TEMPO REAL ---
   const q = query(collection(db, "guestbook"), orderBy("timestamp", "desc"), limit(50));
+  
   onSnapshot(q, (snapshot) => {
     if (snapshot.empty) {
       emptyNotice.style.display = "block";
@@ -543,7 +545,6 @@
     });
   });
 
-  // 3. ENVIAR NOVA MENSAGEM
   guestbookForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const name = document.getElementById('inputName').value;
@@ -559,7 +560,7 @@
       });
       guestbookForm.reset();
     } catch (err) {
-      alert("Erro ao salvar assinatura. Verifique suas chaves do Firebase.");
+      alert("Certifique-se de que o Firestore Database está ativo no painel do Firebase.");
     }
   });
 
@@ -568,7 +569,6 @@
     return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
 </script>
-
 </body>
 
 </html>
