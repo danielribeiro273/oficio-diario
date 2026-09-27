@@ -61,13 +61,33 @@
     background-color: #f9f9f9;
     border: 2px inset #ffffff;
     padding: 12px 15px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-size: 0.98rem;
     line-height: 1.5;
   }
 
   .caixa-introducao p { margin: 0 0 8px 0; }
   .caixa-introducao p:last-child { margin-bottom: 0; }
+
+  /* CAIXA DE DESTAQUE DISCRETA PARA O FAQ (Sem formato de botão de ofício) */
+  .caixa-faq-link {
+    background-color: #ffffec;
+    border: 1px dashed #800000;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .caixa-faq-link a {
+    color: #800000;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .caixa-faq-link a:hover {
+    color: #000080;
+  }
 
   .img-oficio {
     width: 100%;
@@ -345,11 +365,14 @@
       border-radius: 6px;
     }
 
-    .caixa-introducao {
+    .caixa-introducao, .caixa-faq-link {
       padding: 14px 16px;
       border-radius: 6px;
-      border: 1px solid #dcdcdc;
       font-size: 1rem;
+    }
+
+    .caixa-introducao {
+      border: 1px solid #dcdcdc;
     }
 
     .form-row {
@@ -396,6 +419,11 @@
     </p>
   </div>
 
+  <!-- BLOCO DE DISCRETO DE DÚVIDAS / FAQ -->
+  <div class="caixa-faq-link">
+    ❓ <strong>Dúvidas sobre o Luteranismo?</strong> Veja as <a href="faq.html">Perguntas Frequentes</a> sobre espiritualidade, história e costumes luteranos.
+  </div>
+
   <a href="manha.html" class="btn-oficio">
     <strong>Ofício Diário (com leituras bíblicas)</strong>
     Roteiro para a oração diária com cântico, Salmo do dia e leituras bíblicas do Lecionário Comum Revisado (Ano A).
@@ -406,7 +434,6 @@
     Oração simplificada para o período da noite: recolhimento, exame de consciência, entrega e pedido de descanso em paz.
   </a>
 
-  <!-- BOTÃO ADICIONADO AQUI -->
   <a href="paz.html" class="btn-oficio">
     <strong>Ofício pela Paz no Mundo</strong>
     Roteiro especial dedicado à reconciliação, ao desarmamento, ao fim das guerras e ao cântico de clamor pelas nações.
@@ -465,7 +492,7 @@
   <footer>
     <p>Organizado e mantido por Daniel Augusto Ribeiro</p>
     <p style="margin-top: 4px; font-style: italic;">
-      <a href="sobre.html">Conheça o projeto e entenda o lecionário</a>
+      <a href="sobre.html">Conheça o projeto e entenda o lecionário</a> | <a href="faq.html">Perguntas frequentes</a>
     </p>
   </footer>
 
