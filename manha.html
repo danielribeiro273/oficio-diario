@@ -210,9 +210,7 @@
     margin: 2px 0;
   }
 
-  /* ========================================================
-     ADAPTAÇÃO MODERNA E ELEGANTE PARA CELULARES
-     ======================================================== */
+  /* ADAPTAÇÃO PARA CELULARES */
   @media only screen and (max-width: 600px) {
     body {
       padding: 0;
@@ -296,8 +294,8 @@
   Carregando informações do dia...
 </div>
 
-<!-- Orientação de Leitura e Oração (Espiritualidade Luterana) -->
-  <div style="background-color: #fdfdf0; border: 1px solid #d0c8b0; padding: 12px 15px; margin-bottom: 20px; font-size: 0.95rem;">
+<!-- Orientação de Leitura e Oração (Espiritualidade Luterana) com ID id="msg-orar" -->
+  <div id="msg-orar" style="background-color: #fdfdf0; border: 1px solid #d0c8b0; padding: 12px 15px; margin-bottom: 20px; font-size: 0.95rem;">
     <p style="margin-top: 0; color: #800000; font-weight: bold;">
       Antes de começar: O que significa orar?
     </p>
@@ -311,6 +309,7 @@
       Quando você realiza este ofício, saiba que outras irmãs e outros irmãos estão abrindo esta mesma página e orando as mesmas palavras. <strong>Você pode imaginar toda a comunidade de fé reunida em oração diante de Deus.</strong> A sua voz se une a um grande e contínuo louvor espalhado pelo mundo. Um só corpo, orando com uma só voz as mesmas orações. Respire com calma, acolha cada palavra sem pressa e lembre-se: Deus acolhe a sua oração na simplicidade e na graça.
     </p>
   </div>
+
   <div id="conteudo-domingo" style="display: none;">
   <div class="card-domingo">
     <h2>Dia do Senhor (Domingo)</h2>
@@ -617,7 +616,7 @@
     Esta plataforma foi criada com o intuito de oferecer um roteiro simples, acessível e estruturado para o <strong>Ofício Diário</strong>. Em um mundo marcado pelo ritmo acelerado e por constantes distrações virtuais e diárias, manter uma disciplina de oração e leitura bíblica pode ser um desafio. O objetivo deste projeto é auxiliar principalmente luteranas e luteranos — e a quem mais desejar — a cultivar uma vida de oração mais litúrgica, focada e ancorada nas leituras bíblicas semanais.
   </p>
   <p>
-    <strong>O projeto não é oficialmente vinculado à IECLB:</strong> Esclarecemos que este é um projeto independente de iniciativa pessoal e <u>não possui nenhum vínculo oficial ou institucional</u> com a Igreja Evangélica de Confissão Luterana no Brasil (IECLB). No entanto, o projeto foi elaborado com profundo carinho e respeito pela tradição e espiritualidade luterana, servindo como uma ferramenta complementar de devoção individual, familiar ou em pequenos grupos.
+    <strong>O projeto não é officially vinculado à IECLB:</strong> Esclarecemos que este é um projeto independente de iniciativa pessoal e <u>não possui nenhum vínculo oficial ou institucional</u> com a Igreja Evangélica de Confissão Luterana no Brasil (IECLB). No entanto, o projeto foi elaborado com profundo carinho e respeito pela tradição e espiritualidade luterana, servindo como uma ferramenta complementar de devoção individual, familiar ou em pequenos grupos.
   </p>
 
   <h2>Quem somos nós, luteranos? </h2>
@@ -1140,18 +1139,21 @@ async function carregarLiturgiaParaData(dataAlvo) {
 
   const divDomingo = document.getElementById("conteudo-domingo");
   const divSemana = document.getElementById("conteudo-semana");
+  const msgOrar = document.getElementById("msg-orar");
 
-  // Se for Domingo (diaSemana === 0), exibe apenas o card e oculta a estrutura do Ofício
+  // Se for Domingo (diaSemana === 0), exibe apenas o card e oculta a estrutura do Ofício e a mensagem
   if (diaSemana === 0) {
     atualizarDomingoFesta(dataChave);
     divDomingo.style.display = "block";
     divSemana.style.display = "none";
+    if (msgOrar) msgOrar.style.display = "none";
     return;
   }
 
-  // Se for outro dia, exibe a estrutura normal do Ofício
+  // Se for outro dia, exibe a estrutura normal do Ofício e a mensagem
   divDomingo.style.display = "none";
   divSemana.style.display = "block";
+  if (msgOrar) msgOrar.style.display = "block";
 
   const cantico = canticosSemana[diaSemana];
   document.getElementById("cantico-diario").innerHTML = `
