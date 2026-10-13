@@ -1,286 +1,340 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ffffcc">
-<link rel="apple-touch-icon" href="icon-512.png">
-  
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then(() => console.log('PWA Service Worker Registrado com Sucesso!'))
-        .catch((err) => console.log('Falha ao registrar Service Worker:', err));
-    });
-  }
-</script>
-<meta charset="utf-8">
-<title>Ofício Diário - Com leituras do LCR (Ano A)</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  /* ESTILO WEBPAGE PRIMITIVA / WEB 1.0 */
-  body {
-    background-color: #ffffcc; /* Fundo amarelado retro */
-    color: #000000;
-    font-family: "Times New Roman", Times, serif;
-    line-height: 1.4;
-    padding: 10px;
-    margin: 0;
-  }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ofício Diário - Com leituras do LCR (Ano A)</title>
 
-  #stuffing {
-    max-width: 800px;
-    margin: 10px auto;
-    padding: 15px;
-    background-color: #ffffff;
-    border: 3px outset #c0c0c0; /* Borda retro estilo 3D */
-  }
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#7a1c1c">
+  <link rel="apple-touch-icon" href="icon-512.png">
 
-  /* Headings & Typography */
-  h1 {
-    font-size: 1.8rem;
-    color: #800000; /* Vermelho escuro clássico */
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #800000;
-    font-weight: bold;
-    padding-bottom: 4px;
-  }
+  <!-- Fontes de alta legibilidade para texto devocional longo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  h2 {
-    font-size: 1.3rem;
-    color: #000000;
-    margin-top: 15px;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(() => console.log('PWA Service Worker Registrado com Sucesso!'))
+          .catch((err) => console.log('Falha ao registrar Service Worker:', err));
+      });
+    }
+  </script>
 
-  h3 {
-    font-size: 1.1rem;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    color: #333333;
-  }
+  <style>
+    :root {
+      --bg-main: #fcfaf7;
+      --bg-card: #ffffff;
+      --text-main: #2c2926;
+      --text-muted: #615a55;
+      --primary: #7a1c1c; /* Vermelho sacro / rubrica */
+      --primary-hover: #5d1313;
+      --accent-gold: #b08d57;
+      --accent-bg: #faf6f0;
+      --border-color: #e8e2d9;
+      --radius: 12px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
 
-  p {
-    margin-bottom: 12px;
-  }
-
-  .red {
-    color: #c00000;
-    font-weight: bold;
-  }
-
-  em .red, .red em {
-    font-style: italic;
-    font-weight: normal;
-  }
-
-  .indent { padding-left: 20px; display: block; }
-  .indent2 { padding-left: 40px; display: block; }
-  .indent3 { padding-left: 60px; display: block; }
-
-  /* Links estilo HTML vintage */
-  a:link {
-    color: #0000ff;
-    text-decoration: underline;
-  }
-
-  a:visited {
-    color: #800080;
-    text-decoration: underline;
-  }
-
-  a:active {
-    color: #ff0000;
-  }
-
-  hr {
-    border: 2px inset #ffffff;
-    margin: 20px 0;
-  }
-
-  /* Date Selector & Subheader */
-  .seletor-data {
-    background-color: #e0e0e0;
-    padding: 10px;
-    border: 2px inset #ffffff;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-  }
-
-  .blue-label {
-    color: #000080;
-    font-weight: bold;
-    font-size: 0.95rem;
-  }
-
-  .seletor-data input[type="date"] {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 0.95rem;
-    padding: 4px 8px;
-    background: #ffffff;
-    border: 2px inset #c0c0c0;
-    color: #000000;
-    outline: none;
-  }
-
-  .subcabecalho-info {
-    background-color: #e0e0e0;
-    color: #000080; /* Azul marinho */
-    padding: 10px;
-    border: 2px inset #ffffff;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-    line-height: 1.4;
-  }
-
-  /* Sunday Card */
-  .card-domingo {
-    background-color: #f9f9f9;
-    border: 3px outset #c0c0c0;
-    padding: 15px;
-    margin: 20px 0;
-  }
-
-  /* Audio Players */
-  audio {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  /* Embedded YouTube Responsive */
-  .video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    border: 3px inset #c0c0c0;
-    margin: 15px 0;
-    background: #000;
-  }
-
-  .video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-
-  /* About Section */
-  .sobre-projeto {
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 3px double #800000;
-    background-color: #f9f9f9;
-    padding: 15px;
-    border: 2px inset #ffffff;
-  }
-
-  .sobre-projeto h2 {
-    color: #800000;
-    font-size: 1.2rem;
-    margin-top: 15px;
-  }
-
-  .img-lutero {
-    max-width: 150px;
-    height: auto;
-    display: block;
-    margin: 15px auto;
-    border: 2px outset #c0c0c0;
-  }
-
-  footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #000000;
-    margin-top: 30px;
-    border-top: 1px solid #000000;
-    padding-top: 10px;
-  }
-
-  footer p {
-    margin: 2px 0;
-  }
-
-  /* ADAPTAÇÃO PARA CELULARES */
-  @media only screen and (max-width: 600px) {
-    body {
+    * {
+      box-sizing: border-box;
+      margin: 0;
       padding: 0;
-      background-color: #ffffff;
-      font-size: 18px;
-      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      padding: 32px 16px;
+      -webkit-font-smoothing: antialiased;
     }
 
     #stuffing {
-      border: none;
-      max-width: 100%;
-      padding: 16px 18px;
-      margin: 0;
+      max-width: 760px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      padding: 48px 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
     }
 
+    /* TYPOGRAPHY */
     h1 {
-      font-size: 1.6rem;
-      margin-top: 15px;
-      margin-bottom: 10px;
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-top: 36px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--primary);
+      font-weight: 700;
+      padding-bottom: 6px;
+      letter-spacing: 0.5px;
     }
 
     h2 {
-      font-size: 1.3rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
       margin-top: 18px;
+      margin-bottom: 8px;
+      color: var(--text-muted);
     }
 
     p {
-      font-size: 1.05rem;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
+    .red {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    em .red, .red em {
+      font-style: italic;
+      font-weight: normal;
+    }
+
+    .indent { padding-left: 24px; display: block; }
+    .indent2 { padding-left: 48px; display: block; }
+    .indent3 { padding-left: 72px; display: block; }
+
+    /* LINKS */
+    a {
+      color: var(--primary);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--primary-hover);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border-color);
+      margin: 32px 0;
+    }
+
+    /* SELETOR DE DATA & SUBCABEÇALHO */
     .seletor-data {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 12px;
-      border: 1px solid #d0d0d0;
-      border-radius: 6px;
+      background-color: var(--accent-bg);
+      padding: 16px 20px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .blue-label {
+      color: var(--primary);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
     }
 
     .seletor-data input[type="date"] {
-      width: 100%;
-      font-size: 1rem;
-      padding: 8px;
-      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .seletor-data input[type="date"]:focus {
+      border-color: var(--primary);
     }
 
     .subcabecalho-info {
-      font-size: 1.05rem;
-      padding: 12px;
-      border: 1px solid #d0d0d0;
-      border-radius: 6px;
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      margin-bottom: 28px;
+      text-align: center;
+      line-height: 1.5;
+      box-shadow: var(--shadow-sm);
     }
 
-    .card-domingo, .sobre-projeto {
-      border: 1px solid #d0d0d0;
-      border-radius: 6px;
-      padding: 15px;
+    /* BLOCO EXPANSÍVEL "ANTES DE COMECAR" */
+    details#msg-orar {
+      background-color: var(--accent-bg) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius) !important;
+      padding: 16px 20px !important;
+      margin-bottom: 28px !important;
+      font-size: 1rem !important;
+      box-shadow: var(--shadow-sm);
+    }
+
+    details#msg-orar summary {
+      color: var(--primary) !important;
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-weight: 700 !important;
+      cursor: pointer;
+      font-size: 1.05rem !important;
+      outline: none;
+      user-select: none;
+    }
+
+    /* SUNDAY CARD */
+    .card-domingo {
+      background-color: var(--accent-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin: 24px 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-domingo h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--primary);
+      margin-top: 0;
+    }
+
+    /* AUDIO PLAYERS & VIDEO */
+    audio {
+      width: 100%;
+      margin: 16px 0;
+      border-radius: 8px;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      margin: 20px 0;
+      background: #000;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ABOUT SECTION */
+    .sobre-projeto {
+      margin-top: 48px;
+      padding: 32px 28px;
+      border-top: 2px dashed var(--border-color);
+      background-color: var(--accent-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+    }
+
+    .sobre-projeto h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-top: 24px;
+    }
+
+    .sobre-projeto h2:first-of-type {
+      margin-top: 0;
     }
 
     .img-lutero {
-      max-width: 100%;
-      margin: 15px auto;
-      border-radius: 6px;
+      max-width: 160px;
+      height: auto;
+      display: block;
+      margin: 16px auto 24px auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
     }
 
-    .indent { padding-left: 12px; }
-    .indent2 { padding-left: 24px; }
-    .indent3 { padding-left: 36px; }
-  }
-</style>
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    /* RESPONSIVIDADE CELULARES */
+    @media only screen and (max-width: 600px) {
+      body {
+        padding: 12px 8px;
+        font-size: 1rem;
+      }
+
+      #stuffing {
+        padding: 24px 18px;
+        border-radius: 8px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.15rem;
+      }
+
+      .seletor-data {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px;
+      }
+
+      .seletor-data input[type="date"] {
+        width: 100%;
+      }
+
+      .card-domingo, .sobre-projeto {
+        padding: 20px 16px;
+      }
+
+      .indent { padding-left: 14px; }
+      .indent2 { padding-left: 28px; }
+      .indent3 { padding-left: 42px; }
+    }
+  </style>
 </head>
 <body>
 <div id="stuffing">
@@ -295,11 +349,11 @@
 </div>
 
 <!-- Orientação de Leitura e Oração (Espiritualidade Luterana) com ID id="msg-orar" em formato expansível -->
-  <details id="msg-orar" style="background-color: #fdfdf0; border: 1px solid #d0c8b0; padding: 10px 15px; margin-bottom: 20px; font-size: 0.95rem;">
-    <summary style="color: #800000; font-weight: bold; cursor: pointer; font-size: 1rem; outline: none; user-select: none;">
+  <details id="msg-orar">
+    <summary>
       Antes de começar: O que significa orar?
     </summary>
-    <div style="margin-top: 10px;">
+    <div style="margin-top: 12px;">
       <p>
         Orar é um encontro, não uma obrigação. Na tradição luterana, acreditamos que a oração nunca é um ato isolado: a Igreja é uma comunidade que ora junta. As ordens de culto, os salmos e os hinos acompanham o jeito de orar do povo de Deus há gerações porque nos lembram que orar não depende da nossa capacidade individual de inventar belas palavras.
       </p>
@@ -308,6 +362,7 @@
       </p>
       <p style="margin-bottom: 0;">
         Quando você realiza este ofício, saiba que outras irmãs e outros irmãos estão abrindo esta mesma página e orando as mesmas palavras. Sua voz se soma à de toda a comunidade de fé, formando um só clamor diante de Deus. Respire, mantenha a mente presente, acolha cada frase sem pressa e com calma, e lembre-se de que a sua oração faz parte de um grande e contínuo louvor a Deus, e sobe como um único e mesmo clamor de milhares de irmãos e irmãs ao redor do mundo, um só Corpo de Cristo que ora em uma só voz, quer você esteja só ou reunido(a) em grupo.
+      </p>
     </div>
   </details>
 
@@ -356,7 +411,7 @@
 <div id="conteudo-semana">
   <h1>Ofício Diário</h1>
 
-<p class="red"><em>Todos juntos</em></p>
+  <p class="red"><em>Todos juntos</em></p>
   <p>
     Em nome do Pai, do Filho e do Espírito Santo.<br>
     <strong>Amém.</strong>
@@ -373,15 +428,15 @@
   </audio>
 
   <!-- Hino de Invocação (LCI 003 - Deus Trino) -->
-  <div style="background-color: #fdfdf0; border: 1px inset #d0c8b0; padding: 12px 15px; margin: 15px 0;">
+  <div style="background-color: var(--accent-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 18px 20px; margin: 20px 0;">
     <p class="blue-label" style="margin-top: 0; margin-bottom: 5px;">
       LCI 003 — Deus Trino
     </p>
-    <p style="font-size: 0.85rem; color: #555; margin-bottom: 12px; font-style: italic;">
+    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; font-style: italic;">
       <strong>Letra e Música:</strong> Paullo Roberto (1994) | <strong>Uso Litúrgico:</strong> Acolhida e Invocação
     </p>
 
-    <p style="line-height: 1.5; margin-bottom: 0;">
+    <p style="line-height: 1.6; margin-bottom: 0;">
       //: Em nome do Pai,<br>
       e do Filho,<br>
       e do Espírito Santo,<br>
@@ -418,7 +473,8 @@
   Glória ao Pai, ao Filho e ao Espírito Santo:<br>
   como era no princípio, agora e sempre. Amém.
   </p>
-<h1>Confissão de Pecados</h1>
+
+  <h1>Confissão de Pecados</h1>
 
   <p class="red"><em>Dirigente</em></p>
   <p>Confessemos os nossos pecados a Deus, nosso Pai.</p>
@@ -442,7 +498,7 @@
     <p class="red">Carregando cântico...</p>
   </div>
 
-<!-- ==================== SEÇÃO: SALMOS ==================== -->
+  <!-- ==================== SEÇÃO: SALMOS ==================== -->
   <h1>Salmos</h1>
 
   <p class="red" style="font-style: italic;">
@@ -469,9 +525,8 @@
     Senhor Jesus Cristo, nosso bom Pastor, tu transformas as nossas dores em cânticos de louvor e consolas a nossa alma no vale de sombras. Grava em nossos corações as promessas da tua palavra orada, para que caminhemos na tua luz com confiança e paz hoje e sempre. Amém.
   </p>
 
-
   <!-- ==================== TRANSIÇÃO E LEITURAS ==================== -->
-  <hr style="border: 1px dashed #c00000; margin: 25px 0;">
+  <hr style="border: none; border-top: 1px dashed var(--primary); margin: 32px 0;">
 
   <h1>Leituras das Escrituras</h1>
 
@@ -479,7 +534,7 @@
     Abertos pelo louvor dos Salmos, inclinamos agora nossos ouvidos para escutar a voz de Deus nas histórias do Antigo Testamento e no testemunho do Novo Testamento.
   </p>
 
-  <p style="font-size: 0.85rem; color: #555; margin-top: -5px; margin-bottom: 12px;">
+  <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: -5px; margin-bottom: 12px;">
     <em>* Seleção de leituras baseada na 
       <a href="https://lectionary.library.vanderbilt.edu/daily.php?year=A" target="_blank" rel="noopener">
         Vanderbilt Divinity Library (RCL Daily Readings)
@@ -529,7 +584,6 @@
   <span class="indent">e na vida eterna. Amém.</span>
   </p>
 
-
   <h1>As Orações</h1>
 
   <p class="red"><em>Dirigente</em></p>
@@ -565,12 +619,13 @@
   <p>Deus de graça e de amor, que chamas, congregas e santificas a tua Igreja por meio da Palavra e dos Sacramentos: nem sempre temos sido fieis ao teu chamado e muitas vezes nos acomodamos e nos calamos em vez de anunciar com coragem o teu Evangelho. Rogamos-te por toda a tua Igreja Cristã na terra e, de modo especial, pela nossa Igreja Evangélica de Confissão Luterana no Brasil. Abençoa os ministros e ministras, os sínodos, presbitérios e cada comunidade e paróquia. Perdoa a nossa falta de empenho e faze-nos uma comunidade viva, acolhedora e verdadeiramente diaconal, que serve com alegria à pessoa próxima e testemunha o Teu Evangelho reconciliador. Por Jesus Cristo, nosso Senhor, que contigo e com o Espírito Santo vive e reina, um só Deus, hoje e sempre. Amém.</p>
 
   <p class="red"><em>Pela Justiça e Paz</em></p>
-<p>Soberano e compassivo Deus, Criador de todas as coisas, que nos confiaste o cuidado do teu mundo e nos chamas a promover a paz: olhamos para a nossa sociedade e reconhecemos, com contrição, a nossa própria omissão diante da injustiça, da violência e do sofrimento dos mais vulneráveis. Muitas vezes nos omitimos, calamos o nosso protesto e nos beneficiamos de estruturas que oprimem. Oramos pelas autoridades para que governem com sabedoria, mas pedimos também por nós: desperta-nos do nosso comodismo, concede-nos coragem para denunciar os males que ferem a dignidade humana e capacita-nos a agir ativamente em favor dos empobrecidos, da paz e do cuidado com a Criação. Por Jesus Cristo, nosso Salvador. Amém.</p>
+  <p>Soberano e compassivo Deus, Criador de todas as coisas, que nos confiaste o cuidado do teu mundo e nos chamas a promover a paz: olhamos para a nossa sociedade e reconhecemos, com contrição, a nossa própria omissão diante da injustiça, da violência e do sofrimento dos mais vulneráveis. Muitas vezes nos omitimos, calamos o nosso protesto e nos beneficiamos de estruturas que oprimem. Oramos pelas autoridades para que governem com sabedoria, mas pedimos também por nós: desperta-nos do nosso comodismo, concede-nos coragem para denunciar os males que ferem a dignidade humana e capacita-nos a agir ativamente em favor dos empobrecidos, da paz e do cuidado com a Criação. Por Jesus Cristo, nosso Salvador. Amém.</p>
+
   <p class="red"><em>Pelos Aflitos e Necessitados</em></p>
   <p>Deus de amor e refúgio bem presente nas tribulações, que em Jesus Cristo assumiste a nossa dor e te compadeceste das multidões: confessamos que frequentemente passamos ao largo do sofrimento alheio, fechando os nossos olhos e corações para aqueles que clamam por socorro. Tem misericórdia de todas as pessoas enlutadas, enfermas, solitárias, desempregadas, famintas e desamparadas. Derrama sobre elas o teu Consolador e move-nos a nós mesmos para que não ofereçamos apenas palavras, mas sejamos tuas mãos estendidas em solidariedade concreta, consolo e serviço cristão e amoroso. Por amor de teu Filho amado, Jesus Cristo. Amém. 
   </p>
 
-<!-- ==================== SEÇÃO: ORAÇÕES PESSOAIS ==================== -->
+  <!-- ==================== SEÇÃO: ORAÇÕES PESSOAIS ==================== -->
   <h2>Orações Pessoais</h2>
 
   <p class="red" style="font-style: italic;">
@@ -609,7 +664,6 @@
 </div>
 
 <div class="sobre-projeto">
-  
   <img src="lutero.jpeg" alt="Martim Lutero" class="img-lutero">
 
   <h2>Sobre este Projeto</h2>
@@ -617,10 +671,10 @@
     Esta plataforma foi criada com o intuito de oferecer um roteiro simples, acessível e estruturado para o <strong>Ofício Diário</strong>. Em um mundo marcado pelo ritmo acelerado e por constantes distrações virtuais e diárias, manter uma disciplina de oração e leitura bíblica pode ser um desafio. O objetivo deste projeto é auxiliar principalmente luteranas e luteranos — e a quem mais desejar — a cultivar uma vida de oração mais litúrgica, focada e ancorada nas leituras bíblicas semanais.
   </p>
   <p>
-    <strong>O projeto não é officially vinculado à IECLB:</strong> Esclarecemos que este é um projeto independente de iniciativa pessoal e <u>não possui nenhum vínculo oficial ou institucional</u> com a Igreja Evangélica de Confissão Luterana no Brasil (IECLB). No entanto, o projeto foi elaborado com profundo carinho e respeito pela tradição e espiritualidade luterana, servindo como uma ferramenta complementar de devoção individual, familiar ou em pequenos grupos.
+    <strong>O projeto não é oficialmente vinculado à IECLB:</strong> Esclarecemos que este é um projeto independente de iniciativa pessoal e <u>não possui nenhum vínculo oficial ou institucional</u> com a Igreja Evangélica de Confissão Luterana no Brasil (IECLB). No entanto, o projeto foi elaborado com profundo carinho e respeito pela tradição e espiritualidade luterana, servindo como uma ferramenta complementar de devoção individual, familiar ou em pequenos grupos.
   </p>
 
-  <h2>Quem somos nós, luteranos? </h2>
+  <h2>Quem somos nós, luteranos?</h2>
   <p>
     As pessoas luteranas são pessoas cristãs que fazem parte da herança da Reforma Protestante do século XVI, iniciada pelo pregador e teólogo <strong>Martim Lutero</strong> na Alemanha. A fé luterana está centrada no amor incondicional de Deus revelado em Jesus Cristo. Os pilares fundamentais da nossa teologia resumem-se nos conhecidos princípios da Reforma:
   </p>
@@ -1108,7 +1162,6 @@ function traduzirReferencia(refIngles) {
   return refLimpa;
 }
 
-// Limpa sufixos de versículos com letras (ex: 1-7a -> 1-7) apenas para envio à API
 function limparReferenciaParaAPI(ref) {
   if (!ref) return "";
   return ref.replace(/(\d+)[a-zA-Z]+/g, '$1');
@@ -1142,7 +1195,6 @@ async function carregarLiturgiaParaData(dataAlvo) {
   const divSemana = document.getElementById("conteudo-semana");
   const msgOrar = document.getElementById("msg-orar");
 
-  // Se for Domingo (diaSemana === 0), exibe apenas o card e oculta a estrutura do Ofício e a mensagem
   if (diaSemana === 0) {
     atualizarDomingoFesta(dataChave);
     divDomingo.style.display = "block";
@@ -1151,7 +1203,6 @@ async function carregarLiturgiaParaData(dataAlvo) {
     return;
   }
 
-  // Se for outro dia, exibe a estrutura normal do Ofício e a mensagem
   divDomingo.style.display = "none";
   divSemana.style.display = "block";
   if (msgOrar) msgOrar.style.display = "block";
