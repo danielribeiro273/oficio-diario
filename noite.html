@@ -1,220 +1,266 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<!-- PWA Manifest & Theme -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ffffcc">
-<link rel="apple-touch-icon" href="icon-512.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Breve Ofício da Noite</title>
 
-<!-- Register Service Worker -->
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then(() => console.log('PWA Service Worker Registrado com Sucesso!'))
-        .catch((err) => console.log('Falha ao registrar Service Worker:', err));
-    });
-  }
-</script>
-<meta charset="utf-8">
-<title>Breve Ofício da Noite</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  /* ESTILO WEBPAGE PRIMITIVA / WEB 1.0 */
-  body {
-    background-color: #ffffcc; /* Fundo amarelado retro */
-    color: #000000;
-    font-family: "Times New Roman", Times, serif;
-    line-height: 1.4;
-    padding: 10px;
-    margin: 0;
-  }
+  <!-- PWA Manifest & Theme -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#7a1c1c">
+  <link rel="apple-touch-icon" href="icon-512.png">
 
-  #stuffing {
-    max-width: 800px;
-    margin: 10px auto;
-    padding: 15px;
-    background-color: #ffffff;
-    border: 3px outset #c0c0c0; /* Borda retro estilo 3D */
-  }
+  <!-- Fontes de alta legibilidade para leitura devocional -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  h1 {
-    font-size: 1.8rem;
-    color: #800000; /* Vermelho escuro clássico */
-    margin-top: 20px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #800000;
-    font-weight: bold;
-  }
+  <!-- Register Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(() => console.log('PWA Service Worker Registrado com Sucesso!'))
+          .catch((err) => console.log('Falha ao registrar Service Worker:', err));
+      });
+    }
+  </script>
 
-  h2 {
-    font-size: 1.3rem;
-    color: #000000;
-    margin-top: 15px;
-    margin-bottom: 8px;
-    font-weight: bold;
-  }
+  <style>
+    :root {
+      --bg-main: #fcfaf7;
+      --bg-card: #ffffff;
+      --text-main: #2c2926;
+      --text-muted: #615a55;
+      --primary: #7a1c1c; /* Vermelho sacro / rubrica */
+      --primary-hover: #5d1313;
+      --accent-gold: #b08d57;
+      --accent-bg: #faf6f0;
+      --border-color: #e8e2d9;
+      --radius: 12px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
 
-  h3 {
-    font-size: 1.1rem;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    color: #333333;
-  }
-
-  p {
-    margin-bottom: 12px;
-  }
-
-  .red {
-    color: #c00000;
-    font-weight: bold;
-  }
-
-  em .red, .red em {
-    font-style: italic;
-    font-weight: normal;
-  }
-
-  .indent { padding-left: 20px; display: block; }
-  .indent2 { padding-left: 40px; display: block; }
-  .indent3 { padding-left: 60px; display: block; }
-
-  /* Links estilo HTML vintage */
-  a:link {
-    color: #0000ff;
-    text-decoration: underline;
-  }
-
-  a:visited {
-    color: #800080;
-    text-decoration: underline;
-  }
-
-  a:active {
-    color: #ff0000;
-  }
-
-  hr {
-    border: 2px inset #ffffff;
-    margin: 20px 0;
-  }
-
-  .subcabecalho-info {
-    background-color: #e0e0e0;
-    color: #000080; /* Azul marinho */
-    padding: 10px;
-    border: 2px inset #ffffff;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  .topo {
-    margin: 20px 0 10px 0;
-    text-align: right;
-    font-size: 0.9rem;
-  }
-
-  audio {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  /* Seção Sobre o Projeto */
-  .sobre-projeto {
-    margin-top: 30px;
-    padding-top: 15px;
-    border-top: 3px double #800000;
-    background-color: #f9f9f9;
-    padding: 15px;
-    border: 2px inset #ffffff;
-  }
-
-  .sobre-projeto h2 {
-    color: #800000;
-    font-size: 1.2rem;
-    margin-top: 15px;
-  }
-
-  .img-lutero {
-    max-width: 150px;
-    height: auto;
-    display: block;
-    margin: 15px auto;
-    border: 2px outset #c0c0c0;
-  }
-
-  footer {
-    text-align: center;
-    font-size: 0.9rem;
-    margin-top: 30px;
-    border-top: 1px solid #000000;
-    padding-top: 10px;
-  }
-
-  footer p {
-    margin: 2px 0;
-  }
-
-  /* ========================================================
-     ADAPTAÇÃO MODERNA E ELEGANTE PARA CELULARES
-     ======================================================== */
-  @media only screen and (max-width: 600px) {
-    body {
+    * {
+      box-sizing: border-box;
+      margin: 0;
       padding: 0;
-      background-color: #ffffff;
-      font-size: 18px;
-      line-height: 1.6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      padding: 32px 16px;
+      -webkit-font-smoothing: antialiased;
     }
 
     #stuffing {
-      border: none;
-      max-width: 100%;
-      padding: 16px 18px;
-      margin: 0;
+      max-width: 760px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      padding: 48px 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
     }
 
+    /* TYPOGRAPHY */
     h1 {
-      font-size: 1.6rem;
-      margin-top: 15px;
-      margin-bottom: 10px;
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-top: 36px;
+      margin-bottom: 16px;
+      border-bottom: 2px solid var(--primary);
+      font-weight: 700;
+      padding-bottom: 6px;
+      letter-spacing: 0.5px;
     }
 
     h2 {
-      font-size: 1.3rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem;
+      color: var(--text-main);
+      margin-top: 24px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
       margin-top: 18px;
+      margin-bottom: 8px;
+      color: var(--text-muted);
     }
 
     p {
-      font-size: 1.05rem;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
+    .red {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    em .red, .red em {
+      font-style: italic;
+      font-weight: normal;
+    }
+
+    .indent { padding-left: 24px; display: block; }
+    .indent2 { padding-left: 48px; display: block; }
+    .indent3 { padding-left: 72px; display: block; }
+
+    /* LINKS */
+    a {
+      color: var(--primary);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--primary-hover);
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border-color);
+      margin: 32px 0;
+    }
+
+    /* SUBCABEÇALHO */
     .subcabecalho-info {
-      font-size: 1.05rem;
-      padding: 12px;
-      border: 1px solid #d0d0d0;
-      border-radius: 6px;
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 16px 20px;
+      border-radius: var(--radius);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      margin-bottom: 28px;
+      text-align: center;
+      line-height: 1.5;
+      box-shadow: var(--shadow-sm);
     }
 
+    /* BLOCO EXPANSÍVEL "ANTES DE COMECAR" */
+    details#msg-orar {
+      background-color: var(--accent-bg) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: var(--radius) !important;
+      padding: 16px 20px !important;
+      margin-bottom: 28px !important;
+      font-size: 1rem !important;
+      box-shadow: var(--shadow-sm);
+    }
+
+    details#msg-orar summary {
+      color: var(--primary) !important;
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-weight: 700 !important;
+      cursor: pointer;
+      font-size: 1.05rem !important;
+      outline: none;
+      user-select: none;
+    }
+
+    /* AUDIO PLAYERS */
+    audio {
+      width: 100%;
+      margin: 16px 0;
+      border-radius: 8px;
+    }
+
+    .topo {
+      margin: 24px 0 12px 0;
+      text-align: right;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    /* ABOUT SECTION */
     .sobre-projeto {
-      border: 1px solid #d0d0d0;
-      border-radius: 6px;
-      padding: 15px;
+      margin-top: 48px;
+      padding: 32px 28px;
+      border-top: 2px dashed var(--border-color);
+      background-color: var(--accent-bg);
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+    }
+
+    .sobre-projeto h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-top: 24px;
+    }
+
+    .sobre-projeto h2:first-of-type {
+      margin-top: 0;
     }
 
     .img-lutero {
-      max-width: 100%;
-      margin: 15px auto;
-      border-radius: 6px;
+      max-width: 160px;
+      height: auto;
+      display: block;
+      margin: 16px auto 24px auto;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
     }
 
-    .indent { padding-left: 12px; }
-    .indent2 { padding-left: 24px; }
-    .indent3 { padding-left: 36px; }
-  }
-</style>
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    /* RESPONSIVIDADE CELULARES */
+    @media only screen and (max-width: 600px) {
+      body {
+        padding: 12px 8px;
+        font-size: 1rem;
+      }
+
+      #stuffing {
+        padding: 24px 18px;
+        border-radius: 8px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.15rem;
+      }
+
+      .sobre-projeto {
+        padding: 20px 16px;
+      }
+
+      .indent { padding-left: 14px; }
+      .indent2 { padding-left: 28px; }
+      .indent3 { padding-left: 42px; }
+    }
+  </style>
 </head>
 <body id="topo">
 <div id="stuffing">
@@ -223,12 +269,13 @@
   <div class="subcabecalho-info" id="subcabecalho-info">
     Carregando informações do dia...
   </div>
-<!-- Orientação de Leitura e Oração (Espiritualidade Luterana) com ID id="msg-orar" em formato expansível -->
-  <details id="msg-orar" style="background-color: #fdfdf0; border: 1px solid #d0c8b0; padding: 10px 15px; margin-bottom: 20px; font-size: 0.95rem;">
-    <summary style="color: #800000; font-weight: bold; cursor: pointer; font-size: 1rem; outline: none; user-select: none;">
+
+  <!-- Orientação de Leitura e Oração (Espiritualidade Luterana) com ID id="msg-orar" em formato expansível -->
+  <details id="msg-orar">
+    <summary>
       Antes de começar: O que significa orar?
     </summary>
-    <div style="margin-top: 10px;">
+    <div style="margin-top: 12px;">
       <p>
         Orar é um encontro, não uma obrigação. Na tradição luterana, acreditamos que a oração nunca é um ato isolado: a Igreja é uma comunidade que ora junta. As ordens de culto, os salmos e os hinos acompanham o jeito de orar do povo de Deus há gerações porque nos lembram que orar não depende da nossa capacidade individual de inventar belas palavras.
       </p>
@@ -236,7 +283,8 @@
         Ao longo dos séculos, a Igreja aprendeu a orar com estruturas simples. Os salmos e os hinos que cantamos e decoramos nos ensinam a colocar a vida diante de Deus. O <strong>Pai Nosso</strong>, ensinado por Jesus, e o <strong>Credo Apostólico</strong> — que desde o início da Igreja resume e protege a nossa fé — nos ajudam a orar em comunhão, em uma só gramática de fé.
       </p>
       <p style="margin-bottom: 0;">
-        Quando você realiza este ofício, saiba que outras irmãs e outros irmãos estão abrindo esta mesma página e orando as mesmas palavras. Sua voz se soma à de toda a comunidade de fé, formando um só clamor diante de Deus. Respire, mantenha a mente presente, acolha cada frase sem pressa e com calma, e lembre-se de que a sua oração faz parte de um grande e contínuo louvor a Deus, e sobe como um único e mesmo clamor de milhares de irmãos e irmãs ao redor do mundo, um só Corpo de Cristo que ora em uma só voz, quer você esteja só ou reunido(a) em grupo.
+        Quando você realiza este ofício, saiba que outras irmãs e outros irmãos estão abrindo esta mesma página e orando as mesmas palavras. Sua voz se soma à de toda a comunidade de fé, forming um só clamor diante de Deus. Respire, mantenha a mente presente, acolha cada frase sem pressa e com calma, e lembre-se de que a sua oração faz parte de um grande e contínuo louvor a Deus, e sobe como um único e mesmo clamor de milhares de irmãos e irmãs ao redor do mundo, um só Corpo de Cristo que ora em uma só voz, quer você esteja só ou reunido(a) em grupo.
+      </p>
     </div>
   </details>
 
@@ -257,7 +305,6 @@
   <p class="red"><em>Dirigente</em></p>
   <p>Acolhidos e acolhidas pela graça, em confiança e sem medo, abramos o nosso coração e confessemos as nossas falhas e pecados a Deus.</p>
 
-
   <h1>Exame do Dia e Confissão</h1>
 
   <p class="red"><em>Pode-se fazer um momento de silêncio para reflexão pessoal sobre o dia que passou.</em></p>
@@ -267,13 +314,11 @@
   Deus de infinita misericórdia, ao encerrar este dia, colocamo-nos diante da tua presença com o coração contrito. Confessamos que nem sempre vivemos de acordo com a tua vontade: falhamos no amor a ti e no serviço à nossa pessoa próxima, omitindo-nos diante da necessidade alheia e pecando por pensamentos, palavras e ações. Perdoa a nossa culpa, renova em nós a esperança e concede-nos descansar no abraço da tua graça e do teu amor incondicional, revelados em Jesus Cristo, nosso Salvador. Amém.
   </p>
 
-
   <h1>Salmo do Dia</h1>
 
   <div id="salmo-noite">
     <p class="red"><em>Carregando Salmo da noite...</em></p>
   </div>
-
 
   <h1>A Palavra de Deus</h1>
 
@@ -286,7 +331,6 @@
   <p>Graças a Deus.</p>
 
   <p class="red"><em>Pode-se cantar um hino apropriado para o início da noite.</em></p>
-
 
   <h1>Responsório</h1>
 
@@ -311,7 +355,6 @@
   <p class="red"><em>Dirigente</em></p>
   <p>Senhor, envolve-nos na tua graça e tem misericórdia de nós.</p>
 
-
   <h1>Cântico da Noite (Nunc Dimittis)</h1>
 
   <p class="red"><em>Todos juntos:</em></p>
@@ -334,7 +377,6 @@
   Guia-nos acordados(as), ó Senhor, e guarda-nos dormindo; para que acordados(as) vigiemos com Cristo e dormindo descansemos em paz.
   </p>
 
-
   <h1>Oração da Noite de Martim Lutero</h1>
 
   <p class="red"><em>Oração do Catecismo Menor:</em></p>
@@ -342,7 +384,6 @@
   <p>
   Agradeço-te meu Pai celeste, por Jesus Cristo, teu filho amado, que bondosamente me guardaste neste dia. E peço-te, queiras perdoar-me todos os pecados e injustiças que cometi, e guardar-me misericordiosamente nesta noite. Pois confio a mim, meu corpo e minha alma, e tudo em tuas mãos. Teu santo anjo esteja comigo, para que o mau adversário não se apodere de mim. Amém.
   </p>
-
 
   <h1>As Orações</h1>
 
@@ -378,7 +419,7 @@
   </p>
 
   <p>
-Guarda, querido Senhor, aqueles e aquelas que trabalham, vigiam ou choram nesta noite, e encarrega os teus anjos de cuidar das pessoas que dormem. Cuida das pessoas enfermas, Cristo Senhor; dá descanso às pessoas cansadas, abençoa as moribundas, consola as aflitas, acolhe as que sofrem e protege as que se alegram; tudo isso te pedimos por amor do teu nome. Amém.
+  Guarda, querido Senhor, aqueles e aquelas que trabalham, vigiam ou choram nesta noite, e encarrega os teus anjos de cuidar das pessoas que dormem. Cuida das pessoas enfermas, Cristo Senhor; dá descanso às pessoas cansadas, abençoa as moribundas, consola as aflitas, acolhe as que sofrem e protege as que se alegram; tudo isso te pedimos por amor do teu nome. Amém.
   </p>
 
   <p class="red"><em>Pode-se fazer um momento de silêncio para intercessões e ações de graças pessoais.</em></p>
@@ -397,61 +438,59 @@ Guarda, querido Senhor, aqueles e aquelas que trabalham, vigiam ou choram nesta 
   Ó amado Senhor e Salvador, permanece conosco, pois a noite já vem chegando e o dia vai caindo. Sê o nosso guia carinhoso, ilumina a nossa escuridão e guarda o descanso do nosso lar. Em tuas mãos amorosas entregamos as nossas vidas, as nossas famílias e a nossa querida comunidade. Concede-nos, ó Pai, uma noite calma, um sono tranquilo e o refúgio da tua paz, livres de qualquer mal, preocupação, aflição e cilada do inimigo. Que, ao acordarmos no amanhecer de um novo dia, possamos renovar nossas forças para louvar o teu santo nome e te servir com gratidão e alegria. Por Jesus Cristo, teu Filho amado, nosso Senhor. Amém.
   </p>
 
-
   <h1>Hino de Recolhida</h1>
 
-  <p><strong>De bons poderes sinto-me cercado</strong></p>
-  <p class="red"><em>Dietrich Bonhoeffer</em></p>
+  <div style="background-color: var(--accent-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; box-shadow: var(--shadow-sm);">
+    <p class="red" style="font-size: 1.15rem; margin-top: 0; margin-bottom: 4px;"><strong>De bons poderes sinto-me cercado</strong></p>
+    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; font-style: italic;">Dietrich Bonhoeffer</p>
 
-  <p>
-  <audio controls preload="metadata">
-    <source src="debonspoderes.mp3" type="audio/mpeg">
-    Seu navegador não suporta o elemento de áudio.
-  </audio>
-  </p>
+    <audio controls preload="metadata">
+      <source src="debonspoderes.mp3" type="audio/mpeg">
+      Seu navegador não suporta o elemento de áudio.
+    </audio>
 
-  <p>
-  1. De bons poderes sinto-me cercado,<br>
-  bem protegido e bem consolado.<br>
-  Assim desejo eu passar os dias<br>
-  e ter convosco um ano de alegrias.
-  </p>
+    <p style="margin-bottom: 12px;">
+    1. De bons poderes sinto-me cercado,<br>
+    bem protegido e bem consolado.<br>
+    Assim desejo eu passar os dias<br>
+    e ter convosco um ano de alegrias.
+    </p>
 
-  <p>
-  <strong><em>Estr. Por bons poderes muito bem guardados,<br>
-  confiantes esperamos o que há de vir.<br>
-  Deus é conosco sempre noite e dia.<br>
-  Assim é certa hoje sua alegrias.</em></strong>
-  </p>
+    <p style="margin-bottom: 12px;">
+    <strong><em>Estr. Por bons poderes muito bem guardados,<br>
+    confiantes esperamos o que há de vir.<br>
+    Deus é conosco sempre noite e dia.<br>
+    Assim é certa hoje sua alegrias.</em></strong>
+    </p>
 
-  <p>
-  2. Ainda o antigo nos tortura<br>
-  o peso de maus dias dá amargura<br>
-  Senhor, dá a nossas almas acuadas<br>
-  a salvação à qual são preparadas.
-  </p>
+    <p style="margin-bottom: 12px;">
+    2. Ainda o antigo nos tortura<br>
+    o peso de maus dias dá amargura<br>
+    Senhor, dá a nossas almas acuadas<br>
+    a salvação à qual são preparadas.
+    </p>
 
-  <p>
-  3. Estende-nos o cálice amargo<br>
-  da dor e o beberemos sem embargo,<br>
-  Porque nos vem de tuas mãos divinas.<br>
-  Até com gratidão sofrer ensinas.
-  </p>
+    <p style="margin-bottom: 12px;">
+    3. Estende-nos o cálice amargo<br>
+    da dor e o beberemos sem embargo,<br>
+    Porque nos vem de tuas mãos divinas.<br>
+    Até com gratidão sofrer ensinas.
+    </p>
 
-  <p>
-  4. E se quiseres dar-nos alegrias<br>
-  ainda sob o sol dos breves dias<br>
-  Então nos lembraremos do passado<br>
-  e entregamo-nos ao teu cuidado.
-  </p>
+    <p style="margin-bottom: 12px;">
+    4. E se quiseres dar-nos alegrias<br>
+    ainda sob o sol dos breves dias<br>
+    Então nos lembraremos do passado<br>
+    e entregamo-nos ao teu cuidado.
+    </p>
 
-  <p>
-  5. Quando o silêncio se espalhar profundo<br>
-  todo ao redor deste pequeno mundo<br>
-  Repleto de adoração ecoa<br>
-  o canto que a ti teus filhos entoam.
-  </p>
-
+    <p style="margin-bottom: 0;">
+    5. Quando o silêncio se espalhar profundo<br>
+    todo ao redor deste pequeno mundo<br>
+    Repleto de adoração ecoa<br>
+    o canto que a ti teus filhos entoam.
+    </p>
+  </div>
 
   <h1>Encerramento</h1>
 
