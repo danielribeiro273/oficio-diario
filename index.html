@@ -2,626 +2,644 @@
 <html lang="pt-BR">
 
 <head>
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#ffffcc">
-<link rel="apple-touch-icon" href="icon-512.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ofício Diário - Devoção e Oração</title>
 
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./sw.js')
-        .then(() => console.log('PWA Service Worker Registrado com Sucesso!'))
-        .catch((err) => console.log('Falha ao registrar Service Worker:', err));
-    });
-  }
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ofício Diário - Devoção e Oração</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#7a1c1c">
+  <link rel="apple-touch-icon" href="icon-512.png">
 
-<style>
-  /* ESTILO PARA PC / DESKTOP (Web 1.0 Retrô) */
-  body {
-    background-color: #ffffcc; /* Fundo amarelado retro */
-    color: #000000;
-    font-family: "Times New Roman", Times, serif;
-    line-height: 1.4;
-    padding: 10px;
-    margin: 0;
-  }
+  <!-- Fonte legível clássica para oração/leitura -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
-  #stuffing {
-    max-width: 800px;
-    margin: 10px auto;
-    padding: 15px;
-    background-color: #ffffff;
-    border: 3px outset #c0c0c0; /* Borda retro estilo 3D */
-  }
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(() => console.log('PWA Service Worker Registrado com Sucesso!'))
+          .catch((err) => console.log('Falha ao registrar Service Worker:', err));
+      });
+    }
+  </script>
 
-  h1 {
-    font-size: 2rem;
-    color: #800000;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    text-align: center;
-    font-weight: bold;
-    border-bottom: 2px solid #800000;
-    padding-bottom: 5px;
-  }
+  <style>
+    :root {
+      --bg-main: #fcfaf7;
+      --bg-card: #ffffff;
+      --text-main: #2c2926;
+      --text-muted: #615a55;
+      --primary: #7a1c1c; /* Vinho sacro */
+      --primary-hover: #5d1313;
+      --accent: #b08d57; /* Dourado leve */
+      --accent-bg: #faf6f0;
+      --border-color: #e8e2d9;
+      --radius: 12px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
 
-  p.subtitulo {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    text-align: center;
-  }
-
-  .red { color: #c00000; }
-
-  .caixa-introducao {
-    background-color: #f9f9f9;
-    border: 2px inset #ffffff;
-    padding: 12px 15px;
-    margin-bottom: 15px;
-    font-size: 0.98rem;
-    line-height: 1.5;
-  }
-
-  .caixa-introducao p { margin: 0 0 8px 0; }
-  .caixa-introducao p:last-child { margin-bottom: 0; }
-
-  /* CAIXA DE DESTAQUE DISCRETA PARA O FAQ (Sem formato de botão de ofício) */
-  .caixa-faq-link {
-    background-color: #ffffec;
-    border: 1px dashed #800000;
-    padding: 10px 14px;
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-    text-align: center;
-  }
-
-  .caixa-faq-link a {
-    color: #800000;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-
-  .caixa-faq-link a:hover {
-    color: #000080;
-  }
-
-  .img-oficio {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    display: block;
-    margin: 0 auto 20px auto;
-    border: 3px outset #c0c0c0;
-  }
-
-  .btn-oficio {
-    display: block;
-    margin-bottom: 15px;
-    padding: 12px 15px;
-    background-color: #e0e0e0;
-    border: 3px outset #ffffff;
-    color: #000000;
-    text-decoration: none;
-    font-size: 1rem;
-    line-height: 1.4;
-    text-align: left;
-  }
-
-  .btn-oficio:hover {
-    background-color: #d4d4d4;
-    text-decoration: none;
-  }
-
-  .btn-oficio:active { border-style: inset; }
-
-  .btn-oficio strong {
-    color: #000080;
-    display: block;
-    font-size: 1.15rem;
-    margin-bottom: 4px;
-    text-decoration: underline;
-  }
-
-  .btn-sobre {
-    background-color: #f0f0f0;
-    border-color: #ffffff;
-  }
-
-  /* ESTILOS DO GUESTBOOK / LIVRO DE ASSINATURAS */
-  .guestbook-section {
-    margin-top: 30px;
-    padding: 18px;
-    background-color: #ffffec;
-    border: 3px outset #c0c0c0;
-  }
-
-  .guestbook-header {
-    text-align: center;
-    border-bottom: 2px solid #800000;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-  }
-
-  .guestbook-header h2 {
-    color: #800000;
-    margin: 0;
-    font-size: 1.4rem;
-  }
-
-  .guestbook-header p {
-    margin: 4px 0 0 0;
-    font-size: 0.95rem;
-    color: #555;
-  }
-
-  .like-box {
-    text-align: center;
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    padding: 12px;
-    border: 2px inset #c0c0c0;
-  }
-
-  .btn-like {
-    background-color: #e0e0e0;
-    border: 3px outset #ffffff;
-    padding: 8px 16px;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #800000;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .btn-like:active {
-    border-style: inset;
-  }
-
-  .like-count {
-    background-color: #800000;
-    color: #ffffff;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 0.9rem;
-  }
-
-  .guestbook-form {
-    background-color: #ffffff;
-    border: 2px inset #c0c0c0;
-    padding: 15px;
-    margin-bottom: 20px;
-  }
-
-  .guestbook-form h3 {
-    margin-top: 0;
-    color: #000080;
-    font-size: 1.1rem;
-    border-bottom: 1px solid #c0c0c0;
-    padding-bottom: 5px;
-  }
-
-  .form-group {
-    margin-bottom: 10px;
-  }
-
-  .form-row {
-    display: flex;
-    gap: 10px;
-  }
-
-  .form-row .form-group {
-    flex: 1;
-  }
-
-  .guestbook-form label {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: bold;
-    margin-bottom: 3px;
-  }
-
-  .guestbook-form input,
-  .guestbook-form textarea {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 6px 8px;
-    border: 2px inset #c0c0c0;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 0.95rem;
-  }
-
-  .btn-submit {
-    background-color: #e0e0e0;
-    border: 3px outset #ffffff;
-    padding: 8px 16px;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #000080;
-    cursor: pointer;
-    margin-top: 5px;
-  }
-
-  .btn-submit:active {
-    border-style: inset;
-  }
-
-  .entries-list {
-    background-color: #ffffff;
-    border: 2px inset #c0c0c0;
-    padding: 12px;
-    max-height: 300px;
-    overflow-y: auto;
-  }
-
-  .entry-item {
-    border-bottom: 1px dashed #c0c0c0;
-    padding: 10px 0;
-  }
-
-  .entry-item:last-child {
-    border-bottom: none;
-  }
-
-  .entry-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 4px;
-    font-size: 0.9rem;
-  }
-
-  .entry-author {
-    font-weight: bold;
-    color: #000080;
-  }
-
-  .entry-location {
-    color: #666;
-    font-style: italic;
-  }
-
-  .entry-date {
-    font-size: 0.8rem;
-    color: #777;
-  }
-
-  .entry-message {
-    font-size: 0.95rem;
-    color: #000;
-    margin: 0;
-    word-break: break-word;
-  }
-
-  footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #000000;
-    margin-top: 30px;
-    border-top: 1px solid #000000;
-    padding-top: 10px;
-  }
-
-  footer p { margin: 2px 0; }
-  footer a { color: #0000ff; }
-
-  /* ADAPTAÇÃO PARA CELULARES */
-  @media only screen and (max-width: 600px) {
-    body {
+    * {
+      box-sizing: border-box;
+      margin: 0;
       padding: 0;
-      background-color: #ffffff;
-      font-size: 18px;
-      line-height: 1.6;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      padding: 24px 16px;
+      -webkit-font-smoothing: antialiased;
     }
 
     #stuffing {
-      border: none;
-      max-width: 100%;
-      padding: 16px 18px;
-      margin: 0;
+      max-width: 680px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      padding: 40px 32px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+
+    /* CABEÇALHO */
+    .header-title {
+      text-align: center;
+      margin-bottom: 24px;
     }
 
     h1 {
-      font-size: 1.7rem;
-      margin-top: 5px;
-      margin-bottom: 12px;
+      font-family: 'Cinzel', serif;
+      font-size: 2.3rem;
+      color: var(--primary);
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 8px;
     }
 
-    p {
+    p.subtitulo {
+      font-style: italic;
+      color: var(--primary);
       font-size: 1.05rem;
-      margin-bottom: 14px;
     }
 
-    .btn-oficio {
-      padding: 16px 18px;
-      margin-bottom: 14px;
-      border: 1px solid #d0d0d0;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-
-    .btn-oficio strong {
-      font-size: 1.2rem;
-      margin-bottom: 6px;
-      text-decoration: none;
-      color: #800000;
-    }
-
-    .btn-oficio:active {
-      background-color: #e8e8e8;
-      border-style: solid;
+    /* IMAGEM PRINCIPAL */
+    .img-container {
+      text-align: center;
+      margin: 24px 0 32px 0;
     }
 
     .img-oficio {
-      max-width: 100%;
-      margin: 15px auto;
-      border-radius: 6px;
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border-color);
     }
 
-    .caixa-introducao, .caixa-faq-link {
-      padding: 14px 16px;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
+    /* CAIXA DE INTRODUÇÃO */
     .caixa-introducao {
-      border: 1px solid #dcdcdc;
+      background-color: var(--accent-bg);
+      border-left: 4px solid var(--primary);
+      padding: 20px 24px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      font-size: 1.02rem;
+    }
+
+    .caixa-introducao p {
+      margin-bottom: 12px;
+    }
+
+    .caixa-introducao p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* FAQ BANNER */
+    .caixa-faq-link {
+      background-color: #f0f4f8;
+      border: 1px solid #d0deea;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 32px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      text-align: center;
+      color: #334e68;
+    }
+
+    .caixa-faq-link a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* BOTÕES DE OFÍCIO */
+    .nav-oficios {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .btn-oficio {
+      display: block;
+      padding: 20px 22px;
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      color: var(--text-main);
+      text-decoration: none;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .btn-oficio:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-oficio strong {
+      display: block;
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .btn-sobre {
+      background-color: var(--accent-bg);
+      border-color: #eeddc5;
+    }
+
+    /* SEÇÃO DO GUESTBOOK / ORACIONAL */
+    .guestbook-section {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 2px dashed var(--border-color);
+    }
+
+    .guestbook-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .guestbook-header h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    .guestbook-header p {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* BOTÃO DE CURTIR */
+    .like-box {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .btn-like {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .btn-like:hover {
+      background-color: var(--accent-bg);
+      border-color: var(--accent);
+    }
+
+    .like-count {
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+    }
+
+    /* FORMULÁRIO */
+    .guestbook-form {
+      background-color: var(--accent-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin-bottom: 28px;
+    }
+
+    .guestbook-form h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--primary);
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
     }
 
     .form-row {
-      flex-direction: column;
-      gap: 0;
+      display: flex;
+      gap: 16px;
     }
 
-    .guestbook-section {
-      border-radius: 8px;
-      padding: 14px;
-      border: 1px solid #dcdcdc;
+    .form-row .form-group {
+      flex: 1;
     }
 
-    .guestbook-form, .entries-list, .like-box {
-      border-radius: 6px;
-      border: 1px solid #dcdcdc;
+    .guestbook-form label {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 6px;
     }
 
-    .btn-like, .btn-submit {
-      border-radius: 6px;
+    .guestbook-form input,
+    .guestbook-form textarea {
       width: 100%;
-      justify-content: center;
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      background-color: #ffffff;
+      color: var(--text-main);
+      outline: none;
+      transition: border-color 0.2s;
     }
-  }
-</style>
+
+    .guestbook-form input:focus,
+    .guestbook-form textarea:focus {
+      border-color: var(--primary);
+    }
+
+    .btn-submit {
+      width: 100%;
+      background-color: var(--primary);
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background-color: var(--primary-hover);
+    }
+
+    /* MURAL DE MENSAGENS */
+    .entries-list {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      max-height: 380px;
+      overflow-y: auto;
+    }
+
+    .entry-item {
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 0;
+    }
+
+    .entry-item:last-child {
+      border-bottom: none;
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 6px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+    }
+
+    .entry-author {
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .entry-location {
+      color: var(--text-muted);
+      font-style: italic;
+      margin-left: 4px;
+    }
+
+    .entry-date {
+      color: #888;
+      font-size: 0.8rem;
+    }
+
+    .entry-message {
+      font-size: 1rem;
+      color: var(--text-main);
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    /* RODAPÉ */
+    footer {
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* ADAPTAÇÃO PARA MOVILE */
+    @media (max-width: 600px) {
+      body {
+        padding: 12px 8px;
+      }
+
+      #stuffing {
+        padding: 24px 16px;
+        border-radius: 8px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .btn-oficio {
+        padding: 16px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div id="stuffing">
+  <div id="stuffing">
 
-  <h1>Ofício Diário</h1>
-  
-  <p class="subtitulo red"><em>"O Senhor seja a tua luz e a tua salvação."</em></p>
+    <header class="header-title">
+      <h1>Ofício Diário</h1>
+      <p class="subtitulo">"O Senhor seja a tua luz e a tua salvação."</p>
+    </header>
 
-  <img src="fotofundooficio1.png?v=2" alt="Ofício Diário" class="img-oficio" width="300" height="300">
-
-  <div class="caixa-introducao">
-    <p><strong>Bem-vindo e bem-vinda a este espaço de oração e recolhimento!</strong></p>
-    <p>
-      O <em>Ofício Diário</em> é uma prática cristã milenar que organiza a vida de oração em ritmo constante através dos Salmos, das Escrituras e da oração comunitária.
-    </p>
-    <p>
-      <strong>Como usar?</strong> Selecione abaixo o roteiro desejado. Os textos possuem marcações como <em>Dirigente</em> e <em>Resposta</em> para o uso em grupo, mas se você estiver orando sozinho(a), basta ler o texto completo do início ao fim como uma oração pessoal contínua.
-    </p>
-  </div>
-
-  <!-- BLOCO DE DISCRETO DE DÚVIDAS / FAQ -->
-  <div class="caixa-faq-link">
-    ❓ <strong>Dúvidas sobre o Luteranismo?</strong> Veja as <a href="faq.html">Perguntas Frequentes</a> sobre espiritualidade, história e costumes luteranos.
-  </div>
-
-  <a href="manha.html" class="btn-oficio">
-    <strong>Ofício Diário (com leituras bíblicas)</strong>
-    Roteiro para a oração diária com cântico, Salmo do dia e leituras bíblicas do Lecionário Comum Revisado (Ano A).
-  </a>
-
-  <a href="noite.html" class="btn-oficio">
-    <strong>Breve Ofício para Encerrar o Dia</strong>
-    Oração simplificada para o período da noite: recolhimento, exame de consciência, entrega e pedido de descanso em paz.
-  </a>
-
-  <a href="paz.html" class="btn-oficio">
-    <strong>Ofício pela Paz no Mundo</strong>
-    Roteiro especial dedicado à reconciliação, ao desarmamento, ao fim das guerras e ao cântico de clamor pelas nações.
-  </a>
-
-  <a href="sobre.html" class="btn-oficio btn-sobre">
-    <strong>Sobre o Projeto & Guia do Lecionário</strong>
-    Entenda como funciona o ciclo de leituras (Ano A, B e C), a lógica do calendário litúrgico e a história do lecionário.
-  </a>
-
-  <!-- SEÇÃO DO GUESTBOOK / LIVRO DE ASSINATURAS PÚBLICO -->
-  <div class="guestbook-section">
-    <div class="guestbook-header">
-      <h2>📖 Livro de Visitas & Orações</h2>
-      <p>Deixe sua bênção, pedido de oração ou assinatura para os irmãos.</p>
+    <div class="img-container">
+      <img src="fotofundooficio1.png?v=2" alt="Ofício Diário" class="img-oficio" width="300" height="300">
     </div>
 
-    <!-- Botão de Curtida / Amém (Limitado a 1 clique por dispositivo) -->
-    <div class="like-box">
-      <button id="btnLike" class="btn-like">
-        <span>👍 Curti</span>
-        <span id="likeCount" class="like-count">0</span>
-      </button>
-    </div>
-
-    <!-- Formulário para Assinar -->
-    <div class="guestbook-form">
-      <h3>✍️ Assinar o Livro</h3>
-      <form id="guestbookForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="inputName">Nome:</label>
-            <input type="text" id="inputName" placeholder="Seu nome" required>
-          </div>
-          <div class="form-group">
-            <label for="inputLocation">Cidade/Estado (opcional):</label>
-            <input type="text" id="inputLocation" placeholder="Ex: São Paulo / SP">
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="inputMessage">Mensagem ou Oração:</label>
-          <textarea id="inputMessage" rows="3" placeholder="Escreva uma mensagem de paz ou intenção..." required></textarea>
-        </div>
-        <button type="submit" class="btn-submit" id="btnSubmit">Publicar Assinatura</button>
-      </form>
-    </div>
-
-    <!-- Mural com as mensagens publicadas (Vazio no início) -->
-    <div id="entriesList" class="entries-list">
-      <p id="emptyNotice" style="text-align: center; color: #666; font-style: italic;">
-        Ainda não há assinaturas. Seja o primeiro a assinar!
+    <div class="caixa-introducao">
+      <p><strong>Bem-vindo e bem-vinda a este espaço de oração e recolhimento!</strong></p>
+      <p>
+        O <em>Ofício Diário</em> é uma prática cristã milenar que organiza a vida de oração em ritmo constante através dos Salmos, das Escrituras e da oração comunitária.
+      </p>
+      <p>
+        <strong>Como usar?</strong> Selecione abaixo o roteiro desejado. Os textos possuem marcações como <em>Dirigente</em> e <em>Resposta</em> para o uso em grupo, mas se você estiver orando sozinho(a), basta ler o texto completo do início ao fim como uma oração pessoal contínua.
       </p>
     </div>
+
+    <!-- BLOCO DE DÚVIDAS / FAQ -->
+    <div class="caixa-faq-link">
+      ❓ <strong>Dúvidas sobre o Luteranismo?</strong> Veja as <a href="faq.html">Perguntas Frequentes</a> sobre espiritualidade, história e costumes.
+    </div>
+
+    <!-- NAVEGAÇÃO -->
+    <nav class="nav-oficios">
+      <a href="manha.html" class="btn-oficio">
+        <strong>Ofício Diário (com leituras bíblicas)</strong>
+        Roteiro para a oração diária com cântico, Salmo do dia e leituras bíblicas do Lecionário Comum Revisado (Ano A).
+      </a>
+
+      <a href="noite.html" class="btn-oficio">
+        <strong>Breve Ofício para Encerrar o Dia</strong>
+        Oração simplificada para o período da noite: recolhimento, exame de consciência, entrega e descanso em paz.
+      </a>
+
+      <a href="paz.html" class="btn-oficio">
+        <strong>Ofício pela Paz no Mundo</strong>
+        Roteiro especial dedicado à reconciliação, ao desarmamento, ao fim das guerras e ao clamor pelas nações.
+      </a>
+
+      <a href="sobre.html" class="btn-oficio btn-sobre">
+        <strong>Sobre o Projeto & Guia do Lecionário</strong>
+        Entenda como funciona o ciclo de leituras (Ano A, B e C), a lógica do calendário litúrgico e a história do lecionário.
+      </a>
+    </nav>
+
+    <!-- SEÇÃO DO GUESTBOOK / LIVRO DE ASSINATURAS PÚBLICO -->
+    <section class="guestbook-section">
+      <div class="guestbook-header">
+        <h2>📖 Livro de Visitas & Orações</h2>
+        <p>Deixe sua bênção, pedido de oração ou assinatura para os irmãos.</p>
+      </div>
+
+      <!-- Curtida / Amém -->
+      <div class="like-box">
+        <button id="btnLike" class="btn-like">
+          <span>🙏 Amém / Curtir</span>
+          <span id="likeCount" class="like-count">0</span>
+        </button>
+      </div>
+
+      <!-- Formulário -->
+      <div class="guestbook-form">
+        <h3>✍️ Assinar o Livro</h3>
+        <form id="guestbookForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="inputName">Nome:</label>
+              <input type="text" id="inputName" placeholder="Seu nome" required>
+            </div>
+            <div class="form-group">
+              <label for="inputLocation">Cidade/Estado (opcional):</label>
+              <input type="text" id="inputLocation" placeholder="Ex: São Paulo / SP">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputMessage">Mensagem ou Oração:</label>
+            <textarea id="inputMessage" rows="3" placeholder="Escreva uma mensagem de paz ou intenção..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit" id="btnSubmit">Publicar Assinatura</button>
+        </form>
+      </div>
+
+      <!-- Mural com as mensagens -->
+      <div id="entriesList" class="entries-list">
+        <p id="emptyNotice" style="text-align: center; color: #888; font-style: italic; font-size: 0.95rem;">
+          Ainda não há assinaturas. Seja o primeiro a assinar!
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Organizado e mantido por <strong>Daniel Augusto Ribeiro</strong></p>
+      <p style="margin-top: 6px;">
+        <a href="sobre.html">Conheça o projeto e o lecionário</a> | <a href="faq.html">Perguntas frequentes</a>
+      </p>
+    </footer>
+
   </div>
 
-  <footer>
-    <p>Organizado e mantido por Daniel Augusto Ribeiro</p>
-    <p style="margin-top: 4px; font-style: italic;">
-      <a href="sobre.html">Conheça o projeto e entenda o lecionário</a> | <a href="faq.html">Perguntas frequentes</a>
-    </p>
-  </footer>
+  <!-- INTEGRAÇÃO REAL EM TEMPO REAL VIA FIREBASE -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, collection, addDoc, serverTimestamp, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-</div>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCSMB6IM_ACKvJw7RngqN_0aXblv4YgvQI",
+      authDomain: "oficio-diario.firebaseapp.com",
+      projectId: "oficio-diario",
+      storageBucket: "oficio-diario.firebasestorage.app",
+      messagingSenderId: "705969502164",
+      appId: "1:705969502164:web:b907b793265eeffc670841"
+    };
 
-<!-- INTEGRAÇÃO REAL EM TEMPO REAL VIA FIREBASE -->
-<script type="module">
-  // 1. Importa as funções do Firebase App e do Firestore Database
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getFirestore, doc, onSnapshot, setDoc, updateDoc, increment, collection, addDoc, serverTimestamp, query, orderBy, limit } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-  // 2. Sua configuração exata do Firebase
-  const firebaseConfig = {
-    apiKey: "AIzaSyCSMB6IM_ACKvJw7RngqN_0aXblv4YgvQI",
-    authDomain: "oficio-diario.firebaseapp.com",
-    projectId: "oficio-diario",
-    storageBucket: "oficio-diario.firebasestorage.app",
-    messagingSenderId: "705969502164",
-    appId: "1:705969502164:web:b907b793265eeffc670841"
-  };
+    const btnLike = document.getElementById('btnLike');
+    const likeCount = document.getElementById('likeCount');
+    const guestbookForm = document.getElementById('guestbookForm');
+    const entriesList = document.getElementById('entriesList');
+    const emptyNotice = document.getElementById('emptyNotice');
 
-  // 3. Inicializa o App e o Banco de Dados
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+    const likeDocRef = doc(db, "stats", "likes");
 
-  const btnLike = document.getElementById('btnLike');
-  const likeCount = document.getElementById('likeCount');
-  const guestbookForm = document.getElementById('guestbookForm');
-  const entriesList = document.getElementById('entriesList');
-  const emptyNotice = document.getElementById('emptyNotice');
-
-  // --- LÓGICA DE CURTIDAS EM TEMPO REAL (BLOQUEADO A 1 CLIQUE) ---
-  const likeDocRef = doc(db, "stats", "likes");
-
-  // Função para desativar o botão se a pessoa já curtiu antes
-  function aplicarBloqueioCurtida() {
-    btnLike.disabled = true;
-    btnLike.style.opacity = "0.75";
-    btnLike.style.cursor = "default";
-    btnLike.querySelector('span:first-child').innerText = "✓ Você curtiu";
-  }
-
-  // Se já tiver a marcação no navegador/celular da pessoa:
-  if (localStorage.getItem('site_oficio_curtiu')) {
-    aplicarBloqueioCurtida();
-  }
-
-  onSnapshot(likeDocRef, (docSnap) => {
-    if (docSnap.exists()) {
-      likeCount.innerText = docSnap.data().count || 0;
-    } else {
-      likeCount.innerText = 0;
-    }
-  });
-
-  btnLike.addEventListener('click', async () => {
-    // Impede o clique caso já tenha curtido
-    if (localStorage.getItem('site_oficio_curtiu')) return;
-
-    // Salva no navegador da pessoa que ela já curtiu
-    localStorage.setItem('site_oficio_curtiu', 'true');
-    aplicarBloqueioCurtida();
-
-    try {
-      await updateDoc(likeDocRef, { count: increment(1) });
-    } catch (e) {
-      // Se for a primeiríssima curtida do site todo, cria o documento no banco
-      await setDoc(likeDocRef, { count: 1 });
-    }
-  });
-
-  // --- LÓGICA DO LIVRO DE ASSINATURAS EM TEMPO REAL ---
-  const q = query(collection(db, "guestbook"), orderBy("timestamp", "desc"), limit(50));
-
-  onSnapshot(q, (snapshot) => {
-    if (snapshot.empty) {
-      emptyNotice.style.display = "block";
-      entriesList.innerHTML = "";
-      entriesList.appendChild(emptyNotice);
-      return;
+    function aplicarBloqueioCurtida() {
+      btnLike.disabled = true;
+      btnLike.style.opacity = "0.75";
+      btnLike.style.cursor = "default";
+      btnLike.querySelector('span:first-child').innerText = "✓ Você curtiu";
     }
 
-    emptyNotice.style.display = "none";
-    entriesList.innerHTML = "";
+    if (localStorage.getItem('site_oficio_curtiu')) {
+      aplicarBloqueioCurtida();
+    }
 
-    snapshot.forEach((doc) => {
-      const data = doc.data();
-      const dateStr = data.timestamp ? new Date(data.timestamp.toDate()).toLocaleDateString('pt-BR') : 'Hoje';
-
-      const entryDiv = document.createElement('div');
-      entryDiv.className = 'entry-item';
-      entryDiv.innerHTML = `
-        <div class="entry-header">
-          <div>
-            <span class="entry-author">${escapeHtml(data.name)}</span>
-            ${data.location ? `<span class="entry-location">(${escapeHtml(data.location)})</span>` : ''}
-          </div>
-          <span class="entry-date">${dateStr}</span>
-        </div>
-        <p class="entry-message">${escapeHtml(data.message)}</p>
-      `;
-      entriesList.appendChild(entryDiv);
+    onSnapshot(likeDocRef, (docSnap) => {
+      if (docSnap.exists()) {
+        likeCount.innerText = docSnap.data().count || 0;
+      } else {
+        likeCount.innerText = 0;
+      }
     });
-  });
 
-  guestbookForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const name = document.getElementById('inputName').value;
-    const location = document.getElementById('inputLocation').value;
-    const message = document.getElementById('inputMessage').value;
+    btnLike.addEventListener('click', async () => {
+      if (localStorage.getItem('site_oficio_curtiu')) return;
 
-    try {
-      await addDoc(collection(db, "guestbook"), {
-        name: name,
-        location: location,
-        message: message,
-        timestamp: serverTimestamp()
+      localStorage.setItem('site_oficio_curtiu', 'true');
+      aplicarBloqueioCurtida();
+
+      try {
+        await updateDoc(likeDocRef, { count: increment(1) });
+      } catch (e) {
+        await setDoc(likeDocRef, { count: 1 });
+      }
+    });
+
+    const q = query(collection(db, "guestbook"), orderBy("timestamp", "desc"), limit(50));
+
+    onSnapshot(q, (snapshot) => {
+      if (snapshot.empty) {
+        emptyNotice.style.display = "block";
+        entriesList.innerHTML = "";
+        entriesList.appendChild(emptyNotice);
+        return;
+      }
+
+      emptyNotice.style.display = "none";
+      entriesList.innerHTML = "";
+
+      snapshot.forEach((doc) => {
+        const data = doc.data();
+        const dateStr = data.timestamp ? new Date(data.timestamp.toDate()).toLocaleDateString('pt-BR') : 'Hoje';
+
+        const entryDiv = document.createElement('div');
+        entryDiv.className = 'entry-item';
+        entryDiv.innerHTML = `
+          <div class="entry-header">
+            <div>
+              <span class="entry-author">${escapeHtml(data.name)}</span>
+              ${data.location ? `<span class="entry-location">(${escapeHtml(data.location)})</span>` : ''}
+            </div>
+            <span class="entry-date">${dateStr}</span>
+          </div>
+          <p class="entry-message">${escapeHtml(data.message)}</p>
+        `;
+        entriesList.appendChild(entryDiv);
       });
-      guestbookForm.reset();
-    } catch (err) {
-      alert("Certifique-se de que o Firestore Database está ativo no painel do Firebase.");
-    }
-  });
+    });
 
-  function escapeHtml(str) {
-    if(!str) return '';
-    return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-  }
-</script>
+    guestbookForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = document.getElementById('inputName').value;
+      const location = document.getElementById('inputLocation').value;
+      const message = document.getElementById('inputMessage').value;
+
+      try {
+        await addDoc(collection(db, "guestbook"), {
+          name: name,
+          location: location,
+          message: message,
+          timestamp: serverTimestamp()
+        });
+        guestbookForm.reset();
+      } catch (err) {
+        alert("Certifique-se de que o Firestore Database está ativo no painel do Firebase.");
+      }
+    });
+
+    function escapeHtml(str) {
+      if(!str) return '';
+      return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+  </script>
 </body>
 
 </html>
