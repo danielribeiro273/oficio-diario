@@ -2,396 +2,731 @@
 <html lang="pt-BR">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FAQ - Perguntas Frequentes sobre Luteranos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ Dinâmico - Perguntas Frequentes sobre Luteranos</title>
 
-<style>
-  /* ESTILO BÁSICO E SIMPLES WEB 1.0 (ANOS 2000) */
-  body {
-    background-color: #ffffff;
-    color: #000000;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 16px;
-    line-height: 1.5;
-    margin: 15px;
-    padding: 0;
-  }
+  <!-- Fonte ultra-legível e moderna -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 
-  /* Bloco principal centralizado que se adapta ao celular */
-  #main {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --primary: #800000;
+      --primary-light: #fff5f5;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --accent: #2563eb;
+      --radius: 14px;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+    }
 
-  h1 {
-    color: #800000;
-    font-size: 24px;
-    text-align: center;
-    margin-bottom: 5px;
-  }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  p.subtitulo {
-    color: #c00000;
-    text-align: center;
-    font-style: italic;
-    margin-top: 0;
-    margin-bottom: 15px;
-  }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      line-height: 1.6;
+      padding: 40px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  /* Caixa do Índice de Perguntas no Topo */
-  .caixa-indice {
-    border: 1px solid #800000;
-    background-color: #ffffff;
-    padding: 15px;
-    margin-bottom: 25px;
-  }
+    #app-container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
 
-  .caixa-indice h2 {
-    color: #800000;
-    font-size: 18px;
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
+    /* HEADER DINÂMICO */
+    header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
 
-  .caixa-indice ul {
-    margin: 0;
-    padding-left: 20px;
-  }
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
 
-  .caixa-indice li {
-    margin-bottom: 8px;
-  }
+    header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
 
-  /* Seção individual das respostas */
-  .bloco-resposta {
-    margin-bottom: 30px;
-    padding-top: 10px;
-  }
+    /* BARRA DE PESQUISA & CONTROLES */
+    .search-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
 
-  .bloco-resposta h2.pergunta-titulo {
-    color: #800000;
-    font-size: 18px;
-    border-bottom: 1px solid #800000;
-    padding-bottom: 4px;
-    margin-top: 0;
-  }
+    .search-box input {
+      width: 100%;
+      padding: 16px 20px 16px 48px;
+      font-size: 1rem;
+      font-family: inherit;
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      background-color: var(--card-bg);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      outline: none;
+      transition: all 0.2s ease;
+    }
 
-  h3 {
-    color: #000080;
-    font-size: 16px;
-    margin-top: 15px;
-    margin-bottom: 5px;
-  }
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(128, 0, 0, 0.1);
+    }
 
-  /* Caixa de destaques/reflexão simples */
-  .caixa-destaque {
-    border: 1px dashed #800000;
-    padding: 10px;
-    margin: 15px 0;
-    background-color: #ffffff;
-  }
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
 
-  /* Links no estilo hipertexto clássico da web */
-  a:link { color: #0000ff; text-decoration: underline; }
-  a:visited { color: #800080; text-decoration: underline; }
-  a:active { color: #ff0000; text-decoration: underline; }
+    /* CATEGORIAS / TABS */
+    .filter-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 12px;
+      margin-bottom: 24px;
+      scrollbar-width: none;
+    }
 
-  .topo-link {
-    font-size: 13px;
-    display: inline-block;
-    margin-top: 10px;
-  }
+    .filter-tabs::-webkit-scrollbar {
+      display: none;
+    }
 
-  .btn-inicio {
-    display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-weight: bold;
-  }
-</style>
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    .actions-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    .toggle-all-btn {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* ACORDEÃO / PERGUNTAS */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .faq-item.open {
+      border-color: var(--primary);
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 20px 24px;
+      background: none;
+      border: none;
+      text-align: left;
+      font-family: inherit;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      transition: background 0.2s ease;
+    }
+
+    .faq-question:hover {
+      background-color: var(--primary-light);
+    }
+
+    .faq-icon {
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+      background: var(--card-bg);
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 3000px; /* Expande para conter todo o texto */
+      transition: max-height 0.5s ease-in-out;
+    }
+
+    .answer-content {
+      padding: 0 24px 24px 24px;
+      border-top: 1px dashed var(--border);
+      padding-top: 20px;
+      font-family: 'Lora', Georgia, serif; /* Leitura agradável para textos longos */
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #1e293b;
+    }
+
+    .answer-content h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin: 20px 0 8px 0;
+      font-weight: 700;
+    }
+
+    .answer-content p {
+      margin-bottom: 12px;
+    }
+
+    .answer-content ul {
+      margin: 12px 0 16px 20px;
+    }
+
+    .answer-content li {
+      margin-bottom: 8px;
+    }
+
+    .caixa-destaque {
+      background: #fefce8;
+      border-left: 4px solid #eab308;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 0.98rem;
+    }
+
+    /* BOTAO INICIO & FOOTER */
+    .btn-inicio-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn-inicio {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(128, 0, 0, 0.2);
+      transition: all 0.2s ease;
+    }
+
+    .btn-inicio:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(128, 0, 0, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 36px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 12px;
+      }
+
+      header h1 {
+        font-size: 1.7rem;
+      }
+
+      .faq-question {
+        padding: 16px;
+        font-size: 1rem;
+      }
+
+      .answer-content {
+        padding: 0 16px 16px 16px;
+        font-size: 0.98rem;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div id="main">
+  <div id="app-container">
 
-  <h1>Perguntas Frequentes sobre Luteranos</h1>
-  <p class="subtitulo">Esclarecimentos históricos, teológicos e culturais sobre o luteranismo.</p>
+    <header>
+      <h1>Perguntas Frequentes sobre Luteranos</h1>
+      <p>Esclarecimentos históricos, teológicos e culturais sobre o luteranismo.</p>
+    </header>
 
-  <!-- ÍNDICE DE PERGUNTAS NO TOPO -->
-  <div class="caixa-indice">
-    <h2>Índice de Perguntas:</h2>
-    <ul>
-      <li><a href="#faq1">1. A Igreja Luterana é seita?</a></li>
-      <li><a href="#faq2">2. Mas por que são tão diferentes dos evangélicos normais?</a></li>
-      <li><a href="#faq3">3. E por que vocês parecem mais liberais?</a></li>
-      <li><a href="#faq4">4. E quanto aos costumes? Operam sob os mesmos pressupostos que os evangélicos comuns?</a></li>
-      <li><a href="#faq5">5. A cultura eclesial, o culto e a espiritualidade também são diferentes?</a></li>
-      <li><a href="#faq6">6. Por que parecem católicos ao responderem se "aceitaram a Jesus"?</a></li>
-      <li><a href="#faq7">7. Por que luteranos raramente falam em "santificação"?</a></li>
-      <li><a href="#faq8">8. Na perspectiva luterana, como os evangélicos caem na contradição de tentar se salvar por "obras"?</a></li>
-      <li><a href="#faq9">9. Qual é a real relação entre o Luteranismo e o Catolicismo hoje?</a></li>
-      <li><a href="#faq10">10. Qual é a posição da igreja sobre Maria, os santos e a arte sacra?</a></li>
-      <li><a href="#faq11">11. A Igreja Luterana é uma "igreja de alemães" ou uma igreja para todos?</a></li>
-    </ul>
-  </div>
-
-  <hr size="2" color="#800000">
-  <br>
-
-  <!-- PERGUNTA 1 -->
-  <div class="bloco-resposta" id="faq1">
-    <h2 class="pergunta-titulo">1. A Igreja Luterana é seita?</h2>
-    <p>Não; ela é uma das principais e mais tradicionais denominações do cristianismo protestante.</p>
-
-    <h3>Origem e história</h3>
-    <p>Fundada no século XVI por Martim Lutero, um ex-monge católico alemão. Surgiu durante a Reforma Protestante, um movimento que contestou dogmas e práticas da Igreja Católica da época. No Brasil, está presente de forma organizada através da Igreja Evangélica Luterana do Brasil (IELB) e a Igreja Evangélica de Confissão Luterana no Brasil (IECLB).</p>
-
-    <h3>Crenças principais</h3>
-    <p>Os luteranos baseiam sua fé nos pilares históricos do protestantismo:</p>
-    <ul>
-      <li><b>Salvação pela graça:</b> Enxergamos como um dom gratuito de Deus, recebido por meio da fé em Jesus Cristo, e não por mérito ou obras humanas.</li>
-      <li><b>Autoridade das Escrituras:</b> Consideramos a Bíblia como a única regra infalível de fé e prática cristã.</li>
-      <li><b>Credos históricos:</b> Aceitamos os credos ecumênicos tradicionais do cristianismo antigo (Apostólico, Niceno e Atanasiano), professando a crença na Santíssima Trindade (Pai, Filho e Espírito Santo).</li>
-    </ul>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
-  </div>
-
-  <hr size="1" color="#cccccc">
-
-  <!-- PERGUNTA 2 -->
-  <div class="bloco-resposta" id="faq2">
-    <h2 class="pergunta-titulo">2. Mas por que são tão diferentes dos evangélicos normais?</h2>
-    <p>Os luteranos mantêm uma estrutura litúrgica tradicional e histórica, muito parecida com a da Igreja Católica. No Brasil, quando as pessoas pensam em "evangélicos normais", geralmente estão se referindo aos pentecostais ou neopentecostais, que surgiram séculos depois de Lutero e têm uma forma de culto e teologia bem distintas. As principais diferenças são:</p>
-
-    <h3>O culto e a liturgia</h3>
-    <p><b>Luteranos:</b> O culto segue uma ordem fixa e formal (liturgia). Há o uso de vestes litúrgicas pelos pastores, recitação de credos históricos, altar, velas e um calendário de datas fixas, como Quaresma, Advento, etc (Ano Litúrgico). Os hinos costumam ser tradicionais, tocados em órgãos ou pianos.<br>
-    <b>Outros evangélicos/Pentecostais:</b> Os cultos tendem a ser mais informais e contemporâneos. A música geralmente usa instrumentos modernos (bateria, guitarra, teclado) e o foco principal está na pregação e na oração espontânea, sem um roteiro rígido de símbolos.</p>
-
-    <h3>O batismo de crianças</h3>
-    <p><b>Luteranos:</b> Batizamos bebês e crianças pequenas, acreditando que o batismo é um ato da graça de Deus, onde o Espírito Santo opera a fé na criança independentemente da capacidade dela de compreender o ato.<br>
-    <b>Outros evangélicos:</b> A maioria (como Batistas e Pentecostais) pratica o "batismo de crentes", apenas para adultos ou jovens que já têm idade para professar conscientemente a sua fé. As crianças pequenas são apenas apresentadas ou consagradas.</p>
-
-    <h3>A Santa Ceia (comunhão)</h3>
-    <p><b>Luteranos:</b> Acreditamos na união sacramental, onde o corpo e o sangue de Cristo estão verdadeiramente presentes "em, com e sob" o pão e o vinho durante a comunhão.<br>
-    <b>Outros evangélicos:</b> A maioria vê a Santa Ceia estritamente como um memorial — um ato simbólico para lembrar o sacrifício de Jesus, sem que haja uma presença física ou mística real nos elementos.</p>
-
-    <h3>Manifestações espirituais</h3>
-    <p><b>Luteranos:</b> São igrejas de linha teológica mais cessacionista ou moderada, sem ênfase em falar em línguas estranhas, profecias ou curas milagrosas durante os cultos públicos.<br>
-    <b>Pentecostais/Neopentecostais:</b> Têm o foco voltado para os dons do Espírito Santo, cultos expressivos, orações espontâneas, campanhas de restauração espiritual / libertação, e busca pelo fervor espiritual, com frequentes apelos por juventudes avivadas que transformem o Brasil.</p>
-
-    <div class="caixa-destaque">
-      <p><b>--- Resumo das Vertentes ---</b></p>
-      <p><i>Protestantismo Histórico (Luteranos, Presbiterianos, Anglicanos):</i> Surgiram na Reforma do século XVI. Mantêm tradições, abordagens intelectuais, teologia confessional e rituais formais.</p>
-      <p><i>Outros evangélicos (Pentecostais e Neopentecostais):</i> Surgiram a partir do século XX. Focam na experiência pessoal, cultos dinâmicos, pregação espontânea e forte apelo de massas.</p>
+    <!-- BARRA DE PESQUISA -->
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="searchInput" placeholder="Pesquisar por dúvida, tema ou palavra-chave (ex: batismo, costumes)...">
     </div>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
-  </div>
 
-  <hr size="1" color="#cccccc">
-
-  <!-- PERGUNTA 3 -->
-  <div class="bloco-resposta" id="faq3">
-    <h2 class="pergunta-titulo">3. E por que vocês parecem mais liberais?</h2>
-    <p>Esta percepção ocorre — especialmente em relação à Igreja Evangélica de Confissão Luterana no Brasil (IECLB) — devido à sua abertura ao diálogo com a ciência, ao uso de métodos acadêmicos na interpretação da Bíblia e a uma postura institucional mais flexível em pautas sociais, o que contrasta com o conservadorismo mais estrito de várias igrejas evangélicas atuais.</p>
-
-    <h3>A divisão no luteranismo brasileiro</h3>
-    <p>Existe uma divisão histórica importante no Brasil entre dois grandes grupos: a <b>IECLB</b> (origem alemã, postura teológica mais aberta, histórica e progressista) e a <b>IELB</b> (origem norte-americana, confessional, teologicamente conservadora e tradicional).</p>
-
-    <h3>Fatores que geram a percepção de "liberalismo" (mais evidentes na IECLB)</h3>
-    <ul>
-      <li><b>Interpretação Bíblica Contextual:</b> Uso do método histórico-crítico para estudar o contexto cultural, a época e os autores dos textos bíblicos.</li>
-      <li><b>Ordenação de Mulheres:</b> Consagração de mulheres ao ministério pastoral desde a década de 1980.</li>
-      <li><b>Diálogo com a Ciência:</b> Separação clara entre os campos da fé e da ciência, aceitando teorias científicas como a evolução biológica sem enxergar nelas contradição com a fé.</li>
-      <li><b>Foco na Graça e Cidadania:</b> Ênfase na responsabilidade social, nos direitos humanos e na atuação comunitária, dando menor centralidade a regras de costumes ou moralidade privada.</li>
-    </ul>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
-  </div>
-
-  <hr size="1" color="#cccccc">
-
-  <!-- PERGUNTA 4 -->
-  <div class="bloco-resposta" id="faq4">
-    <h2 class="pergunta-titulo">4. E quanto aos costumes? Operam sob os mesmos pressupostos que os evangélicos comuns?</h2>
-    <p>Não. Culturalmente e no dia a dia dos costumes, os luteranos operam sob uma lógica bastante diferente. Quando um luterano adota costumes evangélicos populares, isso reflete a influência de um fenômeno sociocultural conhecido como evangelicalização. Os pressupostos luteranos que explicam essa visão sobre os costumes são:</p>
-
-    <h3>A visão do mundo: criação e lazer vs. "coisas do mundo"</h3>
-    <p><b>Evangélicos comuns:</b> Visão de clara separação entre a comunidade de fé e os hábitos seculares ("do mundo", como dizem). Coisas como dançar, beber socialmente, ouvir música secular (estilos além de worship / gospel / louvor), ir a festas, shows, baladas ou assistir a certos filmes tendem a ser vistas como "coisas do mundo" ou brechas para o pecado.<br>
-    <b>Luteranos:</b> Teologia da Criação boa de Deus. A cultura, a música, o convívio social e as festas são considerados elementos da criação para serem desfrutados com gratidão e responsabilidade. A orientação é para que não engajemos nos extremos da sociedade pós-moderna e suas estruturas, como os discursos de ódio, a objetificação (cultura do uso e descarte de pessoas), degradação ambiental, falta de respeito e uso de entorpecentes como forma de sanar vazios existenciais. O próprio Martim Lutero apreciava a cerveja e a música secular de sua época.</p>
-
-    <h3>A santificação: vocação no cotidiano vs. moral externa</h3>
-    <p><b>Evangélicos comuns:</b> Historicamente herdaram o Avivalismo e o Puritanismo norte-americano, que medem a santidade de alguém por proibições externas: o que veste, o tamanho do cabelo, a maquiagem, os lugares que frequenta ou as palavras que evita.<br>
-    <b>Luteranos:</b> Pressuposto da <b>Vocação</b>. A santificação não está em se isolar do mundo ou seguir um código de vestimenta. Você é santo sendo um bom pai, um trabalhador honesto, um cientista dedicado ou um cidadão ético. A fé é interna; o visual e os hábitos culturais legítimos são livres. Sinceramente, não existe a "cultura gospel" de consumo isolado no luteranismo.</p>
-
-    <h3>A doutrina dos dois reinos</h3>
-    <p><b>Luteranos:</b> Entendem que Deus governa o mundo através do Reino da Mão Direita (a Igreja e a fé) e do Reino da Mão Esquerda (a ordem civil, o Estado e a razão). Portanto, não se busca impor a doutrina bíblica sobre a legislação civil da sociedade.<br>
-    <b>Evangélicos comuns:</b> Apresentam maior tendência a defender a aplicação direta de preceitos e valores bíblicos sobre os costumes de toda a sociedade.</p>
-
-    <h3>O fenômeno da influência (aculturação)</h3>
-    <p>Quando um luterano adota posições estritamente proibidistas ou discursos de batalha espiritual, isso costuma derivar do convívio com o ecossistema evangélico de massa no Brasil. Como o luteranismo no Brasil ficou muito restrito a colônias de imigrantes por muito tempo (especialmente no Sul e Sudeste), à medida que essas barreiras culturais caíram e a mídia evangélica de massa (televisão, música gospel, redes sociais) cresceu, muitas comunidades e indivíduos luteranos acabaram assimilando os costumes dos evangélicos comuns para se sentirem integrados ao cenário religioso do país. Mas, na raiz da sua tradição, os pressupostos originais são um tanto diferentes, como citado anteriormente.</p>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
-  </div>
-
-  <hr size="1" color="#cccccc">
-
-  <!-- PERGUNTA 5 -->
-  <div class="bloco-resposta" id="faq5">
-    <h2 class="pergunta-titulo">5. A cultura eclesial, o culto e a espiritualidade também são diferentes?</h2>
-    <p>Sim. Enquanto nas vertentes pentecostais e neopentecostais a experiência do culto busca o engajamento emocional direto e a busca por manifestações do Espírito, no luteranismo ela é guiada pela sobriedade, ordem litúrgica e centralidade nos sacramentos:</p>
-
-    <h3>Cultura eclesial</h3>
-    <p><b>Evangélicos comuns:</b> A cultura eclesial costuma ser altamente centralizada no pastor-líder. O pastor é frequentemente visto como um homem com uma unção especial, um homem de Deus, o que muitas vezes gera estruturas que dependem do carisma e nome de um único líder (a "face da igreja") para existir.<br>
-    <b>Luteranos:</b> Enfatizamos o sacerdócio universal dos fiéis. O pastor é um servidor da comunidade, alguém que estudou teologia formalmente para exercer um cargo, mas ele não é "mais santo" ou "mais ungido" que um leigo. As decisões são comunitárias, tomadas por conselhos e sínodos democráticos. A instituição é mais forte do que as personalidades individuais.</p>
-
-    <h3>O culto</h3>
-    <p><b>Evangélicos comuns:</b> O culto é projetado para gerar engajamento emocional direto. Há momentos de oração em voz alta (todos ao mesmo tempo), apelos dramáticos no altar, e a música (o "louvor") ocupa quase metade do tempo, funcionando como um condutor de sentimentos. A ordem das coisas pode mudar de acordo com o "mover do Espírito" do momento.<br>
-    <b>Luteranos:</b> O culto é estritamente litúrgico e previsível, baseado na tradição da Igreja antiga. Existe um diálogo cantado entre o pastor e a congregação (liturgia). Cada elemento tem um significado teológico profundo: o momento da confissão de pecados, o anúncio do perdão, as leituras bíblicas do dia, o Credo Apostólico e a Eucaristia. Não há muito espaço para improvisos no púlpito; a beleza está na ordem, na reverência e no silêncio contemplativo.</p>
-
-    <h3>Música: hinologia vs. louvor</h3>
-    <p><b>Evangélicos comuns:</b> A música gospel contemporânea é geralmente bastante emocional. As letras tendem a falar muito sobre "a minha vitória", "o meu processo", "Deus vai me exaltar" ou expressões românticas direcionadas a Deus. O ritmo é pop/rock, projetado para impactar e emocionar o ouvinte.<br>
-    <b>Luteranos:</b> A música tradicional luterana (os corais e os hinos clássicos) é profundamente teológica. Cantar hinos (como os compostos pelo próprio Lutero ou por Johann Sebastian Bach, que era luterano) é uma forma de confessar a fé e aprender teologia. A congregação inteira canta unida, muitas vezes acompanhada por um órgão de tubos, sem a cultura de um "ministério de louvor" que se apresenta como atração no palco.</p>
-
-    <h3>Espiritualidade: a Teologia da Cruz vs. a Teologia da Glória</h3>
-    <p><b>Evangélicos comuns:</b> Presença frequente da Teologia da Glória. A espiritualidade tende a ser medida por resultados visíveis: se você tem fé o suficiente, se você é próspero, se você é curado, etc.<br>
-    <b>Luteranos:</b> Deus se revela ao ser humano não no poder e na riqueza, mas na fraqueza, no sofrimento e na cruz de Jesus. Por isso, a espiritualidade luterana aceita a dor, a dúvida e as limitações humanas como parte normal da vida cristã (e não-cristã!). Não há cobrança para que o fiel esteja sempre em êxtase espiritual ou demonstrando uma "vitória" constante, santidade pública ou uma vida piedosa. É uma espiritualidade pé no chão, vivida na rotina silenciosa do trabalho e da família.</p>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
-  </div>
-
-  <hr size="1" color="#cccccc">
-
-<!-- PERGUNTA 6 -->
-  <div class="bloco-resposta" id="faq6">
-    <h2 class="pergunta-titulo">6. Por que parecem católicos ao responderem se "aceitaram a Jesus"?</h2>
-    <p>A pergunta "Você já aceitou Jesus?" costuma soar estranha dentro do vocabulário luterano, e a resposta frequentemente lembra a de um católico tradicional ("fui batizado pelos meus pais quando criança", "vou ao culto com certa frequência", "tento fazer o bem"). Isso acontece porque, para os luteranos, a salvação pela fé não depende de um ato de decisão humana e nem de uma experiência emocional individual. Os pressupostos teológicos que explicam essa reação são fundamentais:</p>
-
-    <h3>Fé não é uma "decisão", mas ação do Espírito Santo</h3>
-    <p><b>Visão de decisão pessoal (arminianos/pentecostais):</b> Enfatizam o livre-arbítrio na salvação. O ser humano precisa "tomar uma decisão", "aceitar a Jesus" ou "ir à frente no altar" para ser salvo. A fé é vista como uma escolha consciente do homem.<br>
-    <b>Luteranos:</b> Entendemos que o ser humano não gera a própria fé por forças pessoais ou emocionais. Quem opera a fé e o acolhimento do Evangelho é o Espírito Santo através da eleição e dos sacramentos. Como Martim Lutero escreveu na explicação do 3º Artigo do Catecismo Menor: <i>"Creio que, por minha própria razão ou força, não posso crer em Jesus Cristo, meu Senhor, nem vir a ele; mas o Espírito Santo me chamou pelo Evangelho..."</i>. A fé é um presente divino recebido e cultivado na vida comunitária.</p>
-
-    <h3>O Batismo como abraço e acolhida de Deus</h3>
-    <p>Se o evangélico pergunta "quando você aceitou Jesus?", busca saber uma data de conversão e encontro com Cristo. O luterano vai responder como o católico: "Eu fui batizado quando criança!". Para o luterano, o Batismo não é apenas um símbolo, mas o meio eficaz onde, mesmo através de um rito feito por tradição de família, teologicamente, algo grandioso acontece: Deus adota aquela pessoa, perdoa seus pecados e a inclui na vida de fé. <p>O Batismo é a marca de que aquela pessoa pertence à comunidade cristã e o lembrete diário para aquela criança de que ela pode ter certeza que é amada e chamada a viver a fé de seus pais através do amor e da liberdade, até que chegue o momento de decidir por si mesma (através do que chamamos de Confirmação, que geralmente ocorre na pré-adolescência).</p> <p>Se um luterano se afasta e depois reencontra a vida comunitária, não precisa de novo batismo ou de provar algo, mas sim de reaproximação da comunidade por um motivo muito simples: sua ausência faz falta na comunidade!</p>
-<h3>Fé não é um relacionamento místico/sentimental</h3>
-    <p>Enquanto no meio evangélico é comum definir a fé como um relacionamento pessoal frequentemente medido por sentimentos intensos de renovação ou respostas espirituais perceptíveis, para os luteranos a fé é a confiança objetiva nas promessas de Deus. Não importa se o luterano está passando por um momento de grande comoção ou por um dia frio e desanimado; o Evangelho é uma mensagem que o encoraja a praticar o bem e a perdoar seus inimigos, na certeza da liberdade e do amor de Deus (que também nos perdoa).</p>
-    <h3>Não há o famoso apelo, e o evangelismo é diferente</h3>
-    <p> Na perspectiva luterana, missão da Igreja é <b>proclamar o Evangelho</b> e <b>testemunhar o amor de Deus</b> na sociedade através de ações concretas de acolhimento e solidariedade. As pessoas se aproximam e permanecem na comunidade porque se identificam com essa mensagem de graça, liberdade e serviço, sem constrangimentos nem apelos que tentam influenciar a consciência do visitante. Apenas Deus é quem, pela pregação do Evangelho e presença da Igreja na sociedade, converte corações para o seguimento comunitário de Cristo.</p>
-
-<h3>"Faço o bem" (os frutos da fé)</h3>
-    <p>Quando o luterano diz "faço o bem", não está dizendo que as boas obras o salvam. Ele opera sob a lógica de que as boas obras são o resultado natural de quem já está salvo desde antes de fazer uma escolha consciente. Uma frase famosa no luteranismo diz: <i>"As boas obras não salvam o homem, mas o homem salvo não consegue viver sem praticar as boas obras"</i>. A espiritualidade luterana se volta para fora: ser um bom cidadão, ajudar o próximo e cuidar da comunidade.</p>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
-  </div>
-  <hr size="1" color="#cccccc">
-
-  <!-- PERGUNTA 7 -->
-  <div class="bloco-resposta" id="faq7">
-    <h2 class="pergunta-titulo">7. Por que luteranos raramente falam em "santificação"?</h2>
-<p>Na perspectiva luterana, a fé não é uma decisão pontual do passado, mas algo que se expressa diariamente na vida comunitária e no amor ao próximo. Ou seja: não há uma categorização/separação binária entre "fé" e "frutos". Por isso, termos como "vida de fé", "resposta ao batismo" ou "vocação" já descrevem a própria santificação. Mas como o termo "santificação" acabou associado no imaginário popular a uma busca por perfeição moral, regras de comportamento ou exercícios de autoaperfeiçoamento espiritual para agradar a Deus, preferimos falar simplesmente em <b>vida de fé</b> — a fé viva que nos impulsiona a agir com amor e responsabilidade no mundo, a partir do Evangelho.</p>
-
-    <h3>"Deus não precisa das suas boas obras, mas o seu vizinho precisa" - Lutero</h3>
-    <p><b>Evangélicos comuns:</b> Enxergam a santificação como algo vertical (entre o indivíduo e Deus). O <i>crente</i> se santifica jejuando, orando de madrugada ou por longos períodos de forma espontânea e íntima, abstendo-se de prazeres e "subindo degraus" de santidade para agradar a Deus ou manter sua salvação.<br>
-    <b>Luteranos:</b> Enxerga-se a santificação como algo horizontal (entre a gente e o nosso próximo). Diante de Deus, você já foi totalmente justificado graças a Cristo. Você não pode fazer nada para se tornar "mais santo" aos olhos de Deus. Portanto, as suas obras de santidade não servem para Deus; elas servem para aliviar o sofrimento do seu vizinho, do seu colega de trabalho ou da sua família. A santificação é praticada na ética social e no dever civil.</p>
-
-    <h3>A simultaneidade: Simul Justus et Peccator</h3>
-    <p>Esse é o conceito de que o cristão é "ao mesmo tempo justo e pecador". Não se prega a possibilidade de uma perfeição moral plena nesta vida terrena. Sempre falhamos em perdoar, amar, fazer o certo.</p>
-
-    <h3>A santificação é a própria vocação <i>(Beruf)</i></h3>
-    <p>A vida de fé realiza-se na vocação secular: no exercício ético da profissão, no cumprimento dos deveres cidadãos e no cuidado da família.</p>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
-  </div>
-
-  <hr size="1" color="#cccccc">
-
-  <!-- PERGUNTA 8 -->
-  <div class="bloco-resposta" id="faq8">
-    <h2 class="pergunta-titulo">8. Na perspectiva luterana, como os evangélicos caem na contradição de tentar se salvar por "obras"?</h2>
-    <p>A maioria dos evangélicos prega que a salvação é apenas pela fé e repudia as "obras" (geralmente citando o catolicismo ou o espiritismo por causa disso), mas, na prática do dia a dia, acabam operando sob um sistema rígido de salvação por obras. Isso acontece porque a definição do que é uma "obra" mudou: para muitos evangélicos hoje, "obra" é apenas caridade ou rituais antigos, sem perceberem que muitas vezes, transformaram o comportamento e a performance espiritual em novas moedas de troca com Deus. Os teólogos luteranos chamam isso de "neo-legalismo" ou a volta da Lei disfarçada de Evangelho. Isso se manifesta de três formas principais:</p>
-
-    <h3>A obra da "decisão" e da "fé"</h3>
-    <p>Para o luterano, até mesmo o ato de ter fé é um presente que Deus coloca em você. No meio evangélico comum, a fé muitas vezes virou uma obra humana. É comum pensar: "Deus fez a parte dele, agora eu preciso fazer a minha: eu preciso aceitar, eu preciso decretar, eu preciso ter fé suficiente". Se a salvação depende da qualidade da sua decisão ou da intensidade do seu sentimento, a salvação passa a depender da capacidade humana de crer. Vira uma obra da mente.</p>
-
-    <h3>A performance dos costumes e proibições</h3>
-    <p>Como o evangélico comum não se batiza quando bebê e busca confirmar constantemente para si mesmo e para a comunidade sua conversão, cria uma lista de performances: Não beber álcool, não ouvir música secular, falar o vocabulário gospel ("varão", "bênção", "está amarrado"), ir a todos os cultos, evitar palavras feias e preencher a agenda com atividades da igreja. Se falha em alguma dessas coisas, sente que perdeu a salvação ou que Deus se afastou (é comum usar o termo "desviado"). Ou seja: a paz espiritual deixa de vir do fato de que Cristo já pagou tudo na cruz e passa a depender do bom comportamento.</p>
-
-    <h3>A "moeda de troca" com o Espírito</h3>
-    <p>No meio pentecostal e neopentecostal, isso fica ainda mais evidente através de sacrifícios para obter favores divinos: fazer jejuns prolongados para obter uma resposta ("mover a mão de Deus"), campanhas, correntes, "subir o monte" para receber uma libertação ou contribuir financeiramente (Teologia da Prosperidade) sob a promessa de retribuição em dobro. Chamam isso de "exercício de fé" ou "guerra espiritual", mas na prática é uma tentativa de barganhar com Deus, acreditando que Ele reage ao esforço e ao sacrifício humano.</p>
-
-    <div class="caixa-destaque">
-      <p><i>O evangélico comum</i>, infelizmente, frequentemente vive em constante ansiedade espiritual, precisando estar sempre "aceso", sentindo a presença de Deus, orando em línguas e vigiando o próprio comportamento para não perder a salvação. Se entra em depressão ou passa por uma crise de dúvida, o sistema colapsa por achar que falhou na fé.</p>
-      <p><i>O luterano</i> vive no alívio do fato consumado. Como sabe que é <i>Simul Justus et Peccator</i> (justo e pecador ao mesmo tempo), ele aceita que vai falhar, que vai ter dias frios e que seu comportamento nunca será perfeito. A certeza dele não está na performance, mas na promessa objetiva de Deus dada no Batismo. Por isso o luterano parece tão livre: porque foi libertado do peso de ter que salvar a si mesmo através do seu estilo de vida.</p>
+    <div class="actions-bar">
+      <span id="counterText">Exibindo 11 perguntas</span>
+      <button class="toggle-all-btn" id="toggleAllBtn" onclick="toggleAll()">Expandir tudo</button>
     </div>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
+
+    <!-- MENSAGEM DE SEM RESULTADOS -->
+    <div id="noResults" class="no-results">
+      <p>Nenhuma pergunta encontrada para sua pesquisa. Tente usar outras palavras-chave.</p>
+    </div>
+
+    <!-- LISTA DE PERGUNTAS (ACORDEÃO) -->
+    <div class="faq-list">
+
+      <!-- PERGUNTA 1 -->
+      <div class="faq-item" data-category="geral">
+        <button class="faq-question">
+          <span>1. A Igreja Luterana é seita?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>Não; ela é uma das principais e mais tradicionais denominações do cristianismo protestante.</p>
+
+            <h3>Origem e história</h3>
+            <p>Fundada no século XVI por Martim Lutero, um ex-monge católico alemão. Surgiu durante a Reforma Protestante, um movimento que contestou dogmas e práticas da Igreja Católica da época. No Brasil, está presente de forma organizada através da Igreja Evangélica Luterana do Brasil (IELB) e a Igreja Evangélica de Confissão Luterana no Brasil (IECLB).</p>
+
+            <h3>Crenças principais</h3>
+            <p>Os luteranos baseiam sua fé nos pilares históricos do protestantismo:</p>
+            <ul>
+              <li><b>Salvação pela graça:</b> Enxergamos como um dom gratuito de Deus, recebido por meio da fé em Jesus Cristo, e não por mérito ou obras humanas.</li>
+              <li><b>Autoridade das Escrituras:</b> Consideramos a Bíblia como a única regra infalível de fé e prática cristã.</li>
+              <li><b>Credos históricos:</b> Aceitamos os credos ecumênicos tradicionais do cristianismo antigo (Apostólico, Niceno e Atanasiano), professando a crença na Santíssima Trindade (Pai, Filho e Espírito Santo).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 2 -->
+      <div class="faq-item" data-category="culto">
+        <button class="faq-question">
+          <span>2. Mas por que são tão diferentes dos evangélicos normais?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>Os luteranos mantêm uma estrutura litúrgica tradicional e histórica, muito parecida com a da Igreja Católica. No Brasil, quando as pessoas pensam em "evangélicos normais", geralmente estão se referindo aos pentecostais ou neopentecostais, que surgiram séculos depois de Lutero e têm uma forma de culto e teologia bem distintas. As principais diferenças são:</p>
+
+            <h3>O culto e a liturgia</h3>
+            <p><b>Luteranos:</b> O culto segue uma ordem fixa e formal (liturgia). Há o uso de vestes litúrgicas pelos pastores, recitação de credos históricos, altar, velas e um calendário de datas fixas, como Quaresma, Advento, etc (Ano Litúrgico). Os hinos costumam ser tradicionais, tocados em órgãos ou pianos.<br>
+            <b>Outros evangélicos/Pentecostais:</b> Os cultos tendem a ser mais informais e contemporâneos. A música geralmente usa instrumentos modernos (bateria, guitarra, teclado) e o foco principal está na pregação e na oração espontânea, sem um roteiro rígido de símbolos.</p>
+
+            <h3>O batismo de crianças</h3>
+            <p><b>Luteranos:</b> Batizamos bebês e crianças pequenas, acreditando que o batismo é um ato da graça de Deus, onde o Espírito Santo opera a fé na criança independentemente da capacidade dela de compreender o ato.<br>
+            <b>Outros evangélicos:</b> A maioria (como Batistas e Pentecostais) pratica o "batismo de crentes", apenas para adultos ou jovens que já têm idade para professar conscientemente a sua fé. As crianças pequenas são apenas apresentadas ou consagradas.</p>
+
+            <h3>A Santa Ceia (comunhão)</h3>
+            <p><b>Luteranos:</b> Acreditamos na união sacramental, onde o corpo e o sangue de Cristo estão verdadeiramente presentes "em, com e sob" o pão e o vinho durante a comunhão.<br>
+            <b>Outros evangélicos:</b> A maioria vê a Santa Ceia estritamente como um memorial — um ato simbólico para lembrar o sacrifício de Jesus, sem que haja uma presença física ou mística real nos elementos.</p>
+
+            <h3>Manifestações espirituais</h3>
+            <p><b>Luteranos:</b> São igrejas de linha teológica mais cessacionista ou moderada, sem ênfase em falar em línguas estranhas, profecias ou curas milagrosas durante os cultos públicos.<br>
+            <b>Pentecostais/Neopentecostais:</b> Têm o foco voltado para os dons do Espírito Santo, cultos expressivos, orações espontâneas, campanhas de restauração espiritual / libertação, e busca pelo fervor espiritual, com frequentes apelos por juventudes avivadas que transformem o Brasil.</p>
+
+            <div class="caixa-destaque">
+              <p><b>--- Resumo das Vertentes ---</b></p>
+              <p><i>Protestantismo Histórico (Luteranos, Presbiterianos, Anglicanos):</i> Surgiram na Reforma do século XVI. Mantêm tradições, abordagens intelectuais, teologia confessional e rituais formais.</p>
+              <p><i>Outros evangélicos (Pentecostais e Neopentecostais):</i> Surgiram a partir do século XX. Focam na experiência pessoal, cultos dinâmicos, pregação espontânea e forte apelo de massas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 3 -->
+      <div class="faq-item" data-category="costumes">
+        <button class="faq-question">
+          <span>3. E por que vocês parecem mais liberais?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>Esta percepção ocorre — especialmente em relação à Igreja Evangélica de Confissão Luterana no Brasil (IECLB) — devido à sua abertura ao diálogo com a ciência, ao uso de métodos acadêmicos na interpretação da Bíblia e a uma postura institucional mais flexível em pautas sociais, o que contrasta com o conservadorismo mais estrito de várias igrejas evangélicas atuais.</p>
+
+            <h3>A divisão no luteranismo brasileiro</h3>
+            <p>Existe uma divisão histórica importante no Brasil entre dois grandes grupos: a <b>IECLB</b> (origem alemã, postura teológica mais aberta, histórica e progressista) e a <b>IELB</b> (origem norte-americana, confessional, teologicamente conservadora e tradicional).</p>
+
+            <h3>Fatores que geram a percepção de "liberalismo" (mais evidentes na IECLB)</h3>
+            <ul>
+              <li><b>Interpretação Bíblica Contextual:</b> Uso do método histórico-crítico para estudar o contexto cultural, a época e os autores dos textos bíblicos.</li>
+              <li><b>Ordenação de Mulheres:</b> Consagração de mulheres ao ministério pastoral desde a década de 1980.</li>
+              <li><b>Diálogo com a Ciência:</b> Separação clara entre os campos da fé e da ciência, aceitando teorias científicas como a evolução biológica sem enxergar nelas contradição com a fé.</li>
+              <li><b>Foco na Graça e Cidadania:</b> Ênfase na responsabilidade social, nos direitos humanos e na atuação comunitária, dando menor centralidade a regras de costumes ou moralidade privada.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 4 -->
+      <div class="faq-item" data-category="costumes">
+        <button class="faq-question">
+          <span>4. E quanto aos costumes? Operam sob os mesmos pressupostos que os evangélicos comuns?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>Não. Culturalmente e no dia a dia dos costumes, os luteranos operam sob uma lógica bastante diferente. Quando um luterano adota costumes evangélicos populares, isso reflete a influência de um fenômeno sociocultural conhecido como evangelicalização. Os pressupostos luteranos que explicam essa visão sobre os costumes são:</p>
+
+            <h3>A visão do mundo: criação e lazer vs. "coisas do mundo"</h3>
+            <p><b>Evangélicos comuns:</b> Visão de clara separação entre a comunidade de fé e os hábitos seculares ("do mundo", como dizem). Coisas como dançar, beber socialmente, ouvir música secular (estilos além de worship / gospel / louvor), ir a festas, shows, baladas ou assistir a certos filmes tendem a ser vistas como "coisas do mundo" ou brechas para o pecado.<br>
+            <b>Luteranos:</b> Teologia da Criação boa de Deus. A cultura, a música, o convívio social e as festas são considerados elementos da criação para serem desfrutados com gratidão e responsabilidade. A orientação é para que não engajemos nos extremos da sociedade pós-moderna e suas estruturas, como os discursos de ódio, a objetificação (cultura do uso e descarte de pessoas), degradação ambiental, falta de respeito e uso de entorpecentes como forma de sanar vazios existenciais. O próprio Martim Lutero apreciava a cerveja e a música secular de sua época.</p>
+
+            <h3>A santificação: vocação no cotidiano vs. moral externa</h3>
+            <p><b>Evangélicos comuns:</b> Historicamente herdaram o Avivalismo e o Puritanismo norte-americano, que medem a santidade de alguém por proibições externas: o que veste, o tamanho do cabelo, a maquiagem, os lugares que frequenta ou as palavras que evita.<br>
+            <b>Luteranos:</b> Pressuposto da <b>Vocação</b>. A santificação não está em se isolar do mundo ou seguir um código de vestimenta. Você é santo sendo um bom pai, um trabalhador honesto, um cientista dedicado ou um cidadão ético. A fé é interna; o visual e os hábitos culturais legítimos são livres. Sinceramente, não existe a "cultura gospel" de consumo isolado no luteranismo.</p>
+
+            <h3>A doutrina dos dois reinos</h3>
+            <p><b>Luteranos:</b> Entendem que Deus governa o mundo através do Reino da Mão Direita (a Igreja e a fé) e do Reino da Mão Esquerda (a ordem civil, o Estado e a razão). Portanto, não se busca impor a doutrina bíblica sobre a legislação civil da sociedade.<br>
+            <b>Evangélicos comuns:</b> Apresentam maior tendência a defender a aplicação direta de preceitos e valores bíblicos sobre os costumes de toda a sociedade.</p>
+
+            <h3>O fenômeno da influência (aculturação)</h3>
+            <p>Quando um luterano adota posições estritamente proibidistas ou discursos de batalha espiritual, isso costuma derivar do convívio com o ecossistema evangélico de massa no Brasil. Como o luteranismo no Brasil ficou muito restrito a colônias de imigrantes por muito tempo (especialmente no Sul e Sudeste), à medida que essas barreiras culturais caíram e a mídia evangélica de massa (televisão, música gospel, redes sociais) cresceu, muitas comunidades e indivíduos luteranos acabaram assimilando os costumes dos evangélicos comuns para se sentirem integrados ao cenário religioso do país. Mas, na raiz da sua tradição, os pressupostos originais são um tanto diferentes, como citado anteriormente.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 5 -->
+      <div class="faq-item" data-category="culto">
+        <button class="faq-question">
+          <span>5. A cultura eclesial, o culto e a espiritualidade também são diferentes?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>Sim. Enquanto nas vertentes pentecostais e neopentecostais a experiência do culto busca o engajamento emocional direto e a busca por manifestações do Espírito, no luteranismo ela é guiada pela sobriedade, ordem litúrgica e centralidade nos sacramentos:</p>
+
+            <h3>Cultura eclesial</h3>
+            <p><b>Evangélicos comuns:</b> A cultura eclesial costuma ser altamente centralizada no pastor-líder. O pastor é frequentemente visto como um homem com uma unção especial, um homem de Deus, o que muitas vezes gera estruturas que dependem do carisma e nome de um único líder (a "face da igreja") para existir.<br>
+            <b>Luteranos:</b> Enfatizamos o sacerdócio universal dos fiéis. O pastor é um servidor da comunidade, alguém que estudou teologia formalmente para exercer um cargo, mas ele não é "mais santo" ou "mais ungido" que um leigo. As decisões são comunitárias, tomadas por conselhos e sínodos democráticos. A instituição é mais forte do que as personalidades individuais.</p>
+
+            <h3>O culto</h3>
+            <p><b>Evangélicos comuns:</b> O culto é projetado para gerar engajamento emocional direto. Há momentos de oração em voz alta (todos ao mesmo tempo), apelos dramáticos no altar, e a música (o "louvor") ocupa quase metade do tempo, funcionando como um condutor de sentimentos. A ordem das coisas pode mudar de acordo com o "mover do Espírito" do momento.<br>
+            <b>Luteranos:</b> O culto é estritamente litúrgico e previsível, baseado na tradição da Igreja antiga. Existe um diálogo cantado entre o pastor e a congregação (liturgia). Cada elemento tem um significado teológico profundo: o momento da confissão de pecados, o anúncio do perdão, as leituras bíblicas do dia, o Credo Apostólico e a Eucaristia. Não há muito espaço para improvisos no púlpito; a beleza está na ordem, na reverência e no silêncio contemplativo.</p>
+
+            <h3>Música: hinologia vs. louvor</h3>
+            <p><b>Evangélicos comuns:</b> A música gospel contemporânea é geralmente bastante emocional. As letras tendem a falar muito sobre "a minha vitória", "o meu processo", "Deus vai me exaltar" ou expressões românticas direcionadas a Deus. O ritmo é pop/rock, projetado para impactar e emocionar o ouvinte.<br>
+            <b>Luteranos:</b> A música tradicional luterana (os corais e os hinos clássicos) é profundamente teológica. Cantar hinos (como os compostos pelo próprio Lutero ou por Johann Sebastian Bach, que era luterano) é uma forma de confessar a fé e aprender teologia. A congregação inteira canta unida, muitas vezes acompanhada por um órgão de tubos, sem a cultura de um "ministério de louvor" que se apresenta como atração no palco.</p>
+
+            <h3>Espiritualidade: a Teologia da Cruz vs. a Teologia da Glória</h3>
+            <p><b>Evangélicos comuns:</b> Presença frequente da Teologia da Glória. A espiritualidade tende a ser medida por resultados visíveis: se você tem fé o suficiente, se você é próspero, se você é curado, etc.<br>
+            <b>Luteranos:</b> Deus se revela ao ser humano não no poder e na riqueza, mas na fraqueza, no sofrimento e na cruz de Jesus. Por isso, a espiritualidade luterana aceita a dor, a dúvida e as limitações humanas como parte normal da vida cristã (e não-cristã!). Não há cobrança para que o fiel esteja sempre em êxtase espiritual ou demonstrando uma "vitória" constante, santidade pública ou uma vida piedosa. É uma espiritualidade pé no chão, vivida na rotina silenciosa do trabalho e da família.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 6 -->
+      <div class="faq-item" data-category="teologia">
+        <button class="faq-question">
+          <span>6. Por que parecem católicos ao responderem se "aceitaram a Jesus"?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>A pergunta "Você já aceitou Jesus?" costuma soar estranha dentro do vocabulário luterano, e a resposta frequentemente lembra a de um católico tradicional ("fui batizado pelos meus pais quando criança", "vou ao culto com certa frequência", "tento fazer o bem"). Isso acontece porque, para os luteranos, a salvação pela fé não depende de um ato de decisão humana e nem de uma experiência emocional individual. Os pressupostos teológicos que explicam essa reação são fundamentais:</p>
+
+            <h3>Fé não é uma "decisão", mas ação do Espírito Santo</h3>
+            <p><b>Visão de decisão pessoal (arminianos/pentecostais):</b> Enfatizam o livre-arbítrio na salvação. O ser humano precisa "tomar uma decisão", "aceitar a Jesus" ou "ir à frente no altar" para ser salvo. A fé é vista como uma escolha consciente do homem.<br>
+            <b>Luteranos:</b> Entendemos que o ser humano não gera a própria fé por forças pessoais ou emocionais. Quem opera a fé e o acolhimento do Evangelho é o Espírito Santo através da eleição e dos sacramentos. Como Martim Lutero escreveu na explicação do 3º Artigo do Catecismo Menor: <i>"Creio que, por minha própria razão ou força, não posso crer em Jesus Cristo, meu Senhor, nem vir a ele; mas o Espírito Santo me chamou pelo Evangelho..."</i>. A fé é um presente divino recebido e cultivado na vida comunitária.</p>
+
+            <h3>O Batismo como abraço e acolhida de Deus</h3>
+            <p>Se o evangélico pergunta "quando você aceitou Jesus?", busca saber uma data de conversão e encontro com Cristo. O luterano vai responder como o católico: "Eu fui batizado quando criança!". Para o luterano, o Batismo não é apenas um símbolo, mas o meio eficaz onde, mesmo através de um rito feito por tradição de família, teologicamente, algo grandioso acontece: Deus adota aquela pessoa, perdoa seus pecados e a inclui na vida de fé.</p>
+            <p>O Batismo é a marca de que aquela pessoa pertence à comunidade cristã e o lembrete diário para aquela criança de que ela pode ter certeza que é amada e chamada a viver a fé de seus pais através do amor e da liberdade, até que chegue o momento de decidir por si mesma (através do que chamamos de Confirmação, que geralmente ocorre na pré-adolescência).</p>
+            <p>Se um luterano se afasta e depois reencontra a vida comunitária, não precisa de novo batismo ou de provar algo, mas sim de reaproximação da comunidade por um motivo muito simples: sua ausência faz falta na comunidade!</p>
+
+            <h3>Fé não é um relacionamento místico/sentimental</h3>
+            <p>Enquanto no meio evangélico é comum definir a fé como um relacionamento pessoal frequentemente medido por sentimentos intensos de renovação ou respostas espirituais perceptíveis, para os luteranos a fé é a confiança objetiva nas promessas de Deus. Não importa se o luterano está passando por um momento de grande comoção ou por um dia frio e desanimado; o Evangelho é uma mensagem que o encoraja a praticar o bem e a perdoar seus inimigos, na certeza da liberdade e do amor de Deus (que também nos perdoa).</p>
+
+            <h3>Não há o famoso apelo, e o evangelismo é diferente</h3>
+            <p>Na perspectiva luterana, missão da Igreja é <b>proclamar o Evangelho</b> e <b>testemunhar o amor de Deus</b> na sociedade através de ações concretas de acolhimento e solidariedade. As pessoas se aproximam e permanecem na comunidade porque se identificam com essa mensagem de graça, liberdade e serviço, sem constrangimentos nem apelos que tentam influenciar a consciência do visitante. Apenas Deus é quem, pela pregação do Evangelho e presença da Igreja na sociedade, converte corações para o seguimento comunitário de Cristo.</p>
+
+            <h3>"Faço o bem" (os frutos da fé)</h3>
+            <p>Quando o luterano diz "faço o bem", não está dizendo que as boas obras o salvam. Ele opera sob a lógica de que as boas obras são o resultado natural de quem já está salvo desde antes de fazer uma escolha consciente. Uma frase famosa no luteranismo diz: <i>"As boas obras não salvam o homem, mas o homem salvo não consegue viver sem praticar as boas obras"</i>. A espiritualidade luterana se volta para fora: ser um bom cidadão, ajudar o próximo e cuidar da comunidade.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 7 -->
+      <div class="faq-item" data-category="teologia">
+        <button class="faq-question">
+          <span>7. Por que luteranos raramente falam em "santificação"?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>Na perspectiva luterana, a fé não é uma decisão pontual do passado, mas algo que se expressa diariamente na vida comunitária e no amor ao próximo. Ou seja: não há uma categorização/separação binária entre "fé" e "frutos". Por isso, termos como "vida de fé", "resposta ao batismo" ou "vocação" já descrevem a própria santificação. Mas como o termo "santificação" acabou associado no imaginário popular a uma busca por perfeição moral, regras de comportamento ou exercícios de autoaperfeiçoamento espiritual para agradar a Deus, preferimos falar simplesmente em <b>vida de fé</b> — a fé viva que nos impulsiona a agir com amor e responsabilidade no mundo, a partir do Evangelho.</p>
+
+            <h3>"Deus não precisa das suas boas obras, mas o seu vizinho precisa" - Lutero</h3>
+            <p><b>Evangélicos comuns:</b> Enxergam a santificação como algo vertical (entre o indivíduo e Deus). O <i>crente</i> se santifica jejuando, orando de madrugada ou por longos períodos de forma espontânea e íntima, abstendo-se de prazeres e "subindo degraus" de santidade para agradar a Deus ou manter sua salvação.<br>
+            <b>Luteranos:</b> Enxerga-se a santificação como algo horizontal (entre a gente e o nosso próximo). Diante de Deus, você já foi totalmente justificado graças a Cristo. Você não pode fazer nada para se tornar "mais santo" aos olhos de Deus. Portanto, as suas obras de santidade não servem para Deus; elas servem para aliviar o sofrimento do seu vizinho, do seu colega de trabalho ou da sua família. A santificação é praticada na ética social e no dever civil.</p>
+
+            <h3>A simultaneidade: Simul Justus et Peccator</h3>
+            <p>Esse é o conceito de que o cristão é "ao mesmo tempo justo e pecador". Não se prega a possibilidade de uma perfeição moral plena nesta vida terrena. Sempre falhamos em perdoar, amar, fazer o certo.</p>
+
+            <h3>A santificação é a própria vocação <i>(Beruf)</i></h3>
+            <p>A vida de fé realiza-se na vocação secular: no exercício ético da profissão, no cumprimento dos deveres cidadãos e no cuidado da família.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 8 -->
+      <div class="faq-item" data-category="teologia">
+        <button class="faq-question">
+          <span>8. Na perspectiva luterana, como os evangélicos caem na contradição de tentar se salvar por "obras"?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>A maioria dos evangélicos prega que a salvação é apenas pela fé e repudia as "obras" (geralmente citando o catolicismo ou o espiritismo por causa disso), mas, na prática do dia a dia, acabam operando sob um sistema rígido de salvação por obras. Isso acontece porque a definição do que é uma "obra" mudou: para muitos evangélicos hoje, "obra" é apenas caridade ou rituais antigos, sem perceberem que muitas vezes, transformaram o comportamento e a performance espiritual em novas moedas de troca com Deus. Os teólogos luteranos chamam isso de "neo-legalismo" ou a volta da Lei disfarçada de Evangelho. Isso se manifesta de três formas principais:</p>
+
+            <h3>A obra da "decisão" e da "fé"</h3>
+            <p>Para o luterano, até mesmo o ato de ter fé é um presente que Deus coloca em você. No meio evangélico comum, a fé muitas vezes virou uma obra humana. É comum pensar: "Deus fez a parte dele, agora eu preciso fazer a minha: eu preciso aceitar, eu preciso decretar, eu preciso ter fé suficiente". Se a salvação depende da qualidade da sua decisão ou da intensidade do seu sentimento, a salvação passa a depender da capacidade humana de crer. Vira uma obra da mente.</p>
+
+            <h3>A performance dos costumes e proibições</h3>
+            <p>Como o evangélico comum não se batiza quando bebê e busca confirmar constantemente para si mesmo e para a comunidade sua conversão, cria uma lista de performances: Não beber álcool, não ouvir música secular, falar o vocabulário gospel ("varão", "bênção", "está amarrado"), ir a todos os cultos, evitar palavras feias e preencher a agenda com atividades da igreja. Se falha em alguma dessas coisas, sente que perdeu a salvação ou que Deus se afastou (é comum usar o termo "desviado"). Ou seja: a paz espiritual deixa de vir do fato de que Cristo já pagou tudo na cruz e passa a depender do bom comportamento.</p>
+
+            <h3>A "moeda de troca" com o Espírito</h3>
+            <p>No meio pentecostal e neopentecostal, isso fica ainda mais evidente através de sacrifícios para obter favores divinos: fazer jejuns prolongados para obter uma resposta ("mover a mão de Deus"), campanhas, correntes, "subir o monte" para receber uma libertação ou contribuir financeiramente (Teologia da Prosperidade) sob a promessa de retribuição em dobro. Chamam isso de "exercício de fé" ou "guerra espiritual", mas na prática é uma tentativa de barganhar com Deus, acreditando que Ele reage ao esforço e ao sacrifício humano.</p>
+
+            <div class="caixa-destaque">
+              <p><i>O evangélico comum</i>, infelizmente, frequentemente vive em constante ansiedade espiritual, precisando estar sempre "aceso", sentindo a presença de Deus, orando em línguas e vigiando o próprio comportamento para não perder a salvação. Se entra em depressão ou passa por uma crise de dúvida, o sistema colapsa por achar que falhou na fé.</p>
+              <p><i>O luterano</i> vive no alívio do fato consumado. Como sabe que é <i>Simul Justus et Peccator</i> (justo e pecador ao mesmo tempo), ele aceita que vai falhar, que vai ter dias frios e que seu comportamento nunca será perfeito. A certeza dele não está na performance, mas na promessa objetiva de Deus dada no Batismo. Por isso o luterano parece tão livre: porque foi libertado do peso de ter que salvar a si mesmo através do seu estilo de vida.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 9 -->
+      <div class="faq-item" data-category="geral">
+        <button class="faq-question">
+          <span>9. Qual é a real relação entre o Luteranismo e o Catolicismo hoje?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>Essa é a maior ironia de todas: ao criarem esse sistema de "neo-legalismo" baseado em costumes, emoções e decisões humanas, muitas vertentes evangélicas repetem o erro que o protestantismo original acusava a Igreja Católica de cometer no século XVI, demonstrando uma interpretação equivocada tanto do catolicismo quanto da própria Reforma Protestante. As razões de discordância entre um luterano tradicional e um católico hoje são historicamente muito menores, a ponto de parecerem próximos se comparados ao abismo histórico que os separa do mundo evangélico popular. O mal-entendido e a aproximação atual se explicam por fatores fundamentais:</p>
+
+            <h3>A má interpretação do catolicismo pelos evangélicos</h3>
+            <p>Os evangélicos costumam resumir a teologia católica a uma caricatura: "Os católicos acham que vão para o céu pagando promessas, acendendo velas e fazendo caridade". Ignoram que a teologia católica oficial (expressa por teólogos como Santo Agostinho e São Tomás de Aquino) afirma categoricamente que a salvação começa inteiramente pela graça de Deus e pelos sacramentos. O catolicismo ensina que as obras cooperam com a graça, mas a base é divina. Ao focar em "campanhas de libertação", jejuns para "mover a mão de Deus" e doações financeiras por trocas de bênçãos, cria-se no meio evangélico popular um sistema de mérito e esforço que muitas vezes supera a prática católica atual.</p>
+
+            <h3>A Declaração Conjunta sobre a Doutrina da Justificação (1999)</h3>
+            <p>O maior exemplo de que os motivos de divisão diminuíram drasticamente entre luteranos e católicos é o documento histórico chamado <i>Declaração Conjunta sobre a Doutrina da Justificação</i>, assinado em 1999 pela Federação Luterana Mundial e pela Igreja Católica Romana. Após séculos de debate, teólogos de ambos os lados concordaram que a salvação é recebida por meio da fé na ação salvífica de Cristo e decorre puramente da graça divina, não de méritos humanos. Perceberam que grande parte da controvérsia do século XVI foi fruto de mal-entendidos linguísticos e do contexto político da época. Hoje, o consenso teológico nessa área fundamental é praticamente mútuo.</p>
+
+            <h3>A visão sacramental e a continuidade histórica</h3>
+            <p>Lutero nunca quis destruir a Igreja ou criar uma religião totalmente nova; ele queria reformar a Igreja Católica Latina. Por isso, os luteranos preservaram a espinha dorsal da tradição ocidental:</p>
+            <ul>
+              <li><b>Os Sacramentos:</b> Assim como os católicos, os luteranos creem que o Batismo e a Santa Ceia são meios de graça reais, onde Deus age fisicamente no mundo (diferente de vertentes evangélicas que veem os sacramentos apenas como símbolos ou ordenanças humanas).</li>
+              <li><b>A liturgia e a história:</b> Ambos compartilham o respeito pela história da Igreja, pelos primeiros concílios, pelos credos ecumênicos e pela patrística (os pais da Igreja).</li>
+            </ul>
+
+            <h3>O cenário atual</h3>
+            <p>Para um luterano tradicional, o catolicismo romano é visto como uma "igreja irmã" que possui divergências dogmáticas (como a autoridade do papa, o dogma de Maria e o culto aos santos), mas que compartilha da mesma raiz, reverência e seriedade teológica. Já o mundo evangélico neopentecostal e pentecostal é visto pelo luteranismo histórico com distanciamento devido à uma diferença cultural, teológica e religiosa gigante.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 10 -->
+      <div class="faq-item" data-category="culto">
+        <button class="faq-question">
+          <span>10. Qual é a posição da igreja sobre Maria, os santos e a arte sacra?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>Na tradição luterana, mantemos uma postura de profundo respeito e consideração por Maria, pelas testemunhas da fé do passado e pela beleza da arte sacra no espaço de culto, preservando o patrimônio histórico e espiritual do cristianismo.</p>
+
+            <h3>Maria e as testemunhas da fé (santos)</h3>
+            <p>Maria é honrada como a Mãe do Nosso Senhor (<i>Theotokos</i>) e como o grande exemplo humano de fé, escuta da Palavra e serviço a Deus. Os santos e personagens bíblicos são lembrados com gratidão e carinho em nosso calendário litúrgico, pois suas trajetórias inspiram nossa vivência comunitária. Contudo, a oração na comunidade luterana é dirigida a Deus por meio de Jesus Cristo, compreendido como o único mediador entre Deus e as pessoas.</p>
+
+            <h3>Arte sacra, imagens e símbolos litúrgicos</h3>
+            <p>Nossas comunidades valorizam o uso pedagógico, contemplativo e estético da arte no templo. Crucifixos, vitrais, velas, paramentos coloridos conforme o Ano Litúrgico e pinturas não são vistos como objetos de adoração, mas como recursos visuais dignos que ajudam a comunidade a se concentrar na mensagem do Evangelho e na beleza da Criação.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- PERGUNTA 11 -->
+      <div class="faq-item" data-category="geral">
+        <button class="faq-question">
+          <span>11. A Igreja Luterana é uma "igreja de alemães" ou uma igreja para todos?</span>
+          <span class="faq-icon">▼</span>
+        </button>
+        <div class="faq-answer">
+          <div class="answer-content">
+            <p>Embora o luteranismo tenha chegado ao Brasil trazido pela imigração alemã no século XIX, ele não é uma religião etnocêntrica nem reservada a uma cultura específica. A teologia luterana compreende a Igreja de Cristo como universal, acolhedora e aberta a todas as pessoas, sem distinção de origem, raça, classe social ou história de vida.</p>
+
+            <h3>A herança cultural vs. a missão universal</h3>
+            <p>Por muitas décadas, devido ao isolamento geográfico e cultural das colônias no Sul e Sudeste, o luteranismo brasileiro manteve o idioma e os costumes alemães como forma de preservação comunitária. No entanto, o Evangelho ensinado por Lutero é fundamentado no amor incondicional de Deus que abraça a totalidade da humanidade. Hoje, os cultos são, em sua grande maioria, em português, e as comunidades estão integradas à diversidade sociocultural do Brasil.</p>
+
+            <h3>Acolhimento irrestrito e graça abundante</h3>
+            <p>Em vez de exigir uniformidade cultural, testes de pureza moral ou o alinhamento a dogmas excludentes, a espiritualidade luterana enfatiza a aceitação incondicional promovida por Cristo. Entende-se que a mesa da comunhão e a comunidade de fé pertencem a todos os que buscam refúgio na graça divina, tornando a igreja um espaço seguro de acolhimento, escuta, pluralidade e inclusão social.</p>
+
+            <h3>Ação no mundo e defesa dos vulneráveis</h3>
+            <p>Entendendo o Evangelho como uma mensagem de libertação e reconciliação, ser uma "igreja de todos" significa colocar o amor ao próximo no centro da vida comunitária. Isso se traduz no compromisso ativo com os direitos humanos, com a justiça social, com a superação das desigualdades e com o cuidado com as pessoas marginalizadas, refletindo a postura de um Cristo que sempre caminhou ao lado daqueles que a sociedade insistia em afastar, o que nos constrange a nos posicionarmos firme e ativamente contra toda forma de preconceito, discriminação, LGBTfobia, opressão, xenofobia, violência, racismo e exclusão social.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="btn-inicio-container">
+      <a href="index.html" class="btn-inicio">← Voltar para a Página Inicial</a>
+    </div>
+
+    <footer>
+      <p>Organizado e mantido por <strong>Daniel Augusto Ribeiro</strong></p>
+      <p style="margin-top: 6px;"><a href="sobre.html">Conheça o projeto e entenda o lecionário</a></p>
+    </footer>
+
   </div>
 
-  <hr size="1" color="#cccccc">
+  <script>
+    // LÓGICA DO ACORDEÃO E DA BUSCA DINÂMICA
+    const faqItems = document.querySelectorAll('.faq-item');
+    const searchInput = document.getElementById('searchInput');
+    const counterText = document.getElementById('counterText');
+    const noResults = document.getElementById('noResults');
+    let currentCategory = 'all';
 
-  <!-- PERGUNTA 9 -->
-  <div class="bloco-resposta" id="faq9">
-    <h2 class="pergunta-titulo">9. Qual é a real relação entre o Luteranismo e o Catolicismo hoje?</h2>
-    <p>Essa é a maior ironia de todas: ao criarem esse sistema de "neo-legalismo" baseado em costumes, emoções e decisões humanas, muitas vertentes evangélicas repetem o erro que o protestantismo original acusava a Igreja Católica de cometer no século XVI, demonstrando uma interpretação equivocada tanto do catolicismo quanto da própria Reforma Protestante. As razões de discordância entre um luterano tradicional e um católico hoje são historicamente muito menores, a ponto de parecerem próximos se comparados ao abismo histórico que os separa do mundo evangélico popular. O mal-entendido e a aproximação atual se explicam por fatores fundamentais:</p>
+    // Abrir/Fechar ao clicar na pergunta
+    faqItems.forEach(item => {
+      const questionBtn = item.querySelector('.faq-question');
+      questionBtn.addEventListener('click', () => {
+        item.classList.toggle('open');
+      });
+    });
 
-    <h3>A má interpretação do catolicismo pelos evangélicos</h3>
-    <p>Os evangélicos costumam resumir a teologia católica a uma caricatura: "Os católicos acham que vão para o céu pagando promessas, acendendo velas e fazendo caridade". Ignoram que a teologia católica oficial (expressa por teólogos como Santo Agostinho e São Tomás de Aquino) afirma categoricamente que a salvação começa inteiramente pela graça de Deus e pelos sacramentos. O catolicismo ensina que as obras cooperam com a graça, mas a base é divina. Ao focar em "campanhas de libertação", jejuns para "mover a mão de Deus" e doações financeiras por trocas de bênçãos, cria-se no meio evangélico popular um sistema de mérito e esforço que muitas vezes supera a prática católica atual.</p>
+    // Filtro por palavra-chave na busca
+    searchInput.addEventListener('input', filterFAQs);
 
-    <h3>A Declaração Conjunta sobre a Doutrina da Justificação (1999)</h3>
-    <p>O maior exemplo de que os motivos de divisão diminuíram drasticamente entre luteranos e católicos é o documento histórico chamado <i>Declaração Conjunta sobre a Doutrina da Justificação</i>, assinado em 1999 pela Federação Luterana Mundial e pela Igreja Católica Romana. Após séculos de debate, teólogos de ambos os lados concordaram que a salvação é recebida por meio da fé na ação salvífica de Cristo e decorre puramente da graça divina, não de méritos humanos. Perceberam que grande parte da controvérsia do século XVI foi fruto de mal-entendidos linguísticos e do contexto político da época. Hoje, o consenso teológico nessa área fundamental é praticamente mútuo.</p>
+    function filterCategory(category) {
+      currentCategory = category;
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      filterFAQs();
+    }
 
-    <h3>A visão sacramental e a continuidade histórica</h3>
-    <p>Lutero nunca quis destruir a Igreja ou criar uma religião totalmente nova; ele queria reformar a Igreja Católica Latina. Por isso, os luteranos preservaram a espinha dorsal da tradição ocidental:</p>
-    <ul>
-      <li><b>Os Sacramentos:</b> Assim como os católicos, os luteranos creem que o Batismo e a Santa Ceia são meios de graça reais, onde Deus age fisicamente no mundo (diferente de vertentes evangélicas que veem os sacramentos apenas como símbolos ou ordenanças humanas).</li>
-      <li><b>A liturgia e a história:</b> Ambos compartilham o respeito pela história da Igreja, pelos primeiros concílios, pelos credos ecumênicos e pela patrística (os pais da Igreja).</li>
-    </ul>
+    function filterFAQs() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      let visibleCount = 0;
 
-    <h3>O cenário atual</h3>
-    <p>Para um luterano tradicional, o catolicismo romano é visto como uma "igreja irmã" que possui divergências dogmáticas (como a autoridade do papa, o dogma de Maria e o culto aos santos), mas que compartilha da mesma raiz, reverência e seriedade teológica. Já o mundo evangélico neopentecostal e pentecostal é visto pelo luteranismo histórico com distanciamento devido à uma diferença cultural, teológica e religiosa gigante.</p>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
-  </div>
+      faqItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        const category = item.getAttribute('data-category');
 
-  <hr size="1" color="#cccccc">
+        const matchesSearch = text.includes(searchTerm);
+        const matchesCategory = currentCategory === 'all' || category === currentCategory;
 
-  <!-- PERGUNTA 10 -->
-  <div class="bloco-resposta" id="faq10">
-    <h2 class="pergunta-titulo">10. Qual é a posição da igreja sobre Maria, os santos e a arte sacra?</h2>
-    <p>Na tradição luterana, mantemos uma postura de profundo respeito e consideração por Maria, pelas testemunhas da fé do passado e pela beleza da arte sacra no espaço de culto, preservando o patrimônio histórico e espiritual do cristianismo.</p>
+        if (matchesSearch && matchesCategory) {
+          item.style.display = 'block';
+          visibleCount++;
+        } else {
+          item.style.display = 'none';
+        }
+      });
 
-    <h3>Maria e as testemunhas da fé (santos)</h3>
-    <p>Maria é honrada como a Mãe do Nosso Senhor (<i>Theotokos</i>) e como o grande exemplo humano de fé, escuta da Palavra e serviço a Deus. Os santos e personagens bíblicos são lembrados com gratidão e carinho em nosso calendário litúrgico, pois suas trajetórias inspiram nossa vivência comunitária. Contudo, a oração na comunidade luterana é dirigida a Deus por meio de Jesus Cristo, compreendido como o único mediador entre Deus e as pessoas.</p>
+      counterText.innerText = `Exibindo ${visibleCount} de ${faqItems.length} perguntas`;
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
 
-    <h3>Arte sacra, imagens e símbolos litúrgicos</h3>
-    <p>Nossas comunidades valorizam o uso pedagógico, contemplativo e estético da arte no templo. Crucifixos, vitrais, velas, paramentos coloridos conforme o Ano Litúrgico e pinturas não são vistos como objetos de adoração, mas como recursos visuais dignos que ajudam a comunidade a se concentrar na mensagem do Evangelho e na beleza da Criação.</p>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
-  </div>
+    // Botão Expandir/Recolher tudo
+    let isAllExpanded = false;
+    function toggleAll() {
+      isAllExpanded = !isAllExpanded;
+      const toggleBtn = document.getElementById('toggleAllBtn');
 
-  <hr size="1" color="#cccccc">
+      faqItems.forEach(item => {
+        if (item.style.display !== 'none') {
+          if (isAllExpanded) {
+            item.classList.add('open');
+          } else {
+            item.classList.remove('open');
+          }
+        }
+      });
 
-  <!-- PERGUNTA 11 -->
-  <div class="bloco-resposta" id="faq11">
-    <h2 class="pergunta-titulo">11. A Igreja Luterana é uma "igreja de alemães" ou uma igreja para todos?</h2>
-    <p>Embora o luteranismo tenha chegado ao Brasil trazido pela imigração alemã no século XIX, ele não é uma religião etnocêntrica nem reservada a uma cultura específica. A teologia luterana compreende a Igreja de Cristo como universal, acolhedora e aberta a todas as pessoas, sem distinção de origem, raça, classe social ou história de vida.</p>
-
-    <h3>A herança cultural vs. a missão universal</h3>
-    <p>Por muitas décadas, devido ao isolamento geográfico e cultural das colônias no Sul e Sudeste, o luteranismo brasileiro manteve o idioma e os costumes alemães como forma de preservação comunitária. No entanto, o Evangelho ensinado por Lutero é fundamentado no amor incondicional de Deus que abraça a totalidade da humanidade. Hoje, os cultos são, em sua grande maioria, em português, e as comunidades estão integradas à diversidade sociocultural do Brasil.</p>
-
-    <h3>Acolhimento irrestrito e graça abundante</h3>
-    <p>Em vez de exigir uniformidade cultural, testes de pureza moral ou o alinhamento a dogmas excludentes, a espiritualidade luterana enfatiza a aceitação incondicional promovida por Cristo. Entende-se que a mesa da comunhão e a comunidade de fé pertencem a todos os que buscam refúgio na graça divina, tornando a igreja um espaço seguro de acolhimento, escuta, pluralidade e inclusão social.</p>
-
-    <h3>Ação no mundo e defesa dos vulneráveis</h3>
-    <p>Entendendo o Evangelho como uma mensagem de libertação e reconciliação, ser uma "igreja de todos" significa colocar o amor ao próximo no centro da vida comunitária. Isso se traduz no compromisso ativo com os direitos humanos, com a justiça social, com a superação das desigualdades e com o cuidado com as pessoas marginalizadas, refletindo a postura de um Cristo que sempre caminhou ao lado daqueles que a sociedade insistia em afastar, o que nos constrange a nos posicionarmos firme e ativamente contra toda forma de preconceito, discriminação, LGBTfobia, opressão, xenofobia, violência, racismo e exclusão social.</p>
-    <a href="#main" class="topo-link">^ Voltar ao topo</a>
-  </div>
-
-  <br>
-  <p><a href="index.html" class="btn-inicio">← Voltar para a Página Inicial</a></p>
-
-  <hr size="1" color="#000000">
-
-  <center>
-    <p><font size="2">Organizado e mantido por Daniel Augusto Ribeiro</font></pP>
-    <p><font size="2"><i><a href="sobre.html">Conheça o projeto e entenda o lecionário</a></i></font></p>
-  </center>
-
-</div>
+      toggleBtn.innerText = isAllExpanded ? 'Recolher tudo' : 'Expandir tudo';
+    }
+  </script>
 
 </body>
 
