@@ -1,112 +1,237 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<title>Sobre o Projeto & Guia do Lecionário</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-  /* ESTILO WEBPAGE PRIMITIVA / WEB 1.0 */
-  body {
-    background-color: #ffffcc; /* Fundo amarelado retro */
-    color: #000000;
-    font-family: "Times New Roman", Times, serif;
-    line-height: 1.5;
-    padding: 10px;
-    margin: 0;
-  }
+  <meta charset="utf-8">
+  <title>Sobre o Projeto & Guia do Lecionário</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  #stuffing {
-    max-width: 800px;
-    margin: 10px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 3px outset #c0c0c0; /* Borda 3D */
-  }
+  <!-- PWA Manifest & Theme -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#7a1c1c">
+  <link rel="apple-touch-icon" href="icon-512.png">
 
-  /* Headings & Typography */
-  h1 {
-    font-size: 1.8rem;
-    color: #800000; /* Vermelho escuro clássico */
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #800000;
-    font-weight: bold;
-    padding-bottom: 4px;
-  }
+  <!-- Fontes de alta legibilidade para leitura explicativa -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  h2 {
-    font-size: 1.3rem;
-    color: #000080; /* Azul marinho para subseções teológicas */
-    margin-top: 25px;
-    margin-bottom: 10px;
-    border-bottom: 1px dashed #000080;
-    font-weight: bold;
-  }
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(() => console.log('PWA Service Worker Registrado com Sucesso!'))
+          .catch((err) => console.log('Falha ao registrar Service Worker:', err));
+      });
+    }
+  </script>
 
-  h3 {
-    font-size: 1.1rem;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    color: #800000;
-  }
+  <style>
+    :root {
+      --bg-main: #fcfaf7;
+      --bg-card: #ffffff;
+      --text-main: #2c2926;
+      --text-muted: #615a55;
+      --primary: #7a1c1c; /* Vermelho sacro / rubrica */
+      --primary-hover: #5d1313;
+      --accent-gold: #b08d57;
+      --accent-bg: #faf6f0;
+      --border-color: #e8e2d9;
+      --radius: 12px;
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+    }
 
-  p {
-    margin-bottom: 14px;
-    text-align: justify;
-  }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  ul, ol {
-    margin-bottom: 15px;
-    padding-left: 25px;
-  }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  li {
-    margin-bottom: 6px;
-  }
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      padding: 32px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
 
-  /* Caixas Informativas estilo retro */
-  .caixa-destaque {
-    background-color: #f4f4f4;
-    border: 2px inset #ffffff;
-    padding: 12px;
-    margin: 15px 0;
-    font-size: 0.95rem;
-  }
+    #stuffing {
+      max-width: 760px;
+      margin: 0 auto;
+      background-color: var(--bg-card);
+      padding: 48px 40px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
 
-  .nav-voltar {
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-  }
+    /* TYPOGRAPHY */
+    h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-top: 16px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      font-weight: 700;
+      padding-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
 
-  /* Links estilo HTML vintage */
-  a:link { color: #0000ff; text-decoration: underline; }
-  a:visited { color: #800080; text-decoration: underline; }
-  a:active { color: #ff0000; }
+    h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.35rem;
+      color: var(--primary);
+      margin-top: 36px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
+      font-weight: 700;
+    }
 
-  .img-lutero {
-    max-width: 140px;
-    height: auto;
-    float: right;
-    margin: 0 0 15px 15px;
-    border: 2px outset #c0c0c0;
-  }
+    h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      margin-top: 18px;
+      margin-bottom: 8px;
+      color: var(--primary);
+      font-weight: 700;
+    }
 
-  footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #000000;
-    margin-top: 40px;
-    border-top: 1px solid #000000;
-    padding-top: 10px;
-  }
-</style>
+    p {
+      margin-bottom: 16px;
+    }
+
+    ul, ol {
+      margin-bottom: 20px;
+      padding-left: 28px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* NAV VOLTAR */
+    .nav-voltar {
+      margin-bottom: 24px;
+    }
+
+    .btn-voltar-topo {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--primary);
+      text-decoration: none;
+      background-color: var(--accent-bg);
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
+      transition: all 0.2s ease;
+    }
+
+    .btn-voltar-topo:hover {
+      background-color: var(--primary);
+      color: #ffffff;
+    }
+
+    /* CAIXAS DE DESTAQUE E AVISOS */
+    .caixa-destaque {
+      background-color: var(--accent-bg);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      margin: 20px 0;
+      font-size: 1.02rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .caixa-destaque strong {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--primary);
+    }
+
+    /* IMAGEM MARTIM LUTERO */
+    .img-lutero {
+      max-width: 150px;
+      height: auto;
+      float: right;
+      margin: 0 0 20px 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* LINKS */
+    a {
+      color: var(--primary);
+      text-decoration: underline;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--primary-hover);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    footer p {
+      margin: 4px 0;
+    }
+
+    /* RESPONSIVIDADE CELULARES */
+    @media only screen and (max-width: 600px) {
+      body {
+        padding: 12px 8px;
+        font-size: 1rem;
+      }
+
+      #stuffing {
+        padding: 24px 18px;
+        border-radius: 8px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      .img-lutero {
+        float: none;
+        display: block;
+        margin: 16px auto;
+        max-width: 140px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <div id="stuffing">
 
   <div class="nav-voltar">
-    <a href="index.html">&larr; Voltar para a Página Inicial</a>
+    <a href="index.html" class="btn-voltar-topo">&larr; Voltar para a Página Inicial</a>
   </div>
 
   <h1>Sobre o Projeto & Guia do Lecionário</h1>
@@ -156,8 +281,8 @@
   </p>
 
   <div class="caixa-destaque">
-    <h3>A Lógica da Semana:</h3>
-    <ul>
+    <h3 style="margin-top: 0;">A Lógica da Semana:</h3>
+    <ul style="margin-bottom: 0;">
       <li><strong>Segunda, Terça e Quarta-feira:</strong> As leituras olham <em>para trás</em>. Elas ajudam você a digerir, meditar e aprofundar os textos que foram lidos no domingo passado.</li>
       <li><strong>Quinta, Sexta e Sábado:</strong> As leituras olham <em>para a frente</em>. Elas preparam a sua mente e o seu coração para o tema que será abordado no próximo domingo.</li>
     </ul>
