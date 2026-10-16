@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Sobre o Projeto & Guia do Lecionário</title>
+  <title>Sobre o Projeto & Guia de Leitura</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- PWA Manifest & Theme -->
@@ -10,7 +10,7 @@
   <meta name="theme-color" content="#7a1c1c">
   <link rel="apple-touch-icon" href="icon-512.png">
 
-  <!-- Fontes de alta legibilidade para leitura explicativa -->
+  <!-- Fontes de alta legibilidade -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,7 +31,7 @@
       --bg-card: #ffffff;
       --text-main: #2c2926;
       --text-muted: #615a55;
-      --primary: #7a1c1c; /* Vermelho sacro / rubrica */
+      --primary: #7a1c1c; /* Vermelho sacro */
       --primary-hover: #5d1313;
       --accent-gold: #b08d57;
       --accent-bg: #faf6f0;
@@ -55,9 +55,9 @@
       background-color: var(--bg-main);
       color: var(--text-main);
       font-family: 'Lora', Georgia, serif;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      padding: 32px 16px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      padding: 24px 16px;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -65,7 +65,7 @@
       max-width: 760px;
       margin: 0 auto;
       background-color: var(--bg-card);
-      padding: 48px 40px;
+      padding: 36px 28px;
       border-radius: var(--radius);
       box-shadow: var(--shadow-md);
       border: 1px solid var(--border-color);
@@ -76,50 +76,21 @@
       font-family: 'Cinzel', serif;
       font-size: 1.8rem;
       color: var(--primary);
-      margin-top: 16px;
-      margin-bottom: 20px;
+      margin-top: 12px;
+      margin-bottom: 16px;
       border-bottom: 2px solid var(--primary);
       font-weight: 700;
       padding-bottom: 8px;
       letter-spacing: 0.5px;
     }
 
-    h2 {
-      font-family: 'Cinzel', serif;
-      font-size: 1.35rem;
-      color: var(--primary);
-      margin-top: 36px;
-      margin-bottom: 14px;
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 6px;
-      font-weight: 700;
-    }
-
-    h3 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.1rem;
-      margin-top: 18px;
-      margin-bottom: 8px;
-      color: var(--primary);
-      font-weight: 700;
-    }
-
     p {
-      margin-bottom: 16px;
-    }
-
-    ul, ol {
-      margin-bottom: 20px;
-      padding-left: 28px;
-    }
-
-    li {
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
 
     /* NAV VOLTAR */
     .nav-voltar {
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .btn-voltar-topo {
@@ -128,7 +99,7 @@
       gap: 6px;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--primary);
       text-decoration: none;
       background-color: var(--accent-bg);
@@ -143,53 +114,181 @@
       color: #ffffff;
     }
 
-    /* CAIXAS DE DESTAQUE E AVISOS */
-    .caixa-destaque {
-      background-color: var(--accent-bg);
-      border: 1px solid var(--border-color);
-      border-left: 4px solid var(--primary);
+    /* CAIXA DE RESUMO EM LINGUAGEM SIMPLES */
+    .caixa-resumo {
+      background-color: #fff9f0;
+      border: 2px solid var(--accent-gold);
       border-radius: var(--radius);
-      padding: 18px 20px;
-      margin: 20px 0;
-      font-size: 1.02rem;
+      padding: 20px;
+      margin-bottom: 24px;
       box-shadow: var(--shadow-sm);
     }
 
-    .caixa-destaque strong {
+    .caixa-resumo h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .caixa-resumo ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .caixa-resumo li {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.98rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .caixa-resumo li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* CAIXA DE ALÍVIO / SEM PRESSÃO */
+    .caixa-paz {
+      background-color: #f0f7f4;
+      border: 1px solid #c8e6d9;
+      border-left: 4px solid #2e7d32;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 20px 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      color: #1b4332;
+    }
+
+    .caixa-paz strong {
+      color: #2e7d32;
+    }
+
+    /* SEÇÕES EXPANSÍVEIS (ACORDEÃO) */
+    .secao-expansivel {
+      background-color: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      margin-bottom: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+
+    .secao-expansivel[open] {
+      border-color: var(--primary);
+    }
+
+    .secao-expansivel summary {
+      padding: 16px 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      background-color: var(--bg-main);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .secao-expansivel summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .secao-expansivel summary::after {
+      content: '➕';
+      font-size: 0.9rem;
+    }
+
+    .secao-expansivel[open] summary::after {
+      content: '➖';
+    }
+
+    .conteudo-expansivel {
+      padding: 20px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    /* GLOSSÁRIO DE TERMOS */
+    .grid-glossario {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .item-glossario {
+      background-color: var(--accent-bg);
+      padding: 12px 16px;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent-gold);
+    }
+
+    .item-glossario strong {
+      display: block;
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: var(--primary);
+      font-size: 0.95rem;
+      margin-bottom: 4px;
     }
 
-    /* IMAGEM MARTIM LUTERO */
-    .img-lutero {
-      max-width: 150px;
-      height: auto;
-      float: right;
-      margin: 0 0 20px 20px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-sm);
+    .item-glossario p {
+      font-size: 0.9rem;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* LISTA DE FASES DO ANO */
+    .etapas-ano {
+      list-style: none;
+      padding: 0;
+      margin: 14px 0;
+    }
+
+    .etapas-ano li {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      margin-bottom: 6px;
+      background-color: var(--accent-bg);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* CAIXAS DE AVISO */
+    .caixa-aviso {
+      background-color: var(--accent-bg);
+      border-left: 4px solid var(--primary);
+      padding: 14px 18px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      margin: 14px 0;
     }
 
     /* LINKS */
     a {
       color: var(--primary);
       text-decoration: underline;
-      transition: color 0.2s;
-    }
-
-    a:hover {
-      color: var(--primary-hover);
     }
 
     /* FOOTER */
     footer {
       text-align: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--text-muted);
-      margin-top: 48px;
-      padding-top: 20px;
+      margin-top: 36px;
+      padding-top: 16px;
       border-top: 1px solid var(--border-color);
     }
 
@@ -197,31 +296,31 @@
       margin: 4px 0;
     }
 
-    /* RESPONSIVIDADE CELULARES */
+    /* AJUSTES RESPONSIVOS PARA CELULAR E PC */
     @media only screen and (max-width: 600px) {
       body {
         padding: 12px 8px;
-        font-size: 1rem;
       }
 
       #stuffing {
-        padding: 24px 18px;
-        border-radius: 8px;
+        padding: 20px 14px;
       }
 
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.45rem;
       }
 
-      h2 {
-        font-size: 1.2rem;
+      .grid-glossario {
+        grid-template-columns: 1fr;
       }
 
-      .img-lutero {
-        float: none;
-        display: block;
-        margin: 16px auto;
-        max-width: 140px;
+      .secao-expansivel summary {
+        padding: 14px 16px;
+        font-size: 0.98rem;
+      }
+
+      .conteudo-expansivel {
+        padding: 16px 14px;
       }
     }
   </style>
@@ -234,133 +333,124 @@
     <a href="index.html" class="btn-voltar-topo">&larr; Voltar para a Página Inicial</a>
   </div>
 
-  <h1>Sobre o Projeto & Guia do Lecionário</h1>
+  <h1>Entenda como Funciona o Site</h1>
 
-  <img src="lutero.jpeg" alt="Martim Lutero" class="img-lutero">
-
-  <p>
-    Esta plataforma foi desenvolvida de forma independente para servir como um guia simples de oração e leitura bíblica diária (chamado tradicionalmente de <strong>Ofício Diário</strong>). O objetivo é oferecer uma ferramenta prática para que cristãos e cristãs de diversas tradições — especialmente os que já estão habituados (ou buscando) o ritmo do Ano Litúrgico e de orações estruturadas — consigam manter uma rotina diária de oração em sintonia com textos bíblicos compartilhados por outros cristãos e outras cristãs no mundo inteiro.
-  </p>
-
-  <div class="caixa-destaque">
-    <strong>Dica para a Oração Individual:</strong> O roteiro das orações possui marcações como <em>Dirigente</em>, <em>Resposta</em> e <em>Todos juntos</em>. Elas servem para orientar quando o texto é lido em grupo. <strong>Se você estiver orando sozinho(a), basta ler todas as partes continuamente.</strong>
-  </div>
-
-  <div class="caixa-destaque">
-    <strong>Nota de Esclarecimento Institucional:</strong> Este projeto é uma iniciativa pessoal e privada. <u>Não possui qualquer vínculo oficial, institucional ou jurídico com a Igreja Evangélica de Confissão Luterana no Brasil (IECLB)</u> ou com a Universidade Vanderbilt. Trata-se de uma ferramenta oferecida gratuitamente à comunidade.
-  </div>
-
-  <h2>1. Afinal, o que é um "Lecionário"?</h2>
-  <p>
-    Se você nunca ouviu essa palavra, pense no lecionário como um <strong>plano anual (no caso, trienal) de leitura da Bíblia</strong>. 
-  </p>
-
-  <p>
-    Em muitas igrejas locais, o pastor ou pregador escolhe livremente os versículos do culto de domingo. No entanto, igrejas tradicionais e litúrgicas costumam organizar a leitura da Bíblia através de uma tabela fixa de textos para cada Domingo ao longo do Ano Cristão. A esse mapa de leituras dá-se o nome de <strong>Lecionário</strong>.
-  </p>
-
-  <p>
-    O <strong>Lecionário Comum Revisado (LCR)</strong> é uma versão moderna desse plano de leitura, criada em 1992 por especialistas de diversas tradições. Ele reúne passagens do Antigo Testamento, dos Salmos, das Cartas e dos Evangelhos para cada semana do ano.
-  </p>
-
-  <p>
-    A grande beleza do Lecionário é o seu caráter <strong>ecumênico</strong>: hoje ele é usado por igrejas Luteranas, Anglicanas, Metodistas, Presbiterianas, Reformadas e por milhões de fiéis individualmente. Além disso, como o LCR é diretamente derivado do lecionário publicado pela Igreja Católica Romana após o Concílio Vaticano II (1969), as leituras de domingo muitas vezes coincidem ou se alinham diretamente com o calendário litúrgico e as leituras dominicais católico-romanas. Ao abrir este site hoje ou visitar uma igreja que segue o LCR, você está lendo/ouvindo exatamente as mesmas passagens bíblicas que muitas pessoas em diferentes continentes estão meditando no mesmo dia.
-  </p>
-
-  <h2>2. Como o Lecionário Funciona no Culto e na Sua Casa</h2>
-  <p>
-    Nas igrejas que adotam o lecionário (como a IECLB), os cultos de domingo seguem essas leituras oficiais. Quem assiste ao culto ouve passagens integradas da Bíblia que se conectam entre si.
-  </p>
-  <p>
-    Porém, o lecionário não serve apenas para o culto de domingo! Ele possui uma tabela especial de <strong>Leituras Diárias</strong> de segunda a sábado. O objetivo deste site é justamente levar esse ritmo para a sua casa, no seu momento devocional de cada dia.
-  </p>
-
-  <h2>3. Entendendo o Ritmo dos Dias (Segunda a Sábado)</h2>
-  <p>
-    As leituras da semana não são escolhidas ao acaso; elas funcionam como uma ponte entre os domingos:
-  </p>
-
-  <div class="caixa-destaque">
-    <h3 style="margin-top: 0;">A Lógica da Semana:</h3>
-    <ul style="margin-bottom: 0;">
-      <li><strong>Segunda, Terça e Quarta-feira:</strong> As leituras olham <em>para trás</em>. Elas ajudam você a digerir, meditar e aprofundar os textos que foram lidos no domingo passado.</li>
-      <li><strong>Quinta, Sexta e Sábado:</strong> As leituras olham <em>para a frente</em>. Elas preparam a sua mente e o seu coração para o tema que será abordado no próximo domingo.</li>
+  <!-- EXPLICAÇÃO PRINCIPAL DIRETA -->
+  <div class="caixa-resumo">
+    <h2>💡 Como este site funciona para você</h2>
+    <ul>
+      <li>📌 <strong>Nós usamos um "Lecionário":</strong> Essa palavra difícil significa apenas uma tabela organizada de leituras bíblicas. Usamos o Lecionário Comum Revisado, uma tabela ecumênica usada em muitas igrejas tradicionais nos cultos de domingo.</li>
+      <li>📅 <strong>Agora também no seu dia a dia:</strong> Trouxemos esse plano para o site para que você possa ler trechos da Bíblia de segunda a sábado no seu momento de devoção individual ou em família.</li>
+      <li>👤 <strong>Se você estiver orando sozinho(a):</strong> Quando vir indicações como <em>"Dirigente"</em> ou <em>"Resposta"</em>, ignore! Elas existem apenas para quando um grupo lê junto. Sozinho(a), leia tudo do início ao fim como sua oração.</li>
     </ul>
   </div>
 
-  <h2>4. A Bússola Bíblica: O Ciclo de 3 Anos</h2>
-  <p>
-    Para evitar que apenas as passagens bíblicas mais famosas sejam lidas repetidamente, o lecionário organiza as leituras dos domingos em um ciclo de 3 anos (Anos A, B e C). A cada ano, a história de Jesus é acompanhada a partir do olhar de um escritor dos Evangelhos:
+  <!-- AVISO DE PAZ DE ESPÍRITO (SEM PRESSÃO) -->
+  <div class="caixa-paz">
+    <strong>Esqueceu ou não deu tempo de ler ontem? Não tem problema!</strong><br>
+    As leituras não dependem umas das outras de forma rígida. O objetivo aqui não é "cumprir meta", mas sim ter um momento sincero com Deus. Se o seu dia foi corrido e você só chegou à noite cansado(a), vá direto para o <strong>Breve Ofício da Noite</strong>: ele é rapidinho, já inclui um Salmo lindo e garante a sua oração antes de dormir!
+  </div>
+
+  <!-- GLOSSÁRIO SIMPLES PARA QUALQUER LEITOR -->
+  <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; color: var(--primary); margin: 24px 0 12px 0;">
+    🔤 O que significam essas palavras?
+  </h2>
+
+  <div class="grid-glossario">
+    <div class="item-glossario">
+      <strong>Ofício Diário</strong>
+      <p>É o nome antigo para uma pausa de oração diária. É simplesmente separar alguns minutos para orar e ler a Bíblia.</p>
+    </div>
+    <div class="item-glossario">
+      <strong>Lecionário</strong>
+      <p>É o nome do guia ou tabela que indica quais capítulos e versículos da Bíblia ler em cada dia.</p>
+    </div>
+    <div class="item-glossario">
+      <strong>Ecumênico</strong>
+      <p>Quer dizer que é usado por vários irmãos e irmãs de igrejas diferentes pelo mundo (Luteranos, Católicos, Presbiterianos, Metodistas, etc.).</p>
+    </div>
+    <div class="item-glossario">
+      <strong>Ano Litúrgico</strong>
+      <p>O calendário da igreja, que divide o ano lembrando dos momentos marcantes da vida de Jesus.</p>
+    </div>
+  </div>
+
+  <p style="text-align: center; font-size: 0.9rem; color: var(--text-muted); margin: 24px 0 12px 0;">
+    👇 <strong>Clique nos itens abaixo se quiser saber mais detalhes:</strong>
   </p>
 
-  <ul>
-    <li><strong>Ano A:</strong> Focado no <strong>Evangelho de Mateus</strong> (ex: 2022-2023, 2025-2026).</li>
-    <li><strong>Ano B:</strong> Focado no <strong>Evangelho de Marcos</strong> (ex: 2023-2024, 2026-2027).</li>
-    <li><strong>Ano C:</strong> Focado no <strong>Evangelho de Lucas</strong> (ex: 2024-2025, 2027-2028).</li>
-  </ul>
+  <!-- DETALHES OPCIONAIS -->
+  <details class="secao-expansivel">
+    <summary>1. Como as leituras da semana se conectam com o Domingo?</summary>
+    <div class="conteudo-expansivel">
+      <p>
+        O lecionário foi criado para os cultos de domingo. Mas para a nossa vida diária em casa, as leituras da semana funcionam assim:
+      </p>
+      <ul>
+        <li><strong>Segunda, Terça e Quarta:</strong> Ajudam a relembrar e guardar no coração o que foi lido no domingo passado.</li>
+        <li><strong>Quinta, Sexta e Sábado:</strong> Começam a preparar o nosso coração para as leituras do próximo domingo.</li>
+      </ul>
+      <p>Mas lembre-se: se você pular algum dia, continue de onde estiver no dia de hoje sem pressão!</p>
+    </div>
+  </details>
 
-  <p>
-    <em>E o Evangelho de João?</em> Por ter uma linguagem teológica muito particular, o Evangelho de João é intercalado nos três anos durante datas comemorativas importantes (como Natal, Páscoa e Quaresma).
-  </p>
+  <details class="secao-expansivel">
+    <summary>2. Por que os textos mudam a cada ano? (Ciclo de 3 Anos)</summary>
+    <div class="conteudo-expansivel">
+      <p>
+        Para não ler sempre os mesmos textos bíblicos conhecidos nos domingos, o plano roda em um ciclo de 3 anos (Ano A, Ano B e Ano C). A cada ano, acompanhamos o Evangelho sob um ponto de vista:
+      </p>
+      <ul>
+        <li><strong>Ano A:</strong> Focado no Evangelho de <strong>Mateus</strong></li>
+        <li><strong>Ano B:</strong> Focado no Evangelho de <strong>Marcos</strong></li>
+        <li><strong>Ano C:</strong> Focado no Evangelho de <strong>Lucas</strong></li>
+      </ul>
+      <p>O Evangelho de <strong>João</strong> é lido em momentos especiais de celebração (como Natal e Páscoa) em todos os três anos.</p>
+    </div>
+  </details>
 
-  <h2>5. O "Ano Litúrgico": O Calendário da Igreja</h2>
-  <p>
-    Enquanto o calendário civil começa no dia 1º de janeiro, o calendário da igreja (chamado de <strong>Ano Litúrgico</strong>) começa no final de novembro ou início de dezembro, com o período do <strong>Advento</strong> (a preparação para o Natal).
-  </p>
-  <p>
-    Ao longo do ano, a igreja caminha pelas etapas da vida de Jesus e do crescimento da fé:
-  </p>
+  <details class="secao-expansivel">
+    <summary>3. O Calendário da Igreja (Ano Litúrgico)</summary>
+    <div class="conteudo-expansivel">
+      <p>Diferente do calendário comum que começa em 1º de janeiro, o calendário de orações da igreja começa no final de novembro (no Advento, preparando para o Natal). As fases são:</p>
+      <ul class="etapas-ano">
+        <li>🕯️ <strong>Advento:</strong> Espera e preparação para o nascimento de Jesus.</li>
+        <li>🎄 <strong>Natal:</strong> Celebração da vinda do Salvador.</li>
+        <li>🌟 <strong>Epifania:</strong> Jesus revelado a todas as nações.</li>
+        <li>✝️ <strong>Quaresma:</strong> Tempo de oração e reflexão antes da Páscoa.</li>
+        <li>🌅 <strong>Páscoa:</strong> Celebração da vitória de Jesus sobre a morte.</li>
+        <li>🕊️ <strong>Pentecostes:</strong> A vinda do Espírito Santo sobre a igreja.</li>
+        <li>🌱 <strong>Tempo Comum:</strong> Crescimento no aprendizado diário.</li>
+      </ul>
+    </div>
+  </details>
 
-  <ol>
-    <li><strong>Advento:</strong> Quatro semanas de reflexão, esperança e expectativa para o nascimento de Jesus.</li>
-    <li><strong>Natal:</strong> Celebração da vinda de Deus ao mundo na pessoa de Jesus Cristo.</li>
-    <li><strong>Epifania:</strong> Recorda a manifestação de Jesus ao mundo e aos povos de todas as nações.</li>
-    <li><strong>Quaresma:</strong> Período de 40 dias de reflexão e oração que antecede a Páscoa.</li>
-    <li><strong>Páscoa:</strong> A celebração da ressurreição de Jesus e da vitória sobre a morte.</li>
-    <li><strong>Pentecostes:</strong> Celebração da vinda do Espírito Santo e do início da Igreja missionária.</li>
-    <li><strong>Tempo Comum:</strong> Semanas focadas no aprendizado diário e na vivência prática dos ensinamentos de Jesus.</li>
-  </ol>
 
-  <h2>6. Referências e Links de Estudo</h2>
-  <p>
-    Se você deseja explorar mais sobre o lecionário e os documentos de referência, consulte os links abaixo:
-  </p>
-
-  <ul>
-    <li>
-      <a href="https://portal-luterano-files.ieclb.org.br/_arquivos/201111/d5e4da0ead8ba8cd2962216e686c0a5b.pdf" target="_blank" rel="noopener">
-        <strong>Lecionário Comum Revisado (IECLB - Documento em PDF)</strong>
-      </a><br>
-      Tabela oficial utilizada no contexto da Igreja Evangélica de Confissão Luterana no Brasil.
-    </li>
-    <li>
-      <a href="https://lectionary.library.vanderbilt.edu/" target="_blank" rel="noopener">
-        <strong>Vanderbilt Divinity Library — Revised Common Lectionary</strong>
-      </a><br>
-      Acervo digital da Universidade Vanderbilt com todas as tabelas do lecionário ecumênico.
-    </li>
-    <li>
-      <a href="https://pt.wikipedia.org/wiki/Lecion%C3%A1rio" target="_blank" rel="noopener">
-        <strong>Wikipedia: O que é um Lecionário?</strong>
-      </a><br>
-      Explicação histórica sobre a origem e a evolução do uso de lecionários no cristianismo.
-    </li>
-    <li>
-      <a href="https://pt.wikipedia.org/wiki/Ano_lit%C3%Bargico" target="_blank" rel="noopener">
-        <strong>Wikipedia: Ano Litúrgico</strong>
-      </a><br>
-      Artigo detalhado sobre as diferentes estações do calendário cristão.
-    </li>
-    <li>
-      <a href="https://www.ieclb.org.br/" target="_blank" rel="noopener">
-        <strong>Portal da IECLB</strong>
-      </a><br>
-      Para conhecer mais sobre a tradição e a atuação da igreja luterana no Brasil.
-    </li>
-  </ul>
+  <details class="secao-expansivel">
+    <summary>🔗 Links para pesquisa e tabelas oficiais</summary>
+    <div class="conteudo-expansivel">
+      <ul style="padding-left: 18px;">
+        <li style="margin-bottom: 8px;">
+          <a href="https://portal-luterano-files.ieclb.org.br/_arquivos/201111/d5e4da0ead8ba8cd2962216e686c0a5b.pdf" target="_blank" rel="noopener">
+            <strong>Tabela Oficial do Lecionário em PDF (IECLB)</strong>
+          </a>
+        </li>
+        <li style="margin-bottom: 8px;">
+          <a href="https://lectionary.library.vanderbilt.edu/" target="_blank" rel="noopener">
+            <strong>Vanderbilt Divinity Library (Lecionário Internacional)</strong>
+          </a>
+        </li>
+        <li>
+          <a href="https://pt.wikipedia.org/wiki/Lecion%C3%A1rio" target="_blank" rel="noopener">
+            <strong>História do Lecionário na Wikipedia</strong>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </details>
 
   <footer>
-    <p>Organizado e mantido por Daniel Augusto Ribeiro</p>
+    <p>Organizado e mantido por <strong>Daniel Augusto Ribeiro</strong></p>
     <p style="margin-top: 4px; font-style: italic;">Sola Gratia • Sola Fide • Solus Christus • Sola Scriptura</p>
   </footer>
 
