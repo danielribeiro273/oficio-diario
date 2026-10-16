@@ -26,6 +26,8 @@
   </script>
 
   <style>
+    :focus-visible { outline: 3px solid #1769aa; outline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
     :root {
       --bg-main: #fcfaf7;
       --bg-card: #ffffff;
@@ -99,7 +101,7 @@
       gap: 6px;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--primary);
       text-decoration: none;
       background-color: var(--accent-bg);
@@ -204,12 +206,12 @@
     }
 
     .secao-expansivel summary::after {
-      content: '➕';
-      font-size: 0.9rem;
+      content: '＋';
+      font-size: 1rem;
     }
 
     .secao-expansivel[open] summary::after {
-      content: '➖';
+      content: '−';
     }
 
     .conteudo-expansivel {
@@ -241,7 +243,7 @@
     }
 
     .item-glossario p {
-      font-size: 0.9rem;
+      font-size: 1rem;
       margin: 0;
       line-height: 1.4;
     }
@@ -285,7 +287,7 @@
     footer {
       text-align: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       margin-top: 36px;
       padding-top: 16px;
@@ -323,111 +325,135 @@
         padding: 16px 14px;
       }
     }
+
+    /* Texto e componentes fluidos para telas pequenas e zoom de acessibilidade */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body { overflow-wrap: anywhere; }
+    #stuffing { width: 100%; min-width: 0; }
+    #stuffing * { min-width: 0; }
+    p, li, summary, a, h1, h2, strong { overflow-wrap: anywhere; }
+    img, svg, video, iframe { max-width: 100%; height: auto; }
+    .secao-expansivel summary { gap: 12px; }
+    .secao-expansivel summary::after { flex: 0 0 auto; }
+    .grid-glossario { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+    @media (max-width: 600px) {
+      body { font-size: 1rem; line-height: 1.65; padding: 8px; }
+      #stuffing { padding: clamp(14px, 4vw, 22px); }
+      h1 { font-size: clamp(1.35rem, 5vw, 1.65rem); line-height: 1.3; }
+      .caixa-resumo, .caixa-paz, .conteudo-expansivel { padding: 14px; }
+      .secao-expansivel summary { font-size: 1rem; line-height: 1.45; }
+      .btn-voltar-topo { max-width: 100%; white-space: normal; }
+    }
+    @media (max-width: 360px) {
+      body { padding: 4px; }
+      #stuffing { padding: 12px; }
+      .secao-expansivel summary { padding: 12px; }
+    }
   </style>
 </head>
 <body>
 
-<div id="stuffing">
+<main id="stuffing">
 
-  <div class="nav-voltar">
-    <a href="index.html" class="btn-voltar-topo">&larr; Voltar para a Página Inicial</a>
-  </div>
+  <nav class="nav-voltar" aria-label="Navegação">
+    <a href="index.html" class="btn-voltar-topo">&larr; Voltar ao início</a>
+  </nav>
 
-  <h1>Entenda como Funciona o Site</h1>
+  <h1>Como usar este site</h1>
 
   <!-- EXPLICAÇÃO PRINCIPAL DIRETA -->
-  <div class="caixa-resumo">
-    <h2>💡 Como este site funciona para você</h2>
+  <section class="caixa-resumo" aria-labelledby="comecar">
+    <h2 id="comecar">Comece por aqui</h2>
     <ul>
-      <li>📌 <strong>Nós usamos um "Lecionário":</strong> Essa palavra difícil significa apenas uma tabela organizada de leituras bíblicas. Usamos o Lecionário Comum Revisado, uma tabela ecumênica usada em muitas igrejas tradicionais nos cultos de domingo.</li>
-      <li>📅 <strong>Agora também no seu dia a dia:</strong> Trouxemos esse plano para o site para que você possa ler trechos da Bíblia de segunda a sábado no seu momento de devoção individual ou em família.</li>
-      <li>👤 <strong>Se você estiver orando sozinho(a):</strong> Quando vir indicações como <em>"Dirigente"</em> ou <em>"Resposta"</em>, ignore! Elas existem apenas para quando um grupo lê junto. Sozinho(a), leia tudo do início ao fim como sua oração.</li>
+      <li><strong>O que você vai encontrar:</strong> Leituras da Bíblia organizadas por dia. Seguimos o Lecionário Comum Revisado, um calendário de leituras usado por diferentes igrejas cristãs.</li>
+      <li><strong>Quando ler:</strong> Você pode acompanhar as leituras de segunda a sábado, sozinho ou com sua família, no horário que preferir.</li>
+      <li><strong>Como orar sozinho:</strong> Faça a leitura e a oração normalmente, do começo ao fim, como um texto contínuo.</li>
     </ul>
-  </div>
+  </section>
 
   <!-- AVISO DE PAZ DE ESPÍRITO (SEM PRESSÃO) -->
   <div class="caixa-paz">
-    <strong>Esqueceu ou não deu tempo de ler ontem? Não tem problema!</strong><br>
-    As leituras não dependem umas das outras de forma rígida. O objetivo aqui não é "cumprir meta", mas sim ter um momento sincero com Deus. Se o seu dia foi corrido e você só chegou à noite cansado(a), vá direto para o <strong>Breve Ofício da Noite</strong>: ele é rapidinho, já inclui um Salmo lindo e garante a sua oração antes de dormir!
+    <strong>Perdeu um dia de leitura? Tudo bem.</strong><br>
+    Você pode retomar as leituras no dia de hoje. Não precisa recuperar tudo o que perdeu. O importante é reservar um momento para estar com Deus. Se estiver cansado, escolha o <strong>Breve Ofício da Noite</strong>: é uma oração curta que inclui um salmo.
   </div>
 
   <!-- GLOSSÁRIO SIMPLES PARA QUALQUER LEITOR -->
   <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; color: var(--primary); margin: 24px 0 12px 0;">
-    🔤 O que significam essas palavras?
+    Palavras que você pode encontrar
   </h2>
 
   <div class="grid-glossario">
     <div class="item-glossario">
       <strong>Ofício Diário</strong>
-      <p>É o nome antigo para uma pausa de oração diária. É simplesmente separar alguns minutos para orar e ler a Bíblia.</p>
+      <p>É um momento de oração e leitura da Bíblia feito todos os dias.</p>
     </div>
     <div class="item-glossario">
       <strong>Lecionário</strong>
-      <p>É o nome do guia ou tabela que indica quais capítulos e versículos da Bíblia ler em cada dia.</p>
+      <p>É uma lista que mostra quais trechos da Bíblia ler em cada dia.</p>
     </div>
     <div class="item-glossario">
       <strong>Ecumênico</strong>
-      <p>Quer dizer que é usado por vários irmãos e irmãs de igrejas diferentes pelo mundo (Luteranos, Católicos, Presbiterianos, Metodistas, etc.).</p>
+      <p>Significa que é compartilhado por cristãos de diferentes igrejas.</p>
     </div>
     <div class="item-glossario">
       <strong>Ano Litúrgico</strong>
-      <p>O calendário da igreja, que divide o ano lembrando dos momentos marcantes da vida de Jesus.</p>
+      <p>É o calendário cristão, organizado em períodos que lembram a vida de Jesus e a história da fé.</p>
     </div>
   </div>
 
-  <p style="text-align: center; font-size: 0.9rem; color: var(--text-muted); margin: 24px 0 12px 0;">
-    👇 <strong>Clique nos itens abaixo se quiser saber mais detalhes:</strong>
+  <p style="text-align: center; font-size: 1rem; color: var(--text-muted); margin: 24px 0 12px 0;">
+    <strong>Quer entender melhor?</strong> Abra os assuntos abaixo.
   </p>
 
   <!-- DETALHES OPCIONAIS -->
   <details class="secao-expansivel">
-    <summary>1. Como as leituras da semana se conectam com o Domingo?</summary>
+    <summary>Como as leituras da semana se relacionam com o domingo?</summary>
     <div class="conteudo-expansivel">
       <p>
-        O lecionário foi criado para os cultos de domingo. Mas para a nossa vida diária em casa, as leituras da semana funcionam assim:
+        As leituras de cada semana estão ligadas aos cultos de domingo:
       </p>
       <ul>
-        <li><strong>Segunda, Terça e Quarta:</strong> Ajudam a relembrar e guardar no coração o que foi lido no domingo passado.</li>
-        <li><strong>Quinta, Sexta e Sábado:</strong> Começam a preparar o nosso coração para as leituras do próximo domingo.</li>
+        <li><strong>De segunda a quarta:</strong> Retomam os temas do domingo anterior.</li>
+        <li><strong>De quinta a sábado:</strong> Preparam para os temas do próximo domingo.</li>
       </ul>
-      <p>Mas lembre-se: se você pular algum dia, continue de onde estiver no dia de hoje sem pressão!</p>
+      <p>Se perder um dia, basta continuar com a leitura de hoje.</p>
     </div>
   </details>
 
   <details class="secao-expansivel">
-    <summary>2. Por que os textos mudam a cada ano? (Ciclo de 3 Anos)</summary>
+    <summary>Por que as leituras mudam a cada ano?</summary>
     <div class="conteudo-expansivel">
       <p>
-        Para não ler sempre os mesmos textos bíblicos conhecidos nos domingos, o plano roda em um ciclo de 3 anos (Ano A, Ano B e Ano C). A cada ano, acompanhamos o Evangelho sob um ponto de vista:
+        As leituras de domingo seguem um ciclo de três anos, chamados A, B e C. Cada ano dá mais atenção a um dos Evangelhos, que contam a vida e os ensinamentos de Jesus:
       </p>
       <ul>
         <li><strong>Ano A:</strong> Focado no Evangelho de <strong>Mateus</strong></li>
         <li><strong>Ano B:</strong> Focado no Evangelho de <strong>Marcos</strong></li>
         <li><strong>Ano C:</strong> Focado no Evangelho de <strong>Lucas</strong></li>
       </ul>
-      <p>O Evangelho de <strong>João</strong> é lido em momentos especiais de celebração (como Natal e Páscoa) em todos os três anos.</p>
+      <p>O Evangelho de <strong>João</strong> aparece nos três anos, especialmente em datas como o Natal e a Páscoa.</p>
     </div>
   </details>
 
   <details class="secao-expansivel">
-    <summary>3. O Calendário da Igreja (Ano Litúrgico)</summary>
+    <summary>Quais são os períodos do calendário cristão?</summary>
     <div class="conteudo-expansivel">
-      <p>Diferente do calendário comum que começa em 1º de janeiro, o calendário de orações da igreja começa no final de novembro (no Advento, preparando para o Natal). As fases são:</p>
+      <p>O ano da igreja começa no Advento, geralmente no fim de novembro ou no começo de dezembro. Ele é dividido nestes períodos:</p>
       <ul class="etapas-ano">
-        <li>🕯️ <strong>Advento:</strong> Espera e preparação para o nascimento de Jesus.</li>
+        <li>🕯️ <strong>Advento:</strong> Preparação para celebrar o nascimento de Jesus.</li>
         <li>🎄 <strong>Natal:</strong> Celebração da vinda do Salvador.</li>
-        <li>🌟 <strong>Epifania:</strong> Jesus revelado a todas as nações.</li>
-        <li>✝️ <strong>Quaresma:</strong> Tempo de oração e reflexão antes da Páscoa.</li>
+        <li>🌟 <strong>Epifania:</strong> Celebração de Jesus como luz para todos os povos.</li>
+        <li>✝️ <strong>Quaresma:</strong> Período de oração e reflexão antes da Páscoa.</li>
         <li>🌅 <strong>Páscoa:</strong> Celebração da vitória de Jesus sobre a morte.</li>
-        <li>🕊️ <strong>Pentecostes:</strong> A vinda do Espírito Santo sobre a igreja.</li>
-        <li>🌱 <strong>Tempo Comum:</strong> Crescimento no aprendizado diário.</li>
+        <li>🕊️ <strong>Pentecostes:</strong> Celebração da vinda do Espírito Santo.</li>
+        <li>🌱 <strong>Tempo Comum:</strong> Tempo de aprender e viver os ensinamentos de Jesus.</li>
       </ul>
     </div>
   </details>
 
 
   <details class="secao-expansivel">
-    <summary>🔗 Links para pesquisa e tabelas oficiais</summary>
+    <summary>Onde consultar as fontes das leituras</summary>
     <div class="conteudo-expansivel">
       <ul style="padding-left: 18px;">
         <li style="margin-bottom: 8px;">
@@ -454,7 +480,7 @@
     <p style="margin-top: 4px; font-style: italic;">Sola Gratia • Sola Fide • Solus Christus • Sola Scriptura</p>
   </footer>
 
-</div>
+</main>
 
 </body>
 </html>
