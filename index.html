@@ -13,7 +13,7 @@
   <!-- Fonte legível clássica para oração/leitura -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <script>
     if ('serviceWorker' in navigator) {
@@ -38,7 +38,7 @@
       --border-color: #e8e2d9;
       --radius: 12px;
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     * {
@@ -61,7 +61,7 @@
       max-width: 680px;
       margin: 0 auto;
       background-color: var(--bg-card);
-      padding: 40px 32px;
+      padding: 32px 24px;
       border-radius: var(--radius);
       box-shadow: var(--shadow-md);
       border: 1px solid var(--border-color);
@@ -70,16 +70,16 @@
     /* CABEÇALHO */
     .header-title {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     h1 {
       font-family: 'Cinzel', serif;
-      font-size: 2.3rem;
+      font-size: 2.2rem;
       color: var(--primary);
       letter-spacing: 1px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
 
     p.subtitulo {
@@ -88,36 +88,139 @@
       font-size: 1.05rem;
     }
 
-    /* IMAGEM PRINCIPAL */
-    .img-container {
+    /* TÍTULO DE CHAMADA PRINCIPAL */
+    .callout-title {
       text-align: center;
-      margin: 24px 0 32px 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent-bg);
     }
 
-    .img-oficio {
-      width: 100%;
-      max-width: 260px;
-      height: auto;
-      border-radius: 12px;
+    /* BOTÕES DE OFÍCIO NAVEGAÇÃO */
+    .nav-oficios {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .btn-oficio {
+      display: block;
+      padding: 20px 22px;
+      background-color: #ffffff;
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius);
+      color: var(--text-main);
+      text-decoration: none;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.5;
       box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-color);
+      transition: all 0.2s ease-in-out;
+      position: relative;
     }
 
-    /* CAIXA DE INTRODUÇÃO */
-    .caixa-introducao {
+    .btn-oficio:hover {
+      border-color: var(--primary);
+      background-color: #fffdfb;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .btn-oficio-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .btn-oficio strong {
+      font-family: 'Lora', serif;
+      font-size: 1.25rem;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-arrow {
+      font-size: 1.3rem;
+      color: var(--primary);
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    .btn-oficio:hover .btn-arrow {
+      transform: translateX(4px);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 12px;
+      background-color: var(--accent-bg);
+      color: var(--primary);
+      border: 1px solid var(--accent);
+    }
+
+    .btn-sobre {
+      background-color: var(--accent-bg);
+      border-color: #eeddc5;
+    }
+
+    /* CAIXA DE INTRODUÇÃO RETRÁTIL (COLLAPSIBLE) */
+    .detalhes-introducao {
       background-color: var(--accent-bg);
       border-left: 4px solid var(--primary);
-      padding: 20px 24px;
       border-radius: 8px;
-      margin-bottom: 24px;
-      font-size: 1.02rem;
+      margin-bottom: 20px;
+      font-size: 0.98rem;
     }
 
-    .caixa-introducao p {
-      margin-bottom: 12px;
+    .detalhes-introducao summary {
+      padding: 14px 18px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .caixa-introducao p:last-child {
+    .detalhes-introducao summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .detalhes-introducao summary::after {
+      content: '➕';
+      font-size: 0.85rem;
+    }
+
+    .detalhes-introducao[open] summary::after {
+      content: '➖';
+    }
+
+    .detalhes-conteudo {
+      padding: 0 18px 16px 18px;
+      color: var(--text-main);
+    }
+
+    .detalhes-conteudo p {
+      margin-bottom: 10px;
+    }
+
+    .detalhes-conteudo p:last-child {
       margin-bottom: 0;
     }
 
@@ -126,10 +229,10 @@
       background-color: #f0f4f8;
       border: 1px solid #d0deea;
       border-radius: 8px;
-      padding: 14px 18px;
+      padding: 12px 16px;
       margin-bottom: 32px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       text-align: center;
       color: #334e68;
     }
@@ -140,86 +243,44 @@
       text-decoration: underline;
     }
 
-    /* BOTÕES DE OFÍCIO */
-    .nav-oficios {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-bottom: 40px;
-    }
-
-    .btn-oficio {
-      display: block;
-      padding: 20px 22px;
-      background-color: #ffffff;
-      border: 1px solid var(--border-color);
-      border-radius: var(--radius);
-      color: var(--text-main);
-      text-decoration: none;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.95rem;
-      line-height: 1.5;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.2s ease;
-    }
-
-    .btn-oficio:hover {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .btn-oficio strong {
-      display: block;
-      font-family: 'Lora', serif;
-      font-size: 1.2rem;
-      color: var(--primary);
-      margin-bottom: 4px;
-    }
-
-    .btn-sobre {
-      background-color: var(--accent-bg);
-      border-color: #eeddc5;
-    }
-
     /* SEÇÃO DO GUESTBOOK / ORACIONAL */
     .guestbook-section {
-      margin-top: 40px;
-      padding-top: 32px;
+      margin-top: 32px;
+      padding-top: 28px;
       border-top: 2px dashed var(--border-color);
     }
 
     .guestbook-header {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .guestbook-header h2 {
       font-family: 'Cinzel', serif;
       color: var(--primary);
-      font-size: 1.5rem;
-      margin-bottom: 6px;
+      font-size: 1.4rem;
+      margin-bottom: 4px;
     }
 
     .guestbook-header p {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--text-muted);
     }
 
     /* BOTÃO DE CURTIR */
     .like-box {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .btn-like {
       background-color: var(--bg-card);
       border: 1px solid var(--border-color);
-      padding: 10px 20px;
+      padding: 8px 18px;
       border-radius: 30px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--primary);
       cursor: pointer;
@@ -238,9 +299,9 @@
     .like-count {
       background-color: var(--primary);
       color: #ffffff;
-      padding: 2px 10px;
+      padding: 2px 8px;
       border-radius: 12px;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
     /* FORMULÁRIO */
@@ -248,26 +309,26 @@
       background-color: var(--accent-bg);
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
-      padding: 24px;
-      margin-bottom: 28px;
+      padding: 20px;
+      margin-bottom: 24px;
     }
 
     .guestbook-form h3 {
       font-family: 'Plus Jakarta Sans', sans-serif;
       color: var(--primary);
-      font-size: 1.05rem;
-      margin-bottom: 16px;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
 
     .form-group {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .form-row {
       display: flex;
-      gap: 16px;
+      gap: 12px;
     }
 
     .form-row .form-group {
@@ -277,20 +338,20 @@
     .guestbook-form label {
       display: block;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 600;
       color: var(--text-muted);
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .guestbook-form input,
     .guestbook-form textarea {
       width: 100%;
-      padding: 10px 14px;
+      padding: 8px 12px;
       border: 1px solid var(--border-color);
       border-radius: 8px;
       font-family: 'Lora', serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       background-color: #ffffff;
       color: var(--text-main);
       outline: none;
@@ -306,10 +367,10 @@
       width: 100%;
       background-color: var(--primary);
       border: none;
-      padding: 12px 20px;
+      padding: 10px 16px;
       border-radius: 8px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 600;
       color: #ffffff;
       cursor: pointer;
@@ -326,13 +387,13 @@
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
       padding: 16px 20px;
-      max-height: 380px;
+      max-height: 320px;
       overflow-y: auto;
     }
 
     .entry-item {
       border-bottom: 1px solid var(--border-color);
-      padding: 14px 0;
+      padding: 12px 0;
     }
 
     .entry-item:last-child {
@@ -343,7 +404,7 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.85rem;
     }
@@ -365,7 +426,7 @@
     }
 
     .entry-message {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--text-main);
       line-height: 1.5;
       word-break: break-word;
@@ -377,8 +438,8 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.85rem;
       color: var(--text-muted);
-      margin-top: 40px;
-      padding-top: 20px;
+      margin-top: 32px;
+      padding-top: 16px;
       border-top: 1px solid var(--border-color);
     }
 
@@ -395,19 +456,19 @@
       text-decoration: underline;
     }
 
-    /* ADAPTAÇÃO PARA MOVILE */
+    /* ADAPTAÇÃO PARA MOBILE */
     @media (max-width: 600px) {
       body {
         padding: 12px 8px;
       }
 
       #stuffing {
-        padding: 24px 16px;
+        padding: 20px 14px;
         border-radius: 8px;
       }
 
       h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
       }
 
       .form-row {
@@ -430,47 +491,63 @@
       <p class="subtitulo">"O Senhor seja a tua luz e a tua salvação."</p>
     </header>
 
-    <div class="img-container">
-      <img src="fotofundooficio1.png?v=2" alt="Ofício Diário" class="img-oficio" width="300" height="300">
+    <!-- NAVEGAÇÃO PRINCIPAL DIRETA E VISÍVEL -->
+    <div class="callout-title">
+      👇 Escolha o Ofício para Orar Hoje
     </div>
 
-    <div class="caixa-introducao">
-      <p><strong>Bem-vindo e bem-vinda a este espaço de oração e recolhimento!</strong></p>
-      <p>
-        O <em>Ofício Diário</em> é uma prática cristã milenar que organiza a vida de oração em ritmo constante através dos Salmos, das Escrituras e da oração comunitária.
-      </p>
-      <p>
-        <strong>Como usar?</strong> Selecione abaixo o roteiro desejado. Os textos possuem marcações como <em>Dirigente</em> e <em>Resposta</em> para o uso em grupo, mas se você estiver orando sozinho(a), basta ler o texto completo do início ao fim como uma oração pessoal contínua.
-      </p>
-    </div>
-
-    <!-- BLOCO DE DÚVIDAS / FAQ -->
-    <div class="caixa-faq-link">
-      ❓ <strong>Dúvidas sobre o Luteranismo?</strong> Veja as <a href="faq.html">Perguntas Frequentes</a> sobre espiritualidade, história e costumes.
-    </div>
-
-    <!-- NAVEGAÇÃO -->
     <nav class="nav-oficios">
       <a href="manha.html" class="btn-oficio">
-        <strong>Ofício Diário (com leituras bíblicas)</strong>
-        Roteiro para a oração diária com cântico, Salmo do dia e leituras bíblicas do Lecionário Comum Revisado (Ano A).
+        <div class="btn-oficio-header">
+          <strong>☀️ Ofício Diário <span class="badge">Leituras Bíblicas</span></strong>
+          <span class="btn-arrow">→</span>
+        </div>
+        Roteiro principal com cânticos, Salmo do dia e leituras bíblicas do Lecionário Comum Revisado.
       </a>
 
       <a href="noite.html" class="btn-oficio">
-        <strong>Breve Ofício para Encerrar o Dia</strong>
-        Oração simplificada para o período da noite: recolhimento, exame de consciência, entrega e descanso em paz.
+        <div class="btn-oficio-header">
+          <strong>🌙 Breve Ofício para Encerrar o Dia <span class="badge">Noite</span></strong>
+          <span class="btn-arrow">→</span>
+        </div>
+        Oração simplificada para a noite: recolhimento, exame de consciência, entrega e descanso.
       </a>
 
       <a href="paz.html" class="btn-oficio">
-        <strong>Ofício pela Paz no Mundo</strong>
-        Roteiro especial dedicado à reconciliação, ao desarmamento, ao fim das guerras e ao clamor pelas nações.
+        <div class="btn-oficio-header">
+          <strong>🕊️ Ofício pela Paz no Mundo</strong>
+          <span class="btn-arrow">→</span>
+        </div>
+        Roteiro especial dedicado à reconciliação, desarmamento, fim das guerras e clamor pelas nações.
       </a>
 
       <a href="sobre.html" class="btn-oficio btn-sobre">
-        <strong>Sobre o Projeto & Guia do Lecionário</strong>
-        Entenda como funciona o ciclo de leituras (Ano A, B e C), a lógica do calendário litúrgico e a história do lecionário.
+        <div class="btn-oficio-header">
+          <strong>ℹ️ Sobre o Projeto & Guia do Lecionário</strong>
+          <span class="btn-arrow">→</span>
+        </div>
+        Entenda o funcionamento do ciclo litúrgico (Ano A, B e C) e a história do lecionário.
       </a>
     </nav>
+
+    <!-- INTRODUÇÃO COMPACTADA/RETRÁTIL -->
+    <details class="detalhes-introducao">
+      <summary>💡 Como usar este espaço de oração?</summary>
+      <div class="detalhes-conteudo">
+        <p><strong>Bem-vindo e bem-vinda ao espaço de recolhimento!</strong></p>
+        <p>
+          O <em>Ofício Diário</em> é uma prática cristã milenar que organiza a vida de oração em ritmo constante através dos Salmos, das Escrituras e da oração comunitária.
+        </p>
+        <p>
+          <strong>Instruções:</strong> Os textos possuem marcações como <em>Dirigente</em> e <em>Resposta</em> para uso em grupo, mas se estiver orando sozinho(a), basta ler o texto completo do início ao fim como oração pessoal.
+        </p>
+      </div>
+    </details>
+
+    <!-- BLOCO DE DÚVIDAS / FAQ -->
+    <div class="caixa-faq-link">
+      ❓ <strong>Dúvidas sobre o Luteranismo?</strong> Veja as <a href="faq.html">Perguntas Frequentes</a>.
+    </div>
 
     <!-- SEÇÃO DO GUESTBOOK / LIVRO DE ASSINATURAS PÚBLICO -->
     <section class="guestbook-section">
