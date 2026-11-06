@@ -334,10 +334,58 @@
       .indent2 { padding-left: 28px; }
       .indent3 { padding-left: 42px; }
     }
+
+/* EXPERIÊNCIA DE LEITURA */
+:root { --reader-scale: 1; }
+body { padding-top: 18px; }
+#stuffing { max-width: 820px; }
+.reader-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:22px; font-family:'Plus Jakarta Sans',sans-serif; }
+.reader-brand { font-family:'Cinzel',serif; font-size:1.22rem; font-weight:700; color:var(--primary); text-decoration:none; }
+.reader-back { font-size:.84rem; font-weight:700; text-decoration:none; border:1px solid var(--border-color); padding:8px 13px; border-radius:9px; }
+.reader-hero { text-align:center; padding:25px 16px 20px; background:linear-gradient(150deg,#fffdf9,#faf3e9); border:1px solid #e8dcca; border-radius:16px; margin-bottom:20px; }
+.reader-eyebrow { font-family:'Plus Jakarta Sans',sans-serif; color:var(--accent-gold); font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; }
+.reader-hero h2 { font-family:'Cinzel',serif; font-size:1.65rem; color:var(--primary); margin:9px 0 7px; }
+.reader-hero p { font-size:.94rem; color:var(--text-muted); margin-bottom:17px; }
+.reader-start { display:inline-flex; justify-content:center; align-items:center; min-height:48px; padding:11px 24px; background:var(--primary); color:white; text-decoration:none; border-radius:10px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.95rem; }
+.reader-start:hover { background:var(--primary-hover); color:white; }
+.reader-tools { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:13px 15px; border:1px solid var(--border-color); border-radius:12px; margin:0 0 18px; font-family:'Plus Jakarta Sans',sans-serif; font-size:.84rem; }
+.reader-tool-group { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.reader-tools button, .reader-date-nav button, .reader-index-toggle { background:#fff; color:var(--primary); border:1px solid #d8c8b7; border-radius:8px; padding:9px 12px; min-height:40px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; cursor:pointer; }
+.reader-tools button:hover, .reader-date-nav button:hover { background:var(--accent-bg); }
+.reader-date-nav { display:flex; gap:8px; align-items:center; }
+.reader-date-nav button { white-space:nowrap; font-size:.83rem; }
+.reader-index { margin:16px 0 26px; border:1px solid var(--border-color); border-radius:12px; overflow:hidden; }
+.reader-index summary { cursor:pointer; padding:14px 18px; background:var(--accent-bg); color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; }
+.reader-index nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; padding:14px; }
+.reader-index a { display:block; padding:10px 12px; border:1px solid var(--border-color); border-radius:9px; text-decoration:none; font-family:'Plus Jakarta Sans',sans-serif; font-size:.83rem; font-weight:600; }
+.reader-index a:hover { background:var(--accent-bg); }
+#conteudo-semana { font-size:calc(1em * var(--reader-scale)); }
+#conteudo-semana > h1 { scroll-margin-top:70px; }
+#conteudo-semana p { line-height:1.9; }
+.reader-progress { position:fixed; top:0; left:0; width:0; height:4px; background:var(--accent-gold); z-index:100; transition:width .1s linear; }
+.reader-floating { position:fixed; right:18px; bottom:20px; z-index:90; background:var(--primary); color:white; border-radius:50px; padding:12px 17px; text-decoration:none; font-family:'Plus Jakarta Sans',sans-serif; font-size:.82rem; font-weight:700; box-shadow:0 5px 20px #0002; }
+.reader-floating:hover { color:white; background:var(--primary-hover); }
+.reader-finish { margin:30px 0; text-align:center; padding:22px; border:1px solid #e8dcca; border-radius:14px; background:var(--accent-bg); }
+.reader-finish p { margin-bottom:14px; }
+body.reader-night { --bg-main:#171614; --bg-card:#25221f; --text-main:#f2e9dc; --text-muted:#c7b9a8; --primary:#e7b4a5; --primary-hover:#f1c5b7; --accent-bg:#302a24; --border-color:#55473b; --accent-gold:#d3b37c; }
+body.reader-night .reader-hero { background:#302a24; border-color:#55473b; }
+body.reader-night .reader-start, body.reader-night .reader-floating { background:#81352d; color:#fff; }
+body.reader-night .reader-tools button, body.reader-night .reader-date-nav button { background:#302a24; }
+body.reader-night .seletor-data input, body.reader-night .reader-index a { background:#302a24; color:var(--text-main); }
+body.reader-night .subcabecalho-info { background:#65302a; }
+body.reader-night audio { color-scheme:dark; }
+@media(max-width:600px) { .reader-hero h2 { font-size:1.35rem; } .reader-index nav { grid-template-columns:1fr; } .reader-date-nav { width:100%; justify-content:space-between; } .reader-date-nav button { flex:1; } .reader-tools { align-items:stretch; } .reader-floating { bottom:12px; right:12px; padding:11px 14px; } }
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
   </style>
 </head>
 <body>
 <div id="stuffing">
+<div class="reader-progress" id="reader-progress" aria-hidden="true"></div>
+<div class="reader-top"><a class="reader-brand" href="index.html">Ofício Diário</a><a class="reader-back" href="index.html">Voltar ao início</a></div>
+<section class="reader-hero" aria-label="Começar oração"><div class="reader-eyebrow">Liturgia e oração</div><h2>Um tempo de oração e leitura</h2><p>Escolha o dia, prepare o coração e acompanhe a oração no seu ritmo.</p><a class="reader-start" id="reader-start" href="#inicio-oracao">Iniciar oração</a></section>
+<div class="reader-tools"><div class="reader-tool-group"><span>Leitura</span><button type="button" id="reader-smaller" aria-label="Diminuir tamanho do texto">A−</button><button type="button" id="reader-larger" aria-label="Aumentar tamanho do texto">A+</button><button type="button" id="reader-night" aria-pressed="false">Modo noturno</button></div><div class="reader-date-nav"><button type="button" id="reader-prev">Dia anterior</button><button type="button" id="reader-today">Hoje</button><button type="button" id="reader-next">Próximo dia</button></div></div>
+
 
 <div class="seletor-data">
   <label for="test-date" class="blue-label">Selecionar data (Ano A): </label>
@@ -355,19 +403,22 @@
     </summary>
     <div style="margin-top: 12px;">
       <p>
-        Orar é um encontro, não uma obrigação. Na tradição luterana, acreditamos que a oração nunca é um ato isolado: a Igreja é uma comunidade que ora junta. As ordens de culto, os salmos e os hinos acompanham o jeito de orar do povo de Deus há gerações porque nos lembram que orar não depende da nossa capacidade individual de inventar belas palavras.
+        Não precisamos encontrar palavras perfeitas para falar com Deus. Podemos chegar como estamos: alegres, cansados, preocupados ou agradecidos. Deus nos acolhe e nos ouve.
       </p>
       <p>
-        Ao longo dos séculos, a Igreja aprendeu a orar com estruturas simples. Os salmos e os hinos que cantamos e decoramos nos ensinam a colocar a vida diante de Deus. O <strong>Pai Nosso</strong>, ensinado por Jesus, e o <strong>Credo Apostólico</strong> — que desde o início da Igreja resume e protege a nossa fé — nos ajudam a orar em comunhão, em uma só gramática de fé.
+        Neste ofício, oramos com os Salmos, as Escrituras, o <strong>Pai Nosso</strong> e o <strong>Credo Apostólico</strong>. Esses textos fazem parte da tradição da Igreja e podem ser lidos com atenção à fé, à história, aos gêneros literários e aos contextos em que foram escritos.
       </p>
       <p style="margin-bottom: 0;">
-        Quando você realiza este ofício, saiba que outras irmãs e outros irmãos estão abrindo esta mesma página e orando as mesmas palavras. Sua voz se soma à de toda a comunidade de fé, formando um só clamor diante de Deus. Respire, mantenha a mente presente, acolha cada frase sem pressa e com calma, e lembre-se de que a sua oração faz parte de um grande e contínuo louvor a Deus, e sobe como um único e mesmo clamor de milhares de irmãos e irmãs ao redor do mundo, um só Corpo de Cristo que ora em uma só voz, quer você esteja só ou reunido(a) em grupo.
+        Ore sem pressa. Mesmo quando estamos sozinhos, fazemos parte de uma comunidade de fé. Leia em voz alta, acompanhe em silêncio ou faça pequenas pausas quando precisar.
       </p>
     </div>
   </details>
 
-  <div id="conteudo-domingo" style="display: none;">
-  <div class="card-domingo">
+  <details class="reader-index" id="reader-index"><summary>Índice da oração — toque para navegar</summary><nav aria-label="Etapas da oração">
+<a href="#inicio-oracao">Início</a><a href="#sec-abertura">Abertura</a><a href="#sec-confissao">Confissão</a><a href="#sec-cantico">Cântico</a><a href="#sec-salmos">Salmos</a><a href="#sec-leituras">Leituras</a><a href="#sec-credo">Credo</a><a href="#sec-oracoes">Orações</a><a href="#sec-encerramento">Encerramento</a>
+</nav></details>
+<div id="conteudo-domingo" style="display: none;">
+  <div class="card-domingo" id="inicio-domingo">
     <h2>Dia do Senhor (Domingo)</h2>
     
     <p class="red" id="domingo-festa-nome" style="font-size: 1.1em;"></p>
@@ -409,7 +460,7 @@
 </div>
 
 <div id="conteudo-semana">
-  <h1>Ofício Diário</h1>
+  <h1 id="inicio-oracao">Ofício Diário</h1>
 
   <p class="red"><em>Todos juntos</em></p>
   <p>
@@ -452,7 +503,7 @@
     </p>
   </div>
   
-  <h1>Abertura</h1>
+  <h1 id="sec-abertura">Abertura</h1>
 
   <h2>Orações Iniciais</h2>
 
@@ -474,7 +525,7 @@
   como era no princípio, agora e sempre. Amém.
   </p>
 
-  <h1>Confissão de Pecados</h1>
+  <h1 id="sec-confissao">Confissão de Pecados</h1>
 
   <p class="red"><em>Dirigente</em></p>
   <p>Coloquemos diante de Deus, nosso Pai, aquilo que pesa em nosso coração e confessemos os nossos pecados.</p>
@@ -483,7 +534,7 @@
 
   <p class="red"><em>Todos juntos, ajoelhados ou curvados:</em></p>
   <p>
-    Senhor, nosso Deus, chegamos à tua presença com tudo aquilo que vivemos e trazemos no coração. Reconhecemos que nem sempre amamos como deveríamos. Falhamos contigo e com as pessoas ao nosso redor, por nossas palavras, atitudes e também pelo bem que deixamos de fazer. Perdoa-nos, Deus misericordioso. Confiamos na tua graça e no amor de Jesus Cristo, que entregou sua vida por nós. Renova o nosso coração e ajuda-nos a viver em paz contigo e com nossos irmãos e irmãs. Por Jesus Cristo, nosso Redentor. Amém.
+    Senhor Deus, aqui estamos diante de ti. Tu conheces nossa vida, nossas preocupações e aquilo que guardamos em silêncio. Nem sempre fazemos o que é certo. Às vezes ferimos quem amamos, pensamos apenas em nós mesmos e deixamos de ajudar quem precisa. Perdoa-nos, Senhor. Não queremos esconder nossas falhas de ti. Confiamos em tua misericórdia e no perdão que recebemos por Jesus Cristo. Renova nossa fé e ensina-nos a viver de maneira diferente. Amém.
   </p>
 
   <!-- Sugestão opcional: Anúncio do Perdão da Graça de Deus -->
@@ -492,22 +543,22 @@
     Deus, o Pai celestial, teve misericórdia de nós e entregou o seu Filho único à morte por nós, perdoando todos os nossos pecados. A quem crê no seu nome, ele dá o poder de se tornarem filhos e filhas de Deus e concede o Espírito Santo. Amém.
   </p>
   
-  <h1>Cântico Bíblico do Dia</h1>
+  <h1 id="sec-cantico">Cântico Bíblico do Dia</h1>
 
   <div id="cantico-diario">
     <p class="red">Carregando cântico...</p>
   </div>
 
   <!-- ==================== SEÇÃO: SALMOS ==================== -->
-  <h1>Salmos</h1>
+  <h1 id="sec-salmos">Salmos</h1>
 
   <p class="red" style="font-style: italic;">
-    Os Salmos são o livro de orações do povo de Deus. Ao lê-los, nossa voz se junta às alegrias, dores e clamores de fiéis de todos os tempos.
+    Os Salmos reúnem poemas, cânticos e orações de diferentes épocas. Vamos lê-los com atenção e liberdade.
   </p>
 
   <p class="red"><em>Oração antes do Salmo</em></p>
   <p>
-    Senhor, nosso Deus, obrigado pela tua Palavra, que acompanha e orienta a nossa caminhada. Abre nossos olhos e nosso coração para compreender o que nos ensinas. Ajuda-nos a guardar tua Palavra e a vivê-la com fé e amor em cada dia. Por Jesus Cristo, nosso Senhor. Amém.
+    Senhor Deus, dá-nos serenidade para ler este Salmo com atenção. Ajuda-nos a perceber as experiências, perguntas e esperanças presentes em suas palavras e a refletir sobre elas com sinceridade. Amém.
   </p>
 
   <div id="container-salmo-rcl">
@@ -522,16 +573,16 @@
 
   <p class="red"><em>Oração após o Salmo</em></p>
   <p>
-    Senhor Jesus Cristo, nosso bom Pastor, obrigado porque nos acompanhas nos dias de alegria e também nos momentos difíceis. Que as palavras deste Salmo permaneçam em nosso coração, trazendo consolo, confiança e esperança para a nossa caminhada. Fica conosco e guia-nos em tua paz. Amém.
+    Senhor Jesus, acompanha-nos em nossa caminhada. Que esta leitura nos convide a pensar, a reconhecer a experiência de outras pessoas e a cuidar melhor de quem está ao nosso lado. Amém.
   </p>
 
   <!-- ==================== TRANSIÇÃO E LEITURAS ==================== -->
   <hr style="border: none; border-top: 1px dashed var(--primary); margin: 32px 0;">
 
-  <h1>Leituras das Escrituras</h1>
+  <h1 id="sec-leituras">Leituras das Escrituras</h1>
 
   <p class="red" style="font-style: italic;">
-    Abertos pelo louvor dos Salmos, inclinamos agora nossos ouvidos para escutar a voz de Deus nas histórias do Antigo Testamento e no testemunho do Novo Testamento.
+    Escutemos agora as leituras das Escrituras.
   </p>
 
   <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: -5px; margin-bottom: 12px;">
@@ -544,11 +595,11 @@
 
   <p class="red"><em>Oração antes das Leituras</em></p>
   <p>
-    Senhor, nosso Deus, estamos aqui para ouvir tua voz por meio das Sagradas Escrituras. Abre nossa mente e nosso coração para acolher tua Palavra. Que ela nos fortaleça na fé, renove nossa esperança e nos ajude a viver teu amor em nossa caminhada. Por Jesus Cristo, nosso Salvador. Amém.
+    Senhor Deus, ao nos aproximarmos das Escrituras, dá-nos atenção, humildade e discernimento. Ajuda-nos a compreender esses textos em seus contextos, a reconhecer as perguntas que despertam e a refletir com sinceridade sobre o que significam para nossa fé e nossa vida. Que possamos ler com liberdade, responsabilidade e amor. Por Jesus Cristo. Amém.
   </p>
 
   <p class="red" style="font-style: italic; margin-bottom: 15px;">
-    Após a leitura de cada passagem, faça uma breve pausa de silêncio para acolher a Palavra no coração antes de prosseguir.
+    Após cada leitura, faça uma breve pausa em silêncio.
   </p>
 
   <div id="container-leituras">
@@ -557,10 +608,10 @@
 
   <p class="red"><em>Oração de Ação de Graças após as Leituras</em></p>
   <p>
-    Senhor, nosso Deus, obrigado pela tua Palavra que hoje ouvimos. Que ela não fique apenas em nossos pensamentos, mas encontre lugar em nosso coração e em nossas atitudes. Ajuda-nos a levar tua mensagem de amor e esperança às pessoas com quem convivemos. Por Jesus Cristo, nosso Senhor. Amém.
+    Senhor, agradecemos por este momento de leitura e reflexão. Ajuda-nos a continuar aprendendo, a fazer perguntas com honestidade e a tratar as pessoas com respeito e amor. Amém.
   </p>
 
-  <h1>O Credo Apostólico</h1>
+  <h1 id="sec-credo">O Credo Apostólico</h1>
 
   <p class="red"><em>Todos em pé</em></p>
   <p>
@@ -584,7 +635,7 @@
   <span class="indent">e na vida eterna. Amém.</span>
   </p>
 
-  <h1>As Orações</h1>
+  <h1 id="sec-oracoes">As Orações</h1>
 
   <p class="red"><em>Dirigente</em></p>
   <p>O Senhor seja convosco.</p>
@@ -616,42 +667,41 @@
   <h2>Orações de Petição</h2>
 
   <p class="red"><em>Pela Igreja</em></p>
-  <p>Senhor, nosso Deus, obrigado pela tua Igreja e pela comunidade de fé da qual fazemos parte. Pedimos por toda a Igreja cristã e, de modo especial, pela nossa Igreja Evangélica de Confissão Luterana no Brasil. Abençoa ministros e ministras, sínodos, presbitérios, comunidades e paróquias. Perdoa-nos quando deixamos de viver e anunciar teu Evangelho. Fortalece nossa comunhão e ajuda-nos a ser uma Igreja acolhedora, que serve com alegria e testemunha teu amor em palavras e atitudes. Por Jesus Cristo, nosso Senhor. Amém.</p>
+  <p>Senhor, obrigado pelas pessoas com quem partilhamos a fé. Cuida da tua Igreja e, de modo especial, da Igreja Evangélica de Confissão Luterana no Brasil. Sustenta quem anuncia tua Palavra, quem serve nas comunidades e quem se sente distante ou esquecido. Ensina-nos a acolher sem julgar, a ouvir com atenção e a viver o Evangelho também fora do templo. Por Jesus Cristo. Amém.</p>
 
   <p class="red"><em>Pela Justiça e Paz</em></p>
-  <p>Deus de amor e justiça, colocamos diante de ti nosso mundo, com suas alegrias e também com tanta dor e violência. Pedimos pelas autoridades, para que governem com sabedoria e responsabilidade. Olha com carinho para as pessoas que sofrem com a injustiça e a pobreza. Perdoa-nos quando nos calamos diante do sofrimento. Dá-nos coragem para promover a paz, defender a dignidade humana e cuidar da tua Criação. Por Jesus Cristo, nosso Salvador. Amém.</p>
+  <p>Deus de justiça e paz, vemos notícias de guerras, violência e famílias que perderam tudo. Às vezes nos sentimos pequenos diante de tanto sofrimento. Guia quem governa e toma decisões. Protege quem vive com medo e quem sofre injustiça. Mostra-nos o bem que podemos fazer onde estamos. Por Jesus Cristo. Amém.</p>
 
   <p class="red"><em>Pelos Aflitos e Necessitados</em></p>
-  <p>Senhor, nosso Deus, lembramos diante de ti das pessoas que passam por momentos difíceis. Acolhe quem está de luto, quem enfrenta doenças, solidão, desemprego ou a falta do pão de cada dia. Que teu amor lhes traga consolo e esperança. Abre também nossos olhos e nosso coração para perceber quem precisa de ajuda. Que possamos ser presença de cuidado, solidariedade e amor na vida de nossos irmãos e irmãs. Por Jesus Cristo. Amém. 
+  <p>Senhor, lembra-te de quem hoje acordou preocupado, de quem não sabe como pagar suas contas, de quem espera uma notícia do hospital e de quem sente falta de alguém que já partiu. Cuida também de quem sofre em silêncio e não encontra palavras para pedir ajuda. Dá-nos olhos atentos para perceber a dor dos outros e disposição para ajudar. Por Jesus Cristo. Amém. 
   </p>
 
   <!-- ==================== SEÇÃO: ORAÇÕES PESSOAIS ==================== -->
   <h2>Orações Pessoais</h2>
 
   <p class="red" style="font-style: italic;">
-    Falar com Deus é simples e sem mistérios: Ele é alguém com quem conversamos de coração aberto. 
-    Embora oremos com o devido respeito e reverência, a espiritualidade cristã nos convida também a uma oração viva e espontânea.
+    Agora é seu momento de falar com Deus com suas próprias palavras.
   </p>
 
   <p class="red" style="font-style: italic;">
-    Em Jesus Cristo, o Deus vivo se fez humano e habitou entre nós. Por sermos Seus irmãos e irmãs, conhecemos o Pai e nos tornamos Seus filhos e filhas. Para além das orações litúrgicas que ancoram nossa fé, este é o momento para um diálogo íntimo de filho(a) para Pai, conduzidos pelo Espírito Santo.
+    Você pode agradecer, pedir ajuda, falar de alguém que ama ou simplesmente ficar em silêncio.
   </p>
 
   <p class="red"><em>Momento de oração silenciosa ou espontânea:</em></p>
   <p>
-    Reserve este tempo para colocar diante de Deus, com total liberdade e simplicidade, os pedidos, inquietações, dores e gratidões do seu coração. Fale com Ele como quem conversa com o melhor amigo.
+    Apresente a Deus o que está em seu coração. Não há pressa.
   </p>
 
   <p class="red" style="font-style: italic; margin-top: 15px;">
-    Para integrar sua oração pessoal à Ação de Graças a seguir (dando continuidade à liturgia), você pode concluir sua oração pessoal dizendo: <strong>“E a ti, ó Deus, rendemos graças...”</strong>
+    Quando desejar continuar, você pode dizer: <strong>“E a ti, ó Deus, rendemos graças...”</strong>
   </p>
   
   <h2>Ação de Graças</h2>
   <p>
-    ...porque tu és nosso Deus de amor, que nos acolhe e sustenta a cada dia. Obrigado pela vida, pelo pão em nossa mesa, pelas pessoas que caminham conosco e pela tua Palavra, que nos consola e orienta. Agradecemos também pelo perdão e pela esperança que recebemos em Jesus Cristo. Ajuda-nos a repartir o que temos e a cuidar uns dos outros, para que teu amor esteja presente em nossa vida e em nossa comunidade. Por Jesus Cristo, nosso Senhor. Amém.
+    ...pela vida que recebemos, pelo alimento de hoje e por quem caminha ao nosso lado. Obrigado também por nos sustentares nos dias em que tudo parece difícil. Que a gratidão se transforme em cuidado por quem precisa. Por Jesus Cristo. Amém.
   </p>
 
-  <h1>Encerramento</h1>
+  <h1 id="sec-encerramento">Encerramento</h1>
 
   <h2>Bênção Final</h2>
   <p class="red"><em>Dirigente</em></p>
@@ -661,6 +711,7 @@
   O Senhor sobre nós levante o seu rosto e nos dê a paz.<br>
   Em nome do Pai, do Filho e do Espírito Santo. Amém.
   </p>
+<div class="reader-finish"><p>Você chegou ao fim do Ofício. Que a paz de Deus acompanhe o seu dia.</p><a href="index.html" class="reader-start">Voltar à página inicial</a></div>
 </div>
 
 <footer>
@@ -669,6 +720,7 @@
 </footer>
 
 </div>
+<a class="reader-floating" href="#reader-index">Índice da oração</a>
 
 <script>
 // Mapeamento de domingos e datas festivas do Ano A traduzidos integralmente para o Português
@@ -736,18 +788,22 @@ function obterProprioOuFesta(dataAlvo) {
   const dia = String(dataAlvo.getDate()).padStart(2, '0');
   const dataChave = `${ano}-${mes}-${dia}`;
 
-  if (FESTAS_DOMINGO[dataChave]) {
-    return FESTAS_DOMINGO[dataChave];
-  }
+  // Festas e celebrações nomeadas valem somente na própria data.
+  if (FESTAS_DOMINGO[dataChave]) return FESTAS_DOMINGO[dataChave];
 
-  let ultimoNome = "Tempo Comum";
-  for (let i = 0; i < LISTA_DATAS_ORDENADAS.length; i++) {
-    const dataFestaStr = LISTA_DATAS_ORDENADAS[i];
-    if (dataChave >= dataFestaStr) {
-      ultimoNome = FESTAS_DOMINGO[dataFestaStr];
-    } else {
-      break;
-    }
+  // Durante a semana, mostramos a estação litúrgica, não a festa anterior.
+  // Evita, por exemplo, chamar 2 a 7 de novembro de Dia de Todos os Santos.
+  if (dataChave >= '2026-11-02' && dataChave <= '2026-11-07') return 'Tempo Comum';
+  if (dataChave >= '2026-11-23' && dataChave <= '2026-11-26') return 'Última semana do ano litúrgico';
+
+  let ultimoNome = 'Tempo Comum';
+  for (const dataFestaStr of LISTA_DATAS_ORDENADAS) {
+    if (dataChave < dataFestaStr) break;
+    ultimoNome = FESTAS_DOMINGO[dataFestaStr];
+  }
+  // Não estender solenidades ou dias específicos para a semana inteira.
+  if (/Dia de Todos os Santos|Natal|Natividade|Batismo do Senhor|Transfiguração|Ressurreição|Pentecostes|Santíssima Trindade|Cristo Rei|Véspera de Natal/.test(ultimoNome)) {
+    return 'Tempo litúrgico em curso';
   }
   return ultimoNome;
 }
@@ -1224,6 +1280,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
   carregarLiturgiaParaData(dataInicial);
 });
+
+// Controles de leitura e navegação, independentes da lógica litúrgica.
+(function () {
+  let escala = 1;
+  const progresso = document.getElementById('reader-progress');
+  const campo = document.getElementById('test-date');
+  const atualizarEscala = () => document.documentElement.style.setProperty('--reader-scale', escala);
+  document.getElementById('reader-larger').addEventListener('click', () => { escala = Math.min(1.45, +(escala + .1).toFixed(2)); atualizarEscala(); });
+  document.getElementById('reader-smaller').addEventListener('click', () => { escala = Math.max(.85, +(escala - .1).toFixed(2)); atualizarEscala(); });
+  const night = document.getElementById('reader-night');
+  night.addEventListener('click', () => { const ativo = document.body.classList.toggle('reader-night'); night.setAttribute('aria-pressed', String(ativo)); night.textContent = ativo ? 'Modo claro' : 'Modo noturno'; });
+  const dataLocal = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  function mudarDia(delta) {
+    if (!campo.value) return;
+    const [a,m,d] = campo.value.split('-').map(Number);
+    const nova = new Date(a,m-1,d+delta,12);
+    const chave = dataLocal(nova);
+    if (chave >= CONFIG_ANO.dataInicio && chave <= CONFIG_ANO.dataFim) testarData(chave);
+  }
+  document.getElementById('reader-prev').addEventListener('click', () => mudarDia(-1));
+  document.getElementById('reader-next').addEventListener('click', () => mudarDia(1));
+  document.getElementById('reader-today').addEventListener('click', () => { const hoje = dataLocal(new Date()); if (hoje >= CONFIG_ANO.dataInicio && hoje <= CONFIG_ANO.dataFim) testarData(hoje); });
+  function atualizarNavegacao() {
+    const atual = campo.value;
+    if (!atual) return;
+    const [a,m,d] = atual.split('-').map(Number);
+    document.getElementById('reader-prev').disabled = dataLocal(new Date(a,m-1,d-1,12)) < CONFIG_ANO.dataInicio;
+    document.getElementById('reader-next').disabled = dataLocal(new Date(a,m-1,d+1,12)) > CONFIG_ANO.dataFim;
+    const domingo = new Date(a,m-1,d,12).getDay() === 0;
+    document.getElementById('reader-start').href = domingo ? '#inicio-domingo' : '#inicio-oracao';
+    document.getElementById('reader-index').style.display = domingo ? 'none' : '';
+  }
+  campo.addEventListener('change', atualizarNavegacao);
+  document.addEventListener('DOMContentLoaded', atualizarNavegacao);
+  function atualizarProgresso() {
+    const altura = document.documentElement.scrollHeight - innerHeight;
+    progresso.style.width = `${altura > 0 ? Math.min(100, scrollY / altura * 100) : 0}%`;
+  }
+  window.addEventListener('scroll', atualizarProgresso, {passive:true});
+  window.addEventListener('resize', atualizarProgresso);
+  atualizarProgresso();
+  // Detecta também alterações de data feitas pela inicialização original.
+  const observador = new MutationObserver(atualizarNavegacao);
+  observador.observe(document.getElementById('conteudo-domingo'), {attributes:true, attributeFilter:['style']});
+})();
 </script>
 </body>
 </html>
