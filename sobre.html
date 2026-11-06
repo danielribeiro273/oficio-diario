@@ -1,21 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <title>Sobre o Projeto & Guia de Leitura</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- PWA Manifest & Theme -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#7a1c1c">
-  <link rel="apple-touch-icon" href="icon-512.png">
-
-  <!-- Fontes de alta legibilidade -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <script>
+<meta charset="utf-8"/>
+<title>Sobre o projeto — Ofício Diário</title>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<!-- PWA Manifest & Theme -->
+<link href="manifest.json" rel="manifest"/>
+<meta content="#7a1c1c" name="theme-color"/>
+<link href="icon-512.png" rel="apple-touch-icon"/>
+<!-- Fontes de alta legibilidade -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
@@ -24,8 +22,7 @@
       });
     }
   </script>
-
-  <style>
+<style>
     :focus-visible { outline: 3px solid #1769aa; outline-offset: 3px; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
     :root {
@@ -350,137 +347,44 @@
       .secao-expansivel summary { padding: 12px; }
     }
   </style>
-</head>
+<style>
+.eyebrow{font:700 .75rem 'Plus Jakarta Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-gold);margin-bottom:5px}
+h1{border-bottom:0;line-height:1.3;margin:8px 0 15px;font-size:clamp(1.7rem,4vw,2.3rem)}
+.lead{font-size:1.13rem;line-height:1.75;color:var(--text-muted);margin-bottom:30px}
+.caixa-resumo{border:1px solid var(--border-color);background:var(--accent-bg);padding:24px}
+.caixa-resumo h2,.explain h2,.more-heading{font-family:'Cinzel',serif;font-size:1.25rem;color:var(--primary);margin:0 0 13px}
+.quick-links{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.quick-links a{display:flex;flex-direction:column;gap:9px;text-decoration:none;background:white;border:1px solid var(--border-color);border-radius:10px;padding:17px;color:var(--text-main)}
+.quick-links a:hover{border-color:var(--accent-gold)}
+.quick-links strong{font:700 .96rem 'Plus Jakarta Sans',sans-serif;color:var(--primary)}
+.quick-links span{font-size:.88rem;line-height:1.5;flex:1}
+.quick-links b{font:700 .8rem 'Plus Jakarta Sans',sans-serif;color:var(--primary)}
+.explain{margin:32px 0}.explain p{line-height:1.8}.more-heading{margin:36px 0 16px}
+.source-list{padding-left:20px}.source-list li{margin:9px 0}
+@media(max-width:650px){.quick-links{grid-template-columns:1fr}.caixa-resumo{padding:18px}.lead{font-size:1.04rem}}
+</style></head>
 <body>
-
 <main id="stuffing">
-
-  <nav class="nav-voltar" aria-label="Navegação">
-    <a href="index.html" class="btn-voltar-topo">&larr; Voltar ao início</a>
-  </nav>
-
-  <h1>Como usar este site</h1>
-
-  <!-- EXPLICAÇÃO PRINCIPAL DIRETA -->
-  <section class="caixa-resumo" aria-labelledby="comecar">
-    <h2 id="comecar">Comece por aqui</h2>
-    <ul>
-      <li><strong>O que você vai encontrar:</strong> Leituras da Bíblia organizadas por dia. Seguimos o Lecionário Comum Revisado, um calendário de leituras usado por diferentes igrejas cristãs.</li>
-      <li><strong>Quando ler:</strong> Você pode acompanhar as leituras de segunda a sábado, sozinho ou com sua família, no horário que preferir.</li>
-      <li><strong>Como orar sozinho:</strong> Faça a leitura e a oração normalmente, do começo ao fim, como um texto contínuo.</li>
-    </ul>
-  </section>
-
-  <!-- AVISO DE PAZ DE ESPÍRITO (SEM PRESSÃO) -->
-  <div class="caixa-paz">
-    <strong>Perdeu um dia de leitura? Tudo bem.</strong><br>
-    Você pode retomar as leituras no dia de hoje. Não precisa recuperar tudo o que perdeu. O importante é reservar um momento para estar com Deus. Se estiver cansado, escolha o <strong>Breve Ofício da Noite</strong>: é uma oração curta que inclui um salmo.
-  </div>
-
-  <!-- GLOSSÁRIO SIMPLES PARA QUALQUER LEITOR -->
-  <h2 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.1rem; color: var(--primary); margin: 24px 0 12px 0;">
-    Palavras que você pode encontrar
-  </h2>
-
-  <div class="grid-glossario">
-    <div class="item-glossario">
-      <strong>Ofício Diário</strong>
-      <p>É um momento de oração e leitura da Bíblia feito todos os dias.</p>
-    </div>
-    <div class="item-glossario">
-      <strong>Lecionário</strong>
-      <p>É uma lista que mostra quais trechos da Bíblia ler em cada dia.</p>
-    </div>
-    <div class="item-glossario">
-      <strong>Ecumênico</strong>
-      <p>Significa que é compartilhado por cristãos de diferentes igrejas.</p>
-    </div>
-    <div class="item-glossario">
-      <strong>Ano Litúrgico</strong>
-      <p>É o calendário cristão, organizado em períodos que lembram a vida de Jesus e a história da fé.</p>
-    </div>
-  </div>
-
-  <p style="text-align: center; font-size: 1rem; color: var(--text-muted); margin: 24px 0 12px 0;">
-    <strong>Quer entender melhor?</strong> Abra os assuntos abaixo.
-  </p>
-
-  <!-- DETALHES OPCIONAIS -->
-  <details class="secao-expansivel">
-    <summary>Como as leituras da semana se relacionam com o domingo?</summary>
-    <div class="conteudo-expansivel">
-      <p>
-        As leituras de cada semana estão ligadas aos cultos de domingo:
-      </p>
-      <ul>
-        <li><strong>De segunda a quarta:</strong> Retomam os temas do domingo anterior.</li>
-        <li><strong>De quinta a sábado:</strong> Preparam para os temas do próximo domingo.</li>
-      </ul>
-      <p>Se perder um dia, basta continuar com a leitura de hoje.</p>
-    </div>
-  </details>
-
-  <details class="secao-expansivel">
-    <summary>Por que as leituras mudam a cada ano?</summary>
-    <div class="conteudo-expansivel">
-      <p>
-        As leituras de domingo seguem um ciclo de três anos, chamados A, B e C. Cada ano dá mais atenção a um dos Evangelhos, que contam a vida e os ensinamentos de Jesus:
-      </p>
-      <ul>
-        <li><strong>Ano A:</strong> Focado no Evangelho de <strong>Mateus</strong></li>
-        <li><strong>Ano B:</strong> Focado no Evangelho de <strong>Marcos</strong></li>
-        <li><strong>Ano C:</strong> Focado no Evangelho de <strong>Lucas</strong></li>
-      </ul>
-      <p>O Evangelho de <strong>João</strong> aparece nos três anos, especialmente em datas como o Natal e a Páscoa.</p>
-    </div>
-  </details>
-
-  <details class="secao-expansivel">
-    <summary>Quais são os períodos do calendário cristão?</summary>
-    <div class="conteudo-expansivel">
-      <p>O ano da igreja começa no Advento, geralmente no fim de novembro ou no começo de dezembro. Ele é dividido nestes períodos:</p>
-      <ul class="etapas-ano">
-        <li>🕯️ <strong>Advento:</strong> Preparação para celebrar o nascimento de Jesus.</li>
-        <li>🎄 <strong>Natal:</strong> Celebração da vinda do Salvador.</li>
-        <li>🌟 <strong>Epifania:</strong> Celebração de Jesus como luz para todos os povos.</li>
-        <li>✝️ <strong>Quaresma:</strong> Período de oração e reflexão antes da Páscoa.</li>
-        <li>🌅 <strong>Páscoa:</strong> Celebração da vitória de Jesus sobre a morte.</li>
-        <li>🕊️ <strong>Pentecostes:</strong> Celebração da vinda do Espírito Santo.</li>
-        <li>🌱 <strong>Tempo Comum:</strong> Tempo de aprender e viver os ensinamentos de Jesus.</li>
-      </ul>
-    </div>
-  </details>
-
-
-  <details class="secao-expansivel">
-    <summary>Onde consultar as fontes das leituras</summary>
-    <div class="conteudo-expansivel">
-      <ul style="padding-left: 18px;">
-        <li style="margin-bottom: 8px;">
-          <a href="https://portal-luterano-files.ieclb.org.br/_arquivos/201111/d5e4da0ead8ba8cd2962216e686c0a5b.pdf" target="_blank" rel="noopener">
-            <strong>Tabela Oficial do Lecionário em PDF (IECLB)</strong>
-          </a>
-        </li>
-        <li style="margin-bottom: 8px;">
-          <a href="https://lectionary.library.vanderbilt.edu/" target="_blank" rel="noopener">
-            <strong>Vanderbilt Divinity Library (Lecionário Internacional)</strong>
-          </a>
-        </li>
-        <li>
-          <a href="https://pt.wikipedia.org/wiki/Lecion%C3%A1rio" target="_blank" rel="noopener">
-            <strong>História do Lecionário na Wikipedia</strong>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </details>
-
-  <footer>
-    <p>Organizado e mantido por <strong>Daniel Augusto Ribeiro</strong></p>
-    <p style="margin-top: 4px; font-style: italic;">Sola Gratia • Sola Fide • Solus Christus • Sola Scriptura</p>
-  </footer>
-
+<nav aria-label="Navegação" class="nav-voltar"><a class="btn-voltar-topo" href="index.html">← Voltar ao início</a></nav>
+<p class="eyebrow">Conheça o projeto</p>
+<h1>Um espaço para ler, orar e refletir</h1>
+<p class="lead">Você não precisa conhecer a liturgia, saber o que é um lecionário ou pertencer a uma igreja luterana para usar este site. Aqui há palavras para acompanhar o dia, ler a Bíblia com atenção e reservar um momento de oração.</p>
+<section class="caixa-resumo"><h2>O que há aqui?</h2><p>Três caminhos de oração, para momentos diferentes:</p>
+<div class="quick-links"><a href="manha.html"><strong>Ofício Diário</strong><span>Salmos, leituras bíblicas e orações para acompanhar o dia.</span><b>Começar →</b></a><a href="noite.html"><strong>Breve Ofício da Noite</strong><span>Uma oração mais curta para recordar o dia e descansar.</span><b>Abrir →</b></a><a href="paz.html"><strong>Ofício pela Paz</strong><span>Orações pelas pessoas que sofrem com guerras, violência e conflitos.</span><b>Abrir →</b></a></div></section>
+<section class="explain"><h2>Como funciona, na prática?</h2><p>Abra uma das orações e acompanhe o texto na ordem em que aparece. Você pode ler em voz alta ou em silêncio, fazer pausas e seguir no seu ritmo. Se estiver em grupo, as indicações de quem dirige e de quem responde ajudam a dividir a leitura. Sozinho, você pode ler as duas partes.</p><p>As leituras do Ofício Diário mudam conforme a data. No entanto, não é necessário começar pelo primeiro dia do ano nem recuperar dias anteriores.</p></section>
+<section class="explain"><h2>Por que as leituras mudam?</h2><p>Para os cristãos, o domingo é o dia central da semana de oração e culto, ligado à celebração da ressurreição de Jesus. Por isso, no calendário da igreja, cada domingo geralmente serve de referência para organizar os dias ao seu redor.</p><p>Este site apresenta as leituras de segunda a sábado, não as leituras do culto de domingo. De segunda a quarta, os textos geralmente retomam o domingo anterior; de quinta a sábado, preparam o domingo seguinte.</p><p>Essa organização vem do Lecionário Comum Revisado, um calendário de leituras bíblicas compartilhado por diferentes igrejas. As leituras dos domingos seguem um ciclo de três anos, chamado A, B e C.</p><p>Esse plano costuma fazer ainda mais sentido para quem participa, aos domingos, de uma comunidade que também utiliza o Lecionário Comum Revisado — no Brasil, geralmente são as igrejas que fazem parte do Conselho Nacional de Igrejas Cristãs (CONIC). Assim, as leituras dos dias da semana dialogam com as que a comunidade ouve no culto. No entanto, não é preciso ser luterano nem frequentar uma dessas igrejas para acompanhar as orações aqui.</p></section>
+<section class="explain"><h2>O que significa ser um projeto luterano?</h2><p>Este espaço nasce da tradição cristã luterana, ligada à Reforma do século XVI e a Martim Lutero. Essa herança aparece na importância dada às Escrituras, aos Salmos, à oração cotidiana e à confiança na graça de Deus.</p><p>O site é aberto a quem deseja conhecer essa tradição, orar ou simplesmente acompanhar as leituras. Cada pessoa pode se aproximar dos textos bíblicos com suas próprias perguntas, experiências e maneiras de compreendê-los.</p></section>
+<h2 class="more-heading">Se quiser entender um pouco mais</h2>
+<details class="secao-expansivel"><summary>O que é um ofício de oração?</summary><div class="conteudo-expansivel"><p>É uma forma organizada de oração, com uma sequência de abertura, salmos, leituras e preces. A palavra “ofício” aqui não significa trabalho ou obrigação: é o nome tradicional dado a esses momentos de oração.</p></div></details>
+<details class="secao-expansivel"><summary>O que são os anos A, B e C?</summary><div class="conteudo-expansivel"><p>É um ciclo de três anos usado para organizar especialmente as leituras dos domingos. No Ano A, há maior presença de Mateus; no Ano B, de Marcos; e no Ano C, de Lucas. João aparece nos três anos. Ao fim do ciclo, a sequência recomeça.</p></div></details>
+<details class="secao-expansivel"><summary>Quantos domingos existem no calendário de leituras?</summary><div class="conteudo-expansivel"><p>Um ano tem normalmente <strong>52 domingos</strong> e, em alguns casos, <strong>53</strong>. O lecionário acompanha esses domingos, mas não os numera simplesmente de 1 a 52: eles recebem nomes conforme o período do ano cristão, como domingos do Advento, da Quaresma e da Páscoa.</p><p>Alguns períodos têm duração variável, porque a data da Páscoa muda de ano para ano. Por isso, certos domingos do tempo após a Epifania ou após Pentecostes podem variar conforme o calendário.</p><p>O ciclo A–B–C abrange <strong>três anos litúrgicos completos</strong>. Depois do Ano C, volta-se ao Ano A.</p></div></details>
+<details class="secao-expansivel"><summary>Como são escolhidas as leituras de cada domingo?</summary><div class="conteudo-expansivel"><p>As leituras são organizadas antecipadamente no Lecionário Comum Revisado. Em geral, cada domingo reúne uma leitura do Antigo Testamento, um salmo, uma leitura do Novo Testamento e um trecho de um dos Evangelhos.</p><p>A escolha acompanha o calendário cristão: no Advento, no Natal, na Quaresma e na Páscoa, por exemplo, as passagens se relacionam com essas celebrações. Ao longo das demais semanas, as leituras também ajudam a conhecer diferentes partes da Bíblia.</p><p>O site apresenta as leituras previstas para cada data. Você não precisa escolher entre listas ou modalidades de leitura.</p></div></details>
+<details class="secao-expansivel"><summary>Quem organizou esse calendário?</summary><div class="conteudo-expansivel"><p>O <strong>Lecionário Comum Revisado</strong> foi preparado por representantes de diferentes tradições cristãs reunidos na <em>Consulta sobre Textos Comuns</em> (<em>Consultation on Common Texts</em>), e publicado em 1992.</p><p>Ele desenvolveu trabalhos ecumênicos anteriores e dialoga com o lecionário dominical católico elaborado após o Concílio Vaticano II. A intenção era oferecer um conjunto compartilhado de leituras para que comunidades de diferentes igrejas pudessem acompanhar muitos dos mesmos textos bíblicos.</p><p>Não se trata de uma ordem criada por uma única pessoa, nem de uma lista de passagens escolhidas diariamente pelo responsável por este site.</p></div></details>
+<details class="secao-expansivel"><summary>E como funcionam as leituras de segunda a sábado?</summary><div class="conteudo-expansivel"><p>O domingo é o ponto de referência: as leituras diárias do site acompanham a semana em torno dele, sem repetir necessariamente os textos lidos no culto dominical.</p><p>De segunda a quarta, as leituras costumam retomar o domingo anterior. De quinta a sábado, preparam o próximo. Cada dia normalmente traz um salmo e duas leituras bíblicas.</p><p>Você pode começar pela leitura de hoje, sem precisar recuperar os dias anteriores.</p></div></details>
+<details class="secao-expansivel"><summary>Por que o Ano A não começa em janeiro?</summary><div class="conteudo-expansivel"><p>O ano litúrgico começa no <strong>primeiro domingo do Advento</strong>, geralmente no fim de novembro ou no começo de dezembro. É nesse momento que se passa de um ano do ciclo para o próximo.</p><p>Assim, um mesmo ano civil pode conter o fim de um ano litúrgico e o começo de outro. O nome A, B ou C se refere ao ciclo das leituras, não ao ano do calendário civil.</p></div></details>
+<details class="secao-expansivel"><summary>O que é o ano litúrgico?</summary><div class="conteudo-expansivel"><p>É a maneira como as igrejas organizam o ano em torno de acontecimentos e temas da tradição cristã. Começa com o Advento, antes do Natal, e passa por tempos como Epifania, Quaresma, Páscoa e Pentecostes. Entre as grandes celebrações, há semanas de acompanhamento da vida e dos ensinamentos de Jesus.</p></div></details>
+<details class="secao-expansivel"><summary>Onde posso consultar as fontes das leituras?</summary><div class="conteudo-expansivel"><p>Para quem deseja conferir o calendário e conhecer melhor o lecionário:</p><ul class="source-list"><li><a href="https://portal-luterano-files.ieclb.org.br/_arquivos/201111/d5e4da0ead8ba8cd2962216e686c0a5b.pdf" rel="noopener" target="_blank">Tabela do Lecionário — IECLB (PDF)</a></li><li><a href="https://lectionary.library.vanderbilt.edu/" rel="noopener" target="_blank">Vanderbilt Divinity Library — Revised Common Lectionary</a></li></ul></div></details>
+<footer><p>Organizado e mantido por <strong>Daniel Augusto Ribeiro</strong></p><p>Sola Gratia · Sola Fide · Solus Christus · Sola Scriptura</p></footer>
 </main>
-
 </body>
 </html>
