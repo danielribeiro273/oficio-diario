@@ -1,23 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ofício pela Paz - Devoção e Oração</title>
-
-  <!-- PWA Manifest & Theme -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#7a1c1c">
-  <link rel="apple-touch-icon" href="icon-512.png">
-
-  <!-- Fontes de alta legibilidade para leitura devocional -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Register Service Worker -->
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ofício pela Paz - Devoção e Oração</title>
+<!-- PWA Manifest & Theme -->
+<link href="manifest.json" rel="manifest"/>
+<meta content="#7a1c1c" name="theme-color"/>
+<link href="icon-512.png" rel="apple-touch-icon"/>
+<!-- Fontes de alta legibilidade para leitura devocional -->
+<link href="https://fonts.googleapis.com/" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Register Service Worker -->
+<script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
@@ -26,8 +23,7 @@
       });
     }
   </script>
-
-  <style>
+<style>
     :root {
       --bg-main: #fcfaf7;
       --bg-card: #ffffff;
@@ -330,286 +326,152 @@
         font-size: 0.98rem;
       }
     }
-  </style>
+  
+
+/* Experiência de leitura alinhada aos demais ofícios */
+:root {--reader-scale:1;}
+body {font-size:calc(1.08rem * var(--reader-scale));}
+#stuffing {position:relative;}
+.reader-tools {display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--accent-bg);border:1px solid var(--border-color);border-radius:12px;padding:12px 14px;margin:0 0 26px;font-family:'Plus Jakarta Sans',sans-serif;}
+.reader-tools .tool-group {display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.reader-tools button,.start-prayer {font:600 .88rem 'Plus Jakarta Sans',sans-serif;cursor:pointer;border:1px solid var(--border-color);border-radius:9px;background:var(--bg-card);color:var(--text-main);padding:10px 12px;min-height:42px;transition:background .2s,transform .2s;}
+.reader-tools button:hover,.reader-tools button:focus-visible {background:var(--border-color);}
+.start-prayer {display:block;width:max-content;max-width:100%;margin:0 auto 26px;background:var(--primary);color:white;text-decoration:none;padding:13px 24px;border-color:var(--primary);text-align:center;}
+.start-prayer:hover {background:var(--primary-hover);color:white;transform:translateY(-1px);}
+.reading-nav {display:flex;gap:8px;overflow-x:auto;padding:4px 0 16px;margin-bottom:16px;scrollbar-width:thin;}
+.reading-nav a {flex:0 0 auto;text-decoration:none;font:600 .82rem 'Plus Jakarta Sans',sans-serif;padding:8px 12px;border-radius:20px;border:1px solid var(--border-color);color:var(--primary);background:var(--accent-bg);}
+.reading-nav a:hover {border-color:var(--primary);}
+.read-progress {display:block;position:fixed;top:0;left:0;height:3px;background:var(--primary);width:0;z-index:1000;pointer-events:none;}
+.secao-oracao h2 {scroll-margin-top:26px;}
+.secao-oracao h2:not(:first-child) {margin-top:38px;}
+.caixa-reflexao {font-style:normal;line-height:1.75;}
+.rubrica {line-height:1.6;}
+.texto-oracao {font-size:1em;line-height:1.9;}
+.texto-oracao p {margin-bottom:18px;}
+.caixa-musica {padding:20px;}
+.letra-musica {background:var(--bg-card);}
+body.dark {--bg-main:#161616;--bg-card:#232220;--text-main:#f1ebe2;--text-muted:#c5bcb1;--primary:#d9a49a;--primary-hover:#efc0b6;--accent-gold:#c5a475;--accent-bg:#2c2926;--border-color:#4b423b;--shadow-sm:none;--shadow-md:none;color-scheme:dark;}
+body.dark .btn-voltar {background:#7a1c1c;color:#fff;}
+body.dark .start-prayer {background:#7a1c1c;color:#fff;}
+body.dark .blue {color:#b7c9ff;}
+body.dark .letra-musica {background:var(--bg-card);}
+body.dark .versiculo-destaque {background:var(--accent-bg);}
+@media(max-width:600px){.reader-tools{padding:10px}.reader-tools .tool-group{gap:5px}.reader-tools button{padding:9px 10px}.reading-nav{margin-left:-4px;margin-right:-4px}body{font-size:calc(1rem * var(--reader-scale));}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.start-prayer{transition:none}}
+</style>
 </head>
-
-<body>
+<body><div aria-hidden="true" id="reading-progress"></div>
 <div id="stuffing">
-
-  <h1>Ofício pela Paz</h1>
-
-  <p class="subtitulo"><em>"Bem-aventurados os pacificadores, porque serão chamados filhos de Deus."</em> — Mateus 5:9</p>
-
-  <details class="caixa-introducao">
-    <summary>
+<h1>Ofício pela Paz</h1>
+<p class="subtitulo"><em>"Bem-aventurados os pacificadores, porque serão chamados filhos de Deus."</em> — Mateus 5:9</p><div aria-label="Preferências de leitura" class="reader-tools"><span style="font-size:.83rem;font-weight:700">Sua leitura</span><div class="tool-group"><button aria-label="Diminuir letra" id="font-minus" type="button">A−</button><button aria-label="Aumentar letra" id="font-plus" type="button">A+</button><button aria-pressed="false" id="night-mode" type="button">Modo noturno</button></div></div><a class="start-prayer" href="#inicio-oracao">Iniciar oração</a><nav aria-label="Navegar pelas partes da oração" class="reading-nav"><a href="#inicio-oracao">Abertura</a><a href="#secao-2">Cântico</a><a href="#secao-3">Reconciliação</a><a href="#secao-4">Litania</a><a href="#secao-5">Oração pela paz</a><a href="#secao-6">Intercessões</a><a href="#secao-7">Compromisso</a><a href="#secao-8">Saudação</a><a href="#secao-9">Bênção</a></nav>
+<details class="caixa-introducao">
+<summary>
       Sobre o Ofício pela Paz
     </summary>
-    <div style="margin-top: 12px;">
-      <p>
-        Este espaço é inteiramente dedicado à busca e promoção da paz — a paz interior no coração, a paz nas famílias, a libertação de todas as opressões, a reconciliação entre as pessoas e o fim de todas as guerras no mundo.
-      </p>
-      <p style="margin-bottom: 0;">
-        A paz bíblica (<em>Shalom</em>) vai muito além da simples ausência de guerra: é a plena harmonia com Deus, a vivência da autêntica liberdade, a reconciliação entre os seres humanos e a integridade de toda a Criação. Não há verdadeira paz onde não há liberdade, e a falta dessa paz integral é a raiz profunda de onde nascem o medo, a tirania, as injustiças e as guerras do mundo. Este ofício pode ser orado individualmente ou em grupo. Ao utilizar este roteiro, saiba que sua oração se une ao clamor de todas as pessoas que intercedem pela paz no mundo e pelo sustento da Terra. Se for orar em comunidade, <strong>L</strong> indica a pessoa dirigindo a leitura e <strong>C</strong> a resposta de todas e todos.
-      </p>
-    </div>
-  </details>
-  
-  <!-- LITURGIA ESTRUTURADA PELA PAZ -->
-  <div class="secao-oracao">
-    
-    <!-- RITO 1: INVOCAÇÃO E SALMODIA -->
-    <h2>Invocação e Salmodia</h2>
-
-    <span class="rubrica">✚ Faça o Sinal da Cruz (recordando o Batismo, como recomenda Martim Lutero). De pé ou em postura de reverência, inicie proclamando:</span>
-    
-    <div class="texto-oracao">
-      <p><strong>L:</strong> Em nome do Pai, do Filho e do Espírito Santo. <strong>Amém.</strong></p>
-      <p><strong>L:</strong> A paz e a libertação de Cristo estejam neste ambiente e em nossos corações.</p>
-      <p><strong>C: E que a serenidade e a liberdade de Deus reinem em nós, entre nós e em toda a Terra.</strong></p>
-    </div>
-
-    <div class="versiculo-destaque">
-      "Deixo-vos a paz, a minha paz vos dou; não vo-la dou como o mundo a dá. Não se turbe o vosso coração, nem se acautelar." — João 14:27
-    </div>
-
-    <span class="rubrica">Recite o Salmo 85:</span>
-    
-    <div class="texto-oracao">
-      <p>Escutarei o que Deus, o Senhor, falar; porque falará de paz ao seu povo, aos seus santos e a toda a criação.</p>
-      <p>Certamente a sua salvação está perto daqueles que o temem, para que a sua glória habite na Terra.</p>
-      <p>A misericórdia e a verdade se encontraram; a justiça e a paz se beijaram.</p>
-      <p>A verdade brotará da terra, e a justiça olhará desde os céus.</p>
-      <p>O Senhor dará o que é bom, e a nossa terra produzirá o seu fruto.</p>
-    </div>
-
-    <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;">
-
-    <!-- CANÇÃO DE CLAMOR PELA PAZ -->
-    <h2>Cântico de Clamor</h2>
-
-    <span class="rubrica">Cante ou escute a canção a seguir:</span>
-
-    <div class="caixa-musica">
-      <h3>Pelas Dores Deste Mundo</h3>
-      <p class="autor">Letra e Música: Rodolfo Gaede Neto</p>
-
-      <!-- Player de Áudio -->
-      <audio controls class="player-audio" preload="metadata">
-        <source src="pelas-dores-deste-mundo.mp3" type="audio/mpeg">
+<div style="margin-top: 12px;"><p>Este ofício é um espaço para orar pela paz: em nossas relações, nas comunidades e nos lugares marcados pela guerra e pela injustiça. Podemos chegar com esperança, indignação, tristeza ou sem saber o que dizer.</p><p>Oramos a Deus e lembramos que a paz também se constrói com escuta, justiça e cuidado. Pode ser rezado a sós ou em grupo. <strong>L</strong> indica quem conduz e <strong>C</strong> a resposta de todas as pessoas.</p></div>
+</details>
+<!-- LITURGIA ESTRUTURADA PELA PAZ -->
+<div class="secao-oracao">
+<!-- RITO 1: INVOCAÇÃO E SALMODIA -->
+<h2 id="inicio-oracao">Invocação e Salmodia</h2>
+<span class="rubrica">✚ Faça o Sinal da Cruz (recordando o Batismo, como recomenda Martim Lutero). De pé ou em postura de reverência, inicie proclamando:</span>
+<div class="texto-oracao">
+<p><strong>L:</strong> Em nome do Pai, do Filho e do Espírito Santo. <strong>Amém.</strong></p>
+<p><strong>L:</strong> A paz de Cristo esteja conosco e com todas as pessoas que dela precisam.</p>
+<p><strong>C: Que essa paz alcance nossas casas, nossas comunidades e o mundo inteiro.</strong></p>
+</div>
+<div class="versiculo-destaque">“Deixo-vos a paz, a minha paz vos dou; não vo-la dou como o mundo a dá. Não se turbe o vosso coração, nem se atemorize.” — João 14.27</div>
+<span class="rubrica">Trechos do Salmo 85 (adaptação para oração):</span>
+<div class="texto-oracao">
+<p>Escutarei o que Deus, o Senhor, falar; porque falará de paz ao seu povo, aos seus santos e a toda a criação.</p>
+<p>Certamente a sua salvação está perto daqueles que o temem, para que a sua glória habite na Terra.</p>
+<p>A misericórdia e a verdade se encontraram; a justiça e a paz se beijaram.</p>
+<p>A verdade brotará da terra, e a justiça olhará desde os céus.</p>
+<p>O Senhor dará o que é bom, e a nossa terra produzirá o seu fruto.</p>
+</div>
+<hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;"/>
+<!-- CANÇÃO DE CLAMOR PELA PAZ -->
+<h2 id="secao-2">Cântico de Clamor</h2>
+<span class="rubrica">Cante ou escute a canção a seguir:</span>
+<div class="caixa-musica">
+<h3>Pelas Dores Deste Mundo</h3>
+<p class="autor">Letra e Música: Rodolfo Gaede Neto</p>
+<!-- Player de Áudio -->
+<audio class="player-audio" controls="" preload="metadata">
+<source src="pelas-dores-deste-mundo.mp3" type="audio/mpeg"/>
         Seu navegador não suporta o elemento de áudio.
       </audio>
-
-      <div class="letra-musica">
-        <p>
-          Pelas dores deste mundo, ó Senhor,<br>
-          imploramos piedade.<br>
-          A um só tempo geme a criação.<br>
-          Teus ouvidos se inclinem ao clamor<br>
-          desta gente oprimida.<br>
+<div class="letra-musica">
+<p>
+          Pelas dores deste mundo, ó Senhor,<br/>
+          imploramos piedade.<br/>
+          A um só tempo geme a criação.<br/>
+          Teus ouvidos se inclinem ao clamor<br/>
+          desta gente oprimida.<br/>
           Apressa-te com a tua salvação!
         </p>
-        <p style="margin-bottom: 0;">
-          A tua paz, bendita<br>
-          e irmanada com a justiça,<br>
-          abrace o mundo inteiro.<br>
-          Tem compaixão!<br>
-          O teu poder sustente<br>
-          o testemunho do teu povo.<br>
-          Teu Reino venha a nós!<br>
-          <em>Kyrie eleison!</em>
-        </p>
-      </div>
-    </div>
-
-    <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;">
-
-    <!-- RITO 2: EXAME DO CORAÇÃO E RECONCILIAÇÃO -->
-    <h2>Reconciliação</h2>
-
-    <span class="rubrica">Guarde um momento de absoluto silêncio interior antes da leitura:</span>
-
-    <div class="caixa-reflexao">
-      <strong class="titulo-reflexao">Reflexão Meditativa</strong>
-      Perante o Deus da Paz, examinemos os nossos pensamentos e atitudes. Onde alimentamos o rancor, o desejo de dominar os outros, as palavras agressivas ou a desatenção com a terra e com os que nos cercam? Reconheçamos que a ausência de paz em nossa mente e a falta de compreensão nos relacionamentos são as raízes de todas as divisões do mundo. A paz começa na purificação do nosso próprio olhar. Lembremo-nos também das vezes em que preferimos ter razão a pedir perdão, em que respondemos com frieza a quem amamos ou guardamos uma ofensa para cobrá-la depois. Cristo nos chama a abandonar o orgulho, a escutar antes de julgar e a dar o primeiro passo da reconciliação, mesmo quando nosso coração ainda resiste.
-    </div>
-
-    <span class="rubrica">Proclame a oração de perdão de coração sincero:</span>
-    
-    <div class="texto-oracao">
-      <p><strong>Oração:</strong> Deus de infinita bondade, limpa os nossos corações de toda amargura e agressividade. Dá-nos a graça de perdoar assim como nos perdoas, inclusive quando a mágoa ainda dói e não sentimos vontade de perdoar. Ensina-nos a reconhecer nossas próprias faltas, a pedir desculpas sem justificativas e a não transformar cada desentendimento numa disputa que precisamos vencer. Retira do nosso espírito o peso do rancor, ensina-nos a viver na liberdade do teu amor, em harmonia com os nossos irmãos e nossas irmãs, e a respeitar a Terra que nos acolhe e sustenta. <strong>Amém.</strong></p>
-    </div>
-
-    <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;">
-
-    <!-- LITANIA EXPANDIDA PELO DESARMAMENTO -->
-    <h2>Litania do Desarmamento</h2>
-
-    <span class="rubrica">Clamor responsivo pelo fim da cultura bélica e pelo desarmamento dos corações e da sociedade (Inspirado em Isaías 2:4 e Zacarias 9:10):</span>
-
-    <div class="texto-oracao">
-      <p><strong>L:</strong> Ó Deus, tu que julgas as nações e rejeitas toda forma de violência armada:</p>
-      <p><strong>C: Transforma, Senhor, as espadas em arados e as lanças em foices!</strong></p><br>
-
-      <p><strong>L:</strong> Onde exércitos se preparam para o combate e bombardeios trazem terror e destruição aos civis:</p>
-      <p><strong>C: Faz com que nenhuma nação levante a espada contra outra, nem se adestrem mais para a guerra!</strong></p><br>
-
-      <p><strong>L:</strong> Pelos governantes e indústrias que lucram com o comércio e a fabricação de armas de morte:</p>
-      <p><strong>C: Converte os seus corações, ó Pai, para que invistam na vida, no pão e na saúde, e não na destruição!</strong></p><br>
-
-      <p><strong>L:</strong> Onde regimes autoritários, perseguições e opressões retiram a liberdade de expressão, de fé e de consciência:</p>
-      <p><strong>C: Quebra, Senhor, as cadeias da tirania e faz florescer a liberdade que gera a tua paz!</strong></p><br>
-
-      <p><strong>L:</strong> Onde o ódio religioso, étnico ou nacionalista divide os povos e alimenta conflitos históricos:</p>
-      <p><strong>C: Derruba os muros da separação e ensina-nos o teu caminho de perdão e reconciliação!</strong></p><br>
-
-      <p><strong>L:</strong> Por todas as crianças, mães, idosos e famílias refugiadas que fogem dos horrores do combate:</p>
-      <p><strong>C: Sê tu o seu refúgio seguro e restabelece a paz em suas terras nativas!</strong></p><br>
-
-      <p><strong>L:</strong> Pelos jovens constrangidos ao serviço militar e por aqueles que se recusam a pegar em armas por objeção de consciência:</p>
-      <p><strong>C: Fortalece o testemunho da não-violência e protege os teus servos que defendem a paz!</strong></p><br>
-
-      <p><strong>L:</strong> Onde a fome, a extrema pobreza e a desigualdade ferem a dignidade humana e destroem a paz cotidiana:</p>
-      <p><strong>C: Desarma a ganância dos corações e desperta a solidariedade para que a tua justiça garanta o pão a todos!</strong></p><br>
-
-      <p><strong>L:</strong> Diante da violência urbana, do crime organizado, do preconceito, do racismo e das agressões dentro dos lares:</p>
-      <p><strong>C: Restaura a segurança em nossas ruas, cura as nossas famílias e ensina-nos o respeito mútuo!</strong></p><br>
-
-      <p><strong>L:</strong> Onde a ansiedade, o medo, o desespero e as feridas da alma roubam a paz da mente:</p>
-      <p><strong>C: Derrama o teu Espírito consolador e renova a esperança dos corações aflitos!</strong></p>
-    </div>
-
-    <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;">
-
-    <!-- RITO 3: ORAÇÃO UNIVERSAL -->
-    <h2>Oração Universal da Paz</h2>
-
-    <span class="rubrica">Oração de entrega e compromisso (atribuída a São Francisco de Assis):</span>
-    
-    <div class="texto-oracao">
-      <p>
-        Senhor, fazei-me instrumento de vossa paz.<br>
-        Onde houver ódio, que eu leve o amor;<br>
-        Onde houver ofensa, que eu leve o perdão;<br>
-        Onde houver discórdia, que eu leve a união;<br>
-        Onde houver dúvida, que eu leve a fé;<br>
-        Onde houver erro, que eu leve a verdade;<br>
-        Onde houver desespero, que eu leve a esperança;<br>
-        Onde houver tristeza, que eu leve a alegria;<br>
-        Onde houver trevas, que eu leve a luz.<br><br>
-        Ó Mestre, fazei que eu procure mais consolar que ser consolado;<br>
-        Compreender que ser compreendido;<br>
-        Amar que ser amado.<br>
-        Pois é dando que se recebe,<br>
-        É perdoando que se é perdoado,<br>
-        E é morrendo que se vive para a vida eterna.<br>
-        <strong>Amém.</strong>
-      </p>
-    </div>
-
-    <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;">
-
-    <!-- RITO 4: INTERCESSÃO PELA HUMANIDADE E PELA TERRA -->
-    <h2>Preces e Intercessões pela Paz Integral e Mundial</h2>
-
-    <div class="caixa-reflexao">
-      <strong class="titulo-reflexao">Reflexão Meditativa</strong>
-      A oração comunitária e pessoal nos conecta com o sofrimento do mundo. Olhamos para além de nós mesmos, abraçando a humanidade em suas diversas dores e o gemido da Criação. Ao mesmo tempo, levemos diante de Jesus as pessoas concretas com quem convivemos: quem ferimos com palavras, quem deixamos de ouvir, quem nos decepcionou e quem espera de nós um gesto de cuidado. Peçamos um coração capaz de enxergar nelas alguém amado por Deus.
-    </div>
-
-    <span class="rubrica">Apresente as preces a Deus com serenidade (L indica o dirigente, C a resposta da comunidade):</span>
-    
-    <div class="texto-oracao">
-      <p><strong>L:</strong> Ó Deus, rogamos-te pela paz nas nações e pelo fim das guerras: olha por todos os povos atingidos por conflitos armados, violência e injustiças na Europa Oriental, no Oriente Médio, na África, nas Américas e no mundo inteiro. Guia os líderes mundiais pelo diálogo, pela diplomacia e pelo bem comum.</p>
-      <p><strong>C: Senhor, ouve a nossa oração e concede-nos a tua paz!</strong></p><br>
-
-      <p><strong>L:</strong> Pedimos-te pela liberdade de todos e contra todas as opressões: intercede por todos os povos, minorias e indivíduos privados de sua liberdade de consciência, pensamento e dignidade. Faz cessar as perseguições, o autoritarismo e a servidão humana.</p>
-      <p><strong>C: Senhor, ouve a nossa oração e concede-nos a tua paz!</strong></p><br>
-
-      <p><strong>L:</strong> Oramos pelas vítimas da repressão e da violência urbana: acolhe em tuas mãos todos os mortos, feridos, traumatizados e desabrigados pelas guerras, assim como quem sofre com o crime e a insegurança diária. Dá proteção e consolo aos que perderam seus entes queridos e suas casas.</p>
-      <p><strong>C: Senhor, ouve a nossa oração e concede-nos a tua paz!</strong></p><br>
-
-      <p><strong>L:</strong> Clamamos pela paz social e justiça econômica: olha pelos desempregados, famintos e marginalizados. Transforma a falta de paz gerada pela desigualdade em estruturas de justiça, dignidade e oportunidade para todos.</p>
-      <p><strong>C: Senhor, ouve a nossa oração e concede-nos a tua paz!</strong></p><br>
-
-      <p><strong>L:</strong> Suplicamos pela saúde mental e pela paz do coração: cuida de quem enfrenta depressão, ansiedade, pânico, solidão e crises existenciais. Acalma as tempestades interiores e derrama a tua verdadeira serenidade.</p>
-      <p><strong>C: Senhor, ouve a nossa oração e concede-nos a tua paz!</strong></p><br>
-
-      <p><strong>L:</strong> Te pedimos pelos diplomatas e agentes de paz: sustenta todas as pessoas e organizações humanitárias que arriscam suas vidas nas zonas de combate, periferias e locais vulneráveis para salvar vidas e mediar a paz.</p>
-      <p><strong>C: Senhor, ouve a nossa oração e concede-nos a tua paz!</strong></p><br>
-
-      <p><strong>L:</strong> Abençoa os nossos lares e comunidades: restaura as famílias divididas, os casamentos em crise e as vítimas de violência doméstica. Faz dos nossos espaços cotidianos redutos do teu acolhimento e da tua reconciliação.</p>
-      <p><strong>C: Senhor, ouve a nossa oração e concede-nos a tua paz!</strong></p><br>
-
-      <p><strong>L:</strong> Rogamos-te pela Terra e por toda a tua Criação: ensina-nos a cuidar do planeta, dos rios, das florestas e de todas as tuas criaturas, curando as feridas causadas pela exploração predatória e pela devastação das guerras.</p>
-      <p><strong>C: Senhor, ouve a nossa oração e concede-nos a tua paz!</strong></p><br>
-
-      <p><strong>L:</strong> Pelas pessoas com quem temos dificuldade de conviver e por aquelas que nos feriram: dá-nos a coragem de orar por elas, de renunciar à vingança e de buscar, quando possível e seguro, caminhos sinceros de reconciliação.</p>
-      <p><strong>C: Senhor, ouve a nossa oração e concede-nos a tua paz!</strong></p><br>
-
-      <p><strong>L:</strong> Toca o nosso próprio coração, ó Pai: para que, diante das preocupações e incertezas da vida, conservemos a serenidade, a esperança e a firmeza na fé.</p>
-      <p><strong>C: Senhor, ouve a nossa oração e concede-nos a tua paz!</strong></p>
-    </div>
-
-    <span class="rubrica">Em silêncio, apresente a Deus intenções ou nomes de territórios, situações e pessoas específicas...</span>
-
-    <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;">
-
-    <!-- COMPROMISSO PACIFISTA -->
-    <h2>Compromisso Comunitário pela Não-Violência e Liberdade</h2>
-
-    <span class="rubrica">Declaração conjunta de compromisso pacificadora:</span>
-
-    <div class="texto-oracao">
-      <p><strong>C: Perante ti, ó Deus, comprometemo-nos a resistir ao ódio através do amor, a rejeitar todas as formas de violência, autoritarismo e vingança, a desarmar nossas palavras e a testemunhar ativamente a tua paz e a tua liberdade em nossa comunidade e no mundo. Ajuda-nos a pedir perdão quando erramos, a ouvir com humildade, a não insistir em ter a última palavra e a amar como Jesus nos amou. Amém.</strong></p>
-    </div>
-
-    <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;">
-
-    <!-- SAUDAÇÃO E ABRAÇO DA PAZ -->
-    <h2>Saudação Fraterna da Paz</h2>
-
-    <span class="rubrica">Momentos para saudar as pessoas presentes na comunidade ou oração:</span>
-
-    <div class="texto-oracao">
-      <p><strong>L:</strong> A paz de Cristo não é como a paz do mundo; ela supera o medo, destrói os muros da separação, liberta os cativos e une os povos. Saudemo-nos uns aos outros com o sinal fraterno da paz.</p>
-      <p><em>(Se orado em grupo, as pessoas saúdam-se dizendo: "A paz de Cristo esteja contigo.")</em></p>
-    </div>
-
-    <hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;">
-
-    <!-- RITO 5: BÊNÇÃO E ENVIO -->
-    <h2>Compromisso e Bênção de Envio</h2>
-
-    <div class="caixa-reflexao">
-      <strong class="titulo-reflexao">Reflexão de Encerramento</strong>
-      A paz litúrgica se transforma em ação no mundo. A paz não é apenas a ausência de conflito, mas a presença ativa da justiça, do perdão, da liberdade e da fraternidade, expressada pelo cuidado diário, pela saúde da mente e pela solidariedade. Talvez o primeiro lugar em que precisemos viver essa paz seja dentro de casa, numa conversa difícil, numa desculpa que adiamos ou no silêncio humilde de quem escolhe não ferir de volta. Que Jesus nos dê um coração semelhante ao seu: manso, misericordioso e disposto a servir, mesmo quando isso custa ao nosso orgulho.
-    </div>
-
-    <span class="rubrica">Incline a cabeça e receba/proclame a bênção final:</span>
-    
-    <div class="texto-oracao">
-      <p>Que as nossas palavras edifiquem, que as nossas mãos acolham e que os nossos passos promovam a paz e a liberdade onde quer que estejamos.<br><br>
-      O Senhor nos abençoe e nos guarde;<br>
-      O Senhor faça resplandecer o seu rosto sobre nós e tenha misericórdia de nós;<br>
-      O Senhor sobre nós levante o seu rosto e nos dê a sua paz.<br>
-      <strong>Amém.</strong></p>
-    </div>
-
-  </div>
-
-  <div class="btn-voltar-container">
-    <a href="index.html" class="btn-voltar">← Voltar para a Página Inicial</a>
-  </div>
-
-  <footer>
-    <p>Organizado e mantido por Daniel Augusto Ribeiro</p>
-    <p style="margin-top: 4px; font-style: italic;">
-      <a href="sobre.html">Conheça o projeto e entenda o lecionário</a>
-    </p>
-  </footer>
-
+<p style="margin-bottom: 0;">
+          A tua paz, bendita<br/>
+          e irmanada com a justiça,<br/>
+          abrace o mundo inteiro.<br/>
+          Tem compaixão!<br/>
+          O teu poder sustente<br/>
+          o testemunho do teu povo.<br/>
+          Teu Reino venha a nós!<br/>
+<em>Kyrie eleison!</em>
+</p>
+</div>
+</div>
+<hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;"/>
+<!-- RITO 2: EXAME DO CORAÇÃO E RECONCILIAÇÃO -->
+<h2 id="secao-3">Reconciliação</h2><p class="rubrica">Reserve um momento de silêncio. Pense em alguém que você feriu, em uma situação que precisa de reparação ou em uma dor que ainda carrega.</p><div class="texto-oracao"><p>Deus de misericórdia, nem sempre sabemos viver em paz. Às vezes falamos sem pensar, deixamos de escutar ou tratamos com dureza quem está perto de nós. Também conhecemos a dor de sermos feridos.</p><p>Ajuda-nos a reconhecer o que fizemos de errado, pedir perdão e reparar o que for possível. Dá-nos coragem para estabelecer limites quando necessário e para buscar reconciliação onde houver respeito e segurança. Livra-nos da indiferença diante da dor dos outros. Por Jesus Cristo. <strong>Amém.</strong></p></div><hr/><h2 id="secao-4">Litania do Desarmamento</h2><p class="rubrica">Quem conduz apresenta as intenções. A comunidade responde: <strong>Senhor, faz de nós instrumentos de paz.</strong></p><div class="texto-oracao"><p><strong>L:</strong> Pelas pessoas que ouvem bombas durante a noite, que perderam suas casas e que não sabem se estarão seguras amanhã.</p><p><strong>C: Senhor, faz de nós instrumentos de paz.</strong></p><p><strong>L:</strong> Por quem toma decisões sobre guerras e conflitos: que escute o sofrimento humano e procure caminhos de diálogo e proteção da vida.</p><p><strong>C: Senhor, faz de nós instrumentos de paz.</strong></p><p><strong>L:</strong> Pelas pessoas perseguidas por sua origem, sua religião, suas ideias ou por defenderem a liberdade.</p><p><strong>C: Senhor, faz de nós instrumentos de paz.</strong></p><p><strong>L:</strong> Por quem vive com medo dentro da própria casa, na rua ou na comunidade.</p><p><strong>C: Senhor, faz de nós instrumentos de paz.</strong></p><p><strong>L:</strong> Por nós, quando a raiva toma conta das palavras e deixamos de enxergar a humanidade de quem pensa diferente.</p><p><strong>C: Senhor, faz de nós instrumentos de paz.</strong></p></div><hr/><h2 id="secao-5">Oração Universal da Paz</h2>
+<span class="rubrica">Oração de entrega e compromisso (atribuída a São Francisco de Assis):</span>
+<div class="texto-oracao">
+<p>
+        Senhor, fazei-me instrumento de vossa paz.<br/>
+        Onde houver ódio, que eu leve o amor;<br/>
+        Onde houver ofensa, que eu leve o perdão;<br/>
+        Onde houver discórdia, que eu leve a união;<br/>
+        Onde houver dúvida, que eu leve a fé;<br/>
+        Onde houver erro, que eu leve a verdade;<br/>
+        Onde houver desespero, que eu leve a esperança;<br/>
+        Onde houver tristeza, que eu leve a alegria;<br/>
+        Onde houver trevas, que eu leve a luz.<br/><br/>
+        Ó Mestre, fazei que eu procure mais consolar que ser consolado;<br/>
+        Compreender que ser compreendido;<br/>
+        Amar que ser amado.<br/>
+        Pois é dando que se recebe,<br/>
+        É perdoando que se é perdoado,<br/>
+        E é morrendo que se vive para a vida eterna.<br/>
+<strong>Amém.</strong>
+</p>
+</div>
+<hr style="border: none; border-top: 1px dashed var(--border-color); margin: 32px 0;"/>
+<!-- RITO 4: INTERCESSÃO PELA HUMANIDADE E PELA TERRA -->
+<h2 id="secao-6">Preces e Intercessões pela Paz Integral e Mundial</h2><p class="rubrica">Podemos acrescentar nomes, lugares e situações que conhecemos.</p><div class="texto-oracao"><p><strong>L:</strong> Senhor Deus, lembramos das famílias separadas pela guerra. Das crianças que sentem medo, das pessoas que fogem sem saber para onde ir e de quem espera notícias de alguém querido. Dá-lhes proteção, abrigo e pessoas dispostas a ajudar.</p><p><strong>C: Ouve-nos, Senhor, e guia-nos no caminho da paz.</strong></p><p><strong>L:</strong> Lembramos de quem não tem comida suficiente, de quem procura trabalho e de quem precisa escolher entre pagar uma conta e comprar o necessário. Ajuda-nos a construir comunidades mais justas e solidárias.</p><p><strong>C: Ouve-nos, Senhor, e guia-nos no caminho da paz.</strong></p><p><strong>L:</strong> Lembramos de quem sofre violência, preconceito ou perseguição. Sustenta quem procura proteção e fortalece quem trabalha pela dignidade e pelos direitos das pessoas.</p><p><strong>C: Ouve-nos, Senhor, e guia-nos no caminho da paz.</strong></p><p><strong>L:</strong> Lembramos de quem está exausto, ansioso ou sozinho, de quem cuida de uma pessoa doente e de quem sente que não tem mais forças. Que encontre companhia, acolhimento e ajuda concreta.</p><p><strong>C: Ouve-nos, Senhor, e guia-nos no caminho da paz.</strong></p><p><strong>L:</strong> Lembramos dos rios, das florestas, dos animais e das comunidades atingidas pela destruição ambiental. Ensina-nos a cuidar da Terra com responsabilidade.</p><p><strong>C: Ouve-nos, Senhor, e guia-nos no caminho da paz.</strong></p><p><strong>L:</strong> Lembramos das pessoas com quem convivemos. Ajuda-nos a ouvir antes de responder, a reconhecer nossos erros e a não desistir do bem, mesmo quando a paz parece distante.</p><p><strong>C: Ouve-nos, Senhor, e guia-nos no caminho da paz.</strong></p></div><p class="rubrica">Em silêncio, apresente a Deus suas próprias intenções.</p><hr/><h2 id="secao-7">Compromisso Comunitário pela Não-Violência e Liberdade</h2><p class="rubrica">Todos podem orar:</p><div class="texto-oracao"><p>Senhor, queremos que a paz que pedimos apareça também em nossas escolhas. Ajuda-nos a não espalhar o ódio, a ouvir com respeito, a defender quem sofre injustiça e a oferecer ajuda quando estiver ao nosso alcance. Que nossas atitudes sejam coerentes com nossas palavras. <strong>Amém.</strong></p></div><hr/><h2 id="secao-8">Saudação Fraterna da Paz</h2><p class="rubrica">Se estiverem em grupo, as pessoas podem se saudar dizendo: “A paz de Cristo esteja contigo”. Se estiver orando a sós, recorde alguém a quem deseja paz.</p><hr/><h2 id="secao-9">Compromisso e Bênção de Envio</h2><p class="rubrica">Receba a bênção e siga em paz.</p><div class="texto-oracao"><p>Que encontremos coragem para dar o próximo passo, paciência para escutar e disposição para cuidar uns dos outros.</p><p>O Senhor nos abençoe e nos guarde;<br/>o Senhor faça resplandecer o seu rosto sobre nós e tenha misericórdia de nós;<br/>o Senhor sobre nós levante o seu rosto e nos dê a sua paz.<br/><strong>Amém.</strong></p></div></div>
+<div class="btn-voltar-container">
+<a class="btn-voltar" href="index.html">← Voltar para a Página Inicial</a>
+</div>
+<footer>
+<p>Organizado e mantido por Daniel Augusto Ribeiro</p>
+<p style="margin-top: 4px; font-style: italic;">
+<a href="sobre.html">Conheça o projeto e entenda o lecionário</a>
+</p>
+</footer>
 </div>
 
+<script>
+(function(){
+ const root=document.documentElement, body=document.body;
+ const plus=document.getElementById('font-plus'), minus=document.getElementById('font-minus'), dark=document.getElementById('night-mode');
+ let scale=1;
+ function setScale(v){scale=Math.min(1.4,Math.max(.9,v));root.style.setProperty('--reader-scale',scale.toFixed(2));}
+ plus.addEventListener('click',()=>setScale(scale+.1));minus.addEventListener('click',()=>setScale(scale-.1));
+ dark.addEventListener('click',()=>{const active=body.classList.toggle('dark');dark.textContent=active?'Modo claro':'Modo noturno';dark.setAttribute('aria-pressed',String(active));});
+ const progress=document.getElementById('reading-progress');
+ function updateProgress(){const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max>0?Math.min(100,100*scrollY/max):100)+'%';}
+ addEventListener('scroll',updateProgress,{passive:true});addEventListener('resize',updateProgress);updateProgress();
+})();
+</script>
 </body>
-
 </html>
