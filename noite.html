@@ -1,22 +1,20 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Breve Ofício da Noite</title>
-
-  <!-- PWA Manifest & Theme -->
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#7a1c1c">
-  <link rel="apple-touch-icon" href="icon-512.png">
-
-  <!-- Fontes de alta legibilidade para leitura devocional -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Register Service Worker -->
-  <script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Breve Ofício da Noite</title>
+<!-- PWA Manifest & Theme -->
+<link href="manifest.json" rel="manifest"/>
+<meta content="#7a1c1c" name="theme-color"/>
+<link href="icon-512.png" rel="apple-touch-icon"/>
+<!-- Fontes de alta legibilidade para leitura devocional -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&amp;family=Lora:ital,wght@0,400;0,600;1,400;1,600&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Register Service Worker -->
+<script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
@@ -25,8 +23,7 @@
       });
     }
   </script>
-
-  <style>
+<style>
     :root {
       --bg-main: #fcfaf7;
       --bg-card: #ffffff;
@@ -260,265 +257,189 @@
       .indent2 { padding-left: 28px; }
       .indent3 { padding-left: 42px; }
     }
-  </style>
+  
+/* Leitura noturna */
+#stuffing { --reader-scale: 1; }
+#stuffing > p, #stuffing > div:not(.night-intro):not(.subcabecalho-info):not(.section-nav), #stuffing > details { font-size: calc(1rem * var(--reader-scale)); }
+.night-intro {text-align:center;padding:24px 16px 30px;margin:0 0 18px;background:var(--accent-bg);border:1px solid var(--border-color);border-radius:16px;}
+.night-intro h1 {margin:10px 0 8px;border:0;padding:0;font-size:clamp(1.55rem,5vw,2.15rem);}
+.night-intro p {color:var(--text-muted);margin-bottom:20px;}
+.eyebrow {font:700 .7rem 'Plus Jakarta Sans',sans-serif;letter-spacing:2px;color:var(--accent-gold);}
+.start-btn {display:inline-flex;justify-content:center;gap:22px;align-items:center;background:var(--primary);color:white;text-decoration:none;border-radius:12px;padding:15px 26px;font:700 1rem 'Plus Jakarta Sans',sans-serif;min-height:52px;}
+.start-btn:hover {color:white;background:var(--primary-hover);}
+.reading-tools {display:flex;justify-content:center;gap:8px;margin-top:18px;flex-wrap:wrap;}
+.reading-tools button {border:1px solid var(--border-color);background:var(--bg-card);color:var(--text-main);border-radius:8px;padding:9px 13px;cursor:pointer;font:600 .85rem 'Plus Jakarta Sans',sans-serif;min-height:42px;}
+.section-nav {display:flex;gap:8px;overflow-x:auto;padding:6px 2px 16px;margin-bottom:16px;scrollbar-width:thin;}
+.section-nav a {white-space:nowrap;text-decoration:none;border:1px solid var(--border-color);padding:8px 12px;border-radius:99px;font:600 .8rem 'Plus Jakarta Sans',sans-serif;background:var(--bg-card);}
+h1[id] {scroll-margin-top:20px;}
+.hymn-details {padding:15px 18px;background:var(--accent-bg);border:1px solid var(--border-color);border-radius:12px;margin:15px 0;}
+.hymn-details summary {cursor:pointer;color:var(--primary);font:700 .95rem 'Plus Jakarta Sans',sans-serif;}
+.hymn-details > div {margin-top:14px!important;}
+.dark-mode {--bg-main:#161514;--bg-card:#24211f;--text-main:#eee7df;--text-muted:#c8bdb0;--primary:#e1a4a0;--primary-hover:#f0c0b7;--accent-bg:#302822;--border-color:#51453e;--accent-gold:#e3c18d;}
+.dark-mode .subcabecalho-info,.dark-mode .start-btn {background:#793232;color:#fff;}
+.dark-mode audio {color-scheme:dark;}
+@media(max-width:600px){.night-intro{padding:22px 12px}.section-nav{margin-right:-8px}.reading-tools button{flex:1}}
+</style>
 </head>
 <body id="topo">
 <div id="stuffing">
-
-  <!-- Subcabeçalho em texto informativo -->
-  <div class="subcabecalho-info" id="subcabecalho-info">
+<!-- Subcabeçalho em texto informativo -->
+<div class="subcabecalho-info" id="subcabecalho-info">
     Carregando informações do dia...
-  </div>
-
-  <!-- Orientação de Leitura e Oração (Espiritualidade Luterana) com ID id="msg-orar" em formato expansível -->
-  <details id="msg-orar">
-    <summary>
+  </div><div class="night-intro"><div class="eyebrow">ORAÇÃO PARA O FIM DO DIA</div><h1>Breve Ofício da Noite</h1><p>Um tempo para reconhecer o dia vivido e repousar diante de Deus.</p><a class="start-btn" href="#abertura">Iniciar oração <span aria-hidden="true">→</span></a><div class="reading-tools"><button aria-label="Diminuir fonte" id="font-minus" type="button">A−</button><button aria-label="Aumentar fonte" id="font-plus" type="button">A+</button><button aria-pressed="false" id="night-mode" type="button">Modo noturno</button></div></div><nav aria-label="Etapas da oração" class="section-nav"><a href="#abertura">Abertura</a><a href="#confissao">Confissão</a><a href="#salmo">Salmo</a><a href="#palavra">Leitura</a><a href="#simeao">Cântico</a><a href="#oracoes">Orações</a><a href="#encerramento">Bênção</a></nav>
+<!-- Orientação de Leitura e Oração (Espiritualidade Luterana) com ID id="msg-orar" em formato expansível -->
+<details id="msg-orar">
+<summary>
       Antes de começar: O que significa orar?
     </summary>
-    <div style="margin-top: 12px;">
-      <p>
-        Orar é um encontro, não uma obrigação. Na tradição luterana, acreditamos que a oração nunca é um ato isolado: a Igreja é uma comunidade que ora junta. As ordens de culto, os salmos e os hinos acompanham o jeito de orar do povo de Deus há gerações porque nos lembram que orar não depende da nossa capacidade individual de inventar belas palavras.
-      </p>
-      <p>
-        Ao longo dos séculos, a Igreja aprendeu a orar com estruturas simples. Os salmos e os hinos que cantamos e decoramos nos ensinam a colocar a vida diante de Deus. O <strong>Pai Nosso</strong>, ensinado por Jesus, e o <strong>Credo Apostólico</strong> — que desde o início da Igreja resume e protege a nossa fé — nos ajudam a orar em comunhão, em uma só gramática de fé.
-      </p>
-      <p style="margin-bottom: 0;">
-        Quando você realiza este ofício, saiba que outras irmãs e outros irmãos estão abrindo esta mesma página e orando as mesmas palavras. Sua voz se soma à de toda a comunidade de fé, forming um só clamor diante de Deus. Respire, mantenha a mente presente, acolha cada frase sem pressa e com calma, e lembre-se de que a sua oração faz parte de um grande e contínuo louvor a Deus, e sobe como um único e mesmo clamor de milhares de irmãos e irmãs ao redor do mundo, um só Corpo de Cristo que ora em uma só voz, quer você esteja só ou reunido(a) em grupo.
-      </p>
-    </div>
-  </details>
-
-  <h1>Abertura</h1>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>Que o nosso bom Deus, cheio de amor e cuidado, nos conceda uma noite abençoada, de muita paz e de um descanso restaurador para o corpo e para a alma.</p>
-
-  <p class="red"><em>Todos</em></p>
-  <p><strong>Amém!</strong></p>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>A nossa ajuda e o nosso amparo vêm do Senhor,</p>
-
-  <p class="red"><em>Resposta</em></p>
-  <p>Que fez o céu, a terra e cuida de cada um e cada uma de nós.</p>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>Acolhidos e acolhidas pela graça, em confiança e sem medo, abramos o nosso coração e confessemos as nossas falhas e pecados a Deus.</p>
-
-  <h1>Exame do Dia e Confissão</h1>
-
-  <p class="red"><em>Pode-se fazer um momento de silêncio para reflexão pessoal sobre o dia que passou.</em></p>
-
-  <p class="red"><em>Todos juntos:</em></p>
-  <p>
-  Senhor, nosso Deus, ao final deste dia nos colocamos diante de ti. Agradecemos por tua presença em nossa caminhada e reconhecemos que nem sempre vivemos conforme a tua vontade. Falhamos no amor, nas palavras e nas atitudes, e muitas vezes deixamos de cuidar de quem precisava de nós. Perdoa-nos e renova o nosso coração. Que nesta noite possamos descansar confiantes no teu amor e na tua graça, que nos acolhem em Jesus Cristo, nosso Salvador. Amém.
-  </p>
-
-  <h1>Salmo do Dia</h1>
-
-  <div id="salmo-noite">
-    <p class="red"><em>Carregando Salmo da noite...</em></p>
-  </div>
-
-  <h1>A Palavra de Deus</h1>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>
+<div style="margin-top: 12px;"><p>Este é um momento para encerrar o dia diante de Deus. Você pode orar sozinho ou em comunidade, lendo também as respostas. Siga com calma, fazendo pausas quando desejar.</p></div>
+</details>
+<h1 id="abertura">Abertura</h1>
+<p class="red"><em>Dirigente</em></p>
+<p>Que Deus nos acompanhe nesta noite e nos conceda descanso e paz.</p>
+<p class="red"><em>Todos</em></p>
+<p><strong>Amém!</strong></p>
+<p class="red"><em>Dirigente</em></p>
+<p>O nosso socorro vem do Senhor,</p>
+<p class="red"><em>Resposta</em></p>
+<p>que fez o céu e a terra.</p>
+<p class="red"><em>Dirigente</em></p>
+<p>Diante de Deus, recordemos com sinceridade o dia que passou.</p>
+<h1 id="confissao">Exame do Dia e Confissão</h1><p class="red"><em>Em silêncio, recordemos o dia: o que nos alegrou, o que nos feriu e aquilo que precisa de cuidado.</em></p><p class="red"><em>Todos juntos</em></p><p>Senhor Deus, aqui estamos, no fim de mais um dia. Houve momentos bons, pelos quais agradecemos. Houve também cansaço, palavras impensadas, oportunidades de cuidar que deixamos passar. Tu conheces o que fizemos e o que ficou por fazer. Perdoa-nos. Dá-nos coragem para pedir perdão a quem ferimos e reparar, quando pudermos, o mal que causamos. Recebe também aquilo que ainda pesa em nosso coração. Por Jesus Cristo. Amém.</p><h1 id="salmo">Salmo do Dia</h1>
+<div id="salmo-noite">
+<p class="red"><em>Carregando Salmo da noite...</em></p>
+</div><p class="red" style="font-size:.84rem;margin-top:8px">O texto do salmo pode variar conforme a tradução disponível.</p>
+<h1 id="palavra">A Palavra de Deus</h1>
+<p class="red"><em>Dirigente</em></p>
+<p>
   Que o Deus da paz, que pelo sangue da aliança eterna trouxe de volta dentre os mortos o nosso Senhor Jesus, o grande Pastor das ovelhas, vos equipe com todo o bem para fazerem a sua vontade, e opere em nós o que lhe é agradável, por meio de Jesus Cristo, a quem seja a glória para todo o sempre. (Hebreus 13.20-21)
   </p>
-
-  <p class="red"><em>Resposta</em></p>
-  <p>Graças a Deus.</p>
-
-  <p class="red"><em>Pode-se cantar um hino apropriado para o início da noite.</em></p>
-
-  <h1>Responsório</h1>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>Nas tuas mãos de Pai, meu Senhor, entrego com inteira confiança o meu espírito;</p>
-
-  <p class="red"><em>Resposta</em></p>
-  <p>Pois tu me resgataste com tanto amor, ó Senhor, nosso Deus de fidelidade e verdade.</p>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>Cuida de nós, Senhor, e guarda-nos com todo carinho, como a menina dos teus olhos;</p>
-
-  <p class="red"><em>Resposta</em></p>
-  <p>Acolhe-nos e abriga-nos bem junto a ti, à sombra das tuas asas protetoras.</p>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>Senhor, olha para nós com bondade e tem compaixão.</p>
-
-  <p class="red"><em>Resposta</em></p>
-  <p>Cristo, nosso Salvador, abraça a nossa fraqueza e tem misericórdia.</p>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>Senhor, envolve-nos na tua graça e tem misericórdia de nós.</p>
-
-  <h1>Cântico da Noite (Nunc Dimittis)</h1>
-
-  <p class="red"><em>Todos juntos:</em></p>
-  <p>
+<p class="red"><em>Resposta</em></p>
+<p>Graças a Deus.</p>
+<p class="red"><em>Pode-se cantar um hino apropriado para o início da noite.</em></p>
+<h1>Responsório</h1>
+<p class="red"><em>Dirigente</em></p>
+<p>Em tuas mãos, Senhor, entrego o meu espírito;</p>
+<p class="red"><em>Resposta</em></p>
+<p>tu me remiste, Senhor, Deus da verdade.</p>
+<p class="red"><em>Dirigente</em></p>
+<p>Guarda-nos, Senhor, como a menina dos teus olhos;</p>
+<p class="red"><em>Resposta</em></p>
+<p>à sombra das tuas asas, abriga-nos.</p>
+<p class="red"><em>Dirigente</em></p>
+<p>Senhor, tem piedade de nós.</p>
+<p class="red"><em>Resposta</em></p>
+<p>Cristo, tem piedade de nós.</p>
+<p class="red"><em>Dirigente</em></p>
+<p>Senhor, tem piedade de nós.</p>
+<h1 id="simeao">Cântico da Noite (Nunc Dimittis)</h1>
+<p class="red"><em>Todos juntos:</em></p>
+<p>
   Guia-nos acordados(as), ó Senhor, e guarda-nos dormindo; para que acordados(as) vigiemos com Cristo e dormindo descansemos em paz.
   </p>
-
-  <h2>Cântico de Simeão (Lucas 2.29–32)</h2>
-
-  <p>
-  Agora, Senhor, despedes em paz o teu servo, segundo a tua palavra;<br>
-  Pois já os meus olhos viram a tua salvação,<br>
-  A qual tu preparaste perante a face de todos os povos;<br>
-  Luz para alumiar as nações, e para glória do teu povo Israel.<br>
+<h2>Cântico de Simeão (Lucas 2.29–32)</h2>
+<p>
+  Agora, Senhor, despedes em paz o teu servo, segundo a tua palavra;<br/>
+  Pois já os meus olhos viram a tua salvação,<br/>
+  A qual tu preparaste perante a face de todos os povos;<br/>
+  Luz para alumiar as nações, e para glória do teu povo Israel.<br/>
   Glória ao Pai, ao Filho e ao Espírito Santo: como era no princípio, agora e sempre. Amém.
   </p>
-
-  <p class="red"><em>Todos juntos:</em></p>
-  <p>
+<p class="red"><em>Todos juntos:</em></p>
+<p>
   Guia-nos acordados(as), ó Senhor, e guarda-nos dormindo; para que acordados(as) vigiemos com Cristo e dormindo descansemos em paz.
   </p>
-
-  <h1>Oração da Noite de Martim Lutero</h1>
-
-  <p class="red"><em>Oração do Catecismo Menor:</em></p>
-
-  <p>
+<h1>Oração da Noite de Martim Lutero</h1>
+<p class="red"><em>Oração do Catecismo Menor:</em></p>
+<p>
   Agradeço-te meu Pai celeste, por Jesus Cristo, teu filho amado, que bondosamente me guardaste neste dia. E peço-te, queiras perdoar-me todos os pecados e injustiças que cometi, e guardar-me misericordiosamente nesta noite. Pois confio a mim, meu corpo e minha alma, e tudo em tuas mãos. Teu santo anjo esteja comigo, para que o mau adversário não se apodere de mim. Amém.
   </p>
-
-  <h1>As Orações</h1>
-
-  <h2>Pai Nosso</h2>
-
-  <p>
-  Pai nosso que estás nos céus,<br>
-  <span class="indent">santificado seja o teu nome,</span>
-  <span class="indent">venha o teu reino,</span>
-  <span class="indent">seja feita a tua vontade,</span>
-  <span class="indent2">assim na terra como no céu.</span>
+<h1 id="oracoes">As Orações</h1>
+<h2>Pai Nosso</h2>
+<p>
+  Pai nosso que estás nos céus,<br/>
+<span class="indent">santificado seja o teu nome,</span>
+<span class="indent">venha o teu reino,</span>
+<span class="indent">seja feita a tua vontade,</span>
+<span class="indent2">assim na terra como no céu.</span>
   O pão nosso de cada dia nos dá hoje.
   <span class="indent">Perdoa-nos as nossas dívidas</span>
-  <span class="indent">assim como nós também perdoamos</span>
-  <span class="indent3">aos nossos devedores.</span>
+<span class="indent">assim como nós também perdoamos</span>
+<span class="indent3">aos nossos devedores.</span>
   E não nos deixes cair em tentação,
   <span class="indent">mas livra-nos do mal.</span>
-  Pois teu é o reino, o poder<br>
-  <span class="indent">e a glória para sempre. Amém.</span>
-  </p>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>Senhor, ouve a nossa oração;</p>
-
-  <p class="red"><em>Resposta</em></p>
-  <p>E chegue a ti o nosso clamor.</p>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>Oremos.</p>
-
-  <p>
-  Senhor, nosso Deus, obrigado por nos acompanhares ao longo deste dia. Alguns de nós chegamos a esta noite alegres, outros cansados ou preocupados com o amanhã. Acolhe-nos como estamos e guarda-nos durante o descanso. Que a tua presença nos dê paz e confiança para seguir a caminhada. Por Jesus Cristo, nosso Senhor. Amém.
-  </p>
-
-  <p>
-  Querido Deus, nesta noite lembramos das pessoas que continuam trabalhando, das que cuidam de alguém e das que não conseguem dormir por causa da tristeza ou da preocupação. Acompanha as pessoas enfermas, consola as que choram, fortalece as que estão cansadas e ampara as que se aproximam do fim da vida. Abençoa também os lares que descansam em paz. Que ninguém se sinta esquecido do teu amor. Amém.
-  </p>
-
-  <p class="red"><em>Pode-se fazer um momento de silêncio para intercessões e ações de graças pessoais.</em></p>
-
-  <h2>Intercessão e Ação de Graças</h2>
-
-  <p class="red"><em>Pela Igreja, pelo Mundo e pelos Aflitos</em></p>
-
-  <p>
-  Senhor, nosso Deus, nesta noite nos reunimos em oração, mesmo quando estamos em lugares diferentes, como irmãos e irmãs de uma mesma comunidade de fé. Agradecemos porque teu amor nos une e nos sustenta. Pedimos pela tua Igreja: que seja sempre um lugar de acolhida, esperança e serviço. Olha também para o nosso mundo, para as pessoas que sofrem com a violência, a injustiça e a falta de paz. Acompanha quem está doente, quem sente solidão e quem enfrenta dificuldades. Fortalece-nos para que não fiquemos apenas nas palavras, mas pratiquemos o cuidado e a solidariedade em nossa vida diária. Ensina-nos a cuidar da tua Criação e a viver em comunhão contigo e entre nós. Por Jesus Cristo, nosso Senhor. Amém.
-  </p>
-
-  <h2>Oração de Recolhimento</h2>
-
-  <p>
-  Senhor Jesus, fica conosco nesta noite. Em tuas mãos colocamos a nossa vida, as nossas famílias e toda a nossa comunidade. Obrigado por tudo o que vivemos hoje, pelos encontros, pelas alegrias e também pela força recebida nos momentos difíceis. Acalma as nossas preocupações e concede-nos um descanso tranquilo. Que amanhã possamos despertar com esperança renovada, dispostos a amar e servir. Acompanha-nos sempre com a tua paz. Amém.
-  </p>
-
-  <h1>Hino de Recolhida</h1>
-
-  <div style="background-color: var(--accent-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; box-shadow: var(--shadow-sm);">
-    <p class="red" style="font-size: 1.15rem; margin-top: 0; margin-bottom: 4px;"><strong>De bons poderes sinto-me cercado</strong></p>
-    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; font-style: italic;">Dietrich Bonhoeffer</p>
-
-    <audio controls preload="metadata">
-      <source src="debonspoderes.mp3" type="audio/mpeg">
+  Pois teu é o reino, o poder<br/>
+<span class="indent">e a glória para sempre. Amém.</span>
+</p>
+<p class="red"><em>Dirigente</em></p>
+<p>Senhor, ouve a nossa oração;</p>
+<p class="red"><em>Resposta</em></p>
+<p>E chegue a ti o nosso clamor.</p>
+<p class="red"><em>Dirigente</em></p>
+<p>Oremos.</p><h2>Intercessão e Ação de Graças</h2><p class="red"><em>Pela comunidade e pelo mundo</em></p><p>Senhor, enquanto nos preparamos para dormir, muita gente continua acordada: quem trabalha, quem cuida de uma criança ou de alguém doente, quem espera uma notícia, quem sente medo de voltar para casa. Lembramos também de quem está sozinho, de quem perdeu alguém e de quem não tem um lugar seguro para descansar. Dá-nos sensibilidade para perceber essas vidas e disposição para ajudar de verdade. Que tua Igreja seja presença de cuidado, justiça e paz. Por Jesus Cristo. Amém.</p><p class="red"><em>Pausa para pedidos e agradecimentos pessoais.</em></p><h2>Oração de Recolhimento</h2><p>Senhor, há coisas que não conseguimos resolver hoje. Há conversas pendentes, preocupações com o amanhã e pessoas por quem temos cuidado. Por esta noite, colocamos tudo isso diante de ti. Ajuda-nos a descansar sem exigir de nós mesmos mais do que podemos dar agora. Se o sono demorar, acompanha-nos também na vigília. E, quando vier um novo dia, dá-nos ânimo para vivê-lo. Amém.</p><h1>Hino de Recolhida</h1>
+<details class="hymn-details"><summary>Ouvir ou cantar: De bons poderes sinto-me cercado</summary><div style="background-color: var(--accent-bg); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; box-shadow: var(--shadow-sm);">
+<p class="red" style="font-size: 1.15rem; margin-top: 0; margin-bottom: 4px;"><strong>De bons poderes sinto-me cercado</strong></p>
+<p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 12px; font-style: italic;">Dietrich Bonhoeffer</p>
+<audio controls="" preload="metadata">
+<source src="debonspoderes.mp3" type="audio/mpeg"/>
       Seu navegador não suporta o elemento de áudio.
     </audio>
-
-    <p style="margin-bottom: 12px;">
-    1. De bons poderes sinto-me cercado,<br>
-    bem protegido e bem consolado.<br>
-    Assim desejo eu passar os dias<br>
+<p style="margin-bottom: 12px;">
+    1. De bons poderes sinto-me cercado,<br/>
+    bem protegido e bem consolado.<br/>
+    Assim desejo eu passar os dias<br/>
     e ter convosco um ano de alegrias.
     </p>
-
-    <p style="margin-bottom: 12px;">
-    <strong><em>Estr. Por bons poderes muito bem guardados,<br>
-    confiantes esperamos o que há de vir.<br>
-    Deus é conosco sempre noite e dia.<br>
+<p style="margin-bottom: 12px;">
+<strong><em>Estr. Por bons poderes muito bem guardados,<br/>
+    confiantes esperamos o que há de vir.<br/>
+    Deus é conosco sempre noite e dia.<br/>
     Assim é certa hoje sua alegrias.</em></strong>
-    </p>
-
-    <p style="margin-bottom: 12px;">
-    2. Ainda o antigo nos tortura<br>
-    o peso de maus dias dá amargura<br>
-    Senhor, dá a nossas almas acuadas<br>
+</p>
+<p style="margin-bottom: 12px;">
+    2. Ainda o antigo nos tortura<br/>
+    o peso de maus dias dá amargura<br/>
+    Senhor, dá a nossas almas acuadas<br/>
     a salvação à qual são preparadas.
     </p>
-
-    <p style="margin-bottom: 12px;">
-    3. Estende-nos o cálice amargo<br>
-    da dor e o beberemos sem embargo,<br>
-    Porque nos vem de tuas mãos divinas.<br>
+<p style="margin-bottom: 12px;">
+    3. Estende-nos o cálice amargo<br/>
+    da dor e o beberemos sem embargo,<br/>
+    Porque nos vem de tuas mãos divinas.<br/>
     Até com gratidão sofrer ensinas.
     </p>
-
-    <p style="margin-bottom: 12px;">
-    4. E se quiseres dar-nos alegrias<br>
-    ainda sob o sol dos breves dias<br>
-    Então nos lembraremos do passado<br>
+<p style="margin-bottom: 12px;">
+    4. E se quiseres dar-nos alegrias<br/>
+    ainda sob o sol dos breves dias<br/>
+    Então nos lembraremos do passado<br/>
     e entregamo-nos ao teu cuidado.
     </p>
-
-    <p style="margin-bottom: 0;">
-    5. Quando o silêncio se espalhar profundo<br>
-    todo ao redor deste pequeno mundo<br>
-    Repleto de adoração ecoa<br>
+<p style="margin-bottom: 0;">
+    5. Quando o silêncio se espalhar profundo<br/>
+    todo ao redor deste pequeno mundo<br/>
+    Repleto de adoração ecoa<br/>
     o canto que a ti teus filhos entoam.
     </p>
-  </div>
-
-  <h1>Encerramento</h1>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>Bendigamos ao Senhor.</p>
-
-  <p class="red"><em>Resposta</em></p>
-  <p>Graças a Deus.</p>
-
-  <h2>Bênção Final</h2>
-
-  <p class="red"><em>Dirigente</em></p>
-  <p>
+</div></details>
+<h1 id="encerramento">Encerramento</h1>
+<p class="red"><em>Dirigente</em></p>
+<p>Bendigamos ao Senhor.</p>
+<p class="red"><em>Resposta</em></p>
+<p>Graças a Deus.</p>
+<h2>Bênção Final</h2>
+<p class="red"><em>Dirigente</em></p>
+<p>
   O Senhor todo-poderoso e misericordioso, Pai, Filho e Espírito Santo, nos abençoe e nos guarde. <strong>Amém.</strong>
-  </p>
-
-  <p class="topo">
-    <a href="#topo">↑ voltar ao topo</a>
-  </p>
-
-  <!-- Rodapé de atribuição discreto -->
-  <footer>
-    <p>Organizado e mantido com carinho por Daniel Augusto Ribeiro</p>
-    <p style="margin-top: 4px; font-style: italic;">Oferecido gratuitamente para o fortalecimento da vida de oração.</p>
-  </footer>
-
+</p>
+<p class="topo">
+<a href="#topo">↑ voltar ao topo</a>
+</p>
+<!-- Rodapé de atribuição discreto -->
+<p><a href="index.html">Voltar à página inicial</a></p><footer>
+<p>Organizado e mantido com carinho por Daniel Augusto Ribeiro</p>
+<p style="margin-top: 4px; font-style: italic;">Oferecido gratuitamente para o fortalecimento da vida de oração.</p>
+</footer>
 </div>
-
 <script>
 // Tabela de domingos e festas do Ano A para identificar o Próprio/Tempo Litúrgico
 const FESTAS_DOMINGO = {
@@ -585,21 +506,24 @@ function obterProprioOuFesta(dataAlvo) {
   const mes = String(dataAlvo.getMonth() + 1).padStart(2, '0');
   const dia = String(dataAlvo.getDate()).padStart(2, '0');
   const dataChave = `${ano}-${mes}-${dia}`;
-
-  if (FESTAS_DOMINGO[dataChave]) {
-    return FESTAS_DOMINGO[dataChave];
-  }
-
-  let ultimoNome = "Tempo Comum";
-  for (let i = 0; i < LISTA_DATAS_ORDENADAS.length; i++) {
-    const dataFestaStr = LISTA_DATAS_ORDENADAS[i];
-    if (dataChave >= dataFestaStr) {
-      ultimoNome = FESTAS_DOMINGO[dataFestaStr];
-    } else {
-      break;
-    }
-  }
-  return ultimoNome;
+  // Festas fixas e celebrações dominicais são nomeadas somente no próprio dia.
+  if (FESTAS_DOMINGO[dataChave]) return FESTAS_DOMINGO[dataChave];
+  // Nos dias da semana, mostrar o tempo litúrgico, não a festa do domingo anterior.
+  const d = new Date(ano, dataAlvo.getMonth(), dataAlvo.getDate());
+  const adv2025 = new Date(2025, 10, 30);
+  const natal = new Date(2025, 11, 25);
+  const epifania = new Date(2026, 0, 6);
+  const quaresma = new Date(2026, 1, 18);
+  const pascoa = new Date(2026, 3, 5);
+  const pentecostes = new Date(2026, 4, 24);
+  const adv2026 = new Date(2026, 10, 29);
+  if (d >= adv2025 && d < natal) return 'Tempo do Advento';
+  if (d >= natal && d < epifania) return 'Tempo do Natal';
+  if (d >= epifania && d < quaresma) return 'Tempo após a Epifania';
+  if (d >= quaresma && d < pascoa) return 'Tempo da Quaresma';
+  if (d >= pascoa && d < pentecostes) return 'Tempo Pascal';
+  if (d >= pentecostes && d < adv2026) return 'Tempo após Pentecostes';
+  return 'Tempo litúrgico';
 }
 
 function atualizarSubcabecalho(dataAlvo) {
@@ -698,6 +622,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const diaSemana = hoje.getDay();
   carregarSalmoViaAPI(diaSemana);
 });
+
+// Preferências de leitura locais; não alteram o conteúdo litúrgico.
+const main = document.getElementById('stuffing');
+const savedSize = Number(localStorage.getItem('oficio_noite_fonte') || 100);
+let fontSize = Math.min(135,Math.max(85,savedSize));
+function applyFont(){main.style.setProperty('--reader-scale',fontSize/100);localStorage.setItem('oficio_noite_fonte',String(fontSize));}
+applyFont();
+document.getElementById('font-minus').addEventListener('click',()=>{fontSize=Math.max(85,fontSize-10);applyFont();});
+document.getElementById('font-plus').addEventListener('click',()=>{fontSize=Math.min(135,fontSize+10);applyFont();});
+const modeButton=document.getElementById('night-mode');
+function setMode(on){document.body.classList.toggle('dark-mode',on);modeButton.setAttribute('aria-pressed',String(on));modeButton.textContent=on?'Modo claro':'Modo noturno';localStorage.setItem('oficio_noite_escuro',String(on));}
+setMode(localStorage.getItem('oficio_noite_escuro')==='true');
+modeButton.addEventListener('click',()=>setMode(!document.body.classList.contains('dark-mode')));
 </script>
 </body>
 </html>
