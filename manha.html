@@ -788,11 +788,8 @@ function obterProprioOuFesta(dataAlvo) {
   const dia = String(dataAlvo.getDate()).padStart(2, '0');
   const dataChave = `${ano}-${mes}-${dia}`;
 
-  // Festas e celebrações nomeadas valem somente na própria data.
   if (FESTAS_DOMINGO[dataChave]) return FESTAS_DOMINGO[dataChave];
 
-  // Durante a semana, mostramos a estação litúrgica, não a festa anterior.
-  // Evita, por exemplo, chamar 2 a 7 de novembro de Dia de Todos os Santos.
   if (dataChave >= '2026-11-02' && dataChave <= '2026-11-07') return 'Tempo Comum';
   if (dataChave >= '2026-11-23' && dataChave <= '2026-11-26') return 'Última semana do ano litúrgico';
 
@@ -801,7 +798,6 @@ function obterProprioOuFesta(dataAlvo) {
     if (dataChave < dataFestaStr) break;
     ultimoNome = FESTAS_DOMINGO[dataFestaStr];
   }
-  // Não estender solenidades ou dias específicos para a semana inteira.
   if (/Dia de Todos os Santos|Natal|Natividade|Batismo do Senhor|Transfiguração|Ressurreição|Pentecostes|Santíssima Trindade|Cristo Rei|Véspera de Natal/.test(ultimoNome)) {
     return 'Tempo litúrgico em curso';
   }
@@ -1147,19 +1143,19 @@ const canticosSemana = {
 };
 
 const traducaoLivros = {
-  "Genesis": "Genesis", "Exodus": "Exodo", "Leviticus": "Levitico", "Numbers": "Numeros", "Deuteronomy": "Deuteronomio",
-  "Joshua": "Josue", "Judges": "Juizes", "Ruth": "Rute", "1 Samuel": "1 Samuel", "2 Samuel": "2 Samuel",
-  "1 Kings": "1 Reis", "2 Kings": "2 Reis", "1 Chronicles": "1 Cronicas", "2 Chronicles": "2 Cronicas",
-  "Ezra": "Esdras", "Nehemiah": "Neemias", "Esther": "Ester", "Job": "Jo", "Psalm": "Salmos", "Psalms": "Salmos",
-  "Proverbs": "Proverbios", "Ecclesiastes": "Eclesiastes", "Song of Solomon": "Cantares", "Isaiah": "Isaias",
-  "Jeremiah": "Jeremias", "Lamentations": "Lamentacoes", "Ezekiel": "Ezequiel", "Daniel": "Daniel",
-  "Hosea": "Oseias", "Joel": "Joel", "Amos": "Amos", "Obadiah": "Obadias", "Jonah": "Jonas", "Micah": "Miqueias",
-  "Nahum": "Naum", "Habakkuk": "Habacuc", "Zephaniah": "Sofonias", "Haggai": "Ageu", "Zechariah": "Zacarias", "Malachi": "Malaquias",
-  "Matthew": "Mateus", "Mark": "Marcos", "Luke": "Lucas", "John": "Joao", "Acts": "Atos", "Romans": "Romanos",
-  "1 Corinthians": "1 Corintios", "2 Corinthians": "2 Corintios", "Galatians": "Galatas", "Ephesians": "Efesios",
+  "Genesis": "Gênesis", "Exodus": "Êxodo", "Leviticus": "Levítico", "Numbers": "Números", "Deuteronomy": "Deuteronômio",
+  "Joshua": "Josué", "Judges": "Juízes", "Ruth": "Rute", "1 Samuel": "1 Samuel", "2 Samuel": "2 Samuel",
+  "1 Kings": "1 Reis", "2 Kings": "2 Reis", "1 Chronicles": "1 Crônicas", "2 Chronicles": "2 Crônicas",
+  "Ezra": "Esdras", "Nehemiah": "Neemias", "Esther": "Ester", "Job": "Jó", "Psalm": "Salmos", "Psalms": "Salmos",
+  "Proverbs": "Provérbios", "Ecclesiastes": "Eclesiastes", "Song of Solomon": "Cantares", "Isaiah": "Isaías",
+  "Jeremiah": "Jeremias", "Lamentations": "Lamentações", "Ezekiel": "Ezequiel", "Daniel": "Daniel",
+  "Hosea": "Oséias", "Joel": "Joel", "Amos": "Amós", "Obadiah": "Obadias", "Jonah": "Jonas", "Micah": "Miqueias",
+  "Nahum": "Naum", "Habakkuk": "Habacuque", "Zephaniah": "Sofonias", "Haggai": "Ageu", "Zechariah": "Zacarias", "Malachi": "Malaquias",
+  "Matthew": "Mateus", "Mark": "Marcos", "Luke": "Lucas", "John": "João", "Acts": "Atos", "Romans": "Romanos",
+  "1 Corinthians": "1 Coríntios", "2 Corinthians": "2 Coríntios", "Galatians": "Gálatas", "Ephesians": "Efésios",
   "Philippians": "Filipenses", "Colossians": "Colossenses", "1 Thessalonians": "1 Tessalonicenses", "2 Thessalonians": "2 Tessalonicenses",
-  "1 Timothy": "1 Timoteo", "2 Timothy": "2 Timoteo", "Titus": "Tito", "Philemon": "Filemom", "Hebrews": "Hebreus",
-  "James": "Tiago", "1 Peter": "1 Pedro", "2 Peter": "2 Pedro", "1 John": "1 Joao", "2 John": "2 Joao", "3 John": "3 Joao",
+  "1 Timothy": "1 Timóteo", "2 Timóteo": "2 Timóteo", "Titus": "Tito", "Philemon": "Filemom", "Hebrews": "Hebreus",
+  "James": "Tiago", "1 Peter": "1 Pedro", "2 Peter": "2 Pedro", "1 John": "1 João", "2 John": "2 João", "3 John": "3 João",
   "Jude": "Judas", "Revelation": "Apocalipse", "Wisdom": "Sabedoria"
 };
 
@@ -1174,17 +1170,10 @@ function traduzirReferencia(refIngles) {
   return refLimpa;
 }
 
-function limparReferenciaParaAPI(ref) {
-  if (!ref) return "";
-  return ref.replace(/(\d+)[a-zA-Z]+/g, '$1');
-}
-
-async function buscarTextoBiblico(referencia) {
-  if (!referencia) return "Referência não encontrada.";
-  const refTraduzida = traduzirReferencia(referencia);
-  const refSanitizada = limparReferenciaParaAPI(refTraduzida);
+async function buscarTextoBiblico(referenciaIngles) {
+  if (!referenciaIngles) return "Referência não encontrada.";
   try {
-    const res = await fetch(`https://bible-api.com/${encodeURIComponent(refSanitizada)}?translation=almeida`);
+    const res = await fetch(`https://bible-api.com/${encodeURIComponent(referenciaIngles)}?translation=almeida`);
     if (!res.ok) throw new Error();
     const data = await res.json();
     return data.text || "Texto não disponível nesta tradução.";
