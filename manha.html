@@ -335,48 +335,47 @@
       .indent3 { padding-left: 42px; }
     }
 
-/* EXPERIÊNCIA DE LEITURA */
-:root { --reader-scale: 1; }
-body { padding-top: 18px; }
-#stuffing { max-width: 820px; }
-.reader-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:22px; font-family:'Plus Jakarta Sans',sans-serif; }
-.reader-brand { font-family:'Cinzel',serif; font-size:1.22rem; font-weight:700; color:var(--primary); text-decoration:none; }
-.reader-back { font-size:.84rem; font-weight:700; text-decoration:none; border:1px solid var(--border-color); padding:8px 13px; border-radius:9px; }
-.reader-hero { text-align:center; padding:25px 16px 20px; background:linear-gradient(150deg,#fffdf9,#faf3e9); border:1px solid #e8dcca; border-radius:16px; margin-bottom:20px; }
-.reader-eyebrow { font-family:'Plus Jakarta Sans',sans-serif; color:var(--accent-gold); font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; }
-.reader-hero h2 { font-family:'Cinzel',serif; font-size:1.65rem; color:var(--primary); margin:9px 0 7px; }
-.reader-hero p { font-size:.94rem; color:var(--text-muted); margin-bottom:17px; }
-.reader-start { display:inline-flex; justify-content:center; align-items:center; min-height:48px; padding:11px 24px; background:var(--primary); color:white; text-decoration:none; border-radius:10px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.95rem; }
-.reader-start:hover { background:var(--primary-hover); color:white; }
-.reader-tools { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:13px 15px; border:1px solid var(--border-color); border-radius:12px; margin:0 0 18px; font-family:'Plus Jakarta Sans',sans-serif; font-size:.84rem; }
-.reader-tool-group { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
-.reader-tools button, .reader-date-nav button, .reader-index-toggle { background:#fff; color:var(--primary); border:1px solid #d8c8b7; border-radius:8px; padding:9px 12px; min-height:40px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; cursor:pointer; }
-.reader-tools button:hover, .reader-date-nav button:hover { background:var(--accent-bg); }
-.reader-date-nav { display:flex; gap:8px; align-items:center; }
-.reader-date-nav button { white-space:nowrap; font-size:.83rem; }
-.reader-index { margin:16px 0 26px; border:1px solid var(--border-color); border-radius:12px; overflow:hidden; }
-.reader-index summary { cursor:pointer; padding:14px 18px; background:var(--accent-bg); color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; }
-.reader-index nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; padding:14px; }
-.reader-index a { display:block; padding:10px 12px; border:1px solid var(--border-color); border-radius:9px; text-decoration:none; font-family:'Plus Jakarta Sans',sans-serif; font-size:.83rem; font-weight:600; }
-.reader-index a:hover { background:var(--accent-bg); }
-#conteudo-semana { font-size:calc(1em * var(--reader-scale)); }
-#conteudo-semana > h1 { scroll-margin-top:70px; }
-#conteudo-semana p { line-height:1.9; }
-.reader-progress { position:fixed; top:0; left:0; width:0; height:4px; background:var(--accent-gold); z-index:100; transition:width .1s linear; }
-.reader-floating { position:fixed; right:18px; bottom:20px; z-index:90; background:var(--primary); color:white; border-radius:50px; padding:12px 17px; text-decoration:none; font-family:'Plus Jakarta Sans',sans-serif; font-size:.82rem; font-weight:700; box-shadow:0 5px 20px #0002; }
-.reader-floating:hover { color:white; background:var(--primary-hover); }
-.reader-finish { margin:30px 0; text-align:center; padding:22px; border:1px solid #e8dcca; border-radius:14px; background:var(--accent-bg); }
-.reader-finish p { margin-bottom:14px; }
-body.reader-night { --bg-main:#171614; --bg-card:#25221f; --text-main:#f2e9dc; --text-muted:#c7b9a8; --primary:#e7b4a5; --primary-hover:#f1c5b7; --accent-bg:#302a24; --border-color:#55473b; --accent-gold:#d3b37c; }
-body.reader-night .reader-hero { background:#302a24; border-color:#55473b; }
-body.reader-night .reader-start, body.reader-night .reader-floating { background:#81352d; color:#fff; }
-body.reader-night .reader-tools button, body.reader-night .reader-date-nav button { background:#302a24; }
-body.reader-night .seletor-data input, body.reader-night .reader-index a { background:#302a24; color:var(--text-main); }
-body.reader-night .subcabecalho-info { background:#65302a; }
-body.reader-night audio { color-scheme:dark; }
-@media(max-width:600px) { .reader-hero h2 { font-size:1.35rem; } .reader-index nav { grid-template-columns:1fr; } .reader-date-nav { width:100%; justify-content:space-between; } .reader-date-nav button { flex:1; } .reader-tools { align-items:stretch; } .reader-floating { bottom:12px; right:12px; padding:11px 14px; } }
-@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
-
+    /* EXPERIÊNCIA DE LEITURA */
+    :root { --reader-scale: 1; }
+    body { padding-top: 18px; }
+    #stuffing { max-width: 820px; }
+    .reader-top { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:22px; font-family:'Plus Jakarta Sans',sans-serif; }
+    .reader-brand { font-family:'Cinzel',serif; font-size:1.22rem; font-weight:700; color:var(--primary); text-decoration:none; }
+    .reader-back { font-size:.84rem; font-weight:700; text-decoration:none; border:1px solid var(--border-color); padding:8px 13px; border-radius:9px; }
+    .reader-hero { text-align:center; padding:25px 16px 20px; background:linear-gradient(150deg,#fffdf9,#faf3e9); border:1px solid #e8dcca; border-radius:16px; margin-bottom:20px; }
+    .reader-eyebrow { font-family:'Plus Jakarta Sans',sans-serif; color:var(--accent-gold); font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:2px; }
+    .reader-hero h2 { font-family:'Cinzel',serif; font-size:1.65rem; color:var(--primary); margin:9px 0 7px; }
+    .reader-hero p { font-size:.94rem; color:var(--text-muted); margin-bottom:17px; }
+    .reader-start { display:inline-flex; justify-content:center; align-items:center; min-height:48px; padding:11px 24px; background:var(--primary); color:white; text-decoration:none; border-radius:10px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; font-size:.95rem; }
+    .reader-start:hover { background:var(--primary-hover); color:white; }
+    .reader-tools { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:13px 15px; border:1px solid var(--border-color); border-radius:12px; margin:0 0 18px; font-family:'Plus Jakarta Sans',sans-serif; font-size:.84rem; }
+    .reader-tool-group { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+    .reader-tools button, .reader-date-nav button, .reader-index-toggle { background:#fff; color:var(--primary); border:1px solid #d8c8b7; border-radius:8px; padding:9px 12px; min-height:40px; font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; cursor:pointer; }
+    .reader-tools button:hover, .reader-date-nav button:hover { background:var(--accent-bg); }
+    .reader-date-nav { display:flex; gap:8px; align-items:center; }
+    .reader-date-nav button { white-space:nowrap; font-size:.83rem; }
+    .reader-index { margin:16px 0 26px; border:1px solid var(--border-color); border-radius:12px; overflow:hidden; }
+    .reader-index summary { cursor:pointer; padding:14px 18px; background:var(--accent-bg); color:var(--primary); font-family:'Plus Jakarta Sans',sans-serif; font-weight:700; }
+    .reader-index nav { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; padding:14px; }
+    .reader-index a { display:block; padding:10px 12px; border:1px solid var(--border-color); border-radius:9px; text-decoration:none; font-family:'Plus Jakarta Sans',sans-serif; font-size:.83rem; font-weight:600; }
+    .reader-index a:hover { background:var(--accent-bg); }
+    #conteudo-semana { font-size:calc(1em * var(--reader-scale)); }
+    #conteudo-semana > h1 { scroll-margin-top:70px; }
+    #conteudo-semana p { line-height:1.9; }
+    .reader-progress { position:fixed; top:0; left:0; width:0; height:4px; background:var(--accent-gold); z-index:100; transition:width .1s linear; }
+    .reader-floating { position:fixed; right:18px; bottom:20px; z-index:90; background:var(--primary); color:white; border-radius:50px; padding:12px 17px; text-decoration:none; font-family:'Plus Jakarta Sans',sans-serif; font-size:.82rem; font-weight:700; box-shadow:0 5px 20px #0002; }
+    .reader-floating:hover { color:white; background:var(--primary-hover); }
+    .reader-finish { margin:30px 0; text-align:center; padding:22px; border:1px solid #e8dcca; border-radius:14px; background:var(--accent-bg); }
+    .reader-finish p { margin-bottom:14px; }
+    body.reader-night { --bg-main:#171614; --bg-card:#25221f; --text-main:#f2e9dc; --text-muted:#c7b9a8; --primary:#e7b4a5; --primary-hover:#f1c5b7; --accent-bg:#302a24; --border-color:#55473b; --accent-gold:#d3b37c; }
+    body.reader-night .reader-hero { background:#302a24; border-color:#55473b; }
+    body.reader-night .reader-start, body.reader-night .reader-floating { background:#81352d; color:#fff; }
+    body.reader-night .reader-tools button, body.reader-night .reader-date-nav button { background:#302a24; }
+    body.reader-night .seletor-data input, body.reader-night .reader-index a { background:#302a24; color:var(--text-main); }
+    body.reader-night .subcabecalho-info { background:#65302a; }
+    body.reader-night audio { color-scheme:dark; }
+    @media(max-width:600px) { .reader-hero h2 { font-size:1.35rem; } .reader-index nav { grid-template-columns:1fr; } .reader-date-nav { width:100%; justify-content:space-between; } .reader-date-nav button { flex:1; } .reader-tools { align-items:stretch; } .reader-floating { bottom:12px; right:12px; padding:11px 14px; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
   </style>
 </head>
 <body>
@@ -385,7 +384,6 @@ body.reader-night audio { color-scheme:dark; }
 <div class="reader-top"><a class="reader-brand" href="index.html">Ofício Diário</a><a class="reader-back" href="index.html">Voltar ao início</a></div>
 <section class="reader-hero" aria-label="Começar oração"><div class="reader-eyebrow">Liturgia e oração</div><h2>Um tempo de oração e leitura</h2><p>Escolha o dia, prepare o coração e acompanhe a oração no seu ritmo.</p><a class="reader-start" id="reader-start" href="#inicio-oracao">Iniciar oração</a></section>
 <div class="reader-tools"><div class="reader-tool-group"><span>Leitura</span><button type="button" id="reader-smaller" aria-label="Diminuir tamanho do texto">A−</button><button type="button" id="reader-larger" aria-label="Aumentar tamanho do texto">A+</button><button type="button" id="reader-night" aria-pressed="false">Modo noturno</button></div><div class="reader-date-nav"><button type="button" id="reader-prev">Dia anterior</button><button type="button" id="reader-today">Hoje</button><button type="button" id="reader-next">Próximo dia</button></div></div>
-
 
 <div class="seletor-data">
   <label for="test-date" class="blue-label">Selecionar data (2026–2027): </label>
@@ -396,7 +394,7 @@ body.reader-night audio { color-scheme:dark; }
   Carregando informações do dia...
 </div>
 
-<!-- Orientação de Leitura e Oração (Espiritualidade Luterana) com ID id="msg-orar" em formato expansível -->
+<!-- Orientação de Leitura e Oração com ID id="msg-orar" em formato expansível -->
   <details id="msg-orar">
     <summary>
       Antes de começar: O que significa orar?
@@ -537,7 +535,7 @@ body.reader-night audio { color-scheme:dark; }
     Senhor Deus, aqui estamos diante de ti. Tu conheces nossa vida, nossas preocupações e aquilo que guardamos em silêncio. Nem sempre fazemos o que é certo. Às vezes ferimos quem amamos, pensamos apenas em nós mesmos e deixamos de ajudar quem precisa. Perdoa-nos, Senhor. Não queremos esconder nossas falhas de ti. Confiamos em tua misericórdia e no perdão que recebemos por Jesus Cristo. Renova nossa fé e ensina-nos a viver de maneira diferente. Amém.
   </p>
 
-  <!-- Sugestão opcional: Anúncio do Perdão da Graça de Deus -->
+  <!-- Anúncio do Perdão da Graça de Deus -->
   <p class="red"><em>Anúncio da Graça</em></p>
   <p>
     Deus, o Pai celestial, teve misericórdia de nós e entregou o seu Filho único à morte por nós, perdoando todos os nossos pecados. A quem crê no seu nome, ele dá o poder de se tornarem filhos e filhas de Deus e concede o Espírito Santo. Amém.
@@ -549,7 +547,7 @@ body.reader-night audio { color-scheme:dark; }
     <p class="red">Carregando cântico...</p>
   </div>
 
-  <!-- ==================== SEÇÃO: SALMOS ==================== -->
+  <!-- SEÇÃO: SALMOS -->
   <h1 id="sec-salmos">Salmos</h1>
 
   <p class="red" style="font-style: italic;">
@@ -576,7 +574,7 @@ body.reader-night audio { color-scheme:dark; }
     Senhor Jesus, acompanha-nos em nossa caminhada. Que esta leitura nos convide a pensar, a reconhecer a experiência de outras pessoas e a cuidar melhor de quem está ao nosso lado. Amém.
   </p>
 
-  <!-- ==================== TRANSIÇÃO E LEITURAS ==================== -->
+  <!-- TRANSIÇÃO E LEITURAS -->
   <hr style="border: none; border-top: 1px dashed var(--primary); margin: 32px 0;">
 
   <h1 id="sec-leituras">Leituras das Escrituras</h1>
@@ -660,7 +658,6 @@ body.reader-night audio { color-scheme:dark; }
   E não nos deixes cair em tentação,
   <span class="indent">mas livra-nos do mal.</span>
   Pois teu é o reino, o poder<br>
-    
   <span class="indent">e a glória para sempre. Amém.</span>
   </p>
 
@@ -676,7 +673,7 @@ body.reader-night audio { color-scheme:dark; }
   <p>Senhor, lembra-te de quem hoje acordou preocupado, de quem não sabe como pagar suas contas, de quem espera uma notícia do hospital e de quem sente falta de alguém que já partiu. Cuida também de quem sofre em silêncio e não encontra palavras para pedir ajuda. Dá-nos olhos atentos para perceber a dor dos outros e disposição para ajudar. Por Jesus Cristo. Amém. 
   </p>
 
-  <!-- ==================== SEÇÃO: ORAÇÕES PESSOAIS ==================== -->
+  <!-- SEÇÃO: ORAÇÕES PESSOAIS -->
   <h2>Orações Pessoais</h2>
 
   <p class="red" style="font-style: italic;">
@@ -724,4413 +721,376 @@ body.reader-night audio { color-scheme:dark; }
 
 <script>
 // Lecionário Comum Revisado: 26/11/2026 a 25/11/2027.
-// Dados transcritos da lista fornecida, incluindo celebrações e opções de leitura.
 const LEITURAS_ANO_B = {
-  "2026-11-26": {
-    "options": {
-      "default": [
-        "Psalm 80:1-7, 17-19",
-        "Zechariah 13:1-9",
-        "Revelation 14:6-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-11-27": {
-    "options": {
-      "default": [
-        "Psalm 80:1-7, 17-19",
-        "Zechariah 14:1-9",
-        "1 Thessalonians 4:1-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-11-28": {
-    "options": {
-      "default": [
-        "Psalm 80:1-7, 17-19",
-        "Micah 2:1-13",
-        "Matthew 24:15-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-11-29": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "First Sunday of Advent",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=a&d=1"
-      }
-    ]
-  },
-  "2026-11-30": {
-    "options": {
-      "default": [
-        "Psalm 79",
-        "Micah 4:1-5",
-        "Revelation 15:1-8"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-01": {
-    "options": {
-      "default": [
-        "Psalm 79",
-        "Micah 4:6-13",
-        "Revelation 18:1-10"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-02": {
-    "options": {
-      "default": [
-        "Psalm 79",
-        "Micah 5:1-5a",
-        "Luke 21:34-38"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-03": {
-    "options": {
-      "default": [
-        "Psalm 85:1-2, 8-13",
-        "Hosea 6:1-6",
-        "1 Thessalonians 1:2-10"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-04": {
-    "options": {
-      "default": [
-        "Psalm 85:1-2, 8-13",
-        "Jeremiah 1:4-10",
-        "Acts 11:19-26"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-05": {
-    "options": {
-      "default": [
-        "Psalm 85:1-2, 8-13",
-        "Ezekiel 36:24-28",
-        "Mark 11:27-33"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-06": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Second Sunday of Advent",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=a&d=2"
-      }
-    ]
-  },
-  "2026-12-07": {
-    "options": {
-      "default": [
-        "Psalm 27",
-        "Isaiah 26:7-15",
-        "Acts 2:37-42"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-08": {
-    "options": {
-      "default": [
-        "Psalm 27",
-        "Isaiah 4:2-6",
-        "Acts 11:1-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-09": {
-    "options": {
-      "default": [
-        "Psalm 27",
-        "Malachi 2:10-3:1",
-        "Luke 1:5-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-10": {
-    "options": {
-      "default": [
-        "Psalm 126",
-        "Habakkuk 2:1-5",
-        "Philippians 3:7-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-11": {
-    "options": {
-      "default": [
-        "Psalm 126",
-        "Habakkuk 3:2-6",
-        "Philippians 3:12-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-12": {
-    "options": {
-      "default": [
-        "Psalm 126",
-        "Habakkuk 3:13-19",
-        "Matthew 21:28-32"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-13": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Third Sunday of Advent",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=a&d=3"
-      }
-    ]
-  },
-  "2026-12-14": {
-    "options": {
-      "default": [
-        "Psalm 125",
-        "1 Kings 18:1-18",
-        "Ephesians 6:10-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-15": {
-    "options": {
-      "default": [
-        "Psalm 125",
-        "2 Kings 2:9-22",
-        "Acts 3:17-4:4"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-16": {
-    "options": {
-      "default": [
-        "Psalm 125",
-        "Malachi 3:16-4:6",
-        "Mark 9:9-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-17": {
-    "options": {
-      "default": [
-        "Psalm 89:1-4, 19-26",
-        "2 Samuel 6:1-11",
-        "Hebrews 1:1-4"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-18": {
-    "options": {
-      "default": [
-        "Psalm 89:1-4, 19-26",
-        "2 Samuel 6:12-19",
-        "Hebrews 1:5-14"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-19": {
-    "options": {
-      "default": [
-        "Psalm 89:1-4, 19-26",
-        "Judges 13:2-24",
-        "John 7:40-52"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-20": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Fourth Sunday of Advent",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=a&d=4"
-      }
-    ]
-  },
-  "2026-12-21": {
-    "options": {
-      "default": [
-        "Luke 1:46b-55",
-        "1 Samuel 1:1-18",
-        "Hebrews 9:1-14"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-22": {
-    "options": {
-      "default": [
-        "Luke 1:46b-55",
-        "1 Samuel 1:19-28",
-        "Hebrews 8:1-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-23": {
-    "options": {
-      "default": [
-        "Luke 1:46b-55",
-        "1 Samuel 2:1-10",
-        "Mark 11:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-24": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Nativity of the Lord - Proper I",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=5"
-      }
-    ]
-  },
-  "2026-12-25": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Nativity of the Lord - Proper II",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=6"
-      },
-      {
-        "name": "Nativity of the Lord - Proper III",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=7"
-      }
-    ]
-  },
-  "2026-12-26": {
-    "options": {
-      "default": [
-        "Psalm 148",
-        "Jeremiah 26:1-9, 12-15",
-        "Acts 6:8-15; 7:51-60"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-27": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "First Sunday after Christmas Day",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=8"
-      }
-    ]
-  },
-  "2026-12-28": {
-    "options": {
-      "default": [
-        "Psalm 148",
-        "Jeremiah 31:15-17",
-        "Matthew 2:13-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-29": {
-    "options": {
-      "default": [
-        "Matthew 12:46-50",
-        "Psalm 148",
-        "Isaiah 49:5-15"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-30": {
-    "options": {
-      "default": [
-        "Psalm 148",
-        "Proverbs 9:1-12",
-        "2 Peter 3:8-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2026-12-31": {
-    "options": {
-      "default": [
-        "Psalm 148",
-        "1 Kings 3:5-14",
-        "John 8:12-19"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-01": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Holy Name of Jesus",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=9"
-      },
-      {
-        "name": "New Year's Day",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=10"
-      }
-    ]
-  },
-  "2027-01-02": {
-    "options": {
-      "default": [
-        "Psalm 148",
-        "Proverbs 1:1-7",
-        "James 3:13-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-03": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Second Sunday after Christmas Day",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=11"
-      }
-    ]
-  },
-  "2027-01-04": {
-    "options": {
-      "default": [
-        "Psalm 110",
-        "Proverbs 3:1-12",
-        "James 4:11-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-05": {
-    "options": {
-      "default": [
-        "Psalm 110",
-        "Proverbs 22:1-9",
-        "Luke 6:27-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-06": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Epiphany of the Lord",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=12"
-      }
-    ]
-  },
-  "2027-01-07": {
-    "options": {
-      "default": [
-        "Psalm 29",
-        "1 Samuel 3:1-21",
-        "Acts 9:10-19a"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-08": {
-    "options": {
-      "default": [
-        "Psalm 29",
-        "1 Samuel 16:1-13",
-        "1 Timothy 4:11-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-09": {
-    "options": {
-      "default": [
-        "Psalm 29",
-        "1 Kings 2:1-4, 10-12",
-        "Luke 5:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-10": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Baptism of the Lord",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=13"
-      }
-    ]
-  },
-  "2027-01-11": {
-    "options": {
-      "default": [
-        "Psalm 69:1-5, 30-36",
-        "Genesis 17:1-13",
-        "Romans 4:1-12"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-12": {
-    "options": {
-      "default": [
-        "Psalm 69:1-5, 30-36",
-        "Exodus 30:22-38",
-        "Acts 22:2-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-13": {
-    "options": {
-      "default": [
-        "Psalm 69:1-5, 30-36",
-        "Isaiah 41:14-20",
-        "John 1:29-34"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-14": {
-    "options": {
-      "default": [
-        "Psalm 139:1-6, 13-18",
-        "Judges 2:6-15",
-        "2 Corinthians 10:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-15": {
-    "options": {
-      "default": [
-        "Psalm 139:1-6, 13-18",
-        "Judges 2:16-23",
-        "Acts 13:16-25"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-16": {
-    "options": {
-      "default": [
-        "Psalm 139:1-6, 13-18",
-        "1 Samuel 2:21-25",
-        "Matthew 25:1-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-17": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Second Sunday after the Epiphany",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=14"
-      }
-    ]
-  },
-  "2027-01-18": {
-    "options": {
-      "default": [
-        "Psalm 86",
-        "1 Samuel 9:27-10:8",
-        "2 Corinthians 6:14-7:1"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-19": {
-    "options": {
-      "default": [
-        "Psalm 86",
-        "1 Samuel 15:10-31",
-        "Acts 5:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-20": {
-    "options": {
-      "default": [
-        "Psalm 86",
-        "Genesis 16:1-14",
-        "Luke 18:15-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-21": {
-    "options": {
-      "default": [
-        "Psalm 62:5-12",
-        "Jeremiah 19:1-15",
-        "Revelation 18:11-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-22": {
-    "options": {
-      "default": [
-        "Psalm 62:5-12",
-        "Jeremiah 20:7-13",
-        "2 Peter 3:1-7"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-23": {
-    "options": {
-      "default": [
-        "Psalm 62:5-12",
-        "Jeremiah 20:14-18",
-        "Luke 10:13-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-24": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Third Sunday after the Epiphany",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=15"
-      }
-    ]
-  },
-  "2027-01-25": {
-    "options": {
-      "default": [
-        "Psalm 46",
-        "Genesis 12:1-9",
-        "1 Corinthians 7:17-24"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-26": {
-    "options": {
-      "default": [
-        "Psalm 46",
-        "Genesis 45:25-46:7",
-        "Acts 5:33-42"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-27": {
-    "options": {
-      "default": [
-        "Psalm 46",
-        "Proverbs 8:1-21",
-        "Mark 3:13-19a"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-28": {
-    "options": {
-      "default": [
-        "Psalm 111",
-        "Deuteronomy 3:23-29",
-        "Romans 9:6-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-29": {
-    "options": {
-      "default": [
-        "Psalm 111",
-        "Deuteronomy 12:28-32",
-        "Revelation 2:12-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-30": {
-    "options": {
-      "default": [
-        "Psalm 111",
-        "Deuteronomy 13:1-5",
-        "Matthew 8:28-9:1"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-01-31": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Fourth Sunday after the Epiphany",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=16"
-      }
-    ]
-  },
-  "2027-02-01": {
-    "options": {
-      "default": [
-        "Psalm 35:1-10",
-        "Numbers 22:1-21",
-        "Acts 21:17-26"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-02": {
-    "options": {
-      "default": [
-        "Psalm 35:1-10",
-        "Numbers 22:22-28",
-        "1 Corinthians 7:32-40"
-      ]
-    },
-    "celebrations": [
-      {
-        "name": "Presentation of the Lord",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=17"
-      }
-    ]
-  },
-  "2027-02-03": {
-    "options": {
-      "default": [
-        "Psalm 35:1-10",
-        "Jeremiah 29:1-14",
-        "Mark 5:1-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-04": {
-    "options": {
-      "default": [
-        "Psalm 50:1-6",
-        "1 Kings 11:26-40",
-        "2 Corinthians 2:12-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-05": {
-    "options": {
-      "default": [
-        "Psalm 50:1-6",
-        "1 Kings 14:1-18",
-        "1 Timothy 1:12-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-06": {
-    "options": {
-      "default": [
-        "Psalm 50:1-6",
-        "1 Kings 16:1-7",
-        "Luke 19:41-44"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-07": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Transfiguration Sunday",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=23"
-      }
-    ]
-  },
-  "2027-02-08": {
-    "options": {
-      "default": [
-        "Psalm 110:1-4",
-        "Exodus 19:7-25",
-        "Hebrews 2:1-4"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-09": {
-    "options": {
-      "default": [
-        "Psalm 110:1-4",
-        "Job 19:23-27",
-        "1 Timothy 3:14-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-10": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Ash Wednesday",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=24"
-      }
-    ]
-  },
-  "2027-02-11": {
-    "options": {
-      "default": [
-        "Psalm 25:1-10",
-        "Daniel 9:1-14",
-        "1 John 1:3-10"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-12": {
-    "options": {
-      "default": [
-        "Psalm 25:1-10",
-        "Daniel 9:15-25a",
-        "2 Timothy 4:1-5"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-13": {
-    "options": {
-      "default": [
-        "Psalm 25:1-10",
-        "Psalm 32",
-        "Matthew 9:2-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-14": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "First Sunday in Lent",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=25"
-      }
-    ]
-  },
-  "2027-02-15": {
-    "options": {
-      "default": [
-        "Psalm 77",
-        "Job 4:1-21",
-        "Ephesians 2:1-10"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-16": {
-    "options": {
-      "default": [
-        "Psalm 77",
-        "Job 5:8-27",
-        "1 Peter 3:8-18a"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-17": {
-    "options": {
-      "default": [
-        "Psalm 77",
-        "Proverbs 30:1-9",
-        "Matthew 4:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-18": {
-    "options": {
-      "default": [
-        "Psalm 22:23-31",
-        "Genesis 15:1-6, 12-18",
-        "Romans 3:21-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-19": {
-    "options": {
-      "default": [
-        "Psalm 22:23-31",
-        "Genesis 16:1-6",
-        "Romans 4:1-12"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-20": {
-    "options": {
-      "default": [
-        "Psalm 22:23-31",
-        "Genesis 16:7-15",
-        "Mark 8:27-30"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-21": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Second Sunday in Lent",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=26"
-      }
-    ]
-  },
-  "2027-02-22": {
-    "options": {
-      "default": [
-        "Psalm 105:1-11, 37-45",
-        "Genesis 21:1-7",
-        "Hebrews 1:8-12"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-23": {
-    "options": {
-      "default": [
-        "Psalm 105:1-11, 37-45",
-        "Genesis 22:1-19",
-        "Hebrews 11:1-3, 13-19"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-24": {
-    "options": {
-      "default": [
-        "Psalm 105:1-11, 37-45",
-        "Jeremiah 30:12-22",
-        "John 12:36-43"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-25": {
-    "options": {
-      "default": [
-        "Psalm 19",
-        "Exodus 19:1-9a",
-        "1 Peter 2:4-10"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-26": {
-    "options": {
-      "default": [
-        "Psalm 19",
-        "Exodus 19:9b-15",
-        "Acts 7:30-40"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-27": {
-    "options": {
-      "default": [
-        "Psalm 19",
-        "Exodus 19:16-25",
-        "Mark 9:2-8"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-02-28": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Third Sunday in Lent",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=27"
-      }
-    ]
-  },
-  "2027-03-01": {
-    "options": {
-      "default": [
-        "Psalm 84",
-        "1 Kings 6:1-4, 21-22",
-        "1 Corinthians 3:10-23"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-02": {
-    "options": {
-      "default": [
-        "Psalm 84",
-        "2 Chronicles 29:1-11, 16-19",
-        "Hebrews 9:23-28"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-03": {
-    "options": {
-      "default": [
-        "Psalm 84",
-        "Ezra 6:1-16",
-        "Mark 11:15-19"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-04": {
-    "options": {
-      "default": [
-        "Psalm 107:1-3, 17-22",
-        "Genesis 9:8-17",
-        "Ephesians 1:3-6"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-05": {
-    "options": {
-      "default": [
-        "Psalm 107:1-3, 17-22",
-        "Daniel 12:5-13",
-        "Ephesians 1:7-14"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-06": {
-    "options": {
-      "default": [
-        "Psalm 107:1-3, 17-22",
-        "Numbers 20:22-29",
-        "John 3:1-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-07": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Fourth Sunday in Lent",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=28"
-      }
-    ]
-  },
-  "2027-03-08": {
-    "options": {
-      "default": [
-        "Psalm 107:1-16",
-        "Exodus 15:22-27",
-        "Hebrews 3:1-6"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-09": {
-    "options": {
-      "default": [
-        "Psalm 107:1-16",
-        "Numbers 20:1-13",
-        "1 Corinthians 10:6-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-10": {
-    "options": {
-      "default": [
-        "Psalm 107:1-16",
-        "Isaiah 60:15-22",
-        "John 8:12-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-11": {
-    "options": {
-      "default": [
-        "Psalm 51:1-12",
-        "Isaiah 30:15-18",
-        "Hebrews 4:1-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-12": {
-    "options": {
-      "default": [
-        "Psalm 51:1-12",
-        "Exodus 30:1-10",
-        "Hebrews 4:14-5:4"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-13": {
-    "options": {
-      "default": [
-        "Psalm 51:1-12",
-        "Habakkuk 3:2-13",
-        "John 12:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-14": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Fifth Sunday in Lent",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=29"
-      }
-    ]
-  },
-  "2027-03-15": {
-    "options": {
-      "default": [
-        "Psalm 119:9-16",
-        "Isaiah 43:8-13",
-        "2 Corinthians 3:4-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-16": {
-    "options": {
-      "default": [
-        "Psalm 119:9-16",
-        "Isaiah 44:1-8",
-        "Acts 2:14-24"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-17": {
-    "options": {
-      "default": [
-        "Psalm 119:9-16",
-        "Haggai 2:1-9, 20-23",
-        "John 12:34-50"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-18": {
-    "options": {
-      "default": [
-        "Psalm 118:1-2, 19-29",
-        "Deuteronomy 16:1-8",
-        "Philippians 2:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-19": {
-    "options": {
-      "default": [
-        "Psalm 118:1-2, 19-29",
-        "Jeremiah 33:1-9",
-        "Philippians 2:12-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-20": {
-    "options": {
-      "default": [
-        "Psalm 118:1-2, 19-29",
-        "Jeremiah 33:10-16",
-        "Mark 10:32-34, 46-52"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-21": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Liturgy of the Palms",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=33"
-      },
-      {
-        "name": "Liturgy of the Passion",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=34"
-      }
-    ]
-  },
-  "2027-03-22": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Monday of Holy Week",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=35"
-      }
-    ]
-  },
-  "2027-03-23": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Tuesday of Holy Week",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=36"
-      }
-    ]
-  },
-  "2027-03-24": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Wednesday of Holy Week",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=37"
-      }
-    ]
-  },
-  "2027-03-25": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Maundy Thursday",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=38"
-      },
-      {
-        "name": "Annunciation of the Lord",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=30"
-      }
-    ]
-  },
-  "2027-03-26": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Good Friday",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=39"
-      }
-    ]
-  },
-  "2027-03-27": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Holy Saturday",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=40"
-      },
-      {
-        "name": "Easter Vigil",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=41"
-      }
-    ]
-  },
-  "2027-03-28": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Resurrection of the Lord",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=42"
-      },
-      {
-        "name": "Easter Evening",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=43"
-      }
-    ]
-  },
-  "2027-03-29": {
-    "options": {
-      "default": [
-        "Psalm 118:1-2, 14-24",
-        "Genesis 1:1-19",
-        "1 Corinthians 15:35-49"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-30": {
-    "options": {
-      "default": [
-        "Psalm 118:1-2, 14-24",
-        "Genesis 1:20-2:4a",
-        "1 Corinthians 15:50-58"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-03-31": {
-    "options": {
-      "default": [
-        "Psalm 118:1-2, 14-24",
-        "Song of Solomon 3:1-11",
-        "Mark 16:1-8"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-01": {
-    "options": {
-      "default": [
-        "Psalm 133",
-        "Daniel 1:1-21",
-        "Acts 2:42-47"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-02": {
-    "options": {
-      "default": [
-        "Psalm 133",
-        "Daniel 2:1-23",
-        "Acts 4:23-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-03": {
-    "options": {
-      "default": [
-        "Psalm 133",
-        "Daniel 2:24-49",
-        "John 12:44-50"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-04": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Second Sunday of Easter",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=44"
-      }
-    ]
-  },
-  "2027-04-05": {
-    "options": {
-      "default": [
-        "Psalm 135",
-        "Daniel 3:1-30",
-        "1 John 2:3-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-06": {
-    "options": {
-      "default": [
-        "Psalm 135",
-        "Daniel 6:1-28",
-        "1 John 2:12-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-07": {
-    "options": {
-      "default": [
-        "Psalm 135",
-        "Isaiah 26:1-15",
-        "Mark 12:18-27"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-08": {
-    "options": {
-      "default": [
-        "Psalm 4",
-        "Daniel 9:1-19",
-        "1 John 2:18-25"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-09": {
-    "options": {
-      "default": [
-        "Psalm 4",
-        "Daniel 10:2-19",
-        "1 John 2:26-28"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-10": {
-    "options": {
-      "default": [
-        "Psalm 4",
-        "Acts 3:1-10",
-        "Luke 22:24-30"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-11": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Third Sunday of Easter",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=45"
-      }
-    ]
-  },
-  "2027-04-12": {
-    "options": {
-      "default": [
-        "Psalm 150",
-        "Jeremiah 30:1-11a",
-        "1 John 3:10-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-13": {
-    "options": {
-      "default": [
-        "Psalm 150",
-        "Hosea 5:15-6:6",
-        "2 John 1:1-6"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-14": {
-    "options": {
-      "default": [
-        "Psalm 150",
-        "Proverbs 9:1-6",
-        "Mark 16:9-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-15": {
-    "options": {
-      "default": [
-        "Psalm 23",
-        "Genesis 30:25-43",
-        "Acts 3:17-26"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-16": {
-    "options": {
-      "default": [
-        "Psalm 23",
-        "Genesis 46:28-47:6",
-        "Acts 4:1-4"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-17": {
-    "options": {
-      "default": [
-        "Psalm 23",
-        "Genesis 48:8-19",
-        "Mark 6:30-34"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-18": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Fourth Sunday of Easter",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=46"
-      }
-    ]
-  },
-  "2027-04-19": {
-    "options": {
-      "default": [
-        "Psalm 95",
-        "1 Samuel 16:1-13",
-        "1 Peter 5:1-5"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-20": {
-    "options": {
-      "default": [
-        "Psalm 95",
-        "1 Chronicles 11:1-9",
-        "Revelation 7:13-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-21": {
-    "options": {
-      "default": [
-        "Psalm 95",
-        "Micah 7:8-20",
-        "Mark 14:26-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-22": {
-    "options": {
-      "default": [
-        "Psalm 22:25-31",
-        "Amos 8:1-7",
-        "Acts 8:1b-8"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-23": {
-    "options": {
-      "default": [
-        "Psalm 22:25-31",
-        "Amos 8:11-13",
-        "Acts 8:9-25"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-24": {
-    "options": {
-      "default": [
-        "Psalm 22:25-31",
-        "Amos 9:7-15",
-        "Mark 4:30-32"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-25": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Fifth Sunday of Easter",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=47"
-      }
-    ]
-  },
-  "2027-04-26": {
-    "options": {
-      "default": [
-        "Psalm 80",
-        "Isaiah 5:1-7",
-        "Galatians 5:16-26"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-27": {
-    "options": {
-      "default": [
-        "Psalm 80",
-        "Isaiah 32:9-20",
-        "James 3:17-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-28": {
-    "options": {
-      "default": [
-        "Psalm 80",
-        "Isaiah 65:17-25",
-        "John 14:18-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-29": {
-    "options": {
-      "default": [
-        "Psalm 98",
-        "Isaiah 49:5-6",
-        "Acts 10:1-34"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-04-30": {
-    "options": {
-      "default": [
-        "Psalm 98",
-        "Isaiah 42:5-9",
-        "Acts 10:34-43"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-01": {
-    "options": {
-      "default": [
-        "Psalm 98",
-        "Deuteronomy 32:44-47",
-        "Mark 10:42-45"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-02": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Sixth Sunday of Easter",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=48"
-      }
-    ]
-  },
-  "2027-05-03": {
-    "options": {
-      "default": [
-        "Psalm 93",
-        "Deuteronomy 7:1-11",
-        "1 Timothy 6:11-12"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-04": {
-    "options": {
-      "default": [
-        "Psalm 93",
-        "Deuteronomy 11:1-17",
-        "1 Timothy 6:13-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-05": {
-    "options": {
-      "default": [
-        "Psalm 93",
-        "Deuteronomy 11:18-21",
-        "Mark 16:19-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-06": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Ascension of the Lord",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=49"
-      }
-    ]
-  },
-  "2027-05-07": {
-    "options": {
-      "default": [
-        "Psalm 47",
-        "Exodus 24:15-18",
-        "Revelation 1:9-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-08": {
-    "options": {
-      "default": [
-        "Psalm 47",
-        "Deuteronomy 34:1-7",
-        "John 16:4-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-09": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Seventh Sunday of Easter",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=50"
-      }
-    ]
-  },
-  "2027-05-10": {
-    "options": {
-      "default": [
-        "Psalm 115",
-        "Exodus 28:29-38",
-        "Philippians 1:3-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-11": {
-    "options": {
-      "default": [
-        "Psalm 115",
-        "Numbers 8:5-22",
-        "Titus 1:1-9"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-12": {
-    "options": {
-      "default": [
-        "Psalm 115",
-        "Ezra 9:5-15",
-        "John 16:16-24"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-13": {
-    "options": {
-      "default": [
-        "Psalm 33:12-22",
-        "Genesis 2:4b-7",
-        "1 Corinthians 15:42b-49"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-14": {
-    "options": {
-      "default": [
-        "Psalm 33:12-22",
-        "Job 37:1-13",
-        "1 Corinthians 15:50-57"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-15": {
-    "options": {
-      "default": [
-        "Psalm 33:12-22",
-        "Exodus 15:6-11",
-        "John 7:37-39"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-16": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Day of Pentecost",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=51"
-      }
-    ]
-  },
-  "2027-05-17": {
-    "options": {
-      "default": [
-        "Psalm 104:24-34, 35b",
-        "Joel 2:18-29",
-        "1 Corinthians 12:4-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-18": {
-    "options": {
-      "default": [
-        "Psalm 104:24-34, 35b",
-        "Genesis 11:1-9",
-        "1 Corinthians 12:12-27"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-19": {
-    "options": {
-      "default": [
-        "Psalm 104:24-34, 35b",
-        "Ezekiel 37:1-14",
-        "John 20:19-23"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-20": {
-    "options": {
-      "default": [
-        "Psalm 29",
-        "Isaiah 1:1-4, 16-20",
-        "Romans 8:1-8"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-21": {
-    "options": {
-      "default": [
-        "Psalm 29",
-        "Isaiah 2:1-5",
-        "Romans 8:9-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-22": {
-    "options": {
-      "default": [
-        "Psalm 29",
-        "Isaiah 5:15-24",
-        "John 15:18-20, 26-27"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-23": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Trinity Sunday",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=52"
-      }
-    ]
-  },
-  "2027-05-24": {
-    "options": {
-      "default": [
-        "Psalm 20",
-        "Numbers 9:15-23",
-        "Revelation 4:1-8"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-25": {
-    "options": {
-      "default": [
-        "Psalm 20",
-        "Exodus 25:1-22",
-        "1 Corinthians 2:1-10"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-26": {
-    "options": {
-      "default": [
-        "Psalm 20",
-        "Numbers 6:22-27",
-        "Mark 4:21-25"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-27": {
-    "options": {
-      "semi": [
-        "Psalm 139:1-6, 13-18",
-        "1 Samuel 1:1-18",
-        "Acts 25:1-12"
-      ],
-      "complementary": [
-        "Psalm 81:1-10",
-        "Exodus 31:12-18",
-        "Acts 25:1-12"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-28": {
-    "options": {
-      "semi": [
-        "Psalm 139:1-6, 13-18",
-        "1 Samuel 1:19-27",
-        "Romans 8:31-39"
-      ],
-      "complementary": [
-        "Psalm 81:1-10",
-        "Leviticus 23:1-8",
-        "Romans 8:31-39"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-29": {
-    "options": {
-      "semi": [
-        "Psalm 139:1-6, 13-18",
-        "1 Samuel 2:1-10",
-        "John 7:19-24"
-      ],
-      "complementary": [
-        "Psalm 81:1-10",
-        "Leviticus 24:5-9",
-        "John 7:19-24"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-05-30": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 4 (9)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=58"
-      }
-    ]
-  },
-  "2027-05-31": {
-    "options": {
-      "semi": [
-        "Psalm 99",
-        "1 Samuel 2:11-17",
-        "Romans 9:19-29"
-      ],
-      "complementary": [
-        "Psalm 78:1-4, 52-72",
-        "Exodus 16:13-26",
-        "Romans 9:19-29"
-      ]
-    },
-    "celebrations": [
-      {
-        "name": "Visitation of Mary to Elizabeth",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=56"
-      }
-    ]
-  },
-  "2027-06-01": {
-    "options": {
-      "semi": [
-        "Psalm 99",
-        "1 Samuel 2:18-21",
-        "Acts 15:1-5, 22-35"
-      ],
-      "complementary": [
-        "Psalm 78:1-4, 52-72",
-        "Exodus 16:27-36",
-        "Acts 15:1-5, 22-35"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-02": {
-    "options": {
-      "semi": [
-        "Psalm 99",
-        "1 Samuel 2:22-36",
-        "John 5:1-18"
-      ],
-      "complementary": [
-        "Psalm 78:1-4, 52-72",
-        "1 Samuel 21:1-6",
-        "John 5:1-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-03": {
-    "options": {
-      "semi": [
-        "Psalm 138",
-        "1 Samuel 4:1-22",
-        "1 Peter 4:7-19"
-      ],
-      "complementary": [
-        "Psalm 130",
-        "Isaiah 28:9-13",
-        "1 Peter 4:7-19"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-04": {
-    "options": {
-      "semi": [
-        "Psalm 138",
-        "1 Samuel 5:1-12",
-        "2 Corinthians 5:1-5"
-      ],
-      "complementary": [
-        "Psalm 130",
-        "Deuteronomy 1:34-40",
-        "2 Corinthians 5:1-5"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-05": {
-    "options": {
-      "semi": [
-        "Psalm 138",
-        "1 Samuel 6:1-18",
-        "Luke 8:4-15"
-      ],
-      "complementary": [
-        "Psalm 130",
-        "Genesis 2:4b-14",
-        "Luke 8:4-15"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-06": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 5 (10)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=59"
-      }
-    ]
-  },
-  "2027-06-07": {
-    "options": {
-      "semi": [
-        "Psalm 108",
-        "1 Samuel 7:3-15",
-        "Revelation 20:1-6"
-      ],
-      "complementary": [
-        "Psalm 74",
-        "1 Samuel 16:14-23",
-        "Revelation 20:1-6"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-08": {
-    "options": {
-      "semi": [
-        "Psalm 108",
-        "1 Samuel 8:1-22",
-        "Revelation 20:7-15"
-      ],
-      "complementary": [
-        "Psalm 74",
-        "1 Kings 18:17-40",
-        "Revelation 20:7-15"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-09": {
-    "options": {
-      "semi": [
-        "Psalm 108",
-        "1 Samuel 9:1-14",
-        "Luke 11:14-28"
-      ],
-      "complementary": [
-        "Psalm 74",
-        "Isaiah 26:16-27:1",
-        "Luke 11:14-28"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-10": {
-    "options": {
-      "semi": [
-        "Psalm 20",
-        "1 Samuel 9:15-27",
-        "Hebrews 2:5-9"
-      ],
-      "complementary": [
-        "Psalm 92:1-4, 12-15",
-        "Genesis 3:14-24",
-        "Hebrews 2:5-9"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-11": {
-    "options": {
-      "semi": [
-        "Psalm 20",
-        "1 Samuel 10:1-8",
-        "Hebrews 11:4-7"
-      ],
-      "complementary": [
-        "Psalm 92:1-4, 12-15",
-        "1 Kings 10:26-11:8",
-        "Hebrews 11:4-7"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-12": {
-    "options": {
-      "semi": [
-        "Psalm 20",
-        "1 Samuel 13:1-15a",
-        "Mark 4:1-20"
-      ],
-      "complementary": [
-        "Psalm 92:1-4, 12-15",
-        "2 Kings 14:1-14",
-        "Mark 4:1-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-13": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 6 (11)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=60"
-      }
-    ]
-  },
-  "2027-06-14": {
-    "options": {
-      "semi": [
-        "Psalm 53",
-        "1 Samuel 13:23-14:23",
-        "Galatians 6:11-18"
-      ],
-      "complementary": [
-        "Psalm 52",
-        "Ezekiel 31:1-12",
-        "Galatians 6:11-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-15": {
-    "options": {
-      "semi": [
-        "Psalm 53",
-        "1 Samuel 15:10-23",
-        "Revelation 21:22-22:5"
-      ],
-      "complementary": [
-        "Psalm 52",
-        "Jeremiah 21:11-14",
-        "Revelation 21:22-22:5"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-16": {
-    "options": {
-      "semi": [
-        "Psalm 53",
-        "1 Samuel 15:24-31",
-        "Luke 6:43-45"
-      ],
-      "complementary": [
-        "Psalm 52",
-        "Jeremiah 22:1-9",
-        "Luke 6:43-45"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-17": {
-    "options": {
-      "semi": [
-        "Psalm 9:9-20",
-        "1 Samuel 16:14-23",
-        "Acts 20:1-16"
-      ],
-      "complementary": [
-        "Psalm 107:1-3, 23-32",
-        "Job 29:1-20",
-        "Acts 20:1-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-18": {
-    "options": {
-      "semi": [
-        "Psalm 9:9-20",
-        "1 Samuel 17:55-18:5",
-        "Acts 21:1-16"
-      ],
-      "complementary": [
-        "Psalm 107:1-3, 23-32",
-        "Job 29:21-30:15",
-        "Acts 21:1-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-19": {
-    "options": {
-      "semi": [
-        "Psalm 9:9-20",
-        "1 Samuel 18:1-4",
-        "Luke 21:25-28"
-      ],
-      "complementary": [
-        "Psalm 107:1-3, 23-32",
-        "Job 37:1-13",
-        "Luke 21:25-28"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-20": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 7 (12)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=61"
-      }
-    ]
-  },
-  "2027-06-21": {
-    "options": {
-      "semi": [
-        "Psalm 119:113-128",
-        "1 Samuel 18:6-30",
-        "Acts 27:13-38"
-      ],
-      "complementary": [
-        "Psalm 65",
-        "Exodus 7:14-24",
-        "Acts 27:13-38"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-22": {
-    "options": {
-      "semi": [
-        "Psalm 119:113-128",
-        "1 Samuel 19:1-7",
-        "Acts 27:39-44"
-      ],
-      "complementary": [
-        "Psalm 65",
-        "Exodus 9:13-35",
-        "Acts 27:39-44"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-23": {
-    "options": {
-      "semi": [
-        "Psalm 119:113-128",
-        "1 Samuel 19:8-17",
-        "Mark 6:45-52"
-      ],
-      "complementary": [
-        "Psalm 65",
-        "Joshua 10:1-14",
-        "Mark 6:45-52"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-24": {
-    "options": {
-      "semi": [
-        "Psalm 130",
-        "1 Samuel 19:18-24",
-        "2 Corinthians 7:2-16"
-      ],
-      "complementary": [
-        "Psalm 30",
-        "Lamentations 1:16-22",
-        "2 Corinthians 7:2-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-25": {
-    "options": {
-      "semi": [
-        "Psalm 130",
-        "1 Samuel 20:1-25",
-        "2 Corinthians 8:1-7"
-      ],
-      "complementary": [
-        "Psalm 30",
-        "Lamentations 2:1-12",
-        "2 Corinthians 8:1-7"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-26": {
-    "options": {
-      "semi": [
-        "Psalm 130",
-        "1 Samuel 20:27-42",
-        "Luke 4:31-37"
-      ],
-      "complementary": [
-        "Psalm 30",
-        "Lamentations 2:18-22",
-        "Luke 4:31-37"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-27": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 8 (13)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=62"
-      }
-    ]
-  },
-  "2027-06-28": {
-    "options": {
-      "semi": [
-        "Psalm 18:1-6, 43-50",
-        "1 Samuel 23:14-18",
-        "2 Corinthians 8:16-24"
-      ],
-      "complementary": [
-        "Psalm 88",
-        "Leviticus 21:1-15",
-        "2 Corinthians 8:16-24"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-29": {
-    "options": {
-      "semi": [
-        "Psalm 18:1-6, 43-50",
-        "1 Samuel 31:1-13",
-        "2 Corinthians 9:1-5"
-      ],
-      "complementary": [
-        "Psalm 88",
-        "Leviticus 15:19-31",
-        "2 Corinthians 9:1-5"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-06-30": {
-    "options": {
-      "semi": [
-        "Psalm 18:1-6, 43-50",
-        "1 Chronicles 10:1-14",
-        "Mark 9:14-29"
-      ],
-      "complementary": [
-        "Psalm 88",
-        "2 Kings 20:1-11",
-        "Mark 9:14-29"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-01": {
-    "options": {
-      "semi": [
-        "Psalm 48",
-        "2 Samuel 2:1-11",
-        "1 Corinthians 4:8-13"
-      ],
-      "complementary": [
-        "Psalm 123",
-        "Jeremiah 7:1-15",
-        "1 Corinthians 4:8-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-02": {
-    "options": {
-      "semi": [
-        "Psalm 48",
-        "2 Samuel 3:1-12",
-        "2 Corinthians 10:7-11"
-      ],
-      "complementary": [
-        "Psalm 123",
-        "Jeremiah 7:16-26",
-        "2 Corinthians 10:7-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-03": {
-    "options": {
-      "semi": [
-        "Psalm 48",
-        "2 Samuel 3:31-38",
-        "Matthew 8:18-22"
-      ],
-      "complementary": [
-        "Psalm 123",
-        "Jeremiah 7:27-34",
-        "Matthew 8:18-22"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-04": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 9 (14)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=63"
-      }
-    ]
-  },
-  "2027-07-05": {
-    "options": {
-      "semi": [
-        "Psalm 21",
-        "2 Samuel 5:1-10",
-        "2 Corinthians 11:16-33"
-      ],
-      "complementary": [
-        "Psalm 119:81-88",
-        "Ezekiel 2:8-3:11",
-        "2 Corinthians 11:16-33"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-06": {
-    "options": {
-      "semi": [
-        "Psalm 21",
-        "2 Samuel 5:11-16",
-        "James 5:7-12"
-      ],
-      "complementary": [
-        "Psalm 119:81-88",
-        "Jeremiah 16:1-13",
-        "James 5:7-12"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-07": {
-    "options": {
-      "semi": [
-        "Psalm 21",
-        "2 Samuel 5:17-25",
-        "John 7:1-9"
-      ],
-      "complementary": [
-        "Psalm 119:81-88",
-        "Jeremiah 16:14-21",
-        "John 7:1-9"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-08": {
-    "options": {
-      "semi": [
-        "Psalm 24",
-        "Exodus 25:10-22",
-        "Colossians 2:1-5"
-      ],
-      "complementary": [
-        "Psalm 85:8-13",
-        "Amos 2:6-16",
-        "Colossians 2:1-5"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-09": {
-    "options": {
-      "semi": [
-        "Psalm 24",
-        "Exodus 37:1-16",
-        "Colossians 4:2-18"
-      ],
-      "complementary": [
-        "Psalm 85:8-13",
-        "Amos 3:1-12",
-        "Colossians 4:2-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-10": {
-    "options": {
-      "semi": [
-        "Psalm 24",
-        "Numbers 10:11-36",
-        "Luke 1:57-80"
-      ],
-      "complementary": [
-        "Psalm 85:8-13",
-        "Amos 4:6-13",
-        "Luke 1:57-80"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-11": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 10 (15)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=64"
-      }
-    ]
-  },
-  "2027-07-12": {
-    "options": {
-      "semi": [
-        "Psalm 68:24-35",
-        "2 Samuel 6:6-12a",
-        "Acts 21:27-39"
-      ],
-      "complementary": [
-        "Psalm 142",
-        "Amos 5:1-9",
-        "Acts 21:27-39"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-13": {
-    "options": {
-      "semi": [
-        "Psalm 68:24-35",
-        "2 Samuel 3:12-16",
-        "Acts 23:12-35"
-      ],
-      "complementary": [
-        "Psalm 142",
-        "Amos 9:1-4",
-        "Acts 23:12-35"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-14": {
-    "options": {
-      "semi": [
-        "Psalm 68:24-35",
-        "2 Samuel 6:16-23",
-        "Luke 7:31-35"
-      ],
-      "complementary": [
-        "Psalm 142",
-        "Amos 9:11-15",
-        "Luke 7:31-35"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-15": {
-    "options": {
-      "semi": [
-        "Psalm 89:20-37",
-        "1 Chronicles 11:15-19",
-        "Colossians 1:15-23"
-      ],
-      "complementary": [
-        "Psalm 23",
-        "Jeremiah 10:1-16",
-        "Colossians 1:15-23"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-16": {
-    "options": {
-      "semi": [
-        "Psalm 89:20-37",
-        "1 Chronicles 14:1-2",
-        "Acts 17:16-31"
-      ],
-      "complementary": [
-        "Psalm 23",
-        "Jeremiah 10:17-25",
-        "Acts 17:16-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-17": {
-    "options": {
-      "semi": [
-        "Psalm 89:20-37",
-        "1 Chronicles 15:1-2, 16:4-13",
-        "Luke 18:35-43"
-      ],
-      "complementary": [
-        "Psalm 23",
-        "Jeremiah 12:1-13",
-        "Luke 18:35-43"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-18": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 11 (16)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=65"
-      }
-    ]
-  },
-  "2027-07-19": {
-    "options": {
-      "semi": [
-        "Psalm 61",
-        "2 Samuel 7:18-29",
-        "Hebrews 13:17-25"
-      ],
-      "complementary": [
-        "Psalm 100",
-        "Jeremiah 50:1-7",
-        "Hebrews 13:17-25"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-20": {
-    "options": {
-      "semi": [
-        "Psalm 61",
-        "2 Samuel 8:1-18",
-        "Acts 20:17-38"
-      ],
-      "complementary": [
-        "Psalm 100",
-        "Zechariah 9:14-10:2",
-        "Acts 20:17-38"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-21": {
-    "options": {
-      "semi": [
-        "Psalm 61",
-        "2 Samuel 9:1-13",
-        "Luke 15:1-7"
-      ],
-      "complementary": [
-        "Psalm 100",
-        "2 Samuel 5:1-12",
-        "Luke 15:1-7"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-22": {
-    "options": {
-      "semi": [
-        "Psalm 14",
-        "2 Samuel 10:1-5",
-        "Colossians 1:9-14"
-      ],
-      "complementary": [
-        "Psalm 145:10-18",
-        "1 Kings 19:19-21",
-        "Colossians 1:9-14"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-23": {
-    "options": {
-      "semi": [
-        "Psalm 14",
-        "2 Samuel 10:6-12",
-        "Colossians 3:12-17"
-      ],
-      "complementary": [
-        "Psalm 145:10-18",
-        "2 Kings 3:4-20",
-        "Colossians 3:12-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-24": {
-    "options": {
-      "semi": [
-        "Psalm 14",
-        "2 Samuel 10:13-19",
-        "John 4:31-38"
-      ],
-      "complementary": [
-        "Psalm 145:10-18",
-        "2 Kings 4:38-41",
-        "John 4:31-38"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-25": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 12 (17)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=66"
-      }
-    ]
-  },
-  "2027-07-26": {
-    "options": {
-      "semi": [
-        "Psalm 37:12-22",
-        "2 Samuel 11:14-21",
-        "Philippians 4:10-20"
-      ],
-      "complementary": [
-        "Psalm 111",
-        "Genesis 18:1-15",
-        "Philippians 4:10-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-27": {
-    "options": {
-      "semi": [
-        "Psalm 37:12-22",
-        "2 Samuel 11:22-27",
-        "Romans 15:22-33"
-      ],
-      "complementary": [
-        "Psalm 111",
-        "Exodus 24:1-11",
-        "Romans 15:22-33"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-28": {
-    "options": {
-      "semi": [
-        "Psalm 37:12-22",
-        "2 Chronicles 9:29-31",
-        "Mark 6:35-44"
-      ],
-      "complementary": [
-        "Psalm 111",
-        "Isaiah 25:6-10a",
-        "Mark 6:35-44"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-29": {
-    "options": {
-      "semi": [
-        "Psalm 51:1-12",
-        "Exodus 32:19-26a",
-        "1 Corinthians 11:17-22"
-      ],
-      "complementary": [
-        "Psalm 78:23-29",
-        "Exodus 12:33-42",
-        "1 Corinthians 11:17-22"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-30": {
-    "options": {
-      "semi": [
-        "Psalm 51:1-12",
-        "Joshua 23:1-16",
-        "1 Corinthians 11:27-34"
-      ],
-      "complementary": [
-        "Psalm 78:23-29",
-        "Exodus 12:43-13:2",
-        "1 Corinthians 11:27-34"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-07-31": {
-    "options": {
-      "semi": [
-        "Psalm 51:1-12",
-        "Judges 6:1-10",
-        "Matthew 16:5-12"
-      ],
-      "complementary": [
-        "Psalm 78:23-29",
-        "Exodus 13:3-10",
-        "Matthew 16:5-12"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-01": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 13 (18)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=67"
-      }
-    ]
-  },
-  "2027-08-02": {
-    "options": {
-      "semi": [
-        "Psalm 50:16-23",
-        "2 Samuel 12:15-25",
-        "Ephesians 4:17-24"
-      ],
-      "complementary": [
-        "Psalm 107:1-3, 33-43",
-        "Numbers 11:16-23, 31-32",
-        "Ephesians 4:17-24"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-03": {
-    "options": {
-      "semi": [
-        "Psalm 50:16-23",
-        "2 Samuel 13:1-19",
-        "1 Corinthians 12:27-31"
-      ],
-      "complementary": [
-        "Psalm 107:1-3, 33-43",
-        "Deuteronomy 8:1-20",
-        "1 Corinthians 12:27-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-04": {
-    "options": {
-      "semi": [
-        "Psalm 50:16-23",
-        "2 Samuel 13:20-36",
-        "Mark 8:1-10"
-      ],
-      "complementary": [
-        "Psalm 107:1-3, 33-43",
-        "Isaiah 55:1-9",
-        "Mark 8:1-10"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-05": {
-    "options": {
-      "semi": [
-        "Psalm 130",
-        "2 Samuel 13:37-14:24",
-        "Romans 15:1-6"
-      ],
-      "complementary": [
-        "Psalm 34:1-8",
-        "1 Samuel 28:20-25",
-        "Romans 15:1-6"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-06": {
-    "options": {
-      "semi": [
-        "Psalm 130",
-        "2 Samuel 14:25-33",
-        "Galatians 6:1-10"
-      ],
-      "complementary": [
-        "Psalm 34:1-8",
-        "2 Samuel 17:15-29",
-        "Galatians 6:1-10"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-07": {
-    "options": {
-      "semi": [
-        "Psalm 130",
-        "2 Samuel 15:1-13",
-        "Matthew 7:7-11"
-      ],
-      "complementary": [
-        "Psalm 34:1-8",
-        "1 Kings 2:1-9",
-        "Matthew 7:7-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-08": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 14 (19)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=68"
-      }
-    ]
-  },
-  "2027-08-09": {
-    "options": {
-      "semi": [
-        "Psalm 57",
-        "2 Samuel 15:13-31",
-        "Ephesians 5:1-14"
-      ],
-      "complementary": [
-        "Psalm 81",
-        "1 Kings 17:1-16",
-        "Ephesians 5:1-14"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-10": {
-    "options": {
-      "semi": [
-        "Psalm 57",
-        "2 Samuel 18:19-33",
-        "2 Peter 3:14-18"
-      ],
-      "complementary": [
-        "Psalm 81",
-        "Ruth 2:1-23",
-        "2 Peter 3:14-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-11": {
-    "options": {
-      "semi": [
-        "Psalm 57",
-        "2 Samuel 19:1-18",
-        "John 6:35-40"
-      ],
-      "complementary": [
-        "Psalm 81",
-        "Jeremiah 31:1-6",
-        "John 6:35-40"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-12": {
-    "options": {
-      "semi": [
-        "Psalm 111",
-        "1 Kings 1:1-30",
-        "Acts 6:8-15"
-      ],
-      "complementary": [
-        "Psalm 34:9-14",
-        "Job 11:1-20",
-        "Acts 6:8-15"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-13": {
-    "options": {
-      "semi": [
-        "Psalm 111",
-        "1 Kings 1:28-48",
-        "Romans 16:17-20"
-      ],
-      "complementary": [
-        "Psalm 34:9-14",
-        "Job 12:1-25",
-        "Romans 16:17-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-14": {
-    "options": {
-      "semi": [
-        "Psalm 111",
-        "1 Kings 2:1-11",
-        "John 4:7-26"
-      ],
-      "complementary": [
-        "Psalm 34:9-14",
-        "Job 13:1-19",
-        "John 4:7-26"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-15": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 15 (20)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=69"
-      }
-    ]
-  },
-  "2027-08-16": {
-    "options": {
-      "semi": [
-        "Psalm 101",
-        "1 Kings 3:16-28",
-        "Acts 6:1-7"
-      ],
-      "complementary": [
-        "Psalm 36",
-        "Genesis 43:1-15",
-        "Acts 6:1-7"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-17": {
-    "options": {
-      "semi": [
-        "Psalm 101",
-        "1 Kings 7:1-12",
-        "Acts 7:9-16"
-      ],
-      "complementary": [
-        "Psalm 36",
-        "Genesis 45:1-15",
-        "Acts 7:9-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-18": {
-    "options": {
-      "semi": [
-        "Psalm 101",
-        "1 Kings 8:1-21",
-        "Mark 8:14-21"
-      ],
-      "complementary": [
-        "Psalm 36",
-        "Genesis 47:13-26",
-        "Mark 8:14-21"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-19": {
-    "options": {
-      "semi": [
-        "Psalm 84",
-        "1 Kings 4:20-28",
-        "1 Thessalonians 5:1-11"
-      ],
-      "complementary": [
-        "Psalm 34:15-22",
-        "Joshua 22:1-9",
-        "1 Thessalonians 5:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-20": {
-    "options": {
-      "semi": [
-        "Psalm 84",
-        "1 Kings 4:29-34",
-        "Romans 13:11-14"
-      ],
-      "complementary": [
-        "Psalm 34:15-22",
-        "Joshua 22:10-20",
-        "Romans 13:11-14"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-21": {
-    "options": {
-      "semi": [
-        "Psalm 84",
-        "1 Kings 5:1-12",
-        "Luke 11:5-13"
-      ],
-      "complementary": [
-        "Psalm 34:15-22",
-        "Joshua 22:21-34",
-        "Luke 11:5-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-22": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 16 (21)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=70"
-      }
-    ]
-  },
-  "2027-08-23": {
-    "options": {
-      "semi": [
-        "Psalm 11",
-        "1 Kings 5:13-18",
-        "Ephesians 5:21-6:9"
-      ],
-      "complementary": [
-        "Psalm 119:97-104",
-        "Nehemiah 9:1-15",
-        "Ephesians 5:21-6:9"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-24": {
-    "options": {
-      "semi": [
-        "Psalm 11",
-        "1 Kings 6:1-14",
-        "Ephesians 6:21-24"
-      ],
-      "complementary": [
-        "Psalm 119:97-104",
-        "Nehemiah 9:16-31",
-        "Ephesians 6:21-24"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-25": {
-    "options": {
-      "semi": [
-        "Psalm 11",
-        "1 Kings 6:15-38",
-        "John 15:16-25"
-      ],
-      "complementary": [
-        "Psalm 119:97-104",
-        "Isaiah 33:10-16",
-        "John 15:16-25"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-26": {
-    "options": {
-      "semi": [
-        "Psalm 45:1-2, 6-9",
-        "Song of Solomon 1:1-17",
-        "James 1:1-8"
-      ],
-      "complementary": [
-        "Psalm 15",
-        "Exodus 32:1-14",
-        "James 1:1-8"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-27": {
-    "options": {
-      "semi": [
-        "Psalm 45:1-2, 6-9",
-        "Song of Solomon 2:1-7",
-        "James 1:9-16"
-      ],
-      "complementary": [
-        "Psalm 15",
-        "Exodus 32:15-35",
-        "James 1:9-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-28": {
-    "options": {
-      "semi": [
-        "Psalm 45:1-2, 6-9",
-        "Hosea 3:1-5",
-        "John 18:28-32"
-      ],
-      "complementary": [
-        "Psalm 15",
-        "Exodus 34:8-28",
-        "John 18:28-32"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-29": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 17 (22)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=71"
-      }
-    ]
-  },
-  "2027-08-30": {
-    "options": {
-      "semi": [
-        "Psalm 144:9-15",
-        "Song of Solomon 3:6-11",
-        "1 Timothy 4:6-16"
-      ],
-      "complementary": [
-        "Psalm 106:1-6, 13-23, 47-48",
-        "Deuteronomy 4:9-14",
-        "1 Timothy 4:6-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-08-31": {
-    "options": {
-      "semi": [
-        "Psalm 144:9-15",
-        "Song of Solomon 5:2-6:3",
-        "1 Peter 2:19-25"
-      ],
-      "complementary": [
-        "Psalm 106:1-6, 13-23, 47-48",
-        "Deuteronomy 4:15-20",
-        "1 Peter 2:19-25"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-01": {
-    "options": {
-      "semi": [
-        "Psalm 144:9-15",
-        "Song of Solomon 8:5-7",
-        "Mark 7:9-23"
-      ],
-      "complementary": [
-        "Psalm 106:1-6, 13-23, 47-48",
-        "Deuteronomy 4:21-40",
-        "Mark 7:9-23"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-02": {
-    "options": {
-      "semi": [
-        "Psalm 125",
-        "Proverbs 1:1-19",
-        "Romans 2:1-11"
-      ],
-      "complementary": [
-        "Psalm 146",
-        "Isaiah 30:27-33",
-        "Romans 2:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-03": {
-    "options": {
-      "semi": [
-        "Psalm 125",
-        "Proverbs 4:10-27",
-        "Romans 2:12-16"
-      ],
-      "complementary": [
-        "Psalm 146",
-        "Isaiah 32:1-8",
-        "Romans 2:12-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-04": {
-    "options": {
-      "semi": [
-        "Psalm 125",
-        "Proverbs 8:1-31",
-        "Matthew 15:21-31"
-      ],
-      "complementary": [
-        "Psalm 146",
-        "Isaiah 33:1-9",
-        "Matthew 15:21-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-05": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 18 (23)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=72"
-      }
-    ]
-  },
-  "2027-09-06": {
-    "options": {
-      "semi": [
-        "Psalm 73:1-20",
-        "Proverbs 8:32-9:6",
-        "Hebrews 11:29-12:2"
-      ],
-      "complementary": [
-        "Isaiah 38:10-20",
-        "Joshua 6:1-21",
-        "Hebrews 11:29-12:2"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-07": {
-    "options": {
-      "semi": [
-        "Psalm 73:1-20",
-        "Proverbs 11:1-31",
-        "Hebrews 12:3-13"
-      ],
-      "complementary": [
-        "Isaiah 38:10-20",
-        "Joshua 8:1-23",
-        "Hebrews 12:3-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-08": {
-    "options": {
-      "semi": [
-        "Psalm 73:1-20",
-        "Proverbs 14:1-9",
-        "Matthew 17:14-21"
-      ],
-      "complementary": [
-        "Isaiah 38:10-20",
-        "Judges 15:9-20",
-        "Matthew 17:14-21"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-09": {
-    "options": {
-      "semi": [
-        "Psalm 19",
-        "Proverbs 15:1-17",
-        "Hebrews 11:17-22"
-      ],
-      "complementary": [
-        "Psalm 116:1-9",
-        "Joshua 2:1-14",
-        "Hebrews 11:17-22"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-10": {
-    "options": {
-      "semi": [
-        "Psalm 19",
-        "Proverbs: 19:24-29",
-        "James 2:17-26"
-      ],
-      "complementary": [
-        "Psalm 116:1-9",
-        "Joshua 2:15-24",
-        "James 2:17-26"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-11": {
-    "options": {
-      "semi": [
-        "Psalm 19",
-        "Proverbs 21:1-17",
-        "Matthew 21:23-32"
-      ],
-      "complementary": [
-        "Psalm 116:1-9",
-        "Joshua 6:22-27",
-        "Matthew 21:23-32"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-12": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 19 (24)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=75"
-      }
-    ]
-  },
-  "2027-09-13": {
-    "options": {
-      "semi": [
-        "Psalm 73:21-28",
-        "Proverbs 22:1-21",
-        "Romans 3:9-20"
-      ],
-      "complementary": [
-        "Psalm 119:169-176",
-        "1 Kings 13:1-10",
-        "Romans 3:9-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-14": {
-    "options": {
-      "semi": [
-        "Psalm 73:21-28",
-        "Proverbs 25:1-28",
-        "Colossians 3:1-11"
-      ],
-      "complementary": [
-        "Psalm 119:169-176",
-        "1 Kings 13:11-25",
-        "Colossians 3:1-11"
-      ]
-    },
-    "celebrations": [
-      {
-        "name": "Holy Cross",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=74"
-      }
-    ]
-  },
-  "2027-09-15": {
-    "options": {
-      "semi": [
-        "Psalm 73:21-28",
-        "Proverbs 29:1-27",
-        "John 7:25-36"
-      ],
-      "complementary": [
-        "Psalm 119:169-176",
-        "Isaiah 10:12-20",
-        "John 7:25-36"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-16": {
-    "options": {
-      "semi": [
-        "Psalm 1",
-        "Proverbs 30:1-10",
-        "1 Corinthians 2:1-5"
-      ],
-      "complementary": [
-        "Psalm 54",
-        "Judges 6:1-10",
-        "1 Corinthians 2:1-5"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-17": {
-    "options": {
-      "semi": [
-        "Psalm 1",
-        "Proverbs 30:18-33",
-        "Romans 11:25-32"
-      ],
-      "complementary": [
-        "Psalm 54",
-        "1 Kings 22:24-40",
-        "Romans 11:25-32"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-18": {
-    "options": {
-      "semi": [
-        "Psalm 1",
-        "Ecclesiastes 1:1-18",
-        "Matthew 23:29-39"
-      ],
-      "complementary": [
-        "Psalm 54",
-        "2 Kings 17:5-18",
-        "Matthew 23:29-39"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-19": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 20 (25)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=76"
-      }
-    ]
-  },
-  "2027-09-20": {
-    "options": {
-      "semi": [
-        "Psalm 128",
-        "Proverbs 27:1-27",
-        "James 4:8-17"
-      ],
-      "complementary": [
-        "Psalm 139:1-18",
-        "2 Kings 5:1-14",
-        "James 4:8-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-21": {
-    "options": {
-      "semi": [
-        "Psalm 128",
-        "Ecclesiastes 4:9-16",
-        "James 5:1-6"
-      ],
-      "complementary": [
-        "Psalm 139:1-18",
-        "2 Kings 11:21-12:16",
-        "James 5:1-6"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-22": {
-    "options": {
-      "semi": [
-        "Psalm 128",
-        "Ecclesiastes 5:1-20",
-        "John 8:21-38"
-      ],
-      "complementary": [
-        "Psalm 139:1-18",
-        "Jeremiah 1:4-10",
-        "John 8:21-38"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-23": {
-    "options": {
-      "semi": [
-        "Psalm 124",
-        "Esther 1:1-21",
-        "Acts 4:13-31"
-      ],
-      "complementary": [
-        "Psalm 19:7-14",
-        "Exodus 18:13-27",
-        "Acts 4:13-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-24": {
-    "options": {
-      "semi": [
-        "Psalm 124",
-        "Esther 2:1-23",
-        "Acts 12:20-25"
-      ],
-      "complementary": [
-        "Psalm 19:7-14",
-        "Deuteronomy 1:1-18",
-        "Acts 12:20-25"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-25": {
-    "options": {
-      "semi": [
-        "Psalm 124",
-        "Esther 3:1-15",
-        "Matthew 5:13-20"
-      ],
-      "complementary": [
-        "Psalm 19:7-14",
-        "Deuteronomy 27:1-10",
-        "Matthew 5:13-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-26": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 21 (26)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=77"
-      }
-    ]
-  },
-  "2027-09-27": {
-    "options": {
-      "semi": [
-        "Psalm 140",
-        "Esther 4:1-17",
-        "1 Peter 1:3-9"
-      ],
-      "complementary": [
-        "Psalm 5",
-        "Zechariah 6:9-15",
-        "1 Peter 1:3-9"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-28": {
-    "options": {
-      "semi": [
-        "Psalm 140",
-        "Esther 5:1-14",
-        "1 John 2:18-25"
-      ],
-      "complementary": [
-        "Psalm 5",
-        "Zechariah 8:18-23",
-        "1 John 2:18-25"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-29": {
-    "options": {
-      "semi": [
-        "Psalm 140",
-        "Esther 8:1-17",
-        "Matthew 18:6-9"
-      ],
-      "complementary": [
-        "Psalm 5",
-        "Zechariah 10:1-12",
-        "Matthew 18:6-9"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-09-30": {
-    "options": {
-      "semi": [
-        "Psalm 26",
-        "Job 2:11-3:26",
-        "Galatians 3:23-29"
-      ],
-      "complementary": [
-        "Psalm 8",
-        "Genesis 20:1-18",
-        "Galatians 3:23-29"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-01": {
-    "options": {
-      "semi": [
-        "Psalm 26",
-        "Job 4:1-21",
-        "Romans 8:1-11"
-      ],
-      "complementary": [
-        "Psalm 8",
-        "Genesis 21:22-34",
-        "Romans 8:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-02": {
-    "options": {
-      "semi": [
-        "Psalm 26",
-        "Job 7:1-21",
-        "Luke 16:14-18"
-      ],
-      "complementary": [
-        "Psalm 8",
-        "Genesis 23:1-20",
-        "Luke 16:14-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-03": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 22 (27)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=78"
-      }
-    ]
-  },
-  "2027-10-04": {
-    "options": {
-      "semi": [
-        "Psalm 55:1-15",
-        "Job 8:1-22",
-        "1 Corinthians 7:1-9"
-      ],
-      "complementary": [
-        "Psalm 112",
-        "Deuteronomy 22:13-30",
-        "1 Corinthians 7:1-9"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-05": {
-    "options": {
-      "semi": [
-        "Psalm 55:1-15",
-        "Job 11:1-20",
-        "1 Corinthians 7:10-16"
-      ],
-      "complementary": [
-        "Psalm 112",
-        "Deuteronomy 24:1-5",
-        "1 Corinthians 7:10-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-06": {
-    "options": {
-      "semi": [
-        "Psalm 55:1-15",
-        "Job 15:1-35",
-        "Matthew 5:27-36"
-      ],
-      "complementary": [
-        "Psalm 112",
-        "Jeremiah 3:6-14",
-        "Matthew 5:27-36"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-07": {
-    "options": {
-      "semi": [
-        "Psalm 22:1-15",
-        "Job 17:1-16",
-        "Hebrews 3:7-19"
-      ],
-      "complementary": [
-        "Psalm 90:12-17",
-        "Deuteronomy 5:1-21",
-        "Hebrews 3:7-19"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-08": {
-    "options": {
-      "semi": [
-        "Psalm 22:1-15",
-        "Job 18:1-21",
-        "Hebrews 4:1-11"
-      ],
-      "complementary": [
-        "Psalm 90:12-17",
-        "Deuteronomy 5:22-33",
-        "Hebrews 4:1-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-09": {
-    "options": {
-      "semi": [
-        "Psalm 22:1-15",
-        "Job 20:1-29",
-        "Matthew 15:1-9"
-      ],
-      "complementary": [
-        "Psalm 90:12-17",
-        "Amos 3:13-4:5",
-        "Matthew 15:1-9"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-10": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 23 (28)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=79"
-      }
-    ]
-  },
-  "2027-10-11": {
-    "options": {
-      "semi": [
-        "Psalm 39",
-        "Job 26:1-14",
-        "Revelation 7:9-17"
-      ],
-      "complementary": [
-        "Psalm 26",
-        "Obadiah 1:1-9",
-        "Revelation 7:9-17"
-      ]
-    },
-    "celebrations": [
-      {
-        "name": "Canadian Thanksgiving Day",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=89"
-      }
-    ]
-  },
-  "2027-10-12": {
-    "options": {
-      "semi": [
-        "Psalm 39",
-        "Job 28:12-29:10",
-        "Revelation 8:1-5"
-      ],
-      "complementary": [
-        "Psalm 26",
-        "Obadiah 1:10-16",
-        "Revelation 8:1-5"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-13": {
-    "options": {
-      "semi": [
-        "Psalm 39",
-        "Job 32:1-22",
-        "Luke 16:19-31"
-      ],
-      "complementary": [
-        "Psalm 26",
-        "Obadiah 1:17-21",
-        "Luke 16:19-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-14": {
-    "options": {
-      "semi": [
-        "Psalm 104:1-9, 24, 35b",
-        "Job 36:1-16",
-        "Romans 15:7-13"
-      ],
-      "complementary": [
-        "Psalm 91:9-16",
-        "Genesis 14:17-24",
-        "Romans 15:7-13"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-15": {
-    "options": {
-      "semi": [
-        "Psalm 104:1-9, 24, 35b",
-        "Job 37:1-24",
-        "Revelation 17:1-18"
-      ],
-      "complementary": [
-        "Psalm 91:9-16",
-        "Isaiah 47:1-9",
-        "Revelation 17:1-18"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-16": {
-    "options": {
-      "semi": [
-        "Psalm 104:1-9, 24, 35b",
-        "Job 39:1-30",
-        "Luke 22:24-30"
-      ],
-      "complementary": [
-        "Psalm 91:9-16",
-        "Isaiah 47:10-15",
-        "Luke 22:24-30"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-17": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 24 (29)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=80"
-      }
-    ]
-  },
-  "2027-10-18": {
-    "options": {
-      "semi": [
-        "Psalm 75",
-        "Job 40:1-24",
-        "Hebrews 6:1-12"
-      ],
-      "complementary": [
-        "Psalm 37:23-40",
-        "1 Samuel 8:1-18",
-        "Hebrews 6:1-12"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-19": {
-    "options": {
-      "semi": [
-        "Psalm 75",
-        "Job 41:1-11",
-        "Hebrews 6:13-20"
-      ],
-      "complementary": [
-        "Psalm 37:23-40",
-        "1 Samuel 10:17-25",
-        "Hebrews 6:13-20"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-20": {
-    "options": {
-      "semi": [
-        "Psalm 75",
-        "Job 41:12-34",
-        "John 13:1-17"
-      ],
-      "complementary": [
-        "Psalm 37:23-40",
-        "1 Samuel 12:1-25",
-        "John 13:1-17"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-21": {
-    "options": {
-      "semi": [
-        "Psalm 34:1-8",
-        "2 Kings 20:12-19",
-        "Hebrews 7:1-10"
-      ],
-      "complementary": [
-        "Psalm 126",
-        "Jeremiah 23:9-15",
-        "Hebrews 7:1-10"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-22": {
-    "options": {
-      "semi": [
-        "Psalm 34:1-8",
-        "Nehemiah 1:1-11",
-        "Hebrews 7:11-22"
-      ],
-      "complementary": [
-        "Psalm 126",
-        "Jeremiah 26:12-24",
-        "Hebrews 7:11-22"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-23": {
-    "options": {
-      "semi": [
-        "Psalm 34:1-8",
-        "Job 42:7-9",
-        "Mark 8:22-26"
-      ],
-      "complementary": [
-        "Psalm 126",
-        "Jeremiah 29:24-32",
-        "Mark 8:22-26"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-24": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 25 (30)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=81"
-      }
-    ]
-  },
-  "2027-10-25": {
-    "options": {
-      "semi": [
-        "Psalm 28",
-        "Isaiah 59:9-19",
-        "1 Peter 2:1-10"
-      ],
-      "complementary": [
-        "Psalm 119:17-24",
-        "Exodus 4:1-17",
-        "1 Peter 2:1-10"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-26": {
-    "options": {
-      "semi": [
-        "Psalm 28",
-        "Ezekiel 18:1-32",
-        "Acts 9:32-35"
-      ],
-      "complementary": [
-        "Psalm 119:17-24",
-        "2 Kings 6:8-23",
-        "Acts 9:32-35"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-27": {
-    "options": {
-      "semi": [
-        "Psalm 28",
-        "Ezekiel 14:12-23",
-        "Matthew 20:29-34"
-      ],
-      "complementary": [
-        "Psalm 119:17-24",
-        "Jeremiah 33:1-11",
-        "Matthew 20:29-34"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-28": {
-    "options": {
-      "semi": [
-        "Psalm 146",
-        "Ruth 1:18-22",
-        "Hebrews 9:1-12"
-      ],
-      "complementary": [
-        "Psalm 119:1-8",
-        "Exodus 22:1-15",
-        "Hebrews 9:1-12"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-29": {
-    "options": {
-      "semi": [
-        "Psalm 146",
-        "Ruth 2:1-9",
-        "Romans 3:21-31"
-      ],
-      "complementary": [
-        "Psalm 119:1-8",
-        "Leviticus 19:32-37",
-        "Romans 3:21-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-30": {
-    "options": {
-      "semi": [
-        "Psalm 146",
-        "Ruth 2:10-14",
-        "Luke 10:25-37"
-      ],
-      "complementary": [
-        "Psalm 119:1-8",
-        "Numbers 9:9-14",
-        "Luke 10:25-37"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-10-31": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 26 (31)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=82"
-      }
-    ]
-  },
-  "2027-11-01": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "All Saints Day",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=83"
-      }
-    ]
-  },
-  "2027-11-02": {
-    "options": {
-      "semi": [
-        "Psalm 18:20-30",
-        "Ruth 3:1-7",
-        "Acts 7:17-29"
-      ],
-      "complementary": [
-        "Psalm 51",
-        "Deuteronomy 28:58-29:1",
-        "Acts 7:17-29"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-03": {
-    "options": {
-      "semi": [
-        "Psalm 18:20-30",
-        "Ruth 3:8-18",
-        "John 13:31-35"
-      ],
-      "complementary": [
-        "Psalm 51",
-        "Micah 6:1-8",
-        "John 13:31-35"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-04": {
-    "options": {
-      "semi": [
-        "Psalm 127",
-        "Ruth 4:1-10",
-        "Romans 5:6-11"
-      ],
-      "complementary": [
-        "Psalm 146",
-        "Numbers 36:1-13",
-        "Romans 5:6-11"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-05": {
-    "options": {
-      "semi": [
-        "Psalm 127",
-        "Ruth 4:11-17",
-        "Hebrews 9:15-24"
-      ],
-      "complementary": [
-        "Psalm 146",
-        "Deuteronomy 15:1-11",
-        "Hebrews 9:15-24"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-06": {
-    "options": {
-      "semi": [
-        "Psalm 127",
-        "Ruth 4:18-22",
-        "Mark 11:12-14, 20-24"
-      ],
-      "complementary": [
-        "Psalm 146",
-        "Deuteronomy 24:17-22",
-        "Mark 11:12-14, 20-24"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-07": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 27 (32)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=84"
-      }
-    ]
-  },
-  "2027-11-08": {
-    "options": {
-      "semi": [
-        "Psalm 113",
-        "Genesis 24:1-10",
-        "1 Timothy 5:1-8"
-      ],
-      "complementary": [
-        "Psalm 94",
-        "Ruth 1:1-22",
-        "1 Timothy 5:1-8"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-09": {
-    "options": {
-      "semi": [
-        "Psalm 113",
-        "Genesis 24:11-27",
-        "1 Timothy 5:9-16"
-      ],
-      "complementary": [
-        "Psalm 94",
-        "Ruth 3:14-4:6",
-        "1 Timothy 5:9-16"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-10": {
-    "options": {
-      "semi": [
-        "Psalm 113",
-        "Genesis 24:28-42",
-        "Luke 4:16-30"
-      ],
-      "complementary": [
-        "Psalm 94",
-        "Ruth 4:7-22",
-        "Luke 4:16-30"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-11": {
-    "options": {
-      "semi": [
-        "1 Samuel 2:1-10",
-        "1 Samuel 1:21-28",
-        "1 Timothy 6:11-21"
-      ],
-      "complementary": [
-        "Psalm 16",
-        "Daniel 4:4-18",
-        "1 Timothy 6:11-21"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-12": {
-    "options": {
-      "semi": [
-        "1 Samuel 2:1-10",
-        "1 Samuel 2:18-21",
-        "Colossians 2:6-15"
-      ],
-      "complementary": [
-        "Psalm 16",
-        "Daniel 4:19-27",
-        "Colossians 2:6-15"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-13": {
-    "options": {
-      "semi": [
-        "1 Samuel 2:1-10",
-        "1 Samuel 3:1-18",
-        "Mark 12:1-12"
-      ],
-      "complementary": [
-        "Psalm 16",
-        "Daniel 4:28-37",
-        "Mark 12:1-12"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-14": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Proper 28 (33)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=85"
-      }
-    ]
-  },
-  "2027-11-15": {
-    "options": {
-      "semi": [
-        "Psalm 3",
-        "1 Samuel 3:19-4:2",
-        "Hebrews 10:26-31"
-      ],
-      "complementary": [
-        "Psalm 13",
-        "Daniel 8:1-14",
-        "Hebrews 10:26-31"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-16": {
-    "options": {
-      "semi": [
-        "Psalm 3",
-        "Deuteronomy 26:5-10",
-        "Hebrews 10:32-39"
-      ],
-      "complementary": [
-        "Psalm 13",
-        "Daniel 8:15-27",
-        "Hebrews 10:32-39"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-17": {
-    "options": {
-      "semi": [
-        "Psalm 3",
-        "1 Kings 8:22-30",
-        "Mark 13:9-23"
-      ],
-      "complementary": [
-        "Psalm 13",
-        "Zechariah 12:1-13:1",
-        "Mark 13:9-23"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-18": {
-    "options": {
-      "semi": [
-        "Psalm 132:1-12",
-        "2 Kings 22:1-10",
-        "Acts 7:54-8:1a"
-      ],
-      "complementary": [
-        "Psalm 93",
-        "Ezekiel 28:1-10",
-        "Acts 7:54-8:1a"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-19": {
-    "options": {
-      "semi": [
-        "Psalm 132:1-12",
-        "2 Kings 22:11-20",
-        "1 Corinthians 15:20-28"
-      ],
-      "complementary": [
-        "Psalm 93",
-        "Ezekiel 28:20-26",
-        "1 Corinthians 15:20-28"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-20": {
-    "options": {
-      "semi": [
-        "Psalm 132:1-12",
-        "2 Kings 23:1-14",
-        "John 3:31-36"
-      ],
-      "complementary": [
-        "Psalm 93",
-        "Daniel 7:1-8, 15-18",
-        "John 3:31-36"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-21": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Reign of Christ - Proper 29 (34)",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=86"
-      }
-    ]
-  },
-  "2027-11-22": {
-    "options": {
-      "semi": [
-        "Psalm 63",
-        "2 Kings 23:15-25",
-        "Revelation 11:1-14"
-      ],
-      "complementary": [
-        "Psalm 76",
-        "Daniel 7:19-27",
-        "Revelation 11:1-14"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-23": {
-    "options": {
-      "semi": [
-        "Psalm 63",
-        "1 Samuel 17:55-18:5",
-        "Revelation 11:15-19"
-      ],
-      "complementary": [
-        "Psalm 76",
-        "Ezekiel 29:1-12",
-        "Revelation 11:15-19"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-24": {
-    "options": {
-      "semi": [
-        "Psalm 63",
-        "2 Samuel 2:1-7",
-        "John 16:25-33"
-      ],
-      "complementary": [
-        "Psalm 76",
-        "Ezekiel 30:20-26",
-        "John 16:25-33"
-      ]
-    },
-    "celebrations": []
-  },
-  "2027-11-25": {
-    "options": {},
-    "celebrations": [
-      {
-        "name": "Thanksgiving Day",
-        "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=87"
-      }
-    ]
-  }
+  "2026-11-26": { "options": { "default": ["Psalm 80:1-7, 17-19", "Zechariah 13:1-9", "Revelation 14:6-13"] }, "celebrations": [] },
+  "2026-11-27": { "options": { "default": ["Psalm 80:1-7, 17-19", "Zechariah 14:1-9", "1 Thessalonians 4:1-18"] }, "celebrations": [] },
+  "2026-11-28": { "options": { "default": ["Psalm 80:1-7, 17-19", "Micah 2:1-13", "Matthew 24:15-31"] }, "celebrations": [] },
+  "2026-11-29": { "options": {}, "celebrations": [{ "name": "First Sunday of Advent", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=a&d=1" }] },
+  "2026-11-30": { "options": { "default": ["Psalm 79", "Micah 4:1-5", "Revelation 15:1-8"] }, "celebrations": [] },
+  "2026-12-01": { "options": { "default": ["Psalm 79", "Micah 4:6-13", "Revelation 18:1-10"] }, "celebrations": [] },
+  "2026-12-02": { "options": { "default": ["Psalm 79", "Micah 5:1-5a", "Luke 21:34-38"] }, "celebrations": [] },
+  "2026-12-03": { "options": { "default": ["Psalm 85:1-2, 8-13", "Hosea 6:1-6", "1 Thessalonians 1:2-10"] }, "celebrations": [] },
+  "2026-12-04": { "options": { "default": ["Psalm 85:1-2, 8-13", "Jeremiah 1:4-10", "Acts 11:19-26"] }, "celebrations": [] },
+  "2026-12-05": { "options": { "default": ["Psalm 85:1-2, 8-13", "Ezekiel 36:24-28", "Mark 11:27-33"] }, "celebrations": [] },
+  "2026-12-06": { "options": {}, "celebrations": [{ "name": "Second Sunday of Advent", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=a&d=2" }] },
+  "2026-12-07": { "options": { "default": ["Psalm 27", "Isaiah 26:7-15", "Acts 2:37-42"] }, "celebrations": [] },
+  "2026-12-08": { "options": { "default": ["Psalm 27", "Isaiah 4:2-6", "Acts 11:1-18"] }, "celebrations": [] },
+  "2026-12-09": { "options": { "default": ["Psalm 27", "Malachi 2:10-3:1", "Luke 1:5-17"] }, "celebrations": [] },
+  "2026-12-10": { "options": { "default": ["Psalm 126", "Habakkuk 2:1-5", "Philippians 3:7-11"] }, "celebrations": [] },
+  "2026-12-11": { "options": { "default": ["Psalm 126", "Habakkuk 3:2-6", "Philippians 3:12-16"] }, "celebrations": [] },
+  "2026-12-12": { "options": { "default": ["Psalm 126", "Habakkuk 3:13-19", "Matthew 21:28-32"] }, "celebrations": [] },
+  "2026-12-13": { "options": {}, "celebrations": [{ "name": "Third Sunday of Advent", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=a&d=3" }] },
+  "2026-12-14": { "options": { "default": ["Psalm 125", "1 Kings 18:1-18", "Ephesians 6:10-17"] }, "celebrations": [] },
+  "2026-12-15": { "options": { "default": ["Psalm 125", "2 Kings 2:9-22", "Acts 3:17-4:4"] }, "celebrations": [] },
+  "2026-12-16": { "options": { "default": ["Psalm 125", "Malachi 3:16-4:6", "Mark 9:9-13"] }, "celebrations": [] },
+  "2026-12-17": { "options": { "default": ["Psalm 89:1-4, 19-26", "2 Samuel 6:1-11", "Hebrews 1:1-4"] }, "celebrations": [] },
+  "2026-12-18": { "options": { "default": ["Psalm 89:1-4, 19-26", "2 Samuel 6:12-19", "Hebrews 1:5-14"] }, "celebrations": [] },
+  "2026-12-19": { "options": { "default": ["Psalm 89:1-4, 19-26", "Judges 13:2-24", "John 7:40-52"] }, "celebrations": [] },
+  "2026-12-20": { "options": {}, "celebrations": [{ "name": "Fourth Sunday of Advent", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=a&d=4" }] },
+  "2026-12-21": { "options": { "default": ["Luke 1:46b-55", "1 Samuel 1:1-18", "Hebrews 9:1-14"] }, "celebrations": [] },
+  "2026-12-22": { "options": { "default": ["Luke 1:46b-55", "1 Samuel 1:19-28", "Hebrews 8:1-13"] }, "celebrations": [] },
+  "2026-12-23": { "options": { "default": ["Luke 1:46b-55", "1 Samuel 2:1-10", "Mark 11:1-11"] }, "celebrations": [] },
+  "2026-12-24": { "options": {}, "celebrations": [{ "name": "Nativity of the Lord - Proper I", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=5" }] },
+  "2026-12-25": { "options": {}, "celebrations": [{ "name": "Nativity of the Lord - Proper II", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=6" }, { "name": "Nativity of the Lord - Proper III", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=7" }] },
+  "2026-12-26": { "options": { "default": ["Psalm 148", "Jeremiah 26:1-9, 12-15", "Acts 6:8-15; 7:51-60"] }, "celebrations": [] },
+  "2026-12-27": { "options": {}, "celebrations": [{ "name": "First Sunday after Christmas Day", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=8" }] },
+  "2026-12-28": { "options": { "default": ["Psalm 148", "Jeremiah 31:15-17", "Matthew 2:13-18"] }, "celebrations": [] },
+  "2026-12-29": { "options": { "default": ["Matthew 12:46-50", "Psalm 148", "Isaiah 49:5-15"] }, "celebrations": [] },
+  "2026-12-30": { "options": { "default": ["Psalm 148", "Proverbs 9:1-12", "2 Peter 3:8-13"] }, "celebrations": [] },
+  "2026-12-31": { "options": { "default": ["Psalm 148", "1 Kings 3:5-14", "John 8:12-19"] }, "celebrations": [] },
+  "2027-01-01": { "options": {}, "celebrations": [{ "name": "Holy Name of Jesus", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=9" }, { "name": "New Year's Day", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=10" }] },
+  "2027-01-02": { "options": { "default": ["Psalm 148", "Proverbs 1:1-7", "James 3:13-18"] }, "celebrations": [] },
+  "2027-01-03": { "options": {}, "celebrations": [{ "name": "Second Sunday after Christmas Day", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=c&d=11" }] },
+  "2027-01-04": { "options": { "default": ["Psalm 110", "Proverbs 3:1-12", "James 4:11-17"] }, "celebrations": [] },
+  "2027-01-05": { "options": { "default": ["Psalm 110", "Proverbs 22:1-9", "Luke 6:27-31"] }, "celebrations": [] },
+  "2027-01-06": { "options": {}, "celebrations": [{ "name": "Epiphany of the Lord", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=12" }] },
+  "2027-01-07": { "options": { "default": ["Psalm 29", "1 Samuel 3:1-21", "Acts 9:10-19a"] }, "celebrations": [] },
+  "2027-01-08": { "options": { "default": ["Psalm 29", "1 Samuel 16:1-13", "1 Timothy 4:11-16"] }, "celebrations": [] },
+  "2027-01-09": { "options": { "default": ["Psalm 29", "1 Kings 2:1-4, 10-12", "Luke 5:1-11"] }, "celebrations": [] },
+  "2027-01-10": { "options": {}, "celebrations": [{ "name": "Baptism of the Lord", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=13" }] },
+  "2027-01-11": { "options": { "default": ["Psalm 69:1-5, 30-36", "Genesis 17:1-13", "Romans 4:1-12"] }, "celebrations": [] },
+  "2027-01-12": { "options": { "default": ["Psalm 69:1-5, 30-36", "Exodus 30:22-38", "Acts 22:2-16"] }, "celebrations": [] },
+  "2027-01-13": { "options": { "default": ["Psalm 69:1-5, 30-36", "Isaiah 41:14-20", "John 1:29-34"] }, "celebrations": [] },
+  "2027-01-14": { "options": { "default": ["Psalm 139:1-6, 13-18", "Judges 2:6-15", "2 Corinthians 10:1-11"] }, "celebrations": [] },
+  "2027-01-15": { "options": { "default": ["Psalm 139:1-6, 13-18", "Judges 2:16-23", "Acts 13:16-25"] }, "celebrations": [] },
+  "2027-01-16": { "options": { "default": ["Psalm 139:1-6, 13-18", "1 Samuel 2:21-25", "Matthew 25:1-13"] }, "celebrations": [] },
+  "2027-01-17": { "options": {}, "celebrations": [{ "name": "Second Sunday after the Epiphany", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=14" }] },
+  "2027-01-18": { "options": { "default": ["Psalm 86", "1 Samuel 9:27-10:8", "2 Corinthians 6:14-7:1"] }, "celebrations": [] },
+  "2027-01-19": { "options": { "default": ["Psalm 86", "1 Samuel 15:10-31", "Acts 5:1-11"] }, "celebrations": [] },
+  "2027-01-20": { "options": { "default": ["Psalm 86", "Genesis 16:1-14", "Luke 18:15-17"] }, "celebrations": [] },
+  "2027-01-21": { "options": { "default": ["Psalm 62:5-12", "Jeremiah 19:1-15", "Revelation 18:11-20"] }, "celebrations": [] },
+  "2027-01-22": { "options": { "default": ["Psalm 62:5-12", "Jeremiah 20:7-13", "2 Peter 3:1-7"] }, "celebrations": [] },
+  "2027-01-23": { "options": { "default": ["Psalm 62:5-12", "Jeremiah 20:14-18", "Luke 10:13-16"] }, "celebrations": [] },
+  "2027-01-24": { "options": {}, "celebrations": [{ "name": "Third Sunday after the Epiphany", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=15" }] },
+  "2027-01-25": { "options": { "default": ["Psalm 46", "Genesis 12:1-9", "1 Corinthians 7:17-24"] }, "celebrations": [] },
+  "2027-01-26": { "options": { "default": ["Psalm 46", "Genesis 45:25-46:7", "Acts 5:33-42"] }, "celebrations": [] },
+  "2027-01-27": { "options": { "default": ["Psalm 46", "Proverbs 8:1-21", "Mark 3:13-19a"] }, "celebrations": [] },
+  "2027-01-28": { "options": { "default": ["Psalm 111", "Deuteronomy 3:23-29", "Romans 9:6-18"] }, "celebrations": [] },
+  "2027-01-29": { "options": { "default": ["Psalm 111", "Deuteronomy 12:28-32", "Revelation 2:12-17"] }, "celebrations": [] },
+  "2027-01-30": { "options": { "default": ["Psalm 111", "Deuteronomy 13:1-5", "Matthew 8:28-9:1"] }, "celebrations": [] },
+  "2027-01-31": { "options": {}, "celebrations": [{ "name": "Fourth Sunday after the Epiphany", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=16" }] },
+  "2027-02-01": { "options": { "default": ["Psalm 35:1-10", "Numbers 22:1-21", "Acts 21:17-26"] }, "celebrations": [] },
+  "2027-02-02": { "options": { "default": ["Psalm 35:1-10", "Numbers 22:22-28", "1 Corinthians 7:32-40"] }, "celebrations": [{ "name": "Presentation of the Lord", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=17" }] },
+  "2027-02-03": { "options": { "default": ["Psalm 35:1-10", "Jeremiah 29:1-14", "Mark 5:1-20"] }, "celebrations": [] },
+  "2027-02-04": { "options": { "default": ["Psalm 50:1-6", "1 Kings 11:26-40", "2 Corinthians 2:12-17"] }, "celebrations": [] },
+  "2027-02-05": { "options": { "default": ["Psalm 50:1-6", "1 Kings 14:1-18", "1 Timothy 1:12-20"] }, "celebrations": [] },
+  "2027-02-06": { "options": { "default": ["Psalm 50:1-6", "1 Kings 16:1-7", "Luke 19:41-44"] }, "celebrations": [] },
+  "2027-02-07": { "options": {}, "celebrations": [{ "name": "Transfiguration Sunday", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=e&d=23" }] },
+  "2027-02-08": { "options": { "default": ["Psalm 110:1-4", "Exodus 19:7-25", "Hebrews 2:1-4"] }, "celebrations": [] },
+  "2027-02-09": { "options": { "default": ["Psalm 110:1-4", "Job 19:23-27", "1 Timothy 3:14-16"] }, "celebrations": [] },
+  "2027-02-10": { "options": {}, "celebrations": [{ "name": "Ash Wednesday", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=24" }] },
+  "2027-02-11": { "options": { "default": ["Psalm 25:1-10", "Daniel 9:1-14", "1 John 1:3-10"] }, "celebrations": [] },
+  "2027-02-12": { "options": { "default": ["Psalm 25:1-10", "Daniel 9:15-25a", "2 Timothy 4:1-5"] }, "celebrations": [] },
+  "2027-02-13": { "options": { "default": ["Psalm 25:1-10", "Psalm 32", "Matthew 9:2-13"] }, "celebrations": [] },
+  "2027-02-14": { "options": {}, "celebrations": [{ "name": "First Sunday in Lent", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=25" }] },
+  "2027-02-15": { "options": { "default": ["Psalm 77", "Job 4:1-21", "Ephesians 2:1-10"] }, "celebrations": [] },
+  "2027-02-16": { "options": { "default": ["Psalm 77", "Job 5:8-27", "1 Peter 3:8-18a"] }, "celebrations": [] },
+  "2027-02-17": { "options": { "default": ["Psalm 77", "Proverbs 30:1-9", "Matthew 4:1-11"] }, "celebrations": [] },
+  "2027-02-18": { "options": { "default": ["Psalm 22:23-31", "Genesis 15:1-6, 12-18", "Romans 3:21-31"] }, "celebrations": [] },
+  "2027-02-19": { "options": { "default": ["Psalm 22:23-31", "Genesis 16:1-6", "Romans 4:1-12"] }, "celebrations": [] },
+  "2027-02-20": { "options": { "default": ["Psalm 22:23-31", "Genesis 16:7-15", "Mark 8:27-30"] }, "celebrations": [] },
+  "2027-02-21": { "options": {}, "celebrations": [{ "name": "Second Sunday in Lent", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=26" }] },
+  "2027-02-22": { "options": { "default": ["Psalm 105:1-11, 37-45", "Genesis 21:1-7", "Hebrews 1:8-12"] }, "celebrations": [] },
+  "2027-02-23": { "options": { "default": ["Psalm 105:1-11, 37-45", "Genesis 22:1-19", "Hebrews 11:1-3, 13-19"] }, "celebrations": [] },
+  "2027-02-24": { "options": { "default": ["Psalm 105:1-11, 37-45", "Jeremiah 30:12-22", "John 12:36-43"] }, "celebrations": [] },
+  "2027-02-25": { "options": { "default": ["Psalm 19", "Exodus 19:1-9a", "1 Peter 2:4-10"] }, "celebrations": [] },
+  "2027-02-26": { "options": { "default": ["Psalm 19", "Exodus 19:9b-15", "Acts 7:30-40"] }, "celebrations": [] },
+  "2027-02-27": { "options": { "default": ["Psalm 19", "Exodus 19:16-25", "Mark 9:2-8"] }, "celebrations": [] },
+  "2027-02-28": { "options": {}, "celebrations": [{ "name": "Third Sunday in Lent", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=27" }] },
+  "2027-03-01": { "options": { "default": ["Psalm 84", "1 Kings 6:1-4, 21-22", "1 Corinthians 3:10-23"] }, "celebrations": [] },
+  "2027-03-02": { "options": { "default": ["Psalm 84", "2 Chronicles 29:1-11, 16-19", "Hebrews 9:23-28"] }, "celebrations": [] },
+  "2027-03-03": { "options": { "default": ["Psalm 84", "Ezra 6:1-16", "Mark 11:15-19"] }, "celebrations": [] },
+  "2027-03-04": { "options": { "default": ["Psalm 107:1-3, 17-22", "Genesis 9:8-17", "Ephesians 1:3-6"] }, "celebrations": [] },
+  "2027-03-05": { "options": { "default": ["Psalm 107:1-3, 17-22", "Daniel 12:5-13", "Ephesians 1:7-14"] }, "celebrations": [] },
+  "2027-03-06": { "options": { "default": ["Psalm 107:1-3, 17-22", "Numbers 20:22-29", "John 3:1-13"] }, "celebrations": [] },
+  "2027-03-07": { "options": {}, "celebrations": [{ "name": "Fourth Sunday in Lent", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=28" }] },
+  "2027-03-08": { "options": { "default": ["Psalm 107:1-16", "Exodus 15:22-27", "Hebrews 3:1-6"] }, "celebrations": [] },
+  "2027-03-09": { "options": { "default": ["Psalm 107:1-16", "Numbers 20:1-13", "1 Corinthians 10:6-13"] }, "celebrations": [] },
+  "2027-03-10": { "options": { "default": ["Psalm 107:1-16", "Isaiah 60:15-22", "John 8:12-20"] }, "celebrations": [] },
+  "2027-03-11": { "options": { "default": ["Psalm 51:1-12", "Isaiah 30:15-18", "Hebrews 4:1-13"] }, "celebrations": [] },
+  "2027-03-12": { "options": { "default": ["Psalm 51:1-12", "Exodus 30:1-10", "Hebrews 4:14-5:4"] }, "celebrations": [] },
+  "2027-03-13": { "options": { "default": ["Psalm 51:1-12", "Habakkuk 3:2-13", "John 12:1-11"] }, "celebrations": [] },
+  "2027-03-14": { "options": {}, "celebrations": [{ "name": "Fifth Sunday in Lent", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=29" }] },
+  "2027-03-15": { "options": { "default": ["Psalm 119:9-16", "Isaiah 43:8-13", "2 Corinthians 3:4-11"] }, "celebrations": [] },
+  "2027-03-16": { "options": { "default": ["Psalm 119:9-16", "Isaiah 44:1-8", "Acts 2:14-24"] }, "celebrations": [] },
+  "2027-03-17": { "options": { "default": ["Psalm 119:9-16", "Haggai 2:1-9, 20-23", "John 12:34-50"] }, "celebrations": [] },
+  "2027-03-18": { "options": { "default": ["Psalm 118:1-2, 19-29", "Deuteronomy 16:1-8", "Philippians 2:1-11"] }, "celebrations": [] },
+  "2027-03-19": { "options": { "default": ["Psalm 118:1-2, 19-29", "Jeremiah 33:1-9", "Philippians 2:12-18"] }, "celebrations": [] },
+  "2027-03-20": { "options": { "default": ["Psalm 118:1-2, 19-29", "Jeremiah 33:10-16", "Mark 10:32-34, 46-52"] }, "celebrations": [] },
+  "2027-03-21": { "options": {}, "celebrations": [{ "name": "Liturgy of the Palms", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=33" }, { "name": "Liturgy of the Passion", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=l&d=34" }] },
+  "2027-03-22": { "options": {}, "celebrations": [{ "name": "Monday of Holy Week", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=35" }] },
+  "2027-03-23": { "options": {}, "celebrations": [{ "name": "Tuesday of Holy Week", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=36" }] },
+  "2027-03-24": { "options": {}, "celebrations": [{ "name": "Wednesday of Holy Week", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=37" }] },
+  "2027-03-25": { "options": {}, "celebrations": [{ "name": "Maundy Thursday", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=38" }, { "name": "Annunciation of the Lord", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=30" }] },
+  "2027-03-26": { "options": {}, "celebrations": [{ "name": "Good Friday", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=39" }] },
+  "2027-03-27": { "options": {}, "celebrations": [{ "name": "Holy Saturday", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=h&d=40" }, { "name": "Easter Vigil", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=41" }] },
+  "2027-03-28": { "options": {}, "celebrations": [{ "name": "Resurrection of the Lord", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=42" }, { "name": "Easter Evening", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=43" }] },
+  "2027-03-29": { "options": { "default": ["Psalm 118:1-2, 14-24", "Genesis 1:1-19", "1 Corinthians 15:35-49"] }, "celebrations": [] },
+  "2027-03-30": { "options": { "default": ["Psalm 118:1-2, 14-24", "Genesis 1:20-2:4a", "1 Corinthians 15:50-58"] }, "celebrations": [] },
+  "2027-03-31": { "options": { "default": ["Psalm 118:1-2, 14-24", "Song of Solomon 3:1-11", "Mark 16:1-8"] }, "celebrations": [] },
+  "2027-04-01": { "options": { "default": ["Psalm 133", "Daniel 1:1-21", "Acts 2:42-47"] }, "celebrations": [] },
+  "2027-04-02": { "options": { "default": ["Psalm 133", "Daniel 2:1-23", "Acts 4:23-31"] }, "celebrations": [] },
+  "2027-04-03": { "options": { "default": ["Psalm 133", "Daniel 2:24-49", "John 12:44-50"] }, "celebrations": [] },
+  "2027-04-04": { "options": {}, "celebrations": [{ "name": "Second Sunday of Easter", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=44" }] },
+  "2027-04-05": { "options": { "default": ["Psalm 135", "Daniel 3:1-30", "1 John 2:3-11"] }, "celebrations": [] },
+  "2027-04-06": { "options": { "default": ["Psalm 135", "Daniel 6:1-28", "1 John 2:12-17"] }, "celebrations": [] },
+  "2027-04-07": { "options": { "default": ["Psalm 135", "Isaiah 26:1-15", "Mark 12:18-27"] }, "celebrations": [] },
+  "2027-04-08": { "options": { "default": ["Psalm 4", "Daniel 9:1-19", "1 John 2:18-25"] }, "celebrations": [] },
+  "2027-04-09": { "options": { "default": ["Psalm 4", "Daniel 10:2-19", "1 John 2:26-28"] }, "celebrations": [] },
+  "2027-04-10": { "options": { "default": ["Psalm 4", "Acts 3:1-10", "Luke 22:24-30"] }, "celebrations": [] },
+  "2027-04-11": { "options": {}, "celebrations": [{ "name": "Third Sunday of Easter", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=45" }] },
+  "2027-04-12": { "options": { "default": ["Psalm 150", "Jeremiah 30:1-11a", "1 John 3:10-16"] }, "celebrations": [] },
+  "2027-04-13": { "options": { "default": ["Psalm 150", "Hosea 5:15-6:6", "2 John 1:1-6"] }, "celebrations": [] },
+  "2027-04-14": { "options": { "default": ["Psalm 150", "Proverbs 9:1-6", "Mark 16:9-18"] }, "celebrations": [] },
+  "2027-04-15": { "options": { "default": ["Psalm 23", "Genesis 30:25-43", "Acts 3:17-26"] }, "celebrations": [] },
+  "2027-04-16": { "options": { "default": ["Psalm 23", "Genesis 46:28-47:6", "Acts 4:1-4"] }, "celebrations": [] },
+  "2027-04-17": { "options": { "default": ["Psalm 23", "Genesis 48:8-19", "Mark 6:30-34"] }, "celebrations": [] },
+  "2027-04-18": { "options": {}, "celebrations": [{ "name": "Fourth Sunday of Easter", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=46" }] },
+  "2027-04-19": { "options": { "default": ["Psalm 95", "1 Samuel 16:1-13", "1 Peter 5:1-5"] }, "celebrations": [] },
+  "2027-04-20": { "options": { "default": ["Psalm 95", "1 Chronicles 11:1-9", "Revelation 7:13-17"] }, "celebrations": [] },
+  "2027-04-21": { "options": { "default": ["Psalm 95", "Micah 7:8-20", "Mark 14:26-31"] }, "celebrations": [] },
+  "2027-04-22": { "options": { "default": ["Psalm 22:25-31", "Amos 8:1-7", "Acts 8:1b-8"] }, "celebrations": [] },
+  "2027-04-23": { "options": { "default": ["Psalm 22:25-31", "Amos 8:11-13", "Acts 8:9-25"] }, "celebrations": [] },
+  "2027-04-24": { "options": { "default": ["Psalm 22:25-31", "Amos 9:7-15", "Mark 4:30-32"] }, "celebrations": [] },
+  "2027-04-25": { "options": {}, "celebrations": [{ "name": "Fifth Sunday of Easter", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=47" }] },
+  "2027-04-26": { "options": { "default": ["Psalm 80", "Isaiah 5:1-7", "Galatians 5:16-26"] }, "celebrations": [] },
+  "2027-04-27": { "options": { "default": ["Psalm 80", "Isaiah 32:9-20", "James 3:17-18"] }, "celebrations": [] },
+  "2027-04-28": { "options": { "default": ["Psalm 80", "Isaiah 65:17-25", "John 14:18-31"] }, "celebrations": [] },
+  "2027-04-29": { "options": { "default": ["Psalm 98", "Isaiah 49:5-6", "Acts 10:1-34"] }, "celebrations": [] },
+  "2027-04-30": { "options": { "default": ["Psalm 98", "Isaiah 42:5-9", "Acts 10:34-43"] }, "celebrations": [] },
+  "2027-05-01": { "options": { "default": ["Psalm 98", "Deuteronomy 32:44-47", "Mark 10:42-45"] }, "celebrations": [] },
+  "2027-05-02": { "options": {}, "celebrations": [{ "name": "Sixth Sunday of Easter", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=48" }] },
+  "2027-05-03": { "options": { "default": ["Psalm 93", "Deuteronomy 7:1-11", "1 Timothy 6:11-12"] }, "celebrations": [] },
+  "2027-05-04": { "options": { "default": ["Psalm 93", "Deuteronomy 11:1-17", "1 Timothy 6:13-16"] }, "celebrations": [] },
+  "2027-05-05": { "options": { "default": ["Psalm 93", "Deuteronomy 11:18-21", "Mark 16:19-20"] }, "celebrations": [] },
+  "2027-05-06": { "options": {}, "celebrations": [{ "name": "Ascension of the Lord", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=49" }] },
+  "2027-05-07": { "options": { "default": ["Psalm 47", "Exodus 24:15-18", "Revelation 1:9-18"] }, "celebrations": [] },
+  "2027-05-08": { "options": { "default": ["Psalm 47", "Deuteronomy 34:1-7", "John 16:4-11"] }, "celebrations": [] },
+  "2027-05-09": { "options": {}, "celebrations": [{ "name": "Seventh Sunday of Easter", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=50" }] },
+  "2027-05-10": { "options": { "default": ["Psalm 115", "Exodus 28:29-38", "Philippians 1:3-11"] }, "celebrations": [] },
+  "2027-05-11": { "options": { "default": ["Psalm 115", "Numbers 8:5-22", "Titus 1:1-9"] }, "celebrations": [] },
+  "2027-05-12": { "options": { "default": ["Psalm 115", "Ezra 9:5-15", "John 16:16-24"] }, "celebrations": [] },
+  "2027-05-13": { "options": { "default": ["Psalm 33:12-22", "Genesis 2:4b-7", "1 Corinthians 15:42b-49"] }, "celebrations": [] },
+  "2027-05-14": { "options": { "default": ["Psalm 33:12-22", "Job 37:1-13", "1 Corinthians 15:50-57"] }, "celebrations": [] },
+  "2027-05-15": { "options": { "default": ["Psalm 33:12-22", "Exodus 15:6-11", "John 7:37-39"] }, "celebrations": [] },
+  "2027-05-16": { "options": {}, "celebrations": [{ "name": "Day of Pentecost", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=s&d=51" }] },
+  "2027-05-17": { "options": { "default": ["Psalm 104:24-34, 35b", "Joel 2:18-29", "1 Corinthians 12:4-11"] }, "celebrations": [] },
+  "2027-05-18": { "options": { "default": ["Psalm 104:24-34, 35b", "Genesis 11:1-9", "1 Corinthians 12:12-27"] }, "celebrations": [] },
+  "2027-05-19": { "options": { "default": ["Psalm 104:24-34, 35b", "Ezekiel 37:1-14", "John 20:19-23"] }, "celebrations": [] },
+  "2027-05-20": { "options": { "default": ["Psalm 29", "Isaiah 1:1-4, 16-20", "Romans 8:1-8"] }, "celebrations": [] },
+  "2027-05-21": { "options": { "default": ["Psalm 29", "Isaiah 2:1-5", "Romans 8:9-11"] }, "celebrations": [] },
+  "2027-05-22": { "options": { "default": ["Psalm 29", "Isaiah 5:15-24", "John 15:18-20, 26-27"] }, "celebrations": [] },
+  "2027-05-23": { "options": {}, "celebrations": [{ "name": "Trinity Sunday", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=52" }] },
+  "2027-05-24": { "options": { "default": ["Psalm 20", "Numbers 9:15-23", "Revelation 4:1-8"] }, "celebrations": [] },
+  "2027-05-25": { "options": { "default": ["Psalm 20", "Exodus 25:1-22", "1 Corinthians 2:1-10"] }, "celebrations": [] },
+  "2027-05-26": { "options": { "default": ["Psalm 20", "Numbers 6:22-27", "Mark 4:21-25"] }, "celebrations": [] },
+  "2027-05-27": { "options": { "semi": ["Psalm 139:1-6, 13-18", "1 Samuel 1:1-18", "Acts 25:1-12"], "complementary": ["Psalm 81:1-10", "Exodus 31:12-18", "Acts 25:1-12"] }, "celebrations": [] },
+  "2027-05-28": { "options": { "semi": ["Psalm 139:1-6, 13-18", "1 Samuel 1:19-27", "Romans 8:31-39"], "complementary": ["Psalm 81:1-10", "Leviticus 23:1-8", "Romans 8:31-39"] }, "celebrations": [] },
+  "2027-05-29": { "options": { "semi": ["Psalm 139:1-6, 13-18", "1 Samuel 2:1-10", "John 7:19-24"], "complementary": ["Psalm 81:1-10", "Leviticus 24:5-9", "John 7:19-24"] }, "celebrations": [] },
+  "2027-05-30": { "options": {}, "celebrations": [{ "name": "Proper 4 (9)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=58" }] },
+  "2027-05-31": { "options": { "semi": ["Psalm 99", "1 Samuel 2:11-17", "Romans 9:19-29"], "complementary": ["Psalm 78:1-4, 52-72", "Exodus 16:13-26", "Romans 9:19-29"] }, "celebrations": [{ "name": "Visitation of Mary to Elizabeth", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=56" }] },
+  "2027-06-01": { "options": { "semi": ["Psalm 99", "1 Samuel 2:18-21", "Acts 15:1-5, 22-35"], "complementary": ["Psalm 78:1-4, 52-72", "Exodus 16:27-36", "Acts 15:1-5, 22-35"] }, "celebrations": [] },
+  "2027-06-02": { "options": { "semi": ["Psalm 99", "1 Samuel 2:22-36", "John 5:1-18"], "complementary": ["Psalm 78:1-4, 52-72", "1 Samuel 21:1-6", "John 5:1-18"] }, "celebrations": [] },
+  "2027-06-03": { "options": { "semi": ["Psalm 138", "1 Samuel 4:1-22", "1 Peter 4:7-19"], "complementary": ["Psalm 130", "Isaiah 28:9-13", "1 Peter 4:7-19"] }, "celebrations": [] },
+  "2027-06-04": { "options": { "semi": ["Psalm 138", "1 Samuel 5:1-12", "2 Corinthians 5:1-5"], "complementary": ["Psalm 130", "Deuteronomy 1:34-40", "2 Corinthians 5:1-5"] }, "celebrations": [] },
+  "2027-06-05": { "options": { "semi": ["Psalm 138", "1 Samuel 6:1-18", "Luke 8:4-15"], "complementary": ["Psalm 130", "Genesis 2:4b-14", "Luke 8:4-15"] }, "celebrations": [] },
+  "2027-06-06": { "options": {}, "celebrations": [{ "name": "Proper 5 (10)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=59" }] },
+  "2027-06-07": { "options": { "semi": ["Psalm 108", "1 Samuel 7:3-15", "Revelation 20:1-6"], "complementary": ["Psalm 74", "1 Samuel 16:14-23", "Revelation 20:1-6"] }, "celebrations": [] },
+  "2027-06-08": { "options": { "semi": ["Psalm 108", "1 Samuel 8:1-22", "Revelation 20:7-15"], "complementary": ["Psalm 74", "1 Kings 18:17-40", "Revelation 20:7-15"] }, "celebrations": [] },
+  "2027-06-09": { "options": { "semi": ["Psalm 108", "1 Samuel 9:1-14", "Luke 11:14-28"], "complementary": ["Psalm 74", "Isaiah 26:16-27:1", "Luke 11:14-28"] }, "celebrations": [] },
+  "2027-06-10": { "options": { "semi": ["Psalm 20", "1 Samuel 9:15-27", "Hebrews 2:5-9"], "complementary": ["Psalm 92:1-4, 12-15", "Genesis 3:14-24", "Hebrews 2:5-9"] }, "celebrations": [] },
+  "2027-06-11": { "options": { "semi": ["Psalm 20", "1 Samuel 10:1-8", "Hebrews 11:4-7"], "complementary": ["Psalm 92:1-4, 12-15", "1 Kings 10:26-11:8", "Hebrews 11:4-7"] }, "celebrations": [] },
+  "2027-06-12": { "options": { "semi": ["Psalm 20", "1 Samuel 13:1-15a", "Mark 4:1-20"], "complementary": ["Psalm 92:1-4, 12-15", "2 Kings 14:1-14", "Mark 4:1-20"] }, "celebrations": [] },
+  "2027-06-13": { "options": {}, "celebrations": [{ "name": "Proper 6 (11)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=60" }] },
+  "2027-06-14": { "options": { "semi": ["Psalm 53", "1 Samuel 13:23-14:23", "Galatians 6:11-18"], "complementary": ["Psalm 52", "Ezekiel 31:1-12", "Galatians 6:11-18"] }, "celebrations": [] },
+  "2027-06-15": { "options": { "semi": ["Psalm 53", "1 Samuel 15:10-23", "Revelation 21:22-22:5"], "complementary": ["Psalm 52", "Jeremiah 21:11-14", "Revelation 21:22-22:5"] }, "celebrations": [] },
+  "2027-06-16": { "options": { "semi": ["Psalm 53", "1 Samuel 15:24-31", "Luke 6:43-45"], "complementary": ["Psalm 52", "Jeremiah 22:1-9", "Luke 6:43-45"] }, "celebrations": [] },
+  "2027-06-17": { "options": { "semi": ["Psalm 9:9-20", "1 Samuel 16:14-23", "Acts 20:1-16"], "complementary": ["Psalm 107:1-3, 23-32", "Job 29:1-20", "Acts 20:1-16"] }, "celebrations": [] },
+  "2027-06-18": { "options": { "semi": ["Psalm 9:9-20", "1 Samuel 17:55-18:5", "Acts 21:1-16"], "complementary": ["Psalm 107:1-3, 23-32", "Job 29:21-30:15", "Acts 21:1-16"] }, "celebrations": [] },
+  "2027-06-19": { "options": { "semi": ["Psalm 9:9-20", "1 Samuel 18:1-4", "Luke 21:25-28"], "complementary": ["Psalm 107:1-3, 23-32", "Job 37:1-13", "Luke 21:25-28"] }, "celebrations": [] },
+  "2027-06-20": { "options": {}, "celebrations": [{ "name": "Proper 7 (12)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=61" }] },
+  "2027-06-21": { "options": { "semi": ["Psalm 119:113-128", "1 Samuel 18:6-30", "Acts 27:13-38"], "complementary": ["Psalm 65", "Exodus 7:14-24", "Acts 27:13-38"] }, "celebrations": [] },
+  "2027-06-22": { "options": { "semi": ["Psalm 119:113-128", "1 Samuel 19:1-7", "Acts 27:39-44"], "complementary": ["Psalm 65", "Exodus 9:13-35", "Acts 27:39-44"] }, "celebrations": [] },
+  "2027-06-23": { "options": { "semi": ["Psalm 119:113-128", "1 Samuel 19:8-17", "Mark 6:45-52"], "complementary": ["Psalm 65", "Joshua 10:1-14", "Mark 6:45-52"] }, "celebrations": [] },
+  "2027-06-24": { "options": { "semi": ["Psalm 130", "1 Samuel 19:18-24", "2 Corinthians 7:2-16"], "complementary": ["Psalm 30", "Lamentations 1:16-22", "2 Corinthians 7:2-16"] }, "celebrations": [] },
+  "2027-06-25": { "options": { "semi": ["Psalm 130", "1 Samuel 20:1-25", "2 Corinthians 8:1-7"], "complementary": ["Psalm 30", "Lamentations 2:1-12", "2 Corinthians 8:1-7"] }, "celebrations": [] },
+  "2027-06-26": { "options": { "semi": ["Psalm 130", "1 Samuel 20:27-42", "Luke 4:31-37"], "complementary": ["Psalm 30", "Lamentations 2:18-22", "Luke 4:31-37"] }, "celebrations": [] },
+  "2027-06-27": { "options": {}, "celebrations": [{ "name": "Proper 8 (13)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=62" }] },
+  "2027-06-28": { "options": { "semi": ["Psalm 18:1-6, 43-50", "1 Samuel 23:14-18", "2 Corinthians 8:16-24"], "complementary": ["Psalm 88", "Leviticus 21:1-15", "2 Corinthians 8:16-24"] }, "celebrations": [] },
+  "2027-06-29": { "options": { "semi": ["Psalm 18:1-6, 43-50", "1 Samuel 31:1-13", "2 Corinthians 9:1-5"], "complementary": ["Psalm 88", "Leviticus 15:19-31", "2 Corinthians 9:1-5"] }, "celebrations": [] },
+  "2027-06-30": { "options": { "semi": ["Psalm 18:1-6, 43-50", "1 Chronicles 10:1-14", "Mark 9:14-29"], "complementary": ["Psalm 88", "2 Kings 20:1-11", "Mark 9:14-29"] }, "celebrations": [] },
+  "2027-07-01": { "options": { "semi": ["Psalm 48", "2 Samuel 2:1-11", "1 Corinthians 4:8-13"], "complementary": ["Psalm 123", "Jeremiah 7:1-15", "1 Corinthians 4:8-13"] }, "celebrations": [] },
+  "2027-07-02": { "options": { "semi": ["Psalm 48", "2 Samuel 3:1-12", "2 Corinthians 10:7-11"], "complementary": ["Psalm 123", "Jeremiah 7:16-26", "2 Corinthians 10:7-11"] }, "celebrations": [] },
+  "2027-07-03": { "options": { "semi": ["Psalm 48", "2 Samuel 3:31-38", "Matthew 8:18-22"], "complementary": ["Psalm 123", "Jeremiah 7:27-34", "Matthew 8:18-22"] }, "celebrations": [] },
+  "2027-07-04": { "options": {}, "celebrations": [{ "name": "Proper 9 (14)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=63" }] },
+  "2027-07-05": { "options": { "semi": ["Psalm 21", "2 Samuel 5:1-10", "2 Corinthians 11:16-33"], "complementary": ["Psalm 119:81-88", "Ezekiel 2:8-3:11", "2 Corinthians 11:16-33"] }, "celebrations": [] },
+  "2027-07-06": { "options": { "semi": ["Psalm 21", "2 Samuel 5:11-16", "James 5:7-12"], "complementary": ["Psalm 119:81-88", "Jeremiah 16:1-13", "James 5:7-12"] }, "celebrations": [] },
+  "2027-07-07": { "options": { "semi": ["Psalm 21", "2 Samuel 5:17-25", "John 7:1-9"], "complementary": ["Psalm 119:81-88", "Jeremiah 16:14-21", "John 7:1-9"] }, "celebrations": [] },
+  "2027-07-08": { "options": { "semi": ["Psalm 24", "Exodus 25:10-22", "Colossians 2:1-5"], "complementary": ["Psalm 85:8-13", "Amos 2:6-16", "Colossians 2:1-5"] }, "celebrations": [] },
+  "2027-07-09": { "options": { "semi": ["Psalm 24", "Exodus 37:1-16", "Colossians 4:2-18"], "complementary": ["Psalm 85:8-13", "Amos 3:1-12", "Colossians 4:2-18"] }, "celebrations": [] },
+  "2027-07-10": { "options": { "semi": ["Psalm 24", "Numbers 10:11-36", "Luke 1:57-80"], "complementary": ["Psalm 85:8-13", "Amos 4:6-13", "Luke 1:57-80"] }, "celebrations": [] },
+  "2027-07-11": { "options": {}, "celebrations": [{ "name": "Proper 10 (15)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=64" }] },
+  "2027-07-12": { "options": { "semi": ["Psalm 68:24-35", "2 Samuel 6:6-12a", "Acts 21:27-39"], "complementary": ["Psalm 142", "Amos 5:1-9", "Acts 21:27-39"] }, "celebrations": [] },
+  "2027-07-13": { "options": { "semi": ["Psalm 68:24-35", "2 Samuel 3:12-16", "Acts 23:12-35"], "complementary": ["Psalm 142", "Amos 9:1-4", "Acts 23:12-35"] }, "celebrations": [] },
+  "2027-07-14": { "options": { "semi": ["Psalm 68:24-35", "2 Samuel 6:16-23", "Luke 7:31-35"], "complementary": ["Psalm 142", "Amos 9:11-15", "Luke 7:31-35"] }, "celebrations": [] },
+  "2027-07-15": { "options": { "semi": ["Psalm 89:20-37", "1 Chronicles 11:15-19", "Colossians 1:15-23"], "complementary": ["Psalm 23", "Jeremiah 10:1-16", "Colossians 1:15-23"] }, "celebrations": [] },
+  "2027-07-16": { "options": { "semi": ["Psalm 89:20-37", "1 Chronicles 14:1-2", "Acts 17:16-31"], "complementary": ["Psalm 23", "Jeremiah 10:17-25", "Acts 17:16-31"] }, "celebrations": [] },
+  "2027-07-17": { "options": { "semi": ["Psalm 89:20-37", "1 Chronicles 15:1-2, 16:4-13", "Luke 18:35-43"], "complementary": ["Psalm 23", "Jeremiah 12:1-13", "Luke 18:35-43"] }, "celebrations": [] },
+  "2027-07-18": { "options": {}, "celebrations": [{ "name": "Proper 11 (16)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=65" }] },
+  "2027-07-19": { "options": { "semi": ["Psalm 61", "2 Samuel 7:18-29", "Hebrews 13:17-25"], "complementary": ["Psalm 100", "Jeremiah 50:1-7", "Hebrews 13:17-25"] }, "celebrations": [] },
+  "2027-07-20": { "options": { "semi": ["Psalm 61", "2 Samuel 8:1-18", "Acts 20:17-38"], "complementary": ["Psalm 100", "Zechariah 9:14-10:2", "Acts 20:17-38"] }, "celebrations": [] },
+  "2027-07-21": { "options": { "semi": ["Psalm 61", "2 Samuel 9:1-13", "Luke 15:1-7"], "complementary": ["Psalm 100", "2 Samuel 5:1-12", "Luke 15:1-7"] }, "celebrations": [] },
+  "2027-07-22": { "options": { "semi": ["Psalm 14", "2 Samuel 10:1-5", "Colossians 1:9-14"], "complementary": ["Psalm 145:10-18", "1 Kings 19:19-21", "Colossians 1:9-14"] }, "celebrations": [] },
+  "2027-07-23": { "options": { "semi": ["Psalm 14", "2 Samuel 10:6-12", "Colossians 3:12-17"], "complementary": ["Psalm 145:10-18", "2 Kings 3:4-20", "Colossians 3:12-17"] }, "celebrations": [] },
+  "2027-07-24": { "options": { "semi": ["Psalm 14", "2 Samuel 10:13-19", "John 4:31-38"], "complementary": ["Psalm 145:10-18", "2 Kings 4:38-41", "John 4:31-38"] }, "celebrations": [] },
+  "2027-07-25": { "options": {}, "celebrations": [{ "name": "Proper 12 (17)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=66" }] },
+  "2027-07-26": { "options": { "semi": ["Psalm 37:12-22", "2 Samuel 11:14-21", "Philippians 4:10-20"], "complementary": ["Psalm 111", "Genesis 18:1-15", "Philippians 4:10-20"] }, "celebrations": [] },
+  "2027-07-27": { "options": { "semi": ["Psalm 37:12-22", "2 Samuel 11:22-27", "Romans 15:22-33"], "complementary": ["Psalm 111", "Exodus 24:1-11", "Romans 15:22-33"] }, "celebrations": [] },
+  "2027-07-28": { "options": { "semi": ["Psalm 37:12-22", "2 Chronicles 9:29-31", "Mark 6:35-44"], "complementary": ["Psalm 111", "Isaiah 25:6-10a", "Mark 6:35-44"] }, "celebrations": [] },
+  "2027-07-29": { "options": { "semi": ["Psalm 51:1-12", "Exodus 32:19-26a", "1 Corinthians 11:17-22"], "complementary": ["Psalm 78:23-29", "Exodus 12:33-42", "1 Corinthians 11:17-22"] }, "celebrations": [] },
+  "2027-07-30": { "options": { "semi": ["Psalm 51:1-12", "Joshua 23:1-16", "1 Corinthians 11:27-34"], "complementary": ["Psalm 78:23-29", "Exodus 12:43-13:2", "1 Corinthians 11:27-34"] }, "celebrations": [] },
+  "2027-07-31": { "options": { "semi": ["Psalm 51:1-12", "Judges 6:1-10", "Matthew 16:5-12"], "complementary": ["Psalm 78:23-29", "Exodus 13:3-10", "Matthew 16:5-12"] }, "celebrations": [] },
+  "2027-08-01": { "options": {}, "celebrations": [{ "name": "Proper 13 (18)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=67" }] },
+  "2027-08-02": { "options": { "semi": ["Psalm 50:16-23", "2 Samuel 12:15-25", "Ephesians 4:17-24"], "complementary": ["Psalm 107:1-3, 33-43", "Numbers 11:16-23, 31-32", "Ephesians 4:17-24"] }, "celebrations": [] },
+  "2027-08-03": { "options": { "semi": ["Psalm 50:16-23", "2 Samuel 13:1-19", "1 Corinthians 12:27-31"], "complementary": ["Psalm 107:1-3, 33-43", "Deuteronomy 8:1-20", "1 Corinthians 12:27-31"] }, "celebrations": [] },
+  "2027-08-04": { "options": { "semi": ["Psalm 50:16-23", "2 Samuel 13:20-36", "Mark 8:1-10"], "complementary": ["Psalm 107:1-3, 33-43", "Isaiah 55:1-9", "Mark 8:1-10"] }, "celebrations": [] },
+  "2027-08-05": { "options": { "semi": ["Psalm 130", "2 Samuel 13:37-14:24", "Romans 15:1-6"], "complementary": ["Psalm 34:1-8", "1 Samuel 28:20-25", "Romans 15:1-6"] }, "celebrations": [] },
+  "2027-08-06": { "options": { "semi": ["Psalm 130", "2 Samuel 14:25-33", "Galatians 6:1-10"], "complementary": ["Psalm 34:1-8", "2 Samuel 17:15-29", "Galatians 6:1-10"] }, "celebrations": [] },
+  "2027-08-07": { "options": { "semi": ["Psalm 130", "2 Samuel 15:1-13", "Matthew 7:7-11"], "complementary": ["Psalm 34:1-8", "1 Kings 2:1-9", "Matthew 7:7-11"] }, "celebrations": [] },
+  "2027-08-08": { "options": {}, "celebrations": [{ "name": "Proper 14 (19)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=68" }] },
+  "2027-08-09": { "options": { "semi": ["Psalm 57", "2 Samuel 15:13-31", "Ephesians 5:1-14"], "complementary": ["Psalm 81", "1 Kings 17:1-16", "Ephesians 5:1-14"] }, "celebrations": [] },
+  "2027-08-10": { "options": { "semi": ["Psalm 57", "2 Samuel 18:19-33", "2 Peter 3:14-18"], "complementary": ["Psalm 81", "Ruth 2:1-23", "2 Peter 3:14-18"] }, "celebrations": [] },
+  "2027-08-11": { "options": { "semi": ["Psalm 57", "2 Samuel 19:1-18", "John 6:35-40"], "complementary": ["Psalm 81", "Jeremiah 31:1-6", "John 6:35-40"] }, "celebrations": [] },
+  "2027-08-12": { "options": { "semi": ["Psalm 111", "1 Kings 1:1-30", "Acts 6:8-15"], "complementary": ["Psalm 34:9-14", "Job 11:1-20", "Acts 6:8-15"] }, "celebrations": [] },
+  "2027-08-13": { "options": { "semi": ["Psalm 111", "1 Kings 1:28-48", "Romans 16:17-20"], "complementary": ["Psalm 34:9-14", "Job 12:1-25", "Romans 16:17-20"] }, "celebrations": [] },
+  "2027-08-14": { "options": { "semi": ["Psalm 111", "1 Kings 2:1-11", "John 4:7-26"], "complementary": ["Psalm 34:9-14", "Job 13:1-19", "John 4:7-26"] }, "celebrations": [] },
+  "2027-08-15": { "options": {}, "celebrations": [{ "name": "Proper 15 (20)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=69" }] },
+  "2027-08-16": { "options": { "semi": ["Psalm 101", "1 Kings 3:16-28", "Acts 6:1-7"], "complementary": ["Psalm 36", "Genesis 43:1-15", "Acts 6:1-7"] }, "celebrations": [] },
+  "2027-08-17": { "options": { "semi": ["Psalm 101", "1 Kings 7:1-12", "Acts 7:9-16"], "complementary": ["Psalm 36", "Genesis 45:1-15", "Acts 7:9-16"] }, "celebrations": [] },
+  "2027-08-18": { "options": { "semi": ["Psalm 101", "1 Kings 8:1-21", "Mark 8:14-21"], "complementary": ["Psalm 36", "Genesis 47:13-26", "Mark 8:14-21"] }, "celebrations": [] },
+  "2027-08-19": { "options": { "semi": ["Psalm 84", "1 Kings 4:20-28", "1 Thessalonians 5:1-11"], "complementary": ["Psalm 34:15-22", "Joshua 22:1-9", "1 Thessalonians 5:1-11"] }, "celebrations": [] },
+  "2027-08-20": { "options": { "semi": ["Psalm 84", "1 Kings 4:29-34", "Romans 13:11-14"], "complementary": ["Psalm 34:15-22", "Joshua 22:10-20", "Romans 13:11-14"] }, "celebrations": [] },
+  "2027-08-21": { "options": { "semi": ["Psalm 84", "1 Kings 5:1-12", "Luke 11:5-13"], "complementary": ["Psalm 34:15-22", "Joshua 22:21-34", "Luke 11:5-13"] }, "celebrations": [] },
+  "2027-08-22": { "options": {}, "celebrations": [{ "name": "Proper 16 (21)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=70" }] },
+  "2027-08-23": { "options": { "semi": ["Psalm 11", "1 Kings 5:13-18", "Ephesians 5:21-6:9"], "complementary": ["Psalm 119:97-104", "Nehemiah 9:1-15", "Ephesians 5:21-6:9"] }, "celebrations": [] },
+  "2027-08-24": { "options": { "semi": ["Psalm 11", "1 Kings 6:1-14", "Ephesians 6:21-24"], "complementary": ["Psalm 119:97-104", "Nehemiah 9:16-31", "Ephesians 6:21-24"] }, "celebrations": [] },
+  "2027-08-25": { "options": { "semi": ["Psalm 11", "1 Kings 6:15-38", "John 15:16-25"], "complementary": ["Psalm 119:97-104", "Isaiah 33:10-16", "John 15:16-25"] }, "celebrations": [] },
+  "2027-08-26": { "options": { "semi": ["Psalm 45:1-2, 6-9", "Song of Solomon 1:1-17", "James 1:1-8"], "complementary": ["Psalm 15", "Exodus 32:1-14", "James 1:1-8"] }, "celebrations": [] },
+  "2027-08-27": { "options": { "semi": ["Psalm 45:1-2, 6-9", "Song of Solomon 2:1-7", "James 1:9-16"], "complementary": ["Psalm 15", "Exodus 32:15-35", "James 1:9-16"] }, "celebrations": [] },
+  "2027-08-28": { "options": { "semi": ["Psalm 45:1-2, 6-9", "Hosea 3:1-5", "John 18:28-32"], "complementary": ["Psalm 15", "Exodus 34:8-28", "John 18:28-32"] }, "celebrations": [] },
+  "2027-08-29": { "options": {}, "celebrations": [{ "name": "Proper 17 (22)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=71" }] },
+  "2027-08-30": { "options": { "semi": ["Psalm 144:9-15", "Song of Solomon 3:6-11", "1 Timothy 4:6-16"], "complementary": ["Psalm 106:1-6, 13-23, 47-48", "Deuteronomy 4:9-14", "1 Timothy 4:6-16"] }, "celebrations": [] },
+  "2027-08-31": { "options": { "semi": ["Psalm 144:9-15", "Song of Solomon 5:2-6:3", "1 Peter 2:19-25"], "complementary": ["Psalm 106:1-6, 13-23, 47-48", "Deuteronomy 4:15-20", "1 Peter 2:19-25"] }, "celebrations": [] },
+  "2027-09-01": { "options": { "semi": ["Psalm 144:9-15", "Song of Solomon 8:5-7", "Mark 7:9-23"], "complementary": ["Psalm 106:1-6, 13-23, 47-48", "Deuteronomy 4:21-40", "Mark 7:9-23"] }, "celebrations": [] },
+  "2027-09-02": { "options": { "semi": ["Psalm 125", "Proverbs 1:1-19", "Romans 2:1-11"], "complementary": ["Psalm 146", "Isaiah 30:27-33", "Romans 2:1-11"] }, "celebrations": [] },
+  "2027-09-03": { "options": { "semi": ["Psalm 125", "Proverbs 4:10-27", "Romans 2:12-16"], "complementary": ["Psalm 146", "Isaiah 32:1-8", "Romans 2:12-16"] }, "celebrations": [] },
+  "2027-09-04": { "options": { "semi": ["Psalm 125", "Proverbs 8:1-31", "Matthew 15:21-31"], "complementary": ["Psalm 146", "Isaiah 33:1-9", "Matthew 15:21-31"] }, "celebrations": [] },
+  "2027-09-05": { "options": {}, "celebrations": [{ "name": "Proper 18 (23)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=72" }] },
+  "2027-09-06": { "options": { "semi": ["Psalm 73:1-20", "Proverbs 8:32-9:6", "Hebrews 11:29-12:2"], "complementary": ["Isaiah 38:10-20", "Joshua 6:1-21", "Hebrews 11:29-12:2"] }, "celebrations": [] },
+  "2027-09-07": { "options": { "semi": ["Psalm 73:1-20", "Proverbs 11:1-31", "Hebrews 12:3-13"], "complementary": ["Isaiah 38:10-20", "Joshua 8:1-23", "Hebrews 12:3-13"] }, "celebrations": [] },
+  "2027-09-08": { "options": { "semi": ["Psalm 73:1-20", "Proverbs 14:1-9", "Matthew 17:14-21"], "complementary": ["Isaiah 38:10-20", "Judges 15:9-20", "Matthew 17:14-21"] }, "celebrations": [] },
+  "2027-09-09": { "options": { "semi": ["Psalm 19", "Proverbs 15:1-17", "Hebrews 11:17-22"], "complementary": ["Psalm 116:1-9", "Joshua 2:1-14", "Hebrews 11:17-22"] }, "celebrations": [] },
+  "2027-09-10": { "options": { "semi": ["Psalm 19", "Proverbs: 19:24-29", "James 2:17-26"], "complementary": ["Psalm 116:1-9", "Joshua 2:15-24", "James 2:17-26"] }, "celebrations": [] },
+  "2027-09-11": { "options": { "semi": ["Psalm 19", "Proverbs 21:1-17", "Matthew 21:23-32"], "complementary": ["Psalm 116:1-9", "Joshua 6:22-27", "Matthew 21:23-32"] }, "celebrations": [] },
+  "2027-09-12": { "options": {}, "celebrations": [{ "name": "Proper 19 (24)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=75" }] },
+  "2027-09-13": { "options": { "semi": ["Psalm 73:21-28", "Proverbs 22:1-21", "Romans 3:9-20"], "complementary": ["Psalm 119:169-176", "1 Kings 13:1-10", "Romans 3:9-20"] }, "celebrations": [] },
+  "2027-09-14": { "options": { "semi": ["Psalm 73:21-28", "Proverbs 25:1-28", "Colossians 3:1-11"], "complementary": ["Psalm 119:169-176", "1 Kings 13:11-25", "Colossians 3:1-11"] }, "celebrations": [{ "name": "Holy Cross", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=74" }] },
+  "2027-09-15": { "options": { "semi": ["Psalm 73:21-28", "Proverbs 29:1-27", "John 7:25-36"], "complementary": ["Psalm 119:169-176", "Isaiah 10:12-20", "John 7:25-36"] }, "celebrations": [] },
+  "2027-09-16": { "options": { "semi": ["Psalm 1", "Proverbs 30:1-10", "1 Corinthians 2:1-5"], "complementary": ["Psalm 54", "Judges 6:1-10", "1 Corinthians 2:1-5"] }, "celebrations": [] },
+  "2027-09-17": { "options": { "semi": ["Psalm 1", "Proverbs 30:18-33", "Romans 11:25-32"], "complementary": ["Psalm 54", "1 Kings 22:24-40", "Romans 11:25-32"] }, "celebrations": [] },
+  "2027-09-18": { "options": { "semi": ["Psalm 1", "Ecclesiastes 1:1-18", "Matthew 23:29-39"], "complementary": ["Psalm 54", "2 Kings 17:5-18", "Matthew 23:29-39"] }, "celebrations": [] },
+  "2027-09-19": { "options": {}, "celebrations": [{ "name": "Proper 20 (25)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=76" }] },
+  "2027-09-20": { "options": { "semi": ["Psalm 128", "Proverbs 27:1-27", "James 4:8-17"], "complementary": ["Psalm 139:1-18", "2 Kings 5:1-14", "James 4:8-17"] }, "celebrations": [] },
+  "2027-09-21": { "options": { "semi": ["Psalm 128", "Ecclesiastes 4:9-16", "James 5:1-6"], "complementary": ["Psalm 139:1-18", "2 Kings 11:21-12:16", "James 5:1-6"] }, "celebrations": [] },
+  "2027-09-22": { "options": { "semi": ["Psalm 128", "Ecclesiastes 5:1-20", "John 8:21-38"], "complementary": ["Psalm 139:1-18", "Jeremiah 1:4-10", "John 8:21-38"] }, "celebrations": [] },
+  "2027-09-23": { "options": { "semi": ["Psalm 124", "Esther 1:1-21", "Acts 4:13-31"], "complementary": ["Psalm 19:7-14", "Exodus 18:13-27", "Acts 4:13-31"] }, "celebrations": [] },
+  "2027-09-24": { "options": { "semi": ["Psalm 124", "Esther 2:1-23", "Acts 12:20-25"], "complementary": ["Psalm 19:7-14", "Deuteronomy 1:1-18", "Acts 12:20-25"] }, "celebrations": [] },
+  "2027-09-25": { "options": { "semi": ["Psalm 124", "Esther 3:1-15", "Matthew 5:13-20"], "complementary": ["Psalm 19:7-14", "Deuteronomy 27:1-10", "Matthew 5:13-20"] }, "celebrations": [] },
+  "2027-09-26": { "options": {}, "celebrations": [{ "name": "Proper 21 (26)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=77" }] },
+  "2027-09-27": { "options": { "semi": ["Psalm 140", "Esther 4:1-17", "1 Peter 1:3-9"], "complementary": ["Psalm 5", "Zechariah 6:9-15", "1 Peter 1:3-9"] }, "celebrations": [] },
+  "2027-09-28": { "options": { "semi": ["Psalm 140", "Esther 5:1-14", "1 John 2:18-25"], "complementary": ["Psalm 5", "Zechariah 8:18-23", "1 John 2:18-25"] }, "celebrations": [] },
+  "2027-09-29": { "options": { "semi": ["Psalm 140", "Esther 8:1-17", "Matthew 18:6-9"], "complementary": ["Psalm 5", "Zechariah 10:1-12", "Matthew 18:6-9"] }, "celebrations": [] },
+  "2027-09-30": { "options": { "semi": ["Psalm 26", "Job 2:11-3:26", "Galatians 3:23-29"], "complementary": ["Psalm 8", "Genesis 20:1-18", "Galatians 3:23-29"] }, "celebrations": [] },
+  "2027-10-01": { "options": { "semi": ["Psalm 26", "Job 4:1-21", "Romans 8:1-11"], "complementary": ["Psalm 8", "Genesis 21:22-34", "Romans 8:1-11"] }, "celebrations": [] },
+  "2027-10-02": { "options": { "semi": ["Psalm 26", "Job 7:1-21", "Luke 16:14-18"], "complementary": ["Psalm 8", "Genesis 23:1-20", "Luke 16:14-18"] }, "celebrations": [] },
+  "2027-10-03": { "options": {}, "celebrations": [{ "name": "Proper 22 (27)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=78" }] },
+  "2027-10-04": { "options": { "semi": ["Psalm 55:1-15", "Job 8:1-22", "1 Corinthians 7:1-9"], "complementary": ["Psalm 112", "Deuteronomy 22:13-30", "1 Corinthians 7:1-9"] }, "celebrations": [] },
+  "2027-10-05": { "options": { "semi": ["Psalm 55:1-15", "Job 11:1-20", "1 Corinthians 7:10-16"], "complementary": ["Psalm 112", "Deuteronomy 24:1-5", "1 Corinthians 7:10-16"] }, "celebrations": [] },
+  "2027-10-06": { "options": { "semi": ["Psalm 55:1-15", "Job 15:1-35", "Matthew 5:27-36"], "complementary": ["Psalm 112", "Jeremiah 3:6-14", "Matthew 5:27-36"] }, "celebrations": [] },
+  "2027-10-07": { "options": { "semi": ["Psalm 22:1-15", "Job 17:1-16", "Hebrews 3:7-19"], "complementary": ["Psalm 90:12-17", "Deuteronomy 5:1-21", "Hebrews 3:7-19"] }, "celebrations": [] },
+  "2027-10-08": { "options": { "semi": ["Psalm 22:1-15", "Job 18:1-21", "Hebrews 4:1-11"], "complementary": ["Psalm 90:12-17", "Deuteronomy 5:22-33", "Hebrews 4:1-11"] }, "celebrations": [] },
+  "2027-10-09": { "options": { "semi": ["Psalm 22:1-15", "Job 20:1-29", "Matthew 15:1-9"], "complementary": ["Psalm 90:12-17", "Amos 3:13-4:5", "Matthew 15:1-9"] }, "celebrations": [] },
+  "2027-10-10": { "options": {}, "celebrations": [{ "name": "Proper 23 (28)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=79" }] },
+  "2027-10-11": { "options": { "semi": ["Psalm 39", "Job 26:1-14", "Revelation 7:9-17"], "complementary": ["Psalm 26", "Obadiah 1:1-9", "Revelation 7:9-17"] }, "celebrations": [{ "name": "Canadian Thanksgiving Day", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=89" }] },
+  "2027-10-12": { "options": { "semi": ["Psalm 39", "Job 28:12-29:10", "Revelation 8:1-5"], "complementary": ["Psalm 26", "Obadiah 1:10-16", "Revelation 8:1-5"] }, "celebrations": [] },
+  "2027-10-13": { "options": { "semi": ["Psalm 39", "Job 32:1-22", "Luke 16:19-31"], "complementary": ["Psalm 26", "Obadiah 1:17-21", "Luke 16:19-31"] }, "celebrations": [] },
+  "2027-10-14": { "options": { "semi": ["Psalm 104:1-9, 24, 35b", "Job 36:1-16", "Romans 15:7-13"], "complementary": ["Psalm 91:9-16", "Genesis 14:17-24", "Romans 15:7-13"] }, "celebrations": [] },
+  "2027-10-15": { "options": { "semi": ["Psalm 104:1-9, 24, 35b", "Job 37:1-24", "Revelation 17:1-18"], "complementary": ["Psalm 91:9-16", "Isaiah 47:1-9", "Revelation 17:1-18"] }, "celebrations": [] },
+  "2027-10-16": { "options": { "semi": ["Psalm 104:1-9, 24, 35b", "Job 39:1-30", "Luke 22:24-30"], "complementary": ["Psalm 91:9-16", "Isaiah 47:10-15", "Luke 22:24-30"] }, "celebrations": [] },
+  "2027-10-17": { "options": {}, "celebrations": [{ "name": "Proper 24 (29)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=80" }] },
+  "2027-10-18": { "options": { "semi": ["Psalm 75", "Job 40:1-24", "Hebrews 6:1-12"], "complementary": ["Psalm 37:23-40", "1 Samuel 8:1-18", "Hebrews 6:1-12"] }, "celebrations": [] },
+  "2027-10-19": { "options": { "semi": ["Psalm 75", "Job 41:1-11", "Hebrews 6:13-20"], "complementary": ["Psalm 37:23-40", "1 Samuel 10:17-25", "Hebrews 6:13-20"] }, "celebrations": [] },
+  "2027-10-20": { "options": { "semi": ["Psalm 75", "Job 41:12-34", "John 13:1-17"], "complementary": ["Psalm 37:23-40", "1 Samuel 12:1-25", "John 13:1-17"] }, "celebrations": [] },
+  "2027-10-21": { "options": { "semi": ["Psalm 34:1-8", "2 Kings 20:12-19", "Hebrews 7:1-10"], "complementary": ["Psalm 126", "Jeremiah 23:9-15", "Hebrews 7:1-10"] }, "celebrations": [] },
+  "2027-10-22": { "options": { "semi": ["Psalm 34:1-8", "Nehemiah 1:1-11", "Hebrews 7:11-22"], "complementary": ["Psalm 126", "Jeremiah 26:12-24", "Hebrews 7:11-22"] }, "celebrations": [] },
+  "2027-10-23": { "options": { "semi": ["Psalm 34:1-8", "Job 42:7-9", "Mark 8:22-26"], "complementary": ["Psalm 126", "Jeremiah 29:24-32", "Mark 8:22-26"] }, "celebrations": [] },
+  "2027-10-24": { "options": {}, "celebrations": [{ "name": "Proper 25 (30)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=81" }] },
+  "2027-10-25": { "options": { "semi": ["Psalm 28", "Isaiah 59:9-19", "1 Peter 2:1-10"], "complementary": ["Psalm 119:17-24", "Exodus 4:1-17", "1 Peter 2:1-10"] }, "celebrations": [] },
+  "2027-10-26": { "options": { "semi": ["Psalm 28", "Ezekiel 18:1-32", "Acts 9:32-35"], "complementary": ["Psalm 119:17-24", "2 Kings 6:8-23", "Acts 9:32-35"] }, "celebrations": [] },
+  "2027-10-27": { "options": { "semi": ["Psalm 28", "Ezekiel 14:12-23", "Matthew 20:29-34"], "complementary": ["Psalm 119:17-24", "Jeremiah 33:1-11", "Matthew 20:29-34"] }, "celebrations": [] },
+  "2027-10-28": { "options": { "semi": ["Psalm 146", "Ruth 1:18-22", "Hebrews 9:1-12"], "complementary": ["Psalm 119:1-8", "Exodus 22:1-15", "Hebrews 9:1-12"] }, "celebrations": [] },
+  "2027-10-29": { "options": { "semi": ["Psalm 146", "Ruth 2:1-9", "Romans 3:21-31"], "complementary": ["Psalm 119:1-8", "Leviticus 19:32-37", "Romans 3:21-31"] }, "celebrations": [] },
+  "2027-10-30": { "options": { "semi": ["Psalm 146", "Ruth 2:10-14", "Luke 10:25-37"], "complementary": ["Psalm 119:1-8", "Numbers 9:9-14", "Luke 10:25-37"] }, "celebrations": [] },
+  "2027-10-31": { "options": {}, "celebrations": [{ "name": "Proper 26 (31)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=82" }] },
+  "2027-11-01": { "options": {}, "celebrations": [{ "name": "All Saints Day", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=83" }] },
+  "2027-11-02": { "options": { "semi": ["Psalm 18:20-30", "Ruth 3:1-7", "Acts 7:17-29"], "complementary": ["Psalm 51", "Deuteronomy 28:58-29:1", "Acts 7:17-29"] }, "celebrations": [] },
+  "2027-11-03": { "options": { "semi": ["Psalm 18:20-30", "Ruth 3:8-18", "John 13:31-35"], "complementary": ["Psalm 51", "Micah 6:1-8", "John 13:31-35"] }, "celebrations": [] },
+  "2027-11-04": { "options": { "semi": ["Psalm 127", "Ruth 4:1-10", "Romans 5:6-11"], "complementary": ["Psalm 146", "Numbers 36:1-13", "Romans 5:6-11"] }, "celebrations": [] },
+  "2027-11-05": { "options": { "semi": ["Psalm 127", "Ruth 4:11-17", "Hebrews 9:15-24"], "complementary": ["Psalm 146", "Deuteronomy 15:1-11", "Hebrews 9:15-24"] }, "celebrations": [] },
+  "2027-11-06": { "options": { "semi": ["Psalm 127", "Ruth 4:18-22", "Mark 11:12-14, 20-24"], "complementary": ["Psalm 146", "Deuteronomy 24:17-22", "Mark 11:12-14, 20-24"] }, "celebrations": [] },
+  "2027-11-07": { "options": {}, "celebrations": [{ "name": "Proper 27 (32)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=84" }] },
+  "2027-11-08": { "options": { "semi": ["Psalm 113", "Genesis 24:1-10", "1 Timothy 5:1-8"], "complementary": ["Psalm 94", "Ruth 1:1-22", "1 Timothy 5:1-8"] }, "celebrations": [] },
+  "2027-11-09": { "options": { "semi": ["Psalm 113", "Genesis 24:11-27", "1 Timothy 5:9-16"], "complementary": ["Psalm 94", "Ruth 3:14-4:6", "1 Timothy 5:9-16"] }, "celebrations": [] },
+  "2027-11-10": { "options": { "semi": ["Psalm 113", "Genesis 24:28-42", "Luke 4:16-30"], "complementary": ["Psalm 94", "Ruth 4:7-22", "Luke 4:16-30"] }, "celebrations": [] },
+  "2027-11-11": { "options": { "semi": ["1 Samuel 2:1-10", "1 Samuel 1:21-28", "1 Timothy 6:11-21"], "complementary": ["Psalm 16", "Daniel 4:4-18", "1 Timothy 6:11-21"] }, "celebrations": [] },
+  "2027-11-12": { "options": { "semi": ["1 Samuel 2:1-10", "1 Samuel 2:18-21", "Colossians 2:6-15"], "complementary": ["Psalm 16", "Daniel 4:19-27", "Colossians 2:6-15"] }, "celebrations": [] },
+  "2027-11-13": { "options": { "semi": ["1 Samuel 2:1-10", "1 Samuel 3:1-18", "Mark 12:1-12"], "complementary": ["Psalm 16", "Daniel 4:28-37", "Mark 12:1-12"] }, "celebrations": [] },
+  "2027-11-14": { "options": {}, "celebrations": [{ "name": "Proper 28 (33)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=85" }] },
+  "2027-11-15": { "options": { "semi": ["Psalm 3", "1 Samuel 3:19-4:2", "Hebrews 10:26-31"], "complementary": ["Psalm 13", "Daniel 8:1-14", "Hebrews 10:26-31"] }, "celebrations": [] },
+  "2027-11-16": { "options": { "semi": ["Psalm 3", "Deuteronomy 26:5-10", "Hebrews 10:32-39"], "complementary": ["Psalm 13", "Daniel 8:15-27", "Hebrews 10:32-39"] }, "celebrations": [] },
+  "2027-11-17": { "options": { "semi": ["Psalm 3", "1 Kings 8:22-30", "Mark 13:9-23"], "complementary": ["Psalm 13", "Zechariah 12:1-13:1", "Mark 13:9-23"] }, "celebrations": [] },
+  "2027-11-18": { "options": { "semi": ["Psalm 132:1-12", "2 Kings 22:1-10", "Acts 7:54-8:1a"], "complementary": ["Psalm 93", "Ezekiel 28:1-10", "Acts 7:54-8:1a"] }, "celebrations": [] },
+  "2027-11-19": { "options": { "semi": ["Psalm 132:1-12", "2 Kings 22:11-20", "1 Corinthians 15:20-28"], "complementary": ["Psalm 93", "Ezekiel 28:20-26", "1 Corinthians 15:20-28"] }, "celebrations": [] },
+  "2027-11-20": { "options": { "semi": ["Psalm 132:1-12", "2 Kings 23:1-14", "John 3:31-36"], "complementary": ["Psalm 93", "Daniel 7:1-8, 15-18", "John 3:31-36"] }, "celebrations": [] },
+  "2027-11-21": { "options": {}, "celebrations": [{ "name": "Reign of Christ - Proper 29 (34)", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=86" }] },
+  "2027-11-22": { "options": { "semi": ["Psalm 63", "2 Kings 23:15-25", "Revelation 11:1-14"], "complementary": ["Psalm 76", "Daniel 7:19-27", "Revelation 11:1-14"] }, "celebrations": [] },
+  "2027-11-23": { "options": { "semi": ["Psalm 63", "1 Samuel 17:55-18:5", "Revelation 11:15-19"], "complementary": ["Psalm 76", "Ezekiel 29:1-12", "Revelation 11:15-19"] }, "celebrations": [] },
+  "2027-11-24": { "options": { "semi": ["Psalm 63", "2 Samuel 2:1-7", "John 16:25-33"], "complementary": ["Psalm 76", "Ezekiel 30:20-26", "John 16:25-33"] }, "celebrations": [] },
+  "2027-11-25": { "options": {}, "celebrations": [{ "name": "Thanksgiving Day", "url": "https://lectionary.library.vanderbilt.edu/texts/?y=18921&z=p&d=87" }] }
 };
+
 const CONFIG_ANO = { dataInicio: "2026-11-26", dataFim: "2027-11-25" };
+
 const NOMES_CELEBRACOES = {
   "First Sunday of Advent":"1º Domingo do Advento", "Second Sunday of Advent":"2º Domingo do Advento",
   "Third Sunday of Advent":"3º Domingo do Advento", "Fourth Sunday of Advent":"4º Domingo do Advento",
@@ -5144,6 +1104,7 @@ const NOMES_CELEBRACOES = {
   "Annunciation of the Lord":"Anunciação do Senhor", "New Year's Day":"Ano-Novo",
   "Thanksgiving Day":"Dia de Ação de Graças", "Reign of Christ - Proper 29 (34)":"Cristo Rei — Próprio 29 (34)"
 };
+
 function nomeCelebracao(nome) {
   if (NOMES_CELEBRACOES[nome]) return NOMES_CELEBRACOES[nome];
   const ordinais = {First:'1º',Second:'2º',Third:'3º',Fourth:'4º',Fifth:'5º',Sixth:'6º',Seventh:'7º'};
@@ -5152,28 +1113,31 @@ function nomeCelebracao(nome) {
   if (/^Proper \d+/.test(nome)) return nome.replace('Proper','Próprio');
   return nome;
 }
+
 function chaveData(data) {
   return `${data.getFullYear()}-${String(data.getMonth()+1).padStart(2,'0')}-${String(data.getDate()).padStart(2,'0')}`;
 }
+
 function obterProprioOuFesta(data) {
   const registro = LEITURAS_ANO_B[chaveData(data)];
   if (registro?.celebrations?.length) return registro.celebrations.map(c=>nomeCelebracao(c.name)).join(' / ');
   return 'Leituras diárias do Lecionário Comum Revisado';
 }
+
 function atualizarSubcabecalho(data) {
   const semana=data.toLocaleDateString('pt-BR',{weekday:'long'});
   document.getElementById('subcabecalho-info').textContent =
     `${semana[0].toUpperCase()+semana.slice(1)} — Ofício Diário — ${obterProprioOuFesta(data)}`;
 }
+
 function atualizarDomingoFesta(chave) {
   const festas=LEITURAS_ANO_B[chave]?.celebrations||[];
   document.getElementById('domingo-festa-nome').textContent =
     festas.length ? `Celebrando: ${festas.map(c=>nomeCelebracao(c.name)).join(' / ')}` : 'Domingo do Ano Litúrgico';
-
 }
 
 const canticosSemana = {
-  0: { titulo: "Cântico do Domingo: Digno é o Cordeiro (Apocalipse 5:9–14)", texto: "E cantavam um novo cântico, dizendo:<br>Digno és de tomar o livro e de abrir os seus selos; porque foste morto, e com o teu sangue compraste para Deus homens de toda tribo, e língua, e povo, e nação;<br>E para o nosso Deus os fizeste reis e sacerdotes; e eles reinarão sobre a terra.<br>E olhei, e ouvi a voz de muitos anjos ao redor do trono, e dos animais, e dos anciãos; e era o número deles milhões de milhões e milhares de milhares,<br>Que com grande voz diziam:<br>Digno é o Cordeiro, que foi morto, de receber o poder, e riquezas, e sabedoria, e força, e honra, e glória, e ações de graças.<br>E ouvi a toda criatura que está no céu, e na terra, e debaixo da terra, e que está no mar, e a todas as coisas que neles há, dizer:<br>Ao que está assentado sobre o trono, e ao Cordeiro, sejam dadas ações de graças, e honra, e glória, e poder para todo o sempre.<br>E os quatro animais diziam: Amém. E os vinte e quatro anciãos prostraram-se e adoraram ao que vive para todo o sempre." },
+  0: { titulo: "Cântico do Domingo: Digno é o Cordeiro (Apocalipse 5:9–14)", texto: "E cantavam um novo cântico, dizendo:<br>Digno és de tomar o livro e de abrir os seus selos; porque foste morto, e com o seu sangue compraste para Deus homens de toda tribo, e língua, e povo, e nação;<br>E para o nosso Deus os fizeste reis e sacerdotes; e eles reinarão sobre a terra.<br>E olhei, e ouvi a voz de muitos anjos ao redor do trono, e dos animais, e dos anciãos; e era o número deles milhões de milhões e milhares de milhares,<br>Que com grande voz diziam:<br>Digno é o Cordeiro, que foi morto, de receber o poder, e riquezas, e sabedoria, e força, e honra, e glória, e ações de graças.<br>E ouvi a toda criatura que está no céu, e na terra, e debaixo da terra, e que está no mar, e a todas as coisas que neles há, dizer:<br>Ao que está assentado sobre o trono, e ao Cordeiro, sejam dadas ações de graças, e honra, e glória, e poder para todo o sempre.<br>E os quatro animais diziam: Amém. E os vinte e quatro anciãos prostraram-se e adoraram ao que vive para todo o sempre." },
   1: { titulo: "Cântico de Segunda-feira: Cântico de Moisés (Êxodo 15:1–18)", texto: "Cantarei ao Senhor, porque gloriosamente triunfou; lançou no mar o cavalo e o seu cavaleiro.<br>O Senhor é a minha força e o meu cântico; ele me foi por salvação; este é o meu Deus, portanto lhe farei uma habitação; ele é o Deus de meu pai, por isso o exaltarei.<br>O Senhor é homem de guerra; o Senhor é o seu nome.<br>Lançou no mar os carros de Faraó e o seu exército; e os seus capitães afogaram-se no mar Vermelho.<br>Os abismos os cobriram; desceram às profundezas como pedra.<br>A tua destra, ó Senhor, se tem glorificado em poder; a tua destra, ó Senhor, tem despedaçado o inimigo.<br>Tu, com a tua beneficência, guiaste este povo que salvaste; com a tua força o levaste à habitação da tua santidade.<br>O Senhor reinará eterna e perpetuamente." },
   2: { titulo: "Cântico de Terça-feira: Cântico de Ana (1 Samuel 2:1–10)", texto: "O meu coração exulta no Senhor, o meu poder está exaltado no Senhor; a minha boca se dilatou sobre os meus inimigos, porquanto me alegro na tua salvação.<br>Não há santo como o Senhor; porque não há outro fora de ti; e rocha nenhuma há como o nosso Deus.<br>O arco dos fortes foi quebrado, e os que tropeçavam foram cingidos de força.<br>O Senhor é o que tira a vida e a dá; faz descer à sepultura e faz tornar a subir dela.<br>O Senhor empobrece e enriquece; abaixa e também exalta.<br>Levanta o pobre do pó e, desde o monturo, exalta o necessitado, para o fazer assentar entre os príncipes, para o fazer herdar o trono de glória." },
   3: { titulo: "Cântico de Quarta-feira: Magnificat (Lucas 1:46–55)", texto: "A minha alma engrandece ao Senhor,<br>E o meu espírito se alegra em Deus meu Salvador,<br>Porque atentou na baixeza de sua serva; pois eis que desde agora todas as gerações me chamarão bem-aventurada,<br>Porque me fez grandes coisas o Poderoso; e santo é o seu nome.<br>E a sua misericórdia é de geração em geração sobre os que o temem.<br>Com o seu braço agiu valorosamente; dissipou os soberbos no pensamento de seus corações.<br>Depôs dos tronos os poderosos, e elevou os humildes.<br>Encheu de bens os famintos, e despediu vazios os ricos.<br>Auxiliou a Israel seu servo, recordando-se da sua misericórdia;<br>Como falou a nossos pais, para com Abraão e sua posteridade, para sempre." },
@@ -5194,122 +1158,173 @@ const traducaoLivros = {
   "Matthew": "Mateus", "Mark": "Marcos", "Luke": "Lucas", "John": "João", "Acts": "Atos", "Romans": "Romanos",
   "1 Corinthians": "1 Coríntios", "2 Corinthians": "2 Coríntios", "Galatians": "Gálatas", "Ephesians": "Efésios",
   "Philippians": "Filipenses", "Colossians": "Colossenses", "1 Thessalonians": "1 Tessalonicenses", "2 Thessalonians": "2 Tessalonicenses",
-  "1 Timothy": "1 Timóteo", "2 Timóteo": "2 Timóteo", "Titus": "Tito", "Philemon": "Filemom", "Hebrews": "Hebreus",
+  "1 Timothy": "1 Timóteo", "2 Timothy": "2 Timóteo", "Titus": "Tito", "Philemon": "Filemom", "Hebrews": "Hebreus",
   "James": "Tiago", "1 Peter": "1 Pedro", "2 Peter": "2 Pedro", "1 John": "1 João", "2 John": "2 João", "3 John": "3 João",
   "Jude": "Judas", "Revelation": "Apocalipse", "Wisdom": "Sabedoria"
 };
 
 function traduzirReferencia(ref) {
   if (!ref) return '';
-  // Substitui somente o nome completo do livro, nunca prefixos como John em 1 John.
   for (const en of Object.keys(traducaoLivros).sort((a,b)=>b.length-a.length)) {
     if (ref===en || ref.startsWith(en+' ')) return traducaoLivros[en]+ref.slice(en.length);
   }
   return ref;
 }
+
 const BIBLE_API = 'https://bible-api.com/';
 const CACHE_BIBLIA = new Map();
+
 function escaparHTML(valor) {
   return String(valor).replace(/[&<>"']/g, ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 }
+
 function dividirReferencia(ref) {
-  // Ex.: Acts 6:8-15; 7:51-60 (mesmo livro); Psalm 80:1-7, 17-19.
   const pedacos=ref.split(/;\s*/).filter(Boolean);
   const livro=ref.match(/^((?:[1-3] )?[A-Za-z]+(?: of [A-Za-z]+| [A-Za-z]+)*)\s+\d/);
   return pedacos.map((parte,i)=> i && /^\d/.test(parte) && livro ? livro[1]+' '+parte : parte);
 }
+
 async function buscarParteBiblica(ref) {
-  const url=BIBLE_API+encodeURIComponent(ref)+'?translation=almeida';
-  const controller=new AbortController();
-  const timeout=setTimeout(()=>controller.abort(),12000);
+  // Purify reference for API lookup (strip out sub-verse letters like 5a/5b)
+  const refLimpa = ref.replace(/([0-9]+)[a-z]/gi, '$1');
+  const url = BIBLE_API + encodeURIComponent(refLimpa) + '?translation=almeida';
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 8000);
+  
   try {
-    const res=await fetch(url,{signal:controller.signal,headers:{Accept:'application/json'}});
-    if(!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data=await res.json();
-    if(data.error || !data.text?.trim()) throw new Error(data.error||'Texto vazio');
+    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'application/json' } });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (data.error || !data.text?.trim()) throw new Error(data.error || 'Texto vazio');
     return data.text.trim();
-  } finally {clearTimeout(timeout);}
+  } finally {
+    clearTimeout(timeout);
+  }
 }
+
 async function buscarTextoBiblico(referencia) {
-  if(!referencia) return {erro:'Referência não encontrada.'};
-  if(CACHE_BIBLIA.has(referencia)) return CACHE_BIBLIA.get(referencia);
-  const tarefa=(async()=>{
+  if (!referencia) return { erro: 'Referência não encontrada.' };
+  if (CACHE_BIBLIA.has(referencia)) return CACHE_BIBLIA.get(referencia);
+  
+  const tarefa = (async () => {
     try {
-      // A API nem sempre interpreta intervalos separados ou sufixos a/b.
-      const partes=dividirReferencia(referencia);
-      const textos=await Promise.all(partes.map(buscarParteBiblica));
-      return {texto:textos.join('\n\n')};
-    } catch(err) {
-      console.warn('Falha ao buscar passagem:',referencia,err);
-      return {erro:'O texto não pôde ser carregado nesta tradução.'};
+      const partes = dividirReferencia(referencia);
+      const textos = await Promise.all(partes.map(buscarParteBiblica));
+      return { texto: textos.join('\n\n') };
+    } catch (err) {
+      console.warn('Falha ao buscar passagem:', referencia, err);
+      return { erro: 'O texto não pôde ser carregado via API externa (possível bloqueio CORS ou conexão indisponível).' };
     }
   })();
-  CACHE_BIBLIA.set(referencia,tarefa);
+  
+  CACHE_BIBLIA.set(referencia, tarefa);
   return tarefa;
 }
-function renderizarPassagem(ref,resultado) {
-  const titulo=`<h2>${escaparHTML(traduzirReferencia(ref))}</h2>`;
-  if(resultado.texto) return titulo+`<p>${escaparHTML(resultado.texto).replace(/\n/g,'<br>')}</p>`;
-  const url='https://www.biblegateway.com/passage/?search='+encodeURIComponent(ref);
-  return titulo+`<p class="red">${escaparHTML(resultado.erro)} <a href="${url}" target="_blank" rel="noopener noreferrer">Ler a passagem no Bible Gateway</a>.</p>`;
+
+function renderizarPassagem(ref, resultado) {
+  const titulo = `<h2>${escaparHTML(traduzirReferencia(ref))}</h2>`;
+  if (resultado.texto) {
+    return titulo + `<p>${escaparHTML(resultado.texto).replace(/\n/g, '<br>')}</p>`;
+  }
+  const url = 'https://www.biblegateway.com/passage/?search=' + encodeURIComponent(ref) + '&version=ARC';
+  return titulo + `<p class="red">${escaparHTML(resultado.erro)}<br><a href="${url}" target="_blank" rel="noopener noreferrer">Clique aqui para ler a passagem no Bible Gateway</a>.</p>`;
 }
-let ultimaConsulta=0;
+
+let ultimaConsulta = 0;
+
 async function carregarLiturgiaParaData(dataAlvo) {
-  const consulta=++ultimaConsulta;
-  const dataChave=chaveData(dataAlvo);
-  const diaSemana=dataAlvo.getDay();
+  const consulta = ++ultimaConsulta;
+  const dataChave = chaveData(dataAlvo);
+  const diaSemana = dataAlvo.getDay();
   atualizarSubcabecalho(dataAlvo);
-  document.getElementById('test-date').value=dataChave;
-  const divDomingo=document.getElementById('conteudo-domingo');
-  const divSemana=document.getElementById('conteudo-semana');
-  const msgOrar=document.getElementById('msg-orar');
-  if(diaSemana===0) {
+  document.getElementById('test-date').value = dataChave;
+  
+  const divDomingo = document.getElementById('conteudo-domingo');
+  const divSemana = document.getElementById('conteudo-semana');
+  const msgOrar = document.getElementById('msg-orar');
+  
+  if (diaSemana === 0) {
     atualizarDomingoFesta(dataChave);
-    divDomingo.style.display='block';divSemana.style.display='none';
-    if(msgOrar) msgOrar.style.display='none';
+    divDomingo.style.display = 'block';
+    divSemana.style.display = 'none';
+    if (msgOrar) msgOrar.style.display = 'none';
     return;
   }
-  divDomingo.style.display='none';divSemana.style.display='block';
-  if(msgOrar) msgOrar.style.display='block';
-  const cantico=canticosSemana[diaSemana];
-  document.getElementById('cantico-diario').innerHTML=`<h2>${cantico.titulo}</h2><p>${cantico.texto}</p>`;
-  const salmo=document.getElementById('container-salmo-rcl');
-  const leituras=document.getElementById('container-leituras');
-  const registro=LEITURAS_ANO_B[dataChave];
-  if(!registro || !Object.keys(registro.options).length) {
-    salmo.innerHTML='<p class="red">Não há leitura diária nesta data.</p>';
+  
+  divDomingo.style.display = 'none';
+  divSemana.style.display = 'block';
+  if (msgOrar) msgOrar.style.display = 'block';
+  
+  const cantico = canticosSemana[diaSemana];
+  document.getElementById('cantico-diario').innerHTML = `<h2>${cantico.titulo}</h2><p>${cantico.texto}</p>`;
+  
+  const salmo = document.getElementById('container-salmo-rcl');
+  const leituras = document.getElementById('container-leituras');
+  const registro = LEITURAS_ANO_B[dataChave];
+  
+  if (!registro || !Object.keys(registro.options).length) {
+    salmo.innerHTML = '<p class="red">Não há leitura diária nesta data.</p>';
     leituras.replaceChildren();
-    if(registro?.celebrations?.length) {
-      for(const festa of registro.celebrations) {
-        const p=document.createElement('p');const a=document.createElement('a');
-        a.href=festa.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Consultar leituras: '+nomeCelebracao(festa.name);p.append(a);leituras.append(p);
+    if (registro?.celebrations?.length) {
+      for (const festa of registro.celebrations) {
+        const p = document.createElement('p');
+        const a = document.createElement('a');
+        a.href = festa.url;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        a.textContent = 'Consultar leituras: ' + nomeCelebracao(festa.name);
+        p.append(a);
+        leituras.append(p);
       }
     }
     return;
   }
-  const nomes=Object.keys(registro.options);
-  const preferida=registro.options.complementary?'complementary':nomes[0];
-  const wrapper=document.createElement('div');
-  if(nomes.length>1) {
-    const label=document.createElement('label');label.htmlFor='opcao-lecionario';label.textContent='Sequência de leituras: ';
-    const select=document.createElement('select');select.id='opcao-lecionario';
-    for(const nome of nomes){const option=document.createElement('option');option.value=nome;option.textContent=nome==='complementary'?'Complementar':nome==='semi'?'Semicontínua':'Principal';select.append(option);}
-    select.value=preferida;
-    select.addEventListener('change',()=>mostrarLeituras(select.value));
-    wrapper.append(label,select);
+
+  const nomes = Object.keys(registro.options);
+  const preferida = registro.options.complementary ? 'complementary' : nomes[0];
+  const wrapper = document.createElement('div');
+  
+  if (nomes.length > 1) {
+    const label = document.createElement('label');
+    label.htmlFor = 'opcao-lecionario';
+    label.textContent = 'Sequência de leituras: ';
+    const select = document.createElement('select');
+    select.id = 'opcao-lecionario';
+    for (const nome of nomes) {
+      const option = document.createElement('option');
+      option.value = nome;
+      option.textContent = nome === 'complementary' ? 'Complementar' : nome === 'semi' ? 'Semicontínua' : 'Principal';
+      select.append(option);
+    }
+    select.value = preferida;
+    select.addEventListener('change', () => mostrarLeituras(select.value));
+    wrapper.append(label, select);
   }
+  
   leituras.replaceChildren(wrapper);
+
   async function mostrarLeituras(opcao) {
-    const [refSalmo,refAT,refNT]=registro.options[opcao];
-    salmo.innerHTML='<p class="red">Carregando salmo...</p>';
-    const destino=document.createElement('div');
+    const [refSalmo, refAT, refNT] = registro.options[opcao];
+    salmo.innerHTML = '<p class="red">Carregando salmo...</p>';
+    
+    const destino = document.createElement('div');
     wrapper.querySelector('.resultado-leituras')?.remove();
-    destino.className='resultado-leituras';destino.textContent='Carregando leituras...';wrapper.append(destino);
-    const [textoSalmo,textoAT,textoNT]=await Promise.all([buscarTextoBiblico(refSalmo),buscarTextoBiblico(refAT),buscarTextoBiblico(refNT)]);
-    if(consulta!==ultimaConsulta || wrapper.querySelector('select')?.value!==opcao) return;
-    salmo.innerHTML=renderizarPassagem(refSalmo,textoSalmo);
-    destino.innerHTML='<h2>Primeira Leitura</h2>'+renderizarPassagem(refAT,textoAT)+'<h2>Segunda Leitura</h2>'+renderizarPassagem(refNT,textoNT);
+    destino.className = 'resultado-leituras';
+    destino.textContent = 'Carregando leituras...';
+    wrapper.append(destino);
+    
+    const [textoSalmo, textoAT, textoNT] = await Promise.all([
+      buscarTextoBiblico(refSalmo),
+      buscarTextoBiblico(refAT),
+      buscarTextoBiblico(refNT)
+    ]);
+    
+    if (consulta !== ultimaConsulta || wrapper.querySelector('select')?.value !== opcao) return;
+    
+    salmo.innerHTML = renderizarPassagem(refSalmo, textoSalmo);
+    destino.innerHTML = '<h2>Primeira Leitura</h2>' + renderizarPassagem(refAT, textoAT) + '<h2>Segunda Leitura</h2>' + renderizarPassagem(refNT, textoNT);
   }
+  
   await mostrarLeituras(preferida);
 }
 
@@ -5326,8 +1341,8 @@ document.addEventListener("DOMContentLoaded", () => {
   inputDate.setAttribute("max", CONFIG_ANO.dataFim);
 
   let dataInicial = new Date();
-  const minDate = new Date(CONFIG_ANO.dataInicio+"T12:00:00");
-  const maxDate = new Date(CONFIG_ANO.dataFim+"T12:00:00");
+  const minDate = new Date(CONFIG_ANO.dataInicio + "T12:00:00");
+  const maxDate = new Date(CONFIG_ANO.dataFim + "T12:00:00");
 
   if (dataInicial < minDate || dataInicial > maxDate) {
     dataInicial = minDate;
@@ -5336,17 +1351,25 @@ document.addEventListener("DOMContentLoaded", () => {
   carregarLiturgiaParaData(dataInicial);
 });
 
-// Controles de leitura e navegação, independentes da lógica litúrgica.
+// Controles de leitura e navegação
 (function () {
   let escala = 1;
   const progresso = document.getElementById('reader-progress');
   const campo = document.getElementById('test-date');
+  
   const atualizarEscala = () => document.documentElement.style.setProperty('--reader-scale', escala);
   document.getElementById('reader-larger').addEventListener('click', () => { escala = Math.min(1.45, +(escala + .1).toFixed(2)); atualizarEscala(); });
   document.getElementById('reader-smaller').addEventListener('click', () => { escala = Math.max(.85, +(escala - .1).toFixed(2)); atualizarEscala(); });
+  
   const night = document.getElementById('reader-night');
-  night.addEventListener('click', () => { const ativo = document.body.classList.toggle('reader-night'); night.setAttribute('aria-pressed', String(ativo)); night.textContent = ativo ? 'Modo claro' : 'Modo noturno'; });
+  night.addEventListener('click', () => { 
+    const ativo = document.body.classList.toggle('reader-night'); 
+    night.setAttribute('aria-pressed', String(ativo)); 
+    night.textContent = ativo ? 'Modo claro' : 'Modo noturno'; 
+  });
+  
   const dataLocal = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+  
   function mudarDia(delta) {
     if (!campo.value) return;
     const [a,m,d] = campo.value.split('-').map(Number);
@@ -5354,9 +1377,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const chave = dataLocal(nova);
     if (chave >= CONFIG_ANO.dataInicio && chave <= CONFIG_ANO.dataFim) testarData(chave);
   }
+  
   document.getElementById('reader-prev').addEventListener('click', () => mudarDia(-1));
   document.getElementById('reader-next').addEventListener('click', () => mudarDia(1));
-  document.getElementById('reader-today').addEventListener('click', () => { const hoje = dataLocal(new Date()); if (hoje >= CONFIG_ANO.dataInicio && hoje <= CONFIG_ANO.dataFim) testarData(hoje); });
+  document.getElementById('reader-today').addEventListener('click', () => { 
+    const hoje = dataLocal(new Date()); 
+    if (hoje >= CONFIG_ANO.dataInicio && hoje <= CONFIG_ANO.dataFim) testarData(hoje); 
+  });
+  
   function atualizarNavegacao() {
     const atual = campo.value;
     if (!atual) return;
@@ -5367,16 +1395,19 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById('reader-start').href = domingo ? '#inicio-domingo' : '#inicio-oracao';
     document.getElementById('reader-index').style.display = domingo ? 'none' : '';
   }
+  
   campo.addEventListener('change', atualizarNavegacao);
   document.addEventListener('DOMContentLoaded', atualizarNavegacao);
+  
   function atualizarProgresso() {
     const altura = document.documentElement.scrollHeight - innerHeight;
     progresso.style.width = `${altura > 0 ? Math.min(100, scrollY / altura * 100) : 0}%`;
   }
+  
   window.addEventListener('scroll', atualizarProgresso, {passive:true});
   window.addEventListener('resize', atualizarProgresso);
   atualizarProgresso();
-  // Detecta também alterações de data feitas pela inicialização original.
+  
   const observador = new MutationObserver(atualizarNavegacao);
   observador.observe(document.getElementById('conteudo-domingo'), {attributes:true, attributeFilter:['style']});
 })();
